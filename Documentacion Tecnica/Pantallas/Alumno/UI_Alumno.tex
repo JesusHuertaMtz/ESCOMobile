@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+						%%		EM-ALUMNO	  %%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%					EM-Alumno-UI1 Consultar perfil del alumno
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{EM-Alumno-UI1 Consultar perfil del alumno.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Que el actor consulte su información registrada dentro del sistema por medio de su perfil, esta información es su nombre, fotografía, número de boleta, correo electrónico, así como las citas próximas programadas. También sirve de acceso para buscar a profesores de ESCOM, ver el mapa de la ESCOM o modificar la información de su cuenta. 
+	
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se divide en tres secciones principales. La primera muestra información básica del alumno, como lo es su foto, su nombre, su correo electrónico y su boleta. La segunda sección está dedicada a sus citas, permitiendo ver la próxima cita agendada que tiene y un botón para consultar todas las citas asociadas a su cuenta; fimalmente, en la tercera sección se muestran cuatro botones los cuales son \IUbutton{Buscar Profesores}, \IUbutton{Ver mapa}, \IUbutton{Editar Perfil} que le permitirán acceder a diferetes acciones. 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Alumno/EM_Alumno_UI1_Consultar_Perfil_Alumno.png}{EM-Alumno-UI1}{Consultar Perfil del Alumno}
+
+\subsubsection{Salidas}
+	\noindent
+	Se muestra la siguiente información del alumno:
+	\begin{itemize}
+		\item Nombre.
+		\item Boleta.
+		\item Fotografía.
+		\item Correo electrónico.
+		\item Próxima cita. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Consultar Citas}: Muestra pantalla con las citas solicitadas.
+	\item \IUbutton{Buscar profesores}: Muestra pantalla con listado de los profesores en el sistema.
+	\item \IUbutton{Ver mapa}: Muestra mapa de ESCOM pra consulta.
+	\item \IUbutton{Editar perfil}: Muestra pantalla para editar la información propia dentro de la app.
+	\item \IUbutton{Regresar}: Para regresar a la pantalla anterior.
+\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%				EM-Alumno-UI1.1 Modificar información del alumno	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagebreak
+\subsection{EM-Alumno-UI1.1 Modificar información}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá visualizar su información como nombre y fotografía, además de tener la posibilidad de elegir cambiar o actualizar su información en el sistema. 
+
+\subsubsection{Diseño}
+	\noindent
+	Mostrará el nombre y boleta del alumno, además muestra los campos de información que puede cambiar o actualizar.
+	\begin{itemize} 
+		\item Correo: para actualizar el correo electrónico.
+		\item Contraseña: para actualizar la contraseña.
+		\item Repetir contraseña.
+		\item Fotografía. 
+	\end{itemize} 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Alumno/EM_Alumno_UI1_1_Modificar_Informacion.png}{EM-Alumno-UI1-1}{Modificar información}
+
+\subsubsection{Salidas}
+	Se muestra la siguiente información del alumno:
+	\begin{itemize}
+		\item Nombre.
+		\item Boleta.
+		\item Fotografía (original).
+		\item Correo electrónico (original).
+		\item Contraseña (original).
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\begin{itemize}
+		\item Correo electrónico (nuevo).
+		\item Contraseña (nueva).
+		\item Duplicado de contraseña (nueva). 
+		\item Fotografía (nueva). 
+	\end{itemize}
+
+\subsubsection{Comandos}	
+	\begin{itemize}
+		\item Icono \UCicono{camara}: Para moficar la fotografía del perfil,
+		seleccionando una desde la galería del smartphone.
+		\item Botón \IUbutton{Aceptar}: Para aceptar la modificación de los
+		campos introducidos.
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent
+	\MSGref{MSG1}{Operación Exitosa}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					

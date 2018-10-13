@@ -1,0 +1,125 @@
+\noindent
+En la presente sección se muestran las posibles situaciones en las que se puede ver involucrado el equipo detrás de la 
+aplicación ESCOMobile a lo largo del desarrollo de la misma, así como las probabilidades y los porcentajes de que estos hechos
+sucedan o se precenten en algún momento.
+
+\noindent
+Objetivo: Establecer las posibles situaciones que podrían afectar el desarrollo e
+implementación del sistema, lo que permitirá visualizar el impacto de estas situaciones y
+tomar medidas de acción para ignorar, solucionar o mitigar el riesgo según se requiera.
+Taxonomía de los riesgos.
+
+\noindent
+\newline
+A continuación, se muestran las tablas de clasificación de la metodología Software Risk
+Management (SRM) desarrollada por el Software Engineering Institute y se compone por
+3 clases las cuales son: Ingeniería de producto, Entorno de desarrollo y Restricciones del
+programa.\cite{Riesgos}
+
+\begin{tablaCC}{Valor de aproximación}{Criterio}{Niveles_Riesgo}
+	\CCitem{1}{Riesgo Bajo,}
+	\CCitem{2}{Riesgo Medio.}
+	\CCitem{3}{Riesgo Alto.}
+	\caption{Niveles de riesgo.}
+\end{tablaCC}
+
+\begin{tablaCCCC}{Rango de Calculo(\%)}{Promedio para el natural}{Expresión de Lenguaje númerico}{Valor Probabilidad}{IDTabla2}
+	\CCCCitem{1 al 10}{05}{Baja,}{1}
+	\CCCCitem{11 a 25}{18}{Poco Probable.}{2}
+	\CCCCitem{26 a 55}{40}{Media.}{3}
+	\CCCCitem{56 a 80}{68}{Altamente Probable.}{4}
+	\CCCCitem{81 a 99}{90}{Casi seguro.}{5}
+	\caption{Estimación de la probabilidad.}
+\end{tablaCCCC}
+
+\begin{tablaCCC}{Criterio}{Retraso en la planificación}{Valor númerico}{IDTabla}
+	\CCCitem{Muy bajo.}{1 semana.}{1}
+	\CCCitem{Bajo.}{2 semanas.}{2}
+	\CCCitem{Moderado.}{1 mes.}{3}
+	\CCCitem{Alto.}{2 meses.}{4}
+	\CCCitem{Muy Alto.}{Mas de 2 meses.}{5}
+
+	\caption{Exposición de tiempo.}
+\end{tablaCCC}
+
+\section{Análisis de Riesgos para etapa de planificación.}
+
+	\noindent
+	A continuación, se visualizarán los riesgos contemplados para la planificación del
+	sistema.
+
+	\begin{tablaCCCC}{ID}{Elemento}{Descripción del Riesgo}{Fuente}{IDTabla2}
+		\CCCCitem{RI-0}{Planificación}{Requerimientos innecesario u obsoletos.}{Lider de proyecto.}
+		\CCCCitem{RI-1 }{Planificación}{Diseño de aplicación incorrecto.}{Diseñador.}
+		\CCCCitem{RI-2}{Planificación}{Tiempo de desarrollo insuficiente.}{Lider de Proyecto.}
+		\CCCCitem{RI-3}{Planificación}{EL producto es más grande que el estimado.}{Lider de Proyecto y programadores.}
+		\CCCCitem{RI-4}{Planificación}{Abandono del proyecto de parte de algún(os) integrante(s).}{Lider del proyecto.}
+		\caption{Riesgos estimados en la etapa de planificación.}
+	\end{tablaCCCC}
+
+	\noindent
+	En la siguiente tabla se expresan los riesgos relacionados con la planificación mostrando
+	las probabilidades estimadas para cada uno de ellos, el impacto, así como la exposición y
+	magnitud que les corresponde.
+
+	\begin{tablaCCCCCC}{ID }{Descripción}{Probabilidad(\%)}{Impacto}{Magnitud de Exposición}{Exposición}{IDTabla4}
+		\CCCCCCitem{RI-0}{Requerimientos innecesario u obsoletos.}{50}{ Moderado(3)}{Bajo Riesgo}{1.50}
+		\CCCCCCitem{RI-1}{Diseño de aplicación incorrecto.}{10}{Bajo Riesgo(2) }{Bajo Riesgo}{0.10}
+		\CCCCCCitem{RI-2}{Tiempo de desarrollo insuficiente.}{25}{Muy bajo(1)}{Bajo Riesgo}{0.45}
+		\CCCCCCitem{RI-3}{EL producto es más grande que el estimado.}{15}{ Muy bajo(1)}{Bajo Riesgo}{0.15}
+		\CCCCCCitem{RI-4}{Abandono del proyecto de parte de algún(os) integrante(s).}{10}{Muy bajo(1)}{Bajo Riesgo}{0.1}
+		
+		\caption{Análisis SRM completo para la etapa de planificación.}
+	\end{tablaCCCCCC}
+
+\section{Análisis de Riesgos para etapa de desarrollo.}
+
+	\noindent
+	Ahora se mostrará un listado de riesgos contemplando la etapa del
+	desarrollo del sistema.
+
+	\begin{tablaCCCC}{ID}{Elemento}{Descripción del Riesgo}{Fuente}{IDTabla2}
+		\CCCCitem{RI-0}{Desarrollo.}{Problemas técnicos del equipo.}{Programadores.}
+		\CCCCitem{RI-1}{Desarrollo.}{Falta de equipo para la Implementación.}{Lider del proyecto.}
+		\CCCCitem{RI-2}{Desarrollo.}{Incompatibilidad de las herramientas a utilizar.}{Programadores, Lider de Proyecto.}
+		\CCCCitem{RI-3}{Desarrollo.}{No tener un respaldo de la información.}{Lider de Programadores.}
+		\caption{Análisis de riesgos contemplado para la etapa de desarrollo.}
+	\end{tablaCCCC}
+
+	\noindent
+	Debajo se muestra el análisis completo de SRM para la etapa de desarrollo
+	considerando la probabilidad, impacto, exposición y magnitud de cada uno de los
+	riesgos.
+
+	\begin{tablaCCCCCC}{ID}{Descripción}{Probabilidad(\%)}{Impacto}{Magnitud de Exposición}{Exposición}{IDTabla4}
+		\CCCCCCitem{RI-0}{Problemas técnicos del equipo.}{25}{Bajo(2).}{Bajo Riesgo.}{0.50}
+		\CCCCCCitem{RI-1}{Falta de equipo para la Implementación.}{25}{Bajo(2).}{Bajo Riesgo.}{0.50}
+		\CCCCCCitem{RI-2}{Incompatibilidad de las herramientas a utilizar.}{1}{Muy bajo(1).}{Bajo Riesgo.}{0.1}
+		\CCCCCCitem{RI-3}{No tener un respaldo de la información.}{25}{Bajo(2).}{Bajo Riesgo.}{0.50}
+		
+		\caption{Exposición al riesgo en la etapa de desarrollo.}
+	\end{tablaCCCCCC}
+
+\section{Análisis de Riesgos para etapa de implementación.}
+
+	\noindent
+	En la siguiente tabla se muestra el análisis de riesgos sobre la usabilidad del proyecto
+	contemplando a los usuarios que estarán en constante interacción con el sistema.
+
+	\begin{tablaCCCC}{ID}{Elemento}{Descripción del Riesgo}{Fuente}{IDTabla2}
+		\CCCCitem{RI-0}{Implementación.}{Los usuarios no saben utilizar un dispositivo movil.}{Externo al equipo de trabajo.}
+		\CCCCitem{RI-1}{Implementación.}{Falta de utilidad del sistema.}{Externo al equipo de trabajo.}
+		\caption{Análisis de riesgos en la etapa de implementación.}
+	\end{tablaCCCC}
+
+	\noindent
+	A continuación se muestra el análisis completo de la metodología SRM para la etapa de
+	implementación considerando la probabilidad, el impacto, exposición y magnitud de
+	exposición determinadas para la etapa de usabilidad.
+
+	\begin{tablaCCCCCC}{ID}{Descripción}{Probabilidad(\%)}{Impacto}{Magnitud de Exposición}{Exposición}{IDTabla4}
+		\CCCCCCitem{RI-0}{Los usuarios no saben utilizar un dispositivo movil.}{10}{Muy bajo 1.}{Bajo Riesgo.}{0.10}
+		\CCCCCCitem{RI-1}{Falta de utilidad del sistema.}{10}{Muy bajo 1.}{Bajo Riesgo.}{0.10}
+		%\caption{Análisis para la etapa de implementación}
+	\end{tablaCCCCCC}
+

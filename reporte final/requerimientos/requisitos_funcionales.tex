@@ -1,0 +1,176 @@
+\subsection{Requisitos funcionales}
+Los requisitos funcionales son declaraciones de los servicios que proveerá el sistema, de la manera en que éste reaccionará a entradas particulares. En algunos casos, los requisitos funcionales de los sistemas también declaran explícitamente lo que el sistema no debe hacer. A continuación listamos los 
+requisitos funcionales de la aplicación ESCOMobile producto de la ingeniería de requisitos.
+
+\begin{requisitos}{RF Mapa de ESCOM.} 
+	\RFitem{Descripción}{La aplicación tendrá un módulo para consultar el mapa de la ESCOM. Se 
+	mostrará una vista aérea de los pisos de los edificios.}
+	\RFitem{Propósito}{ Dar una vista general de los edificios que conforman al plantel y orientar a
+	alumnos a ubicar dónde se encuentran ubicados los salones, cubículos, clubes, biblioteca 
+	y áreas administrativas en ESCOM.}
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Vistas del mapa de ESCOM.} 
+	\RFitem{Descripción}{El mapa mostrará una vista de la planta baja, primer piso y segundo piso 
+	del plantel. Solo se puede mostrar una vista a la vez.} 
+	\RFitem{Propósito}{Saber en qué piso se encuentra ubicado, los laboratorios, salones, cubículos, 
+	etc. Para orientar al actor.}
+	\RFitem{Usuario}{Alumno, profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Perfil o cuenta del profesor.}
+	\RFitem{Descripción}{Se tendrá un apartado para configurar el perfil del profesor. En este 
+	apartado podrá modificar su correo electrónico, contraseña, fotografía, etc. Y consultar sus 
+	citas agendadas.} 
+	\RFitem{Propósito}{El profesor podrá publicar la información, extra a la obtenida, para que los alumnos tengan mayor información acerca de él.} 
+	\RFitem{Usuario}{Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Registro del Profesor.} 
+	\RFitem{Descripción}{La aplicación permitirá a los profesores registrarse y poder acceder a su perfil y proporcionar más información a la previamente obtenida.}
+	\RFitem{Propósito}{Contar con un perfíl de profesor más completo y con mayor información.}
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Citas.}
+	\RFitem{Descripción}{La aplicación permite a los alumnos gestionar sus citas con los profesores
+	(registrar nuevas citas, editar, eliminar y consultar las ya existentes).}
+	\RFitem{Propósito}{Que el alumno no pierda tiempo al buscar a un profesor.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+%\begin{requisitos}{RF Modificación de estado de disponibilidad.}
+%	\RFitem{Descripción}{Los profesores registrados en el sistema podrán modificar su estado de
+%	disponibilidad. Dicho estado puede ser uno de los siguientes:
+%		\begin{itemize}
+%			\item[Disponible:] El profesor puede atender a los alumnos.
+%			\item[No disponible:] El profesor no puede atender a los alumnos.
+%		\end{itemize}
+%	}
+%	\RFitem{Propósito}{Proporcionar a los profesores un mecanismo para informar a los alumnos en que
+%	momento pueden visitar al profesor para atender alguna situación académica.}
+%	\RFitem{Usuario}{Profesor.}
+%	\RFitem{Tipo}{Móvil.} 
+%\end{requisitos}
+
+%\begin{requisitos}{RF Cambiar estado de disponibilidad fuera de la ESCOM.}
+%	\RFitem{Descripción}{Cuando un profesor tenga configurado el estado de disponibilidad en ''Disponible"
+%	y este fuera en un radio de 50 metros de las instalaciones de la ESCOM, entonces la aplicación
+%	cambiará el estado de disponibilidad a ''No disponible". No se podrá activar el estado de ''Disponible"
+%	fuera de las intalaciones de la ESCOM.}
+%	\RFitem{Propósito}{Evitar mostratr la ubicación del profesor fuera de las intalaciones de ESCOM.}
+%	\RFitem{Usuario}{Profesor.}
+%	\RFitem{Tipo}{Móvil.} 
+%\end{requisitos}
+
+\begin{requisitos}{RF Editar datos} 
+	\RFitem{Descripción}{Permitir al usuario poder modificar su información personal tal como, su correo
+	electrónico, fotografía y contraseña.}
+	\RFitem{Propósito}{El usuario podrá mantener actualizada su información}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Eliminar cuenta.}
+	\RFitem{Descripción}{La aplicación permite al usuario dar de baja (eliminar) su cuenta, eliminado así
+	su perfil e información que se haya almacenado dentro del sistema.} 
+	\RFitem{Propósito}{Proporcionar al usuario la opción de elimiar su información del sistema si no está
+	conforme con el servicio que se le ofrece y de cómo se utiliza su información.}
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.}
+\end{requisitos}
+
+\begin{requisitos}{RF Consultar perfil de profesor.} 
+	\RFitem{Descripción}{El usuario podrá consultar el perfil de un profesor, siempre y cuando este 
+	último se haya registrado en el sistema.}
+	\RFitem{Propósito}{Proporcionar la siguiente información:
+	\begin{itemize}
+		\item Horario del profesor.
+		\item Unidades de aprendizaje impartidas por el profesor.
+		\item Comentarios.
+		\item Fotografía en el caso que el profesor haya ingresado alguna.
+	\end{itemize}} 
+	\RFitem{Usuario}{Alumno, Profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Cancelar citas.}
+	\RFitem{Descripción}{El usuario puede cancelar una cita ya agendada, siempre y cuando
+	falten al menos 12 horas para que la cita inicie y explicando la razón por la cual cancela la cita.
+	Al momento que se cancele la cita se deberá informar a la otra parte que la cita no se realizará.}
+	\RFitem{Propósito}{Informar a los usuarios cuando no se pueda llevar a cabo una cita.} 
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Perfil del alumno.} 
+	\RFitem{Descripción}{El alumno contará con un perfil en el que se mostrará su información y podrá
+	 cambiar la misma.}
+	\RFitem{Propósito}{Mostrar los datos del alumno registrado y permitir la actualización de éstos.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+%28
+\begin{requisitos}{RF Notificación Recordatorio.} 
+	\RFitem{Descripción}{ La aplicación notifica al usuario (profesor y alumno) tiempo antes de la cita, en
+	forma de recordatorio.}
+	\RFitem{Propósito}{Evitar olvidar la cita.} 
+	\RFitem{Usuario}{Profesor y Alumno.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Estadísticas de asistencia a citas.} 
+	\RFitem{Descripción}{La app muestra diferentes estadísticas acerca del profesor y su información como calificación, cumplimiento y asistencia a las citas programadas para el usuario, etc.} 
+	\RFitem{Propósito}{El usuario tenga un conocimiento mayor del profesor.} 
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Cancelación de citas.}
+	\RFitem{Descripción}{El usuario puede cancelar una cita previamente registrada, siempre y cuando
+	falte determinado tiempo para la cita; ofreciendo además una razón en un apartado que la app 
+	también muestra.} 	
+	\RFitem{Propósito}{El alumno y el profesor puedan realizar otras actividades cuando sea necesario
+	cancelar.} 
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Citas.}
+	\RFitem{Descripción}{La aplicación permite a los alumnos gestionar sus citas con los profesores
+	(registrar nuevas citas, editar, eliminar y consultar las ya existentes).}
+	\RFitem{Propósito}{Agilizar procesos y tareas del alumno que necesiten la atención de los profesores.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Gestión citas profesores.}
+	\RFitem{Descripción}{Los profesores gestionan las citas registradas con ellos (aceptan o rechazan la
+	cita según el propósito y urgencia de la misma), (Consultar, evaluar). } 
+	\RFitem{Propósito}{El profesor pueda controlar sus citas y explicar motivos del cual no puede.}
+	\RFitem{Usuario}{Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Configuración Notificaciones.}
+	\RFitem{Descripción}{El usuario puede configurar ciertos aspectos de la app, como las notificaciones.}
+	\RFitem{Propósito}{Evitar molestar al alumno con cualquier notificación que el no desee en ciertos
+	momentos.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RF Comentarios en perfiles.} 
+	\RFitem{Descripción}{La aplicación permite al usuario hacer comentarios en los perfiles de los
+	profesores.} 
+	\RFitem{Propósito}{Dar al profesor una idea de lo que los alumnos piensan acerca de él.}
+	\RFitem{Usuario}{Alumno.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}

@@ -1,0 +1,121 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-BolsaWeb-CU4.1}{Añadir nueva Empresa}{
+		Este caso de uso permite al actor registrar la información de una nueva empresa interesada en ofertar empleos para los alumnos de la ESCOM, manteniendo con ello un mayor control de las empresas y ofertas que éstas abren para los alumnos, además de brindar un servicio más seguro a quienes deseen aplicar para una o varias de las ofertas profestas.
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{ Encargado de Bolsa de Trabajo.}
+	\UCitem{Propósito}{ Proporcionar al actor un mecanismo que le permita tener control sobre el registro de empresas que ofertan empleo.}
+	\UCitem{Entradas}{
+		Se requieren los siguientes datos para el registro de una empresa:
+		\begin{itemize}
+			\item Información de la empresa:
+			\begin{itemize}
+				\item Nombre.
+				\item RFC.
+				\item Giro.
+				\item Logo.
+			\end{itemize}
+			\item Contacto de la empresa:
+			\begin{itemize}
+				\item Nombre del encargado de recursos humanos.
+				\item Tipo de medio de contacto. 
+				\item Medio de contacto. 
+			\end{itemize}
+		\end{itemize}
+	}
+	\UCitem{Origen}{
+		Teclado, ratón.
+	}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}
+		\end{itemize}
+	}
+	\UCitem{Destino}{
+		Pantalla.
+	}
+	\UCitem{Precondiciones}{
+		Ninguna.
+	}
+	\UCitem{Postcondiciones}{
+		Persiste la información de la empresa.
+	}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			%%  E1: Campos obligatorios. 
+			\item \label{EM-BolsaWeb-CU4-1-E1} Cuando no se introducen todos los campos obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{Continúa en el paso \ref{EM-BolsaWeb-CU4-1-DatosObligatorios} de la trayectoria principal}.
+			%%  E2: Formato incorrecto. 
+			\item \label{EM-BolsaWeb-CU4-1-E2} Cuando alguno de los campos (RFC, correo electrónico, teléfono) es introducido con un formato diferente al establecido, muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} \textbf{Continúa en el paso \ref{EM-BolsaWeb-CU4-1-DatosObligatorios} de la trayectoria principal}.
+			%%  E3: Duplicidad de información. 
+			\item \label{EM-BolsaWeb-CU4-1-E3} Cuando el nombre de la empresa ya se encuentra registrado en el sistema, muestra el mensaje \MSGref{MSG4}{Información duplicada} y \textbf{termina el caso de uso.}
+		\end{enumerate}	
+	}
+	\UCitem{Tipo}{Secundario}
+	\UCitem{Observaciones}{Es la primera propuesta de este caso de uso, se espera que se revise para implementar las correciones adecuadas.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita añadir una empresa presionando el botón \IUbutton{Añadir empresa} de la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}. 
+
+	%Paso 2.
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI4.1}{Añadir nueva Empresa} con el formulario necesario para registrar a la empresa. \label{EM-BolsaWeb-CU4-1-DatosObligatorios}
+
+	%Paso 3.
+	\UCpaso [\UCactor] Introduce el nombre y giro de la empresa, opcionalmente introduce RFC e imagen de la empresa. 
+
+	%Paso 4.
+	\UCpaso [\UCactor] Introduce el nombre del encargado de recursos humanos.
+
+	%Paso 5.
+	\UCpaso [\UCactor] Introduce el medio de contacto del encargado de recursos humanos, compuesto por tipo de medio de contacto y el medio propiamente dicho. \label{EM-BolsaWeb-CU4-1-AgregarContacto}
+
+	%Paso 6.
+	\UCpaso [\UCactor] Solicita registar la empresa presionando el botón \IUbutton{Registrar empresa} de la pantalla \IUref{EM-BolsaWeb-UI4.1}{Añadir nueva Empresa}. \Trayref{A} \Trayref{B} 
+
+	%Paso 7.
+	\UCpaso Valida que los campos del formulario no estén vacios, de acuedo a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-BolsaWeb-CU4-1-E1}] 
+
+	%Paso 8.
+	\UCpaso Obtiene los datos de la empresa y contacto introducidos en el formulario. 
+
+	%Paso 9.
+	\UCpaso Valida que el(los) contacto(s) cumpla(n) con el formato correcto, de acuedo a las reglas de negocio \BRref{EM-RN-S001}{Formato de correo electronico}, \BRref{EM-RN-S001}{Formato de RFC} o \BRref{EM-RN-S001}{Formato de Teléfono}, según sea el caso. [Error \ref{EM-BolsaWeb-CU4-1-E2}] 
+
+	%Paso 10.
+	\UCpaso Valida que el nombre de la empresa no se encuentre registrado ya en el sistema, de acuerdo a la regla de negocio \BRref{EM-RN-S007}{Unicidad de elementos.} [Error \ref{EM-BolsaWeb-CU4-1-E3}] 
+	
+	%Paso 11.
+	\UCpaso Persiste la información en el sistema.
+
+	%Paso 12.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}. 
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando el actor desea agregar un medio de contacto más.}
+	%Paso A1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{+} de la pantalla \IUref{EM-BolsaWeb-UI4.1}{Añadir nueva Empresa}. 
+
+	%Paso A2.
+	\UCpaso Regresa al paso \ref{EM-BolsaWeb-CU4-1-AgregarContacto} de la trayectoria principal.
+\end{UCtrayectoriaA}
+
+%Trayectoria Alternativa B.
+\begin{UCtrayectoriaA}{B}{Cuando el actor desea cancelar la operación.}
+	%Paso B1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} de la pantalla \IUref{EM-BolsaWeb-UI4.1}{Añadir nueva Empresa}. 
+
+	%Paso B2.
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}.
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

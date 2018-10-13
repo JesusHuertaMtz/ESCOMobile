@@ -1,0 +1,501 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{IU1 Pantalla de Inicio.}
+
+\subsubsection{Objetivo}
+	Mostrar al actor tres opciones. Registrarse, iniciar sesión o consultar el mapa.
+
+\subsubsection{Diseño}
+	Esta pantalla debe aparecer cada vez que inicie la aplicación.
+
+\IUfig[.5]{gui/inicio}{IU1}{Pantalla de Inicio.}
+
+\subsubsection{Salidas}
+
+	Ninguna.
+
+\subsubsection{Entradas}
+Presionar sobre un botón la opción requerida.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrarse}: Manda al actor a la pantalla de registro.
+	\item \IUbutton{Iniciar sesión}: Manda al actor a la pantalla para iniciar sesión.
+	\item \IUbutton{Continuar sin registrarse}: Manda al actor a la pantalla para consultar el mapa.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG01} Ningún mensaje es mostrado.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{IU2 Pantalla de Inicio de Sesión.}
+
+\subsubsection{Objetivo}
+	El actor podrá ingresar sus credenciales para acceder al sistema.
+
+\subsubsection{Diseño}
+	Mostrará los campos para ingresar credenciales y recuperación de contraseña.
+
+\IUfig[.5]{gui/iniciar_sesion}{IU2}{Pantalla de Inicio de Sesión.}
+
+\subsubsection{Salidas}
+
+	Pantalla de bienvenida.
+
+\subsubsection{Entradas}
+
+	Boleta o número de usuario.
+	Contraseña del actor.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Ingresar}: Da acceso al sistema si las credenciales del usuario son correctas.
+	\item \IUbutton{¿No tienes cuenta? ¡Registrate!}: Manda al actor a la pantalla de registro.
+	\item \IUbutton{Olvidé mi contraseña}: Manda al actor a la pantalla de recuperar contraseña.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG02} Las credenciales no son correctas.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{IU3 Pantalla Resgitrar Nuevo Usuario.}
+
+\subsubsection{Objetivo}
+	El actor podrá registrarse en el sistema para acceder a todas las funcionalidades de la aplicación.
+
+\subsubsection{Diseño}
+	Mostrará los campos que serán obligatorios para llevar a cabo el registro del nuevo usuario.
+
+\IUfig[.5]{gui/registro}{IU3}{Pantalla Registrar Nuevo Usuario.}
+
+\subsubsection{Salidas}
+
+	Pantalla de bienvenida.
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Boleta / número de empleado.
+	\item Nombre.
+	\item Apellido Paterno.
+	\item Apellido Materno.
+	\item Correo electrónico.
+	\item Contraseña.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrarse}: Manda al actor a la pantalla de \IUref{IU2}{Pantalla de Inicio de
+	 Sesión.}
+	\item \IUbutton{¿Ya tienes cuenta? ¡Entra!}: Manda al actor a la pantalla de \IUref{IU2}{Pantalla de
+	 Inicio de Sesión.}
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG03} Las contraseñas no coinciden.
+	\item {\bf MSG04} La boleta / número de empleado ya se encuentra registrado.
+	\item {\bf MSG05} Debes aceptar los términos y condiciones.
+	\item {\bf MSG06} El formato del correo electrónico no es correcto.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{IU Pantalla Cambiar contraseña.}
+
+\subsubsection{Objetivo}
+	El actor podrá cambiar su contraseña cada vez que lo desee.
+
+\subsubsection{Diseño}
+	Mostrará los campos que serán obligatorios para llevar a cabo el cambio de contraseña.
+
+\IUfig[.5]{gui/contrasena}{IU3.1}{Cambiar contraseña.}
+
+\subsubsection{Salidas}
+
+	Pantalla de bienvenida.
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Contraseña actual.
+	\item Contraseña nueva.
+	\item  Repetir contraseña nueva.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item Algo
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG10} Las contraseñas no coinciden.
+	
+\end{Citemize}
+
+\subsection{IU4 Pantalla Recuperar Contraseña.}
+
+\subsubsection{Objetivo}
+	El actor podrá recuperar su contraseña en caso que la haya olvidado o no.
+
+\subsubsection{Diseño}
+	Mostrará las intrucciones y campo para ingresar su correo electrónico.
+
+\IUfig[.5]{gui/recuperar_contrasenia}{IU4}{Pantalla Recuperar Contraseña.}
+
+\subsubsection{Salidas}
+
+	Mensaje de confirmación.
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item correo electrónico.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Enviar}: Muestra en pantalla un mensaje para informar al usuario que se envió el método 
+	para recuperar su contraseña al correo electrónico que proporcionó. Posteroirmente muestra al usuario
+	la pantalla \IUref{IU1}{Pantalla de Inicio.}
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG07} El formato del correo electrónico no es correcto.
+\end{Citemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\pagebreak
+\subsection{IU5 Pantalla Consultar Salones Por Planta.}
+
+\subsubsection{Objetivo}
+	El actor podrá consultar los salones de cada una de las tres plantas de ESCOM.
+
+\subsubsection{Diseño}
+	Mostrará los salones y nombre de cada uno.
+
+\IUfig[.5]{gui/mapa}{IU5}{Pantalla Consultar Salones Por Planta.}
+
+\subsubsection{Salidas}
+
+	Los diferentes salones de cada planta.
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{ PB }: Dibuja en el mapa los salones ubicados en la planta baja.
+	\item \IUbutton{ P1 }: Dibuja en el mapa los salones ubicados en el primer piso.
+	\item \IUbutton{ P2 }: Dibuja en el mapa los salones ubicados en el segundo piso.
+	\item \IUbutton{  +  }: Acerca la vista del mapa.
+	\item \IUbutton{  -  }: Aleja la vista del mapa.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG08} Acceso a la ubicación.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{UI6 Pantalla de inicio del alumno.}
+
+\subsubsection{Objetivo}
+	El actor podrá consultar los salones de cada una de las tres plantas de ESCOM. Podrá buscar profesores,
+	salones, áreas administrativas.
+
+\subsubsection{Diseño}
+	Mostrará los salones, cubículos, áreas administrativas indicando el nombre de cada uno.
+	El mapa se mostrará en 2D.
+	
+\IUfig[.5]{gui/inicio_alumno}{IU6}{Pantalla de inicio del alumno.}
+
+\subsubsection{Salidas}
+
+	Los diferentes salones, cubículos y áreas administrativas de cada planta. Además, algunos cuadros de 
+	búsqueda.
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Palabras que se quieren buscar.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{ PB }: Dibuja en el mapa los salones ubicados en la planta baja.
+	\item \IUbutton{ P1 }: Dibuja en el mapa los salones ubicados en el primer piso.
+	\item \IUbutton{ P2 }: Dibuja en el mapa los salones ubicados en el segundo piso.
+	\item \IUbutton{  +  }: Acerca la vista del mapa.
+	\item \IUbutton{  -  }: Aleja la vista del mapa.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG08} Acceso a la ubicación.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{Buscar - UI1- Buscar Edificios y áreas académicas.}
+
+\subsubsection{Objetivo}
+	El actor podrá realizar búsquedas de profesores y/o áreas académicas.
+
+\subsubsection{Diseño}
+	Mostrará una lista con algunas opciones (profesores o áreas académicas) coicidentes con lo solicitado por el usuario. 
+
+\IUfig[.5]{gui/buscar_IU_1_buscar_edificios_areas}{buscarIU1}{Buscar Edificios y áreas académicas}
+
+\subsubsection{Salidas}
+
+	Lista que muestra el nombre del (los) profesor(es) o área(s) académica(s) coicidente(s) con lo solicitado.
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Nombre del Profesor/área académica que se deseé buscar. 
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Ver más}: Muestra una búsqueda con más resultados.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item {\bf MSG08} No se econtraron resultados.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{ESCOMobile Menú Hamburguer}
+
+\subsubsection{Objetivo}
+	El actor podrá gestionar diferentes apartados por medio del menú Hamburger, tal es el caso de las citas, actualizar su información, cerrar seción, eliminar su cuenta, entre otros.
+
+\subsubsection{Diseño}
+	Mostrará la infomación asociada al profesor además de las opciones de consultar horario, solicitar cita, calificar y ubicar en el mapa. 
+
+\IUfig[.5]{gui/Acceso/Menu_Hamburguer.png}{EM-Menu1}{Menú Hamburguer}
+
+\subsubsection{Salidas}
+	Se muestra la siguiente información del profesor:
+	\begin{itemize}
+		\item Nombre.
+		\item Academia a la que pertenece,
+		\item Cúbiculo.
+		\item Horaras de entrada y salida. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Nombre del Profesor.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Consultar horario}: Muestra pantalla con horario del profesor.
+	\item \IUbutton{Ubicar en el mapa}: Muestra mapa con el cubículo del profesor.
+	\item \IUbutton{Solicitar cita}: Muestra formulario de cita a solicitar.
+	\item \IUbutton{Calificar profesor}: Muestra formulario de cita a solicitar.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item Ninguno.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+						%%		EM-ALUMNO	  %%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{EM-Alumno-UI1 Consultar perfil del profesor}
+
+\subsubsection{Objetivo}
+	El actor podrá consultar la información de algún profesor de su interés por medio de su perfil.
+
+\subsubsection{Diseño}
+	Mostrará la infomación asociada al profesor además de las opciones de consultar horario, solicitar cita, calificar y ubicar en el mapa. 
+
+\IUfig[.5]{gui/Alumno/EM_Alumno_UI1_Consultar_perfIl_del_profesor.png}{EM-Alumno-UI1}{Consultar Perfil del Profesor}
+
+\subsubsection{Salidas}
+	Se muestra la siguiente información del profesor:
+	\begin{itemize}
+		\item Nombre.
+		\item Academia a la que pertenece,
+		\item Cúbiculo.
+		\item Horaras de entrada y salida. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Nombre del Profesor.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Consultar horario}: Muestra pantalla con horario del profesor.
+	\item \IUbutton{Ubicar en el mapa}: Muestra mapa con el cubículo del profesor.
+	\item \IUbutton{Solicitar cita}: Muestra formulario de cita a solicitar.
+	\item \IUbutton{Calificar profesor}: Muestra formulario de cita a solicitar.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item Ninguno.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{EM-Alumno-UI3 Comentar perfil del profesor}
+
+\subsubsection{Objetivo}
+	El actor podrá calificar y comentar el desempeño general del profesor para retroalimentarlo.
+
+\subsubsection{Diseño}
+	Mostrará el nombre y foto del profesor, su calificación promedio obtenida y un recuadro para poder comentar. Además de un botón de enviar para persistir la información.
+
+\IUfig[.5]{gui/Alumno/EM_Alumno_UI3_Comentar_perfil_del_profesor.png}{EM-Alumno-UI3}{Comentar Perfil del Profesor}
+
+\subsubsection{Salidas}
+	Se muestra la siguiente información del profesor:
+	\begin{itemize} 
+		\item Nombre.
+		\item Fotografía,
+		\item Promedio general obtenido.
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Calificación otorgada por el alumno para el profesor.
+	\item Comentario del alumno.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Enviar}: Persiste la información brindada por el alumno.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item \MSGref{MSG1}{Operación Exitosa}
+	\item \MSGref{MSG2}{Operación Fallida}
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{EM-Alumno-UI4a Modificar información del alumno}
+
+\subsubsection{Objetivo}
+	El actor podrá visualizar su información como nombre y fotografía, además de tener la posibilidad de elegir cambiar o actualizar su información en el sistema. 
+
+\subsubsection{Diseño}
+	Mostrará el nombre y foto del alumno, además muestra tres iconos que representan los campos de información que puede cambiar o actualizar.
+	Los iconos son:
+	\begin{itemize} 
+		\item Sobre: para actualizar el email.
+		\item Candado: para actualizar la contraseña.
+		\item Fotografia: para actualizar su fotografía.
+	\end{itemize} 
+	Además, se tiene un botón \UIbutton{Siguiente} que permite continuar con el proceso de cambio.
+
+\IUfig[.5]{gui/Alumno/EM_Alumno_UI4a_Modificar_informacion_de_alumno.png}{EM-Alumno-UI4a}{Modificar información del alumno}
+
+\subsubsection{Salidas}
+	\begin{itemize} 
+		\item Ninguna
+	\end{itemize}
+
+\subsubsection{Entradas}
+\begin{itemize}
+	\item Nombre asociado de los elementos a modificar.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \UIbutton{Sobre}: Selecciona modificar el email.
+	\item \UIbutton{Candado}: Selecciona modificar la contraseña.
+	\item \UIbutton{Contraseña}: Selecciona modificar la fotografía.
+	\item \IUbutton{Siguiente}: Permite continuar con el proceso de actualización de información.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item Ningino.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{EM-Alumno-UI4b Modificar información del alumno}
+
+\subsubsection{Objetivo}
+	El actor podrá continuar con el proceso de actualización de su informción, proporcionando al sistema los campos previamente elegidos y que ahora serán sus datos actualizados. 
+
+\subsubsection{Diseño}
+	Mostrará el nombre del alumno, además muestra los campos correspondientes a la información que el alumno solicitó modificar previamente, para que actualice su infrmación. Además, se tiene un botón \UIbutton{Aceptar} que permite finarlizar el proceso de actualización de información.
+
+\IUfig[.5]{gui/Alumno/EM_Alumno_UI4b_Modificar_informacion_de_alumno.png}{EM-Alumno-UI4b}{Modificar información del alumno}
+
+\subsubsection{Salidas}
+	\begin{itemize} 
+		\item \MSGref{MSG1}{Operación Exitosa}
+	\end{itemize}
+
+\subsubsection{Entradas}
+\begin{itemize}
+	\item Ninguna.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Aceptar}: Persiste la información actualizada en el sistema.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item \MSGref{MSG1}{Operación Exitosa}
+\end{Citemize}

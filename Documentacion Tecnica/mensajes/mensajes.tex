@@ -1,0 +1,194 @@
+\section{Mensajes de ESCOMobile}
+
+%===========================  MSG1 ==================================
+\begin{mensaje}{MSG1}{Operación Exitosa}{Informativo}
+	\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que la operación que se solicitó al sistema se se realizó de
+	manera correcta y exitosa. 
+	\item[Redacción:] La $<OPERACION>$ se llevó a cabo correctamente.
+	\item[Parámetros:] OPERACION: Actividad que el actor debe realizar.
+	\item[Ejemplo:] El registro se realizó exitosamente.
+	%\item[Referenciado por:] %\refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-CGC-COSIE-CU1.1},  refIdElem{DIC-CGC-COSIE-CU1.2.1},  \refIdElem{DIC-CGC-DTE-CU1.1}
+\end{mensaje}
+
+%============================== MSG2 =================================
+\begin{mensaje}{MSG2}{Operación Fallida}{Error}
+	\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que la operación que se solicitó al sistema no se se pudo 
+	realizar correctamente.
+	\item[Redacción:] Error, $<ERROR_ENCONTRADO>$.
+	\item[Parámetros:] ERROR\_ENCONTRADO: Error que el sistema identificó al intentar realizar 
+	la operación.
+	\item[Ejemplo:] Error, No hay conexión al sistema.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1}
+\end{mensaje}
+
+%===========================  MSG3 ==================================
+\begin{mensaje}{MSG3}{Elementos No Disponibles}{Error}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Notificar al actor que no existen elementos en el sistema para mostrar.
+    \item[Redacción:] ¡No hay $<ELEMENTOS>$ para mostrarte!
+    \item[Parámetros:] ELEMENTOS: Información que se requiere para concluir un proceso.
+    \item[Ejemplo:] ¡No hay profesores para mostrarte!
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%============================== MSG4 =================================
+\begin{mensaje}{MSG4}{Información duplicada}{Error}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Notificar al actor que alguno de los campos introducidos ya ha sido registrado antes.
+    \item[Redacción:] ¡El/la $<ELEMENTO>$ ya se encuentra registrado(a)!
+    \item[Parámetros:] ELEMENTO: Parte de la información que está duplicada.
+    \item[Ejemplo:] ¡El/la boleta ya se encuentra registrado(a)!
+	%\item[Referenciado por: ] 
+\end{mensaje}
+
+%============================== MSG5 =================================
+\begin{mensaje}{MSG5}{Falta dato obligatorio}{Error}
+	\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que no introdujo alguno de los datos marcados como obligatorios. 
+	\item[Redacción ] ¡Error! El campo $<DATO>$ es un campo obligatorio, favor de ingresarlo.
+	\item[Parámetros:] DATO: Información que se requiere para completar la operación.
+	\item[Ejemplo:] ¡ERROR! El campo boleta es un campo obligatorio, favor de ingresarlo.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1}  %\refIdElem{DIC-A-CU3.1}, \refIdElem{DIC-CGC-COSIE-CU1.1},  \refIdElem{DIC-CGC-DPF-CU1.3.1}, \refIdElem{DIC-CGC-DTE-CU1.1}, \refIdElem{DIC-CGC-DTE-CU1.2}
+\end{mensaje}
+
+%============================== MSG6 =================================
+\begin{mensaje}{MSG6}{Formato de campo Incorrecto}{Error}
+	\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que el dato ingresado en alguno de los campos no 
+	cumple con el formato definido.
+	\item[Redacción:] ¡Error! El campo $<DATO>$ no cumple con el formato válido definido.
+	\item[Parámetros:] DATO: Información que se requiere para completar la operación.
+	\item[Ejemplo:] ¡Error! El campo contraseña no cumple con el formato válido definido.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1} %\refIdElem{DIC-A-CU3.1}, \refIdElem{DIC-CGC-DTE-CU1.1}, \refIdElem{DIC-CGC-DTE-CU1.2}
+\end{mensaje}
+
+%===========================  MSG7 ==================================
+\begin{mensaje}{MSG7}{Eliminar elemento}{Confirmación}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Solicitar la confirmación del actor para eliminar un elemento.
+    \item[Redacción:] ¿Está seguro que quieres elimimar: $<ELEMENTO>$?
+    \item[Parámetros:] \item ELEMENTO: Es el elemento que se requiere eliminar.
+    \item[Ejemplo:] ¿Está seguro que quieres elimimar: Evento?
+	\item[Referenciado por: ] 
+\end{mensaje}
+
+%===========================  MSG8  ==================================
+\begin{mensaje}{MSG8}{Acceso a la ubicación del actor}{Confirmación}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Solicitar la confirmación del actor para poder acceder a su ubicación.
+    \item[Redacción:] Proporcionada por el API de Google Maps.
+    \item[Parámetros:] \item Ningúno.
+    \item[Ejemplo:] Para obtener mejores resultados, activa la ubicación del dispositivo.
+	\item[Referenciado por: ] 
+\end{mensaje}
+
+%=========================MSG9=======================================
+\begin{mensaje}{MSG9}{Número de Boleta/Número de empleado no válido}{Error}
+\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que la boleta o en número de empleado no es válido o es inexistente.
+	\item[Redacción:] ¡Error! La Boleta no cumple con el formato válido definido.
+	\item[Parámetros:] Boleta o número de empleado: Identificador único de alumno o prefesor perteneciente al IPN.
+	\item[Ejemplo:] ¡Error! La boleta no existe.
+	\item[Ejemplo:] ¡Error! La boleta no cumple el formato valido.
+	\item[Ejemplo:] ¡Error! El número de empleado no existe.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1} %\refIdElem{DIC-A-CU3.1}, \refIdElem{DIC-CGC-DTE-CU1.1}, \refIdElem{DIC-CGC-DTE-CU1.2}
+\end{mensaje}
+%=========================MSG10=======================================
+\begin{mensaje}{MSG10}{Correo Electrónico inexistente}{Error}
+\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que el correo electŕonico proporcionado no existe en el sistema.
+	\item[Redacción:] ¡Error! El correo $<CORREO\_ELECTRONICO>$ es incorrecto o inexistente.
+	\item[Parámetros:] CORREO\_ELECTRONICO: correo electrónico proporcionado por el usuario.
+	\item[Ejemplo:] ¡Error! El correo mane.13@hotmail.com es incorrecto o inexistente.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1} %\refIdElem{DIC-A-CU3.1}, \refIdElem{DIC-CGC-DTE-CU1.1}, \refIdElem{DIC-CGC-DTE-CU1.2}
+\end{mensaje}
+
+%=========================MSG11=======================================
+\begin{mensaje}{MSG11}{Eventos inexistentes}{Error}
+\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que no hay eventos existentes.
+	\item[Redacción:] ¡Error! No existen eventos para mostrar.
+	\item[Parámetros:] Ninguno.
+	\item[Ejemplo:] ¡Error! No existen eventos para mostrar.
+	
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1} %\refIdElem{DIC-A-CU3.1}, \refIdElem{DIC-CGC-DTE-CU1.1}, \refIdElem{DIC-CGC-DTE-CU1.2}
+\end{mensaje}
+
+%===========================  MSG12 ==================================
+\begin{mensaje}{MSG12}{Translape o fecha y hora no valida}{Advertencia}
+	\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que la fecha y hora que solicitó para agendar una cita tiene
+	una alta probabilidad de ser rechadaza por el profesor debido a que se traslapa con el horario de
+	clases de este último ,ya existe una cita ese dia y horario o es dia inhabil.
+	\item[Redacción:] La cita en el horario de $<HORA>$ y fecha de $<FECHA>$, se traslapa o es un dia inhabil.
+	\item[Parámetros:] 
+		\begin{itemize}
+			\item HORA: Hora en la que el actor desea agendar la cita.
+			\item FECHA: Fecha en la que el actor desea agendar la cita.
+		\end{itemize}
+	\item[Ejemplo:] La cita en la fecha 22/03/2018 y el horario de 12:30:00, no se puede agendar por translape o dia inhabil.
+	\item[Referenciado por:] %\refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-CGC-COSIE-CU1.1},  refIdElem{DIC-CGC-COSIE-CU1.2.1},  \refIdElem{DIC-CGC-DTE-CU1.1}
+\end{mensaje}
+
+%=========================MSG13=======================================
+\begin{mensaje}{MSG13}{Empresa no registrada}{Error}
+\item[Canal:] Sistema.
+	\item[Propósito:] Notificar al actor que la empresa introducida no esta registrada en el sistema.
+	\item[Redacción:] ¡Error! Empresa sin registrar o inexistente.
+	\item[Parámetros:] Ninguno.
+	\item[Ejemplo:] ¡Error! Empresa sin registrar o inexistente.
+	
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3.1} %\refIdElem{DIC-A-CU3.1}, \refIdElem{DIC-CGC-DTE-CU1.1}, \refIdElem{DIC-CGC-DTE-CU1.2}
+\end{mensaje}
+
+%===========================  MSG14 ==================================
+\begin{mensaje}{MSG14}{Editar elemento}{Confirmación}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Solicitar la confirmación del actor para editar un elemento.
+    \item[Redacción:] ¿Está seguro que quieres editar la información de: $<ELEMENTO>$?
+    \item[Parámetros:] \item ELEMENTO: Es el elemento que se requiere editar.
+    \item[Ejemplo:] ¿Está seguro que quieres editar la información de: ESCOMobile?
+	\item[Referenciado por: ] 
+\end{mensaje}
+
+%===========================  MSG15 ==================================
+\begin{mensaje}{MSG15}{Ninguna coincidencia encontrada}{Informativo}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Notificar al actor que no se encontraron coincidencias en el sistema para mostrar.
+    \item[Redacción:] No se encontraron coincidencias con $<ELEMENTO>$ en el Sistema.
+    \item[Parámetros:] ELEMENTO: Dato introducido por el actor, con el cual se pretende buscar algún tipo de coincidencia en la base de datos del sistema.
+    \item[Ejemplo:] No se encontraron coincidencias con Huerta Martínez Jesús en el Sistema.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG16 ==================================
+\begin{mensaje}{MSG16}{Contraseñas no coinciden}{Error}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Notificar al actor que las dos contraseñas introducidas no coinciden una con la otra.
+    \item[Redacción:] Las constraseñas introducidas no coinciden.
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] Las constraseñas introducidas no coinciden.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG17 ==================================
+\begin{mensaje}{MSG17}{Cerrar sesión}{Confirmación}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Solicitar al actor la confirmación sobre cerrar la sesión de su cuenta.
+    \item[Redacción:] ¿Estás seguro que deseas cerrar la sesión?
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] ¿Estás seguro que deseas cerrar la sesión?
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG18 ==================================
+\begin{mensaje}{MSG18}{Eliminar cuenta}{Confirmación}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Solicitar al actor la confirmación sobre eliminar su cuenta.
+    \item[Redacción:] ¿Estás seguro que deseas eliminar tu cuenta?
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] ¿Estás seguro que deseas eliminar tu cuenta?
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}

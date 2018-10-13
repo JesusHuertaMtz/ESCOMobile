@@ -1,0 +1,67 @@
+%\begin{mensaje}{MSG1}{Operación Exitosa}{Informativo}
+%	\item[Canal:] Sistema
+%	\item[Propósito:] Notificar al actor que la operación solicitada al sistema se llevó a cabo exitosamente.
+%	\item[Redacción:] La $<OPERACION>$ se llevo a cabo correctamente.
+%	\item[Parámetros:] OPERACION: Actividad que el actor debe realizar.
+%	\item[Ejemplo:] La reinscripción se llevó a cabo correctamente.
+%	\item[Referenciado por:] \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-CGC-COSIE-CU1.1},  \refIdElem{DIC-CGC-COSIE-CU1.2.1},  \refIdElem{DIC-CGC-DTE-CU1.1}
+%\end{mensaje}
+
+%Muestra un icono el los casos de uso
+%Se le debe pasar como parametro el path
+%en donde se encuentra ubicado el icono. ej. 
+%\UCicono{images/uc/actor}
+\definecolor{MSGColor}{rgb}{0.133, 0.501, 0.917}
+\definecolor{MSGColorVisited}{rgb}{0.039, 0.274, 0.541}
+
+\newcommand{\UCicono}[1]{
+	\includegraphics[height=11pt]{images/icons/#1}
+}
+
+% Referencia para un Mensaje
+%use \UCMessage{Id}{nombre}
+\renewcommand{\MSGref}[2]{%
+	\hypersetup{linkcolor=MSGColor}%
+	\hyperlink{#1}{#1 #2}%
+	\hypersetup{linkcolor=MSGColorVisited}%
+}
+
+\newenvironment{mensaje}[3]{
+	\hypertarget{#1}{}%Linea original
+	\subsection{{#1}~{}{#2}} 
+	\begin{description}
+	
+}{
+	\end{description}
+}
+
+%\NewEnviron{mensaje}[3]{%
+%	\cdtAddElement{#1}{Mensaje}{#2}{NA}{NA}{NA}%
+%	\DTLgetvalueforkey{\varBRReferenceValue}{idElementoRef}{cdtDBMSGReferenceConsulta}{idElemento}{#1}%
+%	\DTLifnull{\varBRReferenceValue}{%
+%		\DTLgetvalueforkey{\varBRReferenceValue}{idElemento}{cdtDBReferenceConsulta}{idElemento}{#1}%
+%		\DTLifnull{\varBRReferenceValue}{%
+%			%Vacío
+%		}{%
+%			\cdtSetContext{#1}%
+%			\hypertarget{#1}{{\hspace{1pt}}}%
+%			\subsection{{#1}~{}{#2}} %
+%			\begin{Cdescription}%
+%				\item[Tipo:] {#3} %Operación Realizada/Notificación/Alerta/Error
+%				\msgBODY%
+%				\referencedBy{#1}%
+%			\end{Cdescription}%
+%			\cdtSetContext{}%
+%		}%
+%	}{%
+%		\cdtSetContext{#1}%
+%		\hypertarget{#1}{{\hspace{1pt}}}%
+%		\subsection{{#1}~{}{#2}} %
+%		\begin{Cdescription}%
+%			\item[Tipo:] {#3} %Operación Realizada/Notificación/Alerta/Error
+%			\msgBODY%
+%			\referencedBy{#1}%
+%		\end{Cdescription}%
+%		\cdtSetContext{}%
+%	}
+%}

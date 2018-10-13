@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{EM-Mapa-UI1 Consultar Mapa de ESCOM.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar al actor la distribución de las diferentes áreas dentro de la ESCOM como lo son lon salones,
+	cubículos, academias, etc. en los diferentes edificos y plantas contenidos en la misma institución. 
+	Lo anterior se logra por medio de un mapa 2D, en donde se muestran organizados las diferentes áreas
+	tal cual se encuentran en la Superior de Cómputo, pues de esta forma se facilitan, entre otras cosas,
+	el encontrar una determinada área académica, localizar la estancia de algún profesor en específico,
+	conocer los salones en los cuales se imparten clases dado un grupo, etc..
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se divide en dos secciones. La primera sección muestra una barra de búsqueda que permite 
+	realizar búsquedas de profesores, grupos, salones y academias. La segunda sección nos presenta el
+	mapa de la ESCOM, y la distribución de sus áreas académicas contenidos en cada uno de sus edificios y
+	plantas, como lo son los salones, cubículos, académias, entre otros. 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Mapa/EM_Mapa_UI1_Consultar_Mapa_de_ESCOM}{EM-Mapa-UI1}{Consultar Mapa de ESCOM}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Areas académicas de ESCOM dibujadas en el mapa de la misma.
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna. 
+
+\subsubsection{Comandos}
+	\begin{itemize}
+		\item \IUbutton{ PB }: Dibuja en el mapa los salones ubicados en la planta baja.
+		\item \IUbutton{ P1 }: Dibuja en el mapa los salones ubicados en el primer piso.
+		\item \IUbutton{ P2 }: Dibuja en el mapa los salones ubicados en el segundo piso.
+		\item \IUbutton{  +  }: Acerca la vista del mapa.
+		\item \IUbutton{  -  }: Aleja la vista del mapa.
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	\begin{Citemize}
+		\item \MSGref{MSG3}{Elementos No Disponibles}
+	\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{EM-Mapa-UI2 Realizar Búsqueda sobre el mapa A.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar un mecanismo para realizar una búsqueda de cubículos de profesores, salones, grupos 
+	o academmias de su interés dentro del mapa de la ESCOM por medio de ESCOMobile.
+
+\subsubsection{Diseño}
+	\noindent
+	Esta pantalla consta de una barra de búsqueda y cuatro íconos para filtrar, cada uno de ellos representa un tipo
+	de búsqueda sobre el mapa, esto es, para buscar cubículos de profesores, grupos, salones o academias.
+	Se cuenta además con un apartado donde se muestras los resultados coincidentes con la búsqueda.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Mapa/EM_Mapa_UI2_Realizar_Busqueda_Sobre_el_Mapa_A}{EM-Mapa-UI2-A}{Realizar búsqueda sobre el mapa}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Lista con las coincidencias de la búsqueda con los cubículos de profesores, grupos, salones o academias.
+	\end{itemize}
+
+\subsubsection{Entradas}	
+\begin{itemize}
+	\item El nombre del profesor del cual se quiere consultar el cubículo, el grupo que se desea buscar, el salón que se quiera consultar o la academia de la cual se requeira saber su obicación.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item Icono \UCicono{lupa}: Realiza la búsqueda de coincidencias del texto contenido en la barra de búsqueda
+	con los datos almacenados de salones, profesores, grupos y academias.
+	\item Icono ''Profesor'': Filtra los resultados, mostrado solo aquellos que sean cubículos de profesores.
+	\item Icono ''Salón'': Filtra los resultados, mostrado solo aquellos que sean cubículos de Salones.
+	\item Icono ''Academia'': Filtra los resultados, mostrado solo aquellos que sean cubículos de Academias.
+	\item Icono ''Grupo'': Filtra los resultados, mostrado solo aquellos que sean cubículos de Grupos.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item \MSGref{MSG15}{Ninguna coincidencia encontrada}.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{EM-Mapa-UI2 Realizar Búsqueda sobre el mapa B.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar en el mapa de ESCOM la ubicación de agún área buscada. 
+
+\subsubsection{Diseño}
+	\noindent
+	Mostrará en el mapa de ESCOM el resultado de la búsqueda, en caso de profesor, indicará con un marker el cubículo del profesor, 
+	en los demás casos mostraŕa el salón, grupo o académia .
+
+\IUfig[.5]{gui/Maquetas/Mapa/EM_Mapa_UI2_Realizar_Busqueda_Sobre_el_Mapa_B}{EM-Mapa-UI2-B}{Realizar búsqueda sobre el mapa}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Marker en la posición del cubículo del profesor, salón, grupo o academia sobre el mapa de ESCOM.
+		\item Nombre del área buscada sobre la misma.
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+\begin{itemize}
+		\item \IUbutton{ PB }: Dibuja en el mapa los salones ubicados en la planta baja.
+		\item \IUbutton{ P1 }: Dibuja en el mapa los salones ubicados en el primer piso.
+		\item \IUbutton{ P2 }: Dibuja en el mapa los salones ubicados en el segundo piso.
+		\item \IUbutton{  +  }: Acerca la vista del mapa.
+		\item \IUbutton{  -  }: Aleja la vista del mapa.
+\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent.
+	Ninguno.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

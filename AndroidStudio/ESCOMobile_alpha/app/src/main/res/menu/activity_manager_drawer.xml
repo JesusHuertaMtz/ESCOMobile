@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_map"
+            android:title="@string/dmenu_ver_mapa" />
+        
+        <item
+            android:id="@+id/nav_profesor"
+            android:icon="@drawable/ic_menu_profesor"
+            android:title="@string/dmenu_profesor" />
+        <item
+            android:id="@+id/nav_citas"
+            android:icon="@drawable/ic_menu_cita"
+            android:title="@string/dmenu_citas" />
+        <item
+            android:id="@+id/nav_bolsa"
+            android:icon="@drawable/ic_menu_trabajo"
+            android:title="@string/dmenu_bolsa_de_trabajo" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_editar_perfil"
+                android:icon="@drawable/ic_menu_editar_perfil"
+                android:title="@string/dmenu_editar_perifl" />
+            <item
+                android:id="@+id/nav_cerrar_sesion"
+                android:icon="@drawable/ic_menu_cerrar_sesion"
+                android:title="@string/dmenu_cerrar_sesion" />
+            <item
+                android:id="@+id/nav_borrar_cuenta"
+                android:icon="@drawable/ic_menu_borrar_cuenta"
+                android:title="@string/dmenu_borar_cuenta" />
+        </menu>
+    </item>
+</menu>
+
+<!--- EVENTOS NO DISPONIBLES POR EL MOMENTO
+<item
+            android:id="@+id/nav_evento"
+            android:icon="@drawable/ic_menu_event"
+            android:title="@string/dmenu_eventos" />
+
+-->

@@ -1,0 +1,409 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+						%%		EM-WebBolsa	  %%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% MODIFICAR UI DEL PROFESOR. ESTO SOLO ES LA PLANTILLA
+
+
+\subsection{EM-WebBolsa-UI Login  }
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor acceso a la página web ESCOMobile, accediendo desde su cuenta de Facebook para realizar diferentes acciones dentro del sistema.
+
+\subsubsection{Diseño}
+		\noindent
+		La pantalla  muestra un mensaje de bienvenida y se le informa al actor que tiene que registrarse con su cuenta de Facebook.
+		Incluye el \IUbutton{inicia sesión con Facebook}
+	
+\IUfig[.5]{gui/Maquetas/BolsaWeb/BolsaWeb_Login.png}{EM-BolsaWeb-UI}{Login Bolsa Web}
+
+\subsubsection{Salidas}
+\begin{itemize}
+			\item Inicio de sesión en facebook
+			\item Acceso a la página principal.
+			\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Cuenta de Facebook.
+
+\subsubsection{Comandos}
+\begin{itemize}
+		\item Botón \IUbutton{Inicia sesión con Facebook}: Para ingresar al sistema.
+	\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+
+\pagebreak
+
+\subsection{EM-WebBolsa-UI1 Gestionar Ofertas de Trabajo}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor acceso a diferentes acciones sobre las ofertas de Trabajo de la ESCOMobile Bolsa, como lo son, registro, edición, consulta, eliminación y publicación de ofertas de trabajo en el sistema. 
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se muestra en diferentes secciones. En la parte izquierda las opciones para cambiar entre las gestiones de empresas y ofertas de trabajo, en la parte superior el logo de ''ESCOMobile bolsa'', finalmente en el cuerpo de la pantalla se muestran el número de ofertas publicadas, una gráfica con el número de ofertas publicadas de cada mes, un botón para añadir oferta y una tabla que contiene todas las ofertas sin publicar en el sistema, desplegando la siguiente información:
+	\begin{itemize}
+         		\item Número de oferta de trabajo.
+				\item Nombre de la empresa.
+				\item Horario.
+				\item Vacante.
+				\item Sueldo.
+				\item Contacto.
+				\item Fecha Publicación.
+				\end{itemize}	
+	Mostrando además en la tabla diferentes acciones (editar y eliminar) para cada una de las ofertas registradas.
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_IU1_Gestionar_Ofertas_de_Trabajo.png}{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}
+
+\subsubsection{Salidas}
+\begin{itemize}
+			\item Número de ofertas de trabajo publicadas.
+			\item Gráfica de línea mostrando el número de ofertas de los últimos 6 meses.
+			\item Tabla que muestra la siguiente información de las ofertas sin publicar
+				\begin{itemize}
+         		\item Número de oferta.
+				\item Nombre de la empresa.
+				\item Horario.
+				\item Vacante.
+				\item Sueldo.
+				\item Contacto.
+				\item Fecha Publicación.
+				\end{itemize}	
+			\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+\begin{itemize}
+		\item Botón \IUbutton{Añadir oferta}: Para registrar una nueva oferta de trabajo en el sistema.  
+		\item Ícono \UCicono{lapiz.png}: Para editar alguna de las empresas registradas.
+		\item Ícono \UCicono{eliminar.png}: Para eliminar alguna de las empresas registradas.
+	\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+	
+\subsection{EM-WebBolsa-UI1.1 Registar nueva oferta}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá registrar una Oferta de trabajo llenando un formulario.
+
+\subsubsection{Diseño}
+	Mostrará un formulario el cual contiene los campos necesarios para registrar una nueva oferta de trabajo. 
+	Los campos requeridos sobre la oferta de trabajo son los siguientes: 
+	\begin{itemize}
+		\item Nombre de la Empresa.
+		\item Tipo Horario.
+		\item Horario.
+		\item Nombre del Puesto.
+		\item Número de vacantes.
+		\item Requisitos.
+		\item Idiomas.
+		\item Perfil.
+		\item Sueldo.
+		\item Prestaciones. 
+	\end{itemize}
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI1_1_Registrar_Nueva_Oferta.png}{EM-WebBolsa-IU1.1}{Registrar nueva oferta}
+
+\subsubsection{Salidas}
+	Ninguna.
+
+\subsubsection{Entradas}
+	\begin{itemize}
+		\item Nombre de la Empresa.
+		\item Tipo Horario.
+		\item Horario.
+		\item Nombre del Puesto.
+		\item Número de vacantes.
+		\item Requisitos.
+		\item Idiomas.
+		\item Perfil.
+		\item Sueldo.
+		\item Prestaciones. 
+	\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar Oferta}: Completa el registro.  
+	\item \IUbutton{Cancelar}: Cancela el registro.  
+\end{itemize}
+
+
+
+%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	
+\subsection{EM-WebBolsa-U11.2 Modificar oferta}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá modificar los datos introducidos en el formulario de Añadir oferta, solo se podrán modificar las ofertas aún no publicadas. 
+
+\subsubsection{Diseño}
+	\noindent
+	Mostrará un formulario el cual contiene los campos necesarios para modificar una oferta de trabajo. 
+	Los campos mostrados con los datos sobre la oferta de trabajo son los siguientes: 
+	\begin{itemize}
+		\item Nombre de la Empresa.
+		\item Tipo Horario.
+		\item Horario.
+		\item Nombre del Puesto.
+		\item Número de vacantes.
+		\item Requisitos.
+		\item Idiomas.
+		\item Perfil.
+		\item Sueldo.
+		\item Prestaciones. 
+	\end{itemize}
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI1_2_Editar_Oferta_de_Trabajo.png}{EM-WebBolsa-UI1.2}{Modificar oferta}
+
+\subsubsection{Salidas}
+	\noindent
+	Ninguna.
+	
+\subsubsection{Entradas}
+	\begin{itemize}
+		\item Nombre de la Empresa.
+		\item Tipo Horario.
+		\item Horario.
+		\item Nombre del Puesto.
+		\item Número de vacantes.
+		\item Requisitos.
+		\item Idiomas.
+		\item Perfil.
+		\item Sueldo.
+		\item Prestaciones. 
+	\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Editar Oferta}: Se modifica la oferta de trabajo.  
+	\item \IUbutton{Cancelar}: Cancelar.  
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+\subsection{EM-BolsaWeb-UI3 Publicación de Boletín de Ofertas de Trabajo}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor una imagen con las ofertas de trabajo que desea publicar.
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra una vista previa de la imagen de las ofertas de trabajo que serán publicadas en la página de Facebook.
+
+	Mostrando además los botones \IUbutton{Aceptar} y \IUbutton{Cancelar}.
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI3_Publicar_Boletin_Ofertas_de_Trabajo.png}{EM-BolsaWeb-UI3}{Publicar Boletín}
+
+
+\subsubsection{Salidas}
+	\begin{itemize}
+	\item Publicación de imagen de ofertas de trabajo.
+	\item Actualización de tablas ofertas sin publicar y ofertas publicadas.
+	\end{itemize}
+\subsubsection{Entradas}
+	\begin{itemize}
+	\item Ofertas de trabajo.
+	\end{itemize}
+\subsubsection{Comandos}
+ 	\begin{itemize}
+		\item Botón \IUbutton{Aceptar}: Para subir la imagen con las ofertas de trabajo.  
+		\item Botón \IUbutton{Cancelar}: Para cancelar publicación de Ofertas.
+
+	\end{itemize}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					
+					% 			PARA EMPRESAS 			%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\subsection{EM-BolsaWeb-UI4 Gestionar Empresas}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor acceso a diferentes acciones sobre las empresas de la ESCOMobile Bolsa, como lo son, registro, edición, consulta y eliminación de empresas en el sistema. 
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se muestra en diferentes secciones. En la parte izquierda las opciones para cambiar entre las gestiones de empresas y ofertas de trabajo, en la parte superior el logo de ''ESCOMobile bolsa'', finalmente en el cuerpo de la pantalla se muestran el número de empresas registradas, un botón para añadir ofertas y una tabla que contiene todas las empresas registradas en el sistema y los contactos a éstas asociados, desplegando la siguiente información:
+	\begin{itemize}
+		\item Nombre de la Empresa.
+		\item Giro.
+		\item Contacto.
+		\item RFC.
+		\item Número de ofertas publicadas.
+		\item Número de ofertas visualizadas. 
+	\end{itemize}
+	Mostrando además en la tabla diferentes acciones (editar y eliminar) para cada una de las empresas registradas.
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_IU4_Gestionar_Empresas.png}{EM-BolsaWeb-UI4}{Gestionar Empresas}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Número de empresas registradas.
+		\item Tabla que muestra la siguiente información de las empresas registradas
+		\begin{itemize}
+			\item Nombre de la Empresa.
+			\item Giro.
+			\item Contacto.
+			\item RFC.
+			\item Número de ofertas publicadas.
+			\item Número de ofertas visualizadas. 
+		\end{itemize}
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+ 	\begin{itemize}
+		\item Botón \IUbutton{Añadir empresa}: Para registrar una nueva empresa en el sistema.  
+		\item Ícono \UCicono{lapiz.png}: Para editar alguna de las empresas registradas.
+		\item Ícono \UCicono{eliminar.png}: Para eliminar alguna de las empresas registradas.
+	\end{itemize}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\subsection{EM-BolsaWeb-UI4.1 Añadir nueva Empresa}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor un mecanismo para registrar una nueva empresa que proponga ofertas de trabajo.
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra un formulario para registrar una nueva empresa en el sistema ESCOMobile Bolsa, dicho formulario contiene los diferentes campos requeridos para realizar el registro de la empresa, estando organizado en dos grandes secciones, la primera para introducir los datos de la empresa propiamente dicha y la segunda para el contacto a quien los interesados podrán dirigirse una vez registrada la empresa y publicadas las ofertas de trabajo, mostrando además en las últimas, los campos que son obligatorios para completar el regitro. Así, se tienen los siguientes campos para el registro de la empresa:
+	\begin{itemize}
+		\item Información de la empresa:
+		\begin{itemize}
+			\item Nombre.
+			\item RFC.
+			\item Giro.
+			\item Logo.
+		\end{itemize}
+		\item Contacto de la empresa:
+		\begin{itemize}
+			\item Nombre del encargado de recursos humanos.
+			\item Tipo de medio de contacto. 
+			\item Medio de contacto. 
+		\end{itemize}
+	\end{itemize}
+	Mostrando además los botones \IUbutton{Agregar logo}, \IUbutton{+}, \IUbutton{Registrar Empresa} y \IUbutton{Cancelar}.
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI4_1_Anadir_nueva_Empresa.png}{EM-BolsaWeb-UI4.1}{Anadir nueva Empresa}
+
+
+\subsubsection{Salidas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Entradas}
+	\begin{itemize}
+		\item Información de la empresa:
+		\begin{itemize}
+			\item Nombre.
+			\item RFC.
+			\item Giro.
+			\item Logo.
+		\end{itemize}
+		\item Contacto de la empresa:
+		\begin{itemize}
+			\item Nombre del encargado de recursos humanos.
+			\item Tipo de medio de contacto. 
+			\item Medio de contacto. 
+		\end{itemize}
+	\end{itemize}
+
+\subsubsection{Comandos}
+ 	\begin{itemize}
+		\item Botón \IUbutton{Agregar logo}: Para subir una imagen con el logo de la empresa, no es obligatorio.  
+		\item Botón \IUbutton{+}: Para agregar uno o más contactos al encargado de recursos humanos de la empresa.
+		\item Botón \IUbutton{Registrar Empresa}: Para registrar una empresa con los datos proporcionados en el formulario.
+		\item Botón \IUbutton{Cancelar}: Para cancelar el registro de la empresa.
+	\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{EM-BolsaWeb-UI4.3 Editar información de Empresa}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor un mecanismo para editar la información de una empresa que proponga ofertas de trabajo.
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra un formulario para editar la información de una empresa previamente registrada en el sistema ESCOMobile Bolsa, dicho formulario contiene los diferentes campos requeridos para realizar el registro de la empresa, estando organizado en dos grandes secciones, la primera con los datos de la empresa propiamente dicha y la segunda con los datos del conctacto a quien los interesados podrán dirigirse una vez registrada la empresa y publicadas las ofertas de trabajo, mostrando además en las últimas, los campos que son obligatorios para completar la edición. Así, se tienen los siguientes campos para la edición de la empresa:
+	\begin{itemize}
+		\item Información de la empresa:
+		\begin{itemize}
+			\item Nombre.
+			\item RFC.
+			\item Giro.
+			\item Logo.
+		\end{itemize}
+		\item Contacto de la empresa:
+		\begin{itemize}
+			\item Nombre del encargado de recursos humanos.
+			\item Tipo de medio de contacto. 
+			\item Medio de contacto. 
+		\end{itemize}
+	\end{itemize}
+	Mostrando además los botones \IUbutton{Agregar logo}, \IUbutton{+}, \IUbutton{Aceptar} y \IUbutton{Cancelar}.
+
+\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI4_3_Editar_Informacion_de_la_Empresa.png}{EM-BolsaWeb-UI4.3}{Editar información de Empresa}
+
+\subsubsection{Salidas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Entradas}
+	\begin{itemize}
+		\item Información de la empresa:
+		\begin{itemize}
+			\item Nombre.
+			\item RFC.
+			\item Giro.
+			\item Logo.
+		\end{itemize}
+		\item Contacto de la empresa:
+		\begin{itemize}
+			\item Nombre del encargado de recursos humanos.
+			\item Tipo de medio de contacto. 
+			\item Medio de contacto. 
+		\end{itemize}
+
+	\end{itemize}
+
+\subsubsection{Comandos}
+ 	\begin{itemize}
+ 	\item Botón \IUbutton{Agregar logo}: Para subir una imagen con el logo de la empresa, no es obligatorio.  
+		\item Botón \IUbutton{+}: Para agregar uno o más contactos al encargado de recursos humanos de la empresa.
+		\item Botón \IUbutton{Aceptar}: Para editar la información de una empresa con los datos proporcionados en el formulario.
+		\item Botón \IUbutton{Cancelar}: Para cancelar la edición de la empresa.
+
+	\end{itemize}
+	

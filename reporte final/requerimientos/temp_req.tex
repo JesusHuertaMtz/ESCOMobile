@@ -1,0 +1,430 @@
+\section{Requisitos}
+
+\begin{description}
+\item[$\textbf{RNF1:}$] Plataforma móvil.
+\item[$\textbf{Descripción:}$] La aplicación se ejecutará sobre la plataforma móvil Android. En la versión
+ Android 5.0 (Lollipop) a la versión Android 8.0 (Oreo).
+\item[$\textbf{Propósito:}$] Para que una gran parte, sino es que, en su totalidad, de la comunidad de
+ ESCOM disponga de ESCOMobile en sus dispositivos con S.O. Android.
+\item[$\textbf{Usuario:}$] N/A.
+\item[$\textbf{Tipo:}$] Móvil.	\\
+
+\item[$\textbf{RNF2:}$]. Lenguaje de programación.
+Descripción:  La aplicación ESCOMobile se escribirá en el lenguaje de programación Kotlin versión 1.2.
+\item[$\textbf{Propósito:}$]:
+Estar a la vanguardia tecnológica.
+Escribir menos código para realizar mismas funciones que Java.
+Se puede mezclar con código de Java sin afectar la funcionalidad.
+Es seguro frente a NullPointerException.
+\item[$\textbf{Usuario:}$]: N/A
+\item[$\textbf{Tipo:}$]: Móvil.\\
+
+\item[$\textbf{RNF3:}$] Horarios.
+Descripción: La aplicación podrá obtener el horario de clases del alumno. Esta información se obtendrá del SAES, de ser posible. En caso de no ser posible, el alumno podrá registrar su horario de clases..
+\item[$\textbf{Propósito:}$]: Orientar a los alumnos, mayormente al inicio del semestre, a saber, la asignatura, salón, docente que imparte la asignatura, fecha y hora de las materias que haya inscrito el semestre en curso.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF4:}$] Información de horarios.
+\item[$\textbf{Descripción:}$]:  El sistema desplegará la siguiente información referente al horario del alumno:
+Día de la semana en el que la asignatura se imparte.
+Hora de inicio en la que la asignatura se imparte.
+Docente que imparte la asignatura.
+Nombre de la asignatura.
+Salón en el que se imparte la asignatura.
+La información anterior se deberá mostrar por cada una de las asignaturas que el alumno haya inscrito en el semestre en curso y tendrá formato tabular.
+\item[$\textbf{Propósito:}$]: Facilitar la consulta del horario de clases del alumno.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF5:}$] No modificación de horarios.
+\item[$\textbf{Descripción:}$]:  Debido a que los alumnos solo pueden realizar el trámite de su reinscripción, sobrecupo, o baja de una asignatura desde el SAES o bien desde gestión escolar. La aplicación no dispondrá de un módulo para llevar estas tareas acabo.
+\item[$\textbf{Propósito:}$]: Evitar confusión entre alumnos, que puedan llegar a creer que, si modifican el horario desde la aplicación, estos cambios se reflejarán en el SAES.
+\item[$\textbf{Usuario:}$]: N/A
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF6:}$] Mapa de ESCOM.
+\item[$\textbf{Descripción:}$]:  La aplicación tendrá un módulo para consultar el mapa de la ESCOM. Se mostrará una vista aérea de los pisos de los edificios.
+\item[$\textbf{Propósito:}$]: Dar una vista general de los edificios que conforman al plantel y orientar a alumnos a ubicar donde se encuentran ubicados los salones, cubículos, clubes, biblioteca y áreas administrativas en ESCOM.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF7:}$] Mapa de ESCOM en móviles.
+\item[$\textbf{Descripción:}$]:  El mapa de ESCOM descrito en el R6 solo estará disponible en la versión móvil de la aplicación. Ver R1.
+\item[$\textbf{Propósito:}$]: Atraer a los estudiantes y docentes de ESCOM a usar ESCOMobile.
+\item[$\textbf{Usuario:}$]: N/A
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+
+\item[$\textbf{RNF8:}$] Presentación del mapa de ESCOM.
+\item[$\textbf{Descripción:}$]:  El mapa de ESCOM que mostrará la aplicación es en 2D, la vista será aérea y mostrará texto que describe cada área.
+\item[$\textbf{Propósito:}$]: Hacer la navegación en el mapa sencilla para el actor.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+ 
+\item[$\textbf{RNF9:}$] Vistas del mapa de ESCOM.
+\item[$\textbf{Descripción:}$]:  El mapa mostrará una vista de la planta baja, primer piso y segundo piso del plantel. Solo se puede mostrar una vista a la vez.
+\item[$\textbf{Propósito:}$]: Saber en qué piso se encuentra ubicado, los laboratorios, salones, cubículos, etc. Para orientar al actor.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF10:}$] Vistas del mapa de ESCOM.
+\item[$\textbf{Descripción:}$]:  Se mostrará en el mapa textos descriptivos, como el nombre del salón, de cada área, divisiones de los salones y áreas administrativas.
+\item[$\textbf{Propósito:}$]: Ayudar a ubicar con mayor facilidad el lugar que busca el actor.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF11:}$] Información de áreas culturales.
+\item[$\textbf{Descripción:}$]:  El mapa mostrará una vista de la planta baja, primer piso y segundo piso del plantel, de los cuales el actor podrá seleccionar el que guste.
+\item[$\textbf{Propósito:}$]: Saber en qué piso se encuentra ubicado, los laboratorios, salones, cubículos, etc. Para orientar al actor.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+
+\item[$\textbf{RNF12:}$] Información de club.
+\item[$\textbf{Descripción:}$]:  Habrá un módulo para poder consultar, dentro de la aplicación, los horarios y clubes disponibles en ESCOM. Así como las horas necesarias que debe asistir al club para liberar Electiva.
+\item[$\textbf{Propósito:}$]: Mostrar la variedad de clubes a los que los alumnos de ESCOM podrían unirse.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF13:}$] Información de actividades deportivas.
+\item[$\textbf{Descripción:}$]:  Se mostrarán las actividades deportivas y culturales con las que cuenta ESCOM. La información que se muestre debe contener el horario de la actividad, días en los que se lleva a cabo, horas necesarias para poder liberar Electiva.
+\item[$\textbf{Propósito:}$]: Mostrar el catálogo de las actividades deportivas y culturales de ESCOM.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF14:}$] Eventos.
+\item[$\textbf{Descripción:}$]:  Se dispondrá de una sección, dentro de la aplicación, para poder consultar los eventos que están próximos a llevarse acabo en las instalaciones de ESCOM. La información que se debe mostrar es el cartel del evento, hora y fecha en el que se realizará el evento, descripción breve acerca del evento, lugar en donde tendrá cabida el evento y quién es el ponente.
+\item[$\textbf{Propósito:}$]: Difundir los eventos y de esta manera interesar a los alumnos de ESCOM a asistir al evento.
+\item[$\textbf{Usuario:}$]: Alumno, docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF15:}$] Perfil o cuenta del docente.
+\item[$\textbf{Descripción:}$]: Se tendrá un apartado para configurar el perfil del docente. Es en este apartado podrá modificar su correo electrónico, teléfono, fotografía, etc. Y consultar sus citas agendadas
+\item[$\textbf{Propósito:}$]: El docente podrá publicar la información necesaria para que los alumnos lo contacten.
+\item[$\textbf{Usuario:}$]: Docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF1:}$] Registro del docente.
+\item[$\textbf{Descripción:}$]:  La aplicación permitirá a los docentes registrarse y poder acceder a su perfil.
+\item[$\textbf{Propósito:}$]:
+Los alumnos podrán saber en que horario pueden acudir con el docente.
+El docente puede publicar la forma en que se pueden contactar con él.
+Dar a conocer el correo electrónico al que le pueden enviar trabajos académicos.
+Ubicar de manera única a los docentes de ESCOM.
+\item[$\textbf{Usuario:}$]: Docente.
+\item[$\textbf{Tipo:}$]: Web, Móvil. \\
+
+\item[$\textbf{RNF1:}$] Información para el registro del docente.
+\item[$\textbf{Descripción:}$]: Los campos necesarios para el registro del docente son los siguientes: \\
+	\begin{itemize}
+		\item Verificar si la información se puede obtener de SAES
+		\item Nombre completo.
+		\item RFC.
+		\item Numero de empleado.
+		\item Correo electrónico.
+		\item Teléfono.
+		\item Asignaturas que imparte.
+		\item Horarios en los que se encuentra frente a grupo.
+		\item Horarios de asesorías.
+		\item Cubículo.
+		\item Fotografía. (opcional)
+	\end{itemize}
+\item[$\textbf{Propósito:}$]: Identificar a los docentes de ESCOM.
+\item[$\textbf{Usuario:}$]: Docente.
+\item[$\textbf{Tipo:}$]: Web, Móvil. \\
+
+\item[$\textbf{RNF1:}$] Información editable del perfil del docente.
+\item[$\textbf{Descripción:}$]: La información que puede editar el docente en su perfil es la siguiente:
+	\begin{itemize}
+		\item Correo electrónico.
+		\item Teléfono.
+		\item Asignaturas que imparte.
+		\item Horarios en los que se encuentra frente a grupo.
+		\item Horarios de asesorías.
+		\item Cubículo.
+		\item Fotografía. (opcional)
+	\end{itemize}
+\item[$\textbf{Propósito:}$]: Mantener actualizada la información del docente.
+\item[$\textbf{Usuario:}$]: Docente.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF1:}$] Información para el registro de alumnos.
+\item[$\textbf{Descripción:}$]: La información necesaria para poder registrar a un alumno es la siguiente:
+	\begin{itemize}
+		\item Nombre completo.
+		\item Número de boleta.
+		\item Correo electrónico.
+		\item Teléfono.
+		\item Fotografía. (opcional)
+	\end{itemize}
+\item[$\textbf{Propósito:}$]: Saber si el alumno es parte de la comunidad de ESCOM.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Móvil.  \\
+
+\item[$\textbf{RNF1:}$] Perfil del alumno.
+\item[$\textbf{Descripción:}$]: El alumno contará con un perfil en el que se mostrará su información y donde podrá consultar sus citas agendadas.
+\item[$\textbf{Propósito:}$]: Mostrar los datos del alumno registrado.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF1:}$] Acciones del Alumno. 
+\item[$\textbf{Descripción:}$]:El alumno puede Agregar, editar o eliminar información de sus perfiles.
+\item[$\textbf{Propósito:}$]:El alumno podrá personalizar su perfil.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Creación de Grupos. 
+\item[$\textbf{Descripción:}$]: El docente podrá crear grupos para dar anuncios a sus alumnos acerca de temas relacionados con la clase o de la formación académica del alumno.
+\item[$\textbf{Propósito:}$]:El profesor mantendrá informados a sus alumnos y subir documentos.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. 
+
+\item[$\textbf{RNF1:}$] Unión de Grupos. 
+\item[$\textbf{Descripción:}$]: El alumno solicita unirse a los grupos de interés
+\item[$\textbf{Propósito:}$]:El alumno tendrá acceso a documentos o temas que el profesor ponga de la clase.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Peticiones. 
+\item[$\textbf{Descripción:}$]: El profesor acepta o rechaza petición de los alumnos a grupos creados.
+\item[$\textbf{Propósito:}$]:Solo se aceptaran alumnos que estén inscritos en ese grupo.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Información del Grupo. 
+\item[$\textbf{Descripción:}$]:Una vez aceptado, el alumno puede consultar la información del grupo.
+\item[$\textbf{Propósito:}$]:Solo alumnos aceptados tendrán acceso a la información.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Notificación. 
+\item[$\textbf{Descripción:}$]:El profesor recibe una notificación cuando un alumno solicite unirse a un grupo.
+\item[$\textbf{Propósito:}$]:Mantener informado al profesor.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Notificación Profesor.  
+\item[$\textbf{Descripción:}$]:El profesor recibe una notificación cuando un alumno solicite unirse a un grupo.
+\item[$\textbf{Propósito:}$]:Mantener informado al profesor.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Notificación Alumno.  
+\item[$\textbf{Descripción:}$]: El alumno recibe una notificación cuando un profesor acepte o rechace su solicitud de unirse a un grupo
+\item[$\textbf{Propósito:}$]:Mantener informado al al alumno el status de su solicitud.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Perfil Profesores  
+\item[$\textbf{Descripción:}$]: Información de los perfiles de los profesores
+\item[$\textbf{Propósito:}$]:.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Consultar Grupos 
+\item[$\textbf{Descripción:}$]: Un alumno puede consultar los grupos de los cuales es parte, así como la información de los mismos.
+\item[$\textbf{Propósito:}$]: El alumno estará informado de cualquier cosa del grupo
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Citas  
+\item[$\textbf{Descripción:}$]: La aplicación permite a los alumnos gestionar sus citas con los profesores (registrar nuevas citas, editar, eliminar y consultar las ya existentes). 
+\item[$\textbf{Propósito:}$]: El alumno no pierda tiempo al buscar a un profesor
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Gestión citas profesores  
+\item[$\textbf{Descripción:}$]: Los profesores gestionan las citas registradas con ellos (aceptan o rechazan la cita según el propósito y urgencia de la misma), (Consultar, evaluar). 
+\item[$\textbf{Propósito:}$]: El profesor pueda controlar sus citas y explicar motivos del cual no puede.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Notificación Recordatorio 
+\item[$\textbf{Descripción:}$]: La aplicación notifica al usuario (profesor y alumno) tiempo antes de la cita, en forma de recordatorio.
+\item[$\textbf{Propósito:}$]: Evitar un olvido de la cita y no desperdiciar ese tiempo
+\item[$\textbf{Usuario:}$]: Profesor y Alumno. 
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Tiempo recordatorio
+\item[$\textbf{Descripción:}$]: El tiempo de notificación podrá ser seleccionado (por el alumno) y podrá ser de 5 opciones diferentes (5, 15, 30 60 min o bien, un día).
+\item[$\textbf{Propósito:}$]: El alumno podrá estar notificado y asi no se le olvidara su cita,
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Configuración Notificaciones  
+\item[$\textbf{Descripción:}$]: El usuario puede configurar ciertos aspectos de la app, como las notificaciones. 
+\item[$\textbf{Propósito:}$]: Evitar molestar al alumno con cualquier notificación que el no desee en ciertos momentos
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Modificacion estado  
+\item[$\textbf{Descripción:}$]: Los profesores modifican su estado de perfil, según sea el caso (disponible, ocupado, no disponible, etc).
+\item[$\textbf{Propósito:}$]: Que los alumnos estén informados del status del profesor
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Modificación Automática  
+\item[$\textbf{Descripción:}$]: La app permite tener un modo automático a los profesores, mismo que modifica el estado según el horario del profesor.
+\item[$\textbf{Propósito:}$]: Si el profesor olvida cambiar su estatus, ayudar a que el alumno sepa que el profe ya no se encuentra en la escuela
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Estadísticas 
+\item[$\textbf{Descripción:}$] La app genera estadísticas con información importante de los profesores, como hora promedio de llegada y salida, momento preferido para comer, tiempo que pasa en el cubículo, etc.
+\item[$\textbf{Propósito:}$]: Para ayudar al alumno en decidir mejor el horario de sus cita.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Muestra de estadísticas 
+\item[$\textbf{Descripción:}$]: La aplicación muestra dichas estadísticas para personas registradas en la app. 
+\item[$\textbf{Propósito:}$]: Controlar esas estadísticas para solo alumnos
+\item[$\textbf{Usuario:}$]: Alumno
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Personalización Perfiles 
+\item[$\textbf{Descripción:}$]: La aplicación permite configurar y personalizar los perfiles con ajustes menores (foto de perfil, algún comentario, etc) de los alumnos. 
+\item[$\textbf{Propósito:}$]:.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: móvil. \\
+
+\item[$\textbf{RNF1:}$] Editar datos del alumno. 
+\item[$\textbf{Descripción:}$]: La aplicación permite al usuario editar ciertos datos o intereses dentro de su perfil.
+\item[$\textbf{Propósito:}$]: El usuario mantiene al día (actualizados) su información e intereses.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. 
+
+\item[$\textbf{RNF1:}$] Eliminar alumnos. 
+\item[$\textbf{Descripción:}$]: La aplicación permite al usuario dar de baja (eliminar) su cuenta previamente registrada, eliminado así su perfil e información.
+\item[$\textbf{Propósito:}$]: El usuario elimine una cuenta que no desea utilizar más. 
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Personalización del perfil del profesor. 
+\item[$\textbf{Descripción:}$]:  La aplicación permite al usuario configurar y personalizar su perfil con ajustes menores como su foto de perfil, comentarios, etc.
+\item[$\textbf{Propósito:}$]: El usuario personaliza su perfil y se siente más en conforme con la app.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Editar datos del profesor. 
+\item[$\textbf{Descripción:}$]: La aplicación permite al usuario editar ciertos datos o intereses dentro de su perfil.
+\item[$\textbf{Propósito:}$]: El usuario mantiene al día (actualizados) su información e intereses.
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Consulta de perfiles. 
+\item[$\textbf{Descripción:}$]: La aplicación al usuario consultar los perfiles únicamente de los profesores, así como cierta información pública como sus horarios, estados, fotos, \item[$\textbf{Descripción:}$], estadísticas, etc.
+\item[$\textbf{Propósito:}$]: El usuario conoce información importante sobre los profesores.
+\item[$\textbf{Usuario:}$]: Alumno, profesor.
+\item[$\textbf{Tipo:}$]: Móvil. \\
+
+\item[$\textbf{RNF1:}$] Eliminar profesores. 
+\item[$\textbf{Descripción:}$]: La aplicación permite al usuario dar de baja (eliminar) su cuenta previamente registrada, eliminado así su perfil e información.
+\item[$\textbf{Propósito:}$]: El elimine una cuenta que no desea utilizar más. 
+\item[$\textbf{Usuario:}$]: Profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Comentarios en perfiles. 
+\item[$\textbf{Descripción:}$]: La aplicación permite al usuario hacer comentarios en los perfiles de los profesores. 
+\item[$\textbf{Propósito:}$]: Dar al profesor una idea de lo que los alumnos piensan acerca de él. 
+\item[$\textbf{Usuario:}$]: Alumno
+\item[$\textbf{Tipo:}$]: Web / móvil.\\ 
+
+\item[$\textbf{RNF1:}$] Cifrado de información. 
+\item[$\textbf{Descripción:}$]: La información importante del usuario es cifrada mediante AES 256.
+\item[$\textbf{Propósito:}$]: Brindar al usuario seguridad y confianza al proteger sus datos. 
+\item[$\textbf{Usuario:}$]: Alumno, profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Usuarios no registrados. 
+\item[$\textbf{Descripción:}$]: El sistema muestra a los usuarios que no cuenten con una cuenta activa (pues no se han registrado) únicamente el mapa de la ESCOM así como la distribución de la misma.
+\item[$\textbf{Propósito:}$]: Extender la información y el servicio del mapa a quienes no desean o puedan registrar una cuenta.
+\item[$\textbf{Usuario:}$]: Usuario no registrado.  
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Concepto de GUIs. 
+\item[$\textbf{Descripción:}$]: El sistema ofrece al usuario interfaces gráficas basadas en Material Design de Google.
+\item[$\textbf{Propósito:}$]: Ofrecer interfaces frescas y que se puedan adaptar a diferentes tamaños y orientaciones de pantalla de los dispositivos. 
+\item[$\textbf{Usuario:}$]: Alumno, profesor, usuario no registrado.  
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Estilo de GUIs. 
+\item[$\textbf{Descripción:}$]: El sistema ofrece al usuario interfaces gráficas minimalistas y con el contenido necesario.
+\item[$\textbf{Propósito:}$]: El usuario siente empatía con el sistema. 
+\item[$\textbf{Usuario:}$]: Alumno, profesor, usuario no registrado.  
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Usabilidad de GUIs. 
+\item[$\textbf{Descripción:}$]: El sistema ofrece al usuario interfaces gráficas intuitivas y fáciles de usar.
+\item[$\textbf{Propósito:}$]: El usuario siente aprende a usar fácil y rápidamente la app.
+\item[$\textbf{Usuario:}$]: Alumno, profesor, usuario no registrado.  
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Diseño de GUIs. 
+\item[$\textbf{Descripción:}$]: El sistema ofrece al usuario interfaces gráficas visualmente atractivas y llamativas usando la psicología del color y formas.
+\item[$\textbf{Propósito:}$]: El usuario siente aprende a usar fácil y rápidamente la app.
+\item[$\textbf{Usuario:}$]: Alumno, profesor, usuario no registrado.  
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] App sin conexión. 
+\item[$\textbf{Descripción:}$]: El sistema ofrece un modo “sin conexión”, mismo que permite al \item[$\textbf{Usuario:}$] visualizar ciertos servicios de la app (por medio del caché) sin necesidad de tener una conexión a Internet.
+\item[$\textbf{Propósito:}$]: El usuario continúa usando servicios de la app incluso sin conexión.
+\item[$\textbf{Usuario:}$]: Alumno, profesor, usuario no registrado.  
+\item[$\textbf{Tipo:}$]: Web / móvil.  \\
+
+\item[$\textbf{RNF1:}$] Cancelación de citas por alumnos. 
+\item[$\textbf{Descripción:}$]: El usuario puede cancelar una cita previamente registrada, siempre y cuando falte determinado tiempo para la cita; ofreciendo además una razón en un apartado que la app también muestra.
+\item[$\textbf{Propósito:}$]: El alumno y el profesor puedan realizar otras actividades cuando sea necesario cancelar. 
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Cancelación de citas por alumnos. 
+\item[$\textbf{Descripción:}$]: El usuario puede cancelar una cita previamente registrada, siempre y cuando falte determinado tiempo para la cita.
+\item[$\textbf{Propósito:}$]: El alumno y el profesor puedan realizar otras actividades cuando sea necesario cancelar. 
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Horarios libres del profesor.  
+\item[$\textbf{Descripción:}$]: La app habilita o deshabilita como disponible los espacios en donde el profesor no tiene clase, según sean sus citas ya programadas.
+\item[$\textbf{Propósito:}$]: El usuario puede ver como disponible solo las horas en donde el profesor no tiene ya citas agendadas. 
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Estadísticas de asistencia a citas.  
+\item[$\textbf{Descripción:}$]: La app muestra en los perfiles una estadista de cumplimiento y asistencia a las citas programadas para el usuario.
+\item[$\textbf{Propósito:}$]: El usuario puede saber que tan responsable es con sus citas el profesor o el alumno en cuestión.
+\item[$\textbf{Usuario:}$]: Alumno, profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Solicitud de alerta sobre disponibilidad de profesores.  
+\item[$\textbf{Descripción:}$]: El usuario solicita que se le envíe una alerta cuando cierto profesor esté disponible.
+\item[$\textbf{Propósito:}$]: El usuario sabe cuando un profesor está disponible.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Alerta a alumnos sobre disponibilidad de profesores.  
+\item[$\textbf{Descripción:}$]: La app envía una alerta a un usuario cuando un profesor que el usuario previamente solicitó esté disponible.
+\item[$\textbf{Propósito:}$]: El usuario sabe cando un profesor está disponible.
+\item[$\textbf{Usuario:}$]: Alumno.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Actualización del programa de eventos especiales.  
+\item[$\textbf{Descripción:}$]: El sistema actualizará semanalmente el programa de eventos especial, con los nuevos eventos a realizarse en los próximos días. 
+\item[$\textbf{Propósito:}$]: El usuario conoce los eventos a realizarse en los días consecutivos. 
+\item[$\textbf{Usuario:}$]: Alumno, profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Campos obligatorios.  
+\item[$\textbf{Descripción:}$]: El sistema valida que no se omitan los campos marcados como obligatorios. 
+\item[$\textbf{Propósito:}$]: No se omita información necesaria e importante para el sistema. 
+\item[$\textbf{Usuario:}$]: Alumno, profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+\item[$\textbf{RNF1:}$] Información correcta.  
+\item[$\textbf{Descripción:}$]: El sistema valida que los datos introducidos en cada campo cumplan con un formato determinado.
+\item[$\textbf{Propósito:}$]: Los datos proporcionados tengan el formato adecuado para su uso correcto.
+\item[$\textbf{Usuario:}$]: Alumno, profesor.
+\item[$\textbf{Tipo:}$]: Web / móvil. \\
+
+
+\end{description}

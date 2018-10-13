@@ -1,0 +1,56 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-AlumnoBolsa-CU1.1}{Consultar Oferta de trabajo.}{
+	\noindent
+	Este caso de uso permite al actor estar informado sobre una oferta de trabajo específica ofrecida por una de las empresas en ESCOM. Se puede consultar el nombre, sueldo, horario y prestaciones de la oferta de trabajo, así como nombre, contacto y logo de la empresa.
+	\newline
+	Diferentes empresas pueden ofertar sus propuestas y los alumnos e interesados podrán visualizarlas y conocer más información por medio de las páginas web o redes sociales de las empresas a través de la misma consulta.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar la información acerca de alguna oferta de trabajo de su interés.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información de la propuesta de trabajo:
+		\begin{itemize}
+			\item Nombre del puesto de empleo.
+			\item Empresa que oferta el empleo.
+			\item Contacto de la empresa.
+			\item Sueldo ofrecido.
+			\item Prestaciones
+			\item Horario.
+			\item Imagen de la empresa.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{Ninguno.}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-AlumnoBolsa-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{José David Pérez García, Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	
+	% Paso 1.
+	\UCpaso [\UCactor] Selecciona la oferta de trabajo que sea de su interés para consulta, presionado sobre ella en la pantalla \IUref{EM-AlumnoBolsa-UI1}{Consultar bolsa de trabajo}.
+
+	% Paso 2.
+	\UCpaso Obtiene el nombre, sueldo ofrecido, horario y prestaciones de la oferta de trabajo, así como el nombre, contacto y logo de la empresa que oferta el empleo.
+	
+	% Paso 3.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoBolsa-UI1-1}{Consultar Oferta de trabajo} con la información antes mencionada de la oferta de trabajo seleccionada. 
+	
+	% Paso 4.
+	\UCpaso [\UCactor] Consulta la información completa de la oferta de trabajo seleccionada.
+\end{UCtrayectoria}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

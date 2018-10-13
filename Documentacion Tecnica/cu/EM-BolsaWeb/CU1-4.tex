@@ -1,0 +1,64 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU1.4}{EM-WebBolsa-CU1.4-Eliminar Oferta de Trabajo}{
+		En este caso de uso el actor podrá eliminar una oferta de trabajo y toda su información es importante mencionar que solo se podrán eliminar las ofertas de trabajo aún sin publicar.Esta accioón no se puede revertir.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Encargado de Bolsa de Trabajo}
+		\UCitem{Propósito}{ Proporcionar al actor un mecanismo que le permita eliminar ofertas de trabajo del sistema.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Ninguna
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{Teclado y Ratón}
+		\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG7}{Eliminar elemento}
+			\item \MSGref{MSG1}{Operación Exitosa}
+		\end{itemize}}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Que haya al menos una oferta de trabajo registrada no publicada en el sistema..}
+		\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item Elimina la información de la oferta de trabajo del sistema.
+			\item Actualiza la tabla que muestra las ofertas de trabajo sin publicar .
+		\end{itemize}
+		}
+		\UCitem{Errores}{
+
+		}
+		\UCitem{Tipo}{Secundario}
+		\UCitem{Observaciones}{	
+
+
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Solicita eliminar una nueva oferta  de trabajo presionando en el icono \UCicono{eliminar.png} de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+	\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento} en la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}para confirmar la eliminación de la oferta de trabajo. 
+\UCpaso [\UCactor] Presiona el botón \IUbutton{Sí}, confirmando eliminar la oferta de trabajo. \Trayref{A} 
+	\UCpaso Elimina los datos de la oferta de trabajo seleccionada.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.  
+	
+	
+	\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea eliminar una oferta.}
+
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{No}  del mensaje de confirmación..
+
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.   
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.

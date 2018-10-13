@@ -1,0 +1,61 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-AlumnoBolsa-CU1}{Consultar Bolsa de trabajo.}{
+	\noindent
+	Este caso de uso permite al actor mantenerse al corriente de las diferentes ofertas laborales ofrecidas por las empresas en ESCOM, conocer las propuestas que éstas brindan, así como los requisitos requeridos y los beneficios ofrecidos que se abren a los alumnos por medio de la consulta de la bolsa de trabajo. 
+	\newline
+	Diferentes empresas pueden ofertar sus propuestas y los alumnos e interesados podrán visualizarlas y conocer más información por medio de las páginas web o redes sociales de las empresas a través de la misma consulta.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar
+	la información acerca de las oportunidades de trabajo disponibles.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información de las propuestas de trabajo:
+		\begin{itemize}
+			\item Nombre del puesto de empleo.
+			\item Empresa que oferta el empleo.
+			\item Sueldo ofrecido.
+			\item Logo de la empresa.
+		\end{itemize}
+	}
+s	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Tener dadas de alta en el sistema propuestas de empleo.}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-AlumnoBolsa-CU1-E1} Cuando no hay ofertas de trabajo dadas de alta en el sistema, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Caso de uso Primario.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{José David Pérez García, Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita consultar las ofertas de trabajo seleccionando la opción "Bolsa de trabajo" de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}. 
+
+	% Paso 2.
+	\UCpaso Verifica que hayan propuestas de trabajo dadas de alta en el sistema. [Error \ref{EM-AlumnoBolsa-CU1-E1}]
+
+	% Paso 3.
+	\UCpaso Obtiene las ofertas de trabajo dadas de alta en el sistema.
+
+	% Paso 4.
+	\UCpaso Obtiene la siguiente información de las ofertas de trabajo: nombre del puesto, sueldo ofrecido, nombre y logo de la empresa que la oferta.
+
+	% Paso 5.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoBolsa-UI1}{Consultar bolsa de trabajo} con la información resumida de la ofertas de trabajo obtenidas, esto es, muestra las ofertas de trabajo con nombre del puesto, sueldo, nombre y logo de la empresa. 
+
+\end{UCtrayectoria}
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

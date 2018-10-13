@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ESCOMobile</title>
+
+	<link rel="stylesheet" href="assets/DataTables/Bootstrap-4-4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/DataTables/datatables.css"/>
+
+	<link href="assets/js/clockpicker.css" rel="stylesheet" />
+	<link href="assets/js/bootstrap-clockpicker.css" rel="stylesheet" />
+
+	<!-- Para los iconos se necesita conexión a internet-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!------>
+	<link rel="stylesheet" href="assets/css/dashboard.css">
+	<link rel="stylesheet" href="assets/lobibox/dist/css/lobibox.min.css"/>
+	<link rel="stylesheet" href="assets/js/jquery-clockpicker.min.css">
+	<link rel="stylesheet" href="assets/css/dTables.css"/>
+	<link rel="stylesheet" href="assets/css/estilo.css"/>
+</head>
+<body>
+	<nav class="navbar navbar-light flex-md-nowrap p-0 shadow"> <!-- fixed-top -->
+		<div class="col-sm-4 col-md-4"></div>
+		<h1><span class="blue">ESCOMobile</span> <span class="orange">bolsa</span></h1>
+		<div class="col-sm-2 col-md-2"></div>
+		<img class="imagenPerfil" id="pictureProfile" src=""/>
+		<a class="nav-link-2" id="namePage" href="">Bolsa de trabajo</a>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+								Ofertas laborales <span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://localhost/ESCOMobileServer/empresas.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+								Empresas
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<!--<div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+			<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+				<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+
+				</div>
+			</div>
+			<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+				<div style="position:absolute;width:200%;height:200%;left:0; top:0">
+
+				</div>
+			</div>
+		</div>
+
+		-->
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-0 mb-3 border-bottom">
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3 myDiv">
+				<div class="btn-group btn-group-lg">
+					<button type="button" class="button button1" disabled>
+						<i class="material-icons md-48">business_center</i>
+					</button>
+					<button type="button" class="button button3" disabled><span id="totalOfertas" class="orange">0</span> Ofertas publicadas</button>
+				</div>
+			</div>
+
+			<div class="col-sm-9">
+				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="450" height="90%"
+					style="display: block;"></canvas>
+			</div>
+		</div>
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" id="ofertas-sin-publicar" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+					Ofertas sin publicar
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="ofertas-publicadas" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+					Ofertas publicadas
+				</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="ofertas-sin-publicar">
+				<div class="d-flex flex-row-reverse bd-highlight">
+					<div class="p-2 bd-highlight">&nbsp;</div>
+					<div class="p-2 bd-highlight">
+						<button class="btn btn-default btn-icon" id="myOferta">
+							<i class="fa fa-plus-square-o md-36"></i>
+							<p>Añadir oferta</p>
+						</button>
+					</div>
+				</div>
+
+				<!-- Ofertas sin publicar -->
+				<table id="ofertasNoPublicadas" class="display">
+				    <thead>
+				        <tr>
+				        	<th>Sel.</th>
+							<th>No.</th>
+							<th>NOMBRE DE LA EMPRESA</th>
+							<th>HORARIO</th>
+							<th>VACANTE</th>
+							<th>SUELDO</th>
+							<th>CONTACTO</th>
+							<th>OPCIONES</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				    	<tr>
+				    		<td><input class="form-check-input" type="checkbox" id="check-0" value="0"></td>
+							<td>1</td>
+							<td>Secretaría de Hacienda y Crédito Público – Banco Interamericano de Desarrollo (BID)</td>
+							<td>10:00 a 20:00 hrs.</td>
+							<td>Analista de Sistemas (una vacante) Conocimiento en casos de uso, diagramas de flujo, levantamiento de requerimientos, elaboración de prototipos y en sistemas operacionales o transaccionales.</td>
+							<td> $27,000 Bruto (Según aptitudes)</td>
+							<td>Marco Antonio Chávez Leal                                                    Tel:36881212                                          Correo: marco_chavezl@hacienda.gob.mx</td>
+							<td></td>
+				        </tr>
+				    </tbody>
+				</table>
+
+				<div class="col-sm-12 m-50 p-40">
+					<div class="d-flex flex-column center">
+						<button class="btn btn-outline-secondary btnOrang" id="publicar">Publicar boletín</button>
+					</div>
+				</div>
+				<div class="p-100 m-100">&nbsp;</div>
+			</div>
+
+			<!-- Ofertas publicadas -->
+			<div class="tab-pane w-100" id="profile" role="tabpanel" aria-labelledby="ofertas-publicadas">
+				<div class="d-flex flex-row-reverse bd-highlight">
+					<div class="p-2 bd-highlight">&nbsp;</div>
+					<div class="p-2 bd-highlight">
+						<select class="form-control" id="ofertasPorAño">
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+						</select>
+					</div>
+					<div class="p-2 pt-3 bd-highlight">
+						<p>Mostrar ofertas del año </p>
+					</div>
+				</div>
+
+				<table id="ofertasPublicadas">
+				    <thead>
+				        <tr>
+							<th>No.</th>
+							<th>NOMBRE DE LA EMPRESA</th>
+							<th>HORARIO</th>
+							<th>VACANTE</th>
+							<th>SUELDO</th>
+							<th>CONTACTO</th>
+							<th>FECHA PUB.</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				    	<tr>
+							<td>1</td>
+							<td>Secretaría de Hacienda y Crédito Público – Banco Interamericano de Desarrollo (BID)</td>
+							<td>10:00 a 20:00 hrs.</td>
+							<td>Analista de Sistemas (una vacante) Conocimiento en casos de uso, diagramas de flujo, levantamiento de requerimientos, elaboración de prototipos y en sistemas operacionales o transaccionales.</td>
+							<td> $27,000 Bruto (Según aptitudes)</td>
+							<td>Marco Antonio Chávez Leal                                                    Tel:36881212                                          Correo: marco_chavezl@hacienda.gob.mx</td>
+							<td>30-06-2018</td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+
+			<div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="other-tab">
+
+			</div>
+		</div>
+		<div class="p-100 m-100">&nbsp;</div>
+	</main>
+</div>
+</div>
+
+<!-- ============================ MODAL OFERTA TRABAJO. ============================ -->	
+<div class="modal fade" id="modalOferta" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><span class="blue">ESCOMobile</span> <span class="orange">bolsa</span></h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="textCenter pb-1">
+					<h4>Registrar Nueva Oferta</h4>
+					<h5>Es necesario introducir los campos marcados con *</h5>
+				</div>
+
+				<div class="m-2">
+					<form id="formulario">
+						<h5>Información de la oferta</h5>
+						<!--=============== Campo: Nombre de la empresa. ===============-->
+						<div class="form-group">
+							<label for="nombreEmpresa">* Nombre de la empresa</label>
+							<div class="form-row">
+								<div class="form-group col-sm-11">
+									<input class="form-control" type="text" name ="datalist_empresas" list="datalist_empresas" 
+									id="empresa" data-id="" placeholder="Nombre de la empresa">
+								<datalist id="datalist_empresas"></datalist>
+								</div>
+								<div class="form-group col-sm-1">
+									<button type="button" class="btn btn-primary">+</button>
+								</div>
+							</div>
+						</div>
+						<!--=============== FIN Campo: Nombre de la empresa. ===============-->
+
+						<!--=============== Campo: HORARIO. ===============-->
+						<div class="form-group">
+							<p>* Horario:</p>
+							<select id="horario"  class="form-control" onchange="updateSchedule( this )">
+								<option selected value="Tiempo completo">Tiempo completo</option>
+								<option value="Medio tiempo">Medio tiempo</option>
+								<option value="Sin definir">Sin definir</option>
+							</select>
+						</div>
+
+						<div class="form-group" id="select_horario">
+							<div class="form-row align-items-center">
+								<div class="form-check form-check-inline col-sm-5">
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" 
+										id="inlineRadio1" value="option1" onchange="showScheduleForm(this)" checked>
+									<label class="form-check-label" for="inlineRadio1">Definido</label>
+								</div>
+								<div class="form-check form-check-inline" col-sm-5>
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" 
+										id="inlineRadio2" value="option2" onchange="showScheduleForm(this)">
+									<label class="form-check-label" for="inlineRadio2">Sin definir</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group" id="horarioOferta">
+							<div class="form-row align-items-center">
+								<!--<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="dom">
+										<small><label class="form-check-label" for="dom">Domingo</label></small>
+									</div>
+								</div> -->
+								<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="lun" 
+											onchange="showScheduleForDay( this )" checked>
+										<small><label class="form-check-label" for="lun">Lunes</label></small>
+									</div>
+								</div>
+								<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="mar"
+											onchange="showScheduleForDay( this )" checked>
+										<small><label class="form-check-label" for="mar">Martes</label></small>
+									</div>
+								</div>
+								<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="mie"
+											onchange="showScheduleForDay( this )" checked>
+										<small><label class="form-check-label" for="mie">Miércoles</label></small>
+									</div>
+								</div>
+								<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="jue"
+											onchange="showScheduleForDay( this )" checked>
+										<small><label class="form-check-label" for="jue">Jueves</label></small>
+									</div>
+								</div>
+								<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="vie"
+											onchange="showScheduleForDay( this )" checked>
+										<small><label class="form-check-label" for="vie">Viernes</label></small>
+									</div>
+								</div>
+								<div class="form-group col-sm-2">
+									<div class="form-check mb-2 mr-sm-2">
+										<input class="form-check-input" type="checkbox" id="sab"
+											onchange="showScheduleForDay( this )">
+										<small><label class="form-check-label" for="sab">Sábado</label></small>
+									</div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-sm-6"> 
+									<label for="hora_ini">De: </label>
+									<input type="time" class="form-control" name="hora" value="09:00:00" max="23:59:00" 
+										min="07:00:00" step="1" id="hora_ini">
+								</div>	
+								<div class="form-group col-sm-6"> 
+									<label for="hora_fin"> A: </label>
+									<input type="time" class="form-control" name="hora" value="18:00:00" max="23:59:00" 
+										min="07:00:00" step="1" id="hora_fin">
+								</div>
+							</div>
+						</div>
+						<!--=============== FIN Campo: HORARIO. ===============-->
+
+						<!--=============== Campo: Puesto. ===============-->
+						<div class="form-group">
+							<label for="vacante">* Nombre del puesto</label>
+							<input type="text" class="form-control" id="puesto" placeholder="ej. Análista de software">
+						</div>
+						<!--=============== FIN Campo: Puesto. ===============-->
+
+						<!--=============== Campo: VACANTE. ===============-->
+						<div class="form-group">
+							<label for="Vacante">* Número de vacantes</label>
+							<input type="number" class="form-control" id="Vacante" min="1" max="30" placeholder="ej. 4" step="1">
+						</div>
+						<!--=============== FIN Campo: VACANTE. ===============-->
+
+						<!--=============== Campo: Requisitos. ===============-->
+						<div class="form-group">
+							<label for="Requisitos">*Requisitos</label>
+							<textarea class="form-control form-control-sm" id="Requisitos" rows="5" 
+								placeholder="ej. Ing. Sistemas o afín. 20 años de experiencia."></textarea>
+						</div>
+						<!--=============== FIN Campo: Requisitos. ===============-->
+
+						<!--=============== Campo: Idioma. ===============-->
+						<div class="form-group">
+							<label for="Perfil">* Idiomas</label>
+							<select id="idiomas"  class="form-control">
+								<option value="1">Inglés</option>
+								<option value="2">Otro</option>
+								<option selected value="3">Indistinto</option>
+							 </select>
+						</div>
+						<!--=============== FIN Campo: Idioma. ===============-->
+
+						<!--=============== Campo: Perfil. ===============-->
+						<div class="form-group">
+							<label for="Perfil">* Perfil</label>
+							<select id="Perfil" class="form-control">
+								<option value="Estudiante">Estudiante</option>
+								<option value="Becario">Becario</option>
+								<option value="Pasante">Pasante</option>
+								<option selected value="Titulado">Titulado</option>
+							</select>
+						</div>
+						<!--=============== FIN Campo: Perfil. ===============-->
+
+						<!--=============== Campo: Sueldo. ===============-->
+						<div class="form-group" >
+							<div class="form-row" id="sueldo_container">
+								<div class="form-group col-sm-4"> 
+									<label for="tipo_sueldo">* Sueldo</label>
+									<select id="tipo_sueldo" class="form-control" onchange="onChangeTypeSueldo( this )">
+										<option selected value="Fijo">Fijo</option>
+										<option value="Rango">Rango</option>
+										<option value="Según aptitudes">Según aptitudes</option>
+										<option value="Competitivo">Competitivo</option>
+										<option value="A tratar">A tratar</option>
+									</select>
+								</div>	
+								<div class="form-group col-sm-8" id="cantidad_fijo"> 
+									<label for="sueldo">* Cantidad</label>
+									<input type="number" id="sueldo"class="form-control"  min="1" max="100000" 
+										step="any" placeholder="ej. 15,000.00" />
+									<small class="form-text text-muted">El sueldo es de un rango de $1.00 a $100,000</small>
+								</div>
+							</div>
+						</div>
+						<!--=============== FIN Campo: Sueldo. ===============-->
+
+						<!--=============== Campo: Prestaciones. ===============-->
+						<div class="form-group">
+							<label for="Prestaciones">* Prestaciones</label>
+							<textarea class="form-control" id="Prestaciones" rows="5"
+								placeholder="ej. Prestaciones superiores de ley. Happy Friday"></textarea>
+						</div>
+						<!--=============== Campo: Prestaciones. ===============-->
+					</form>
+					<div class="text-center">
+						<button type="button" id="oferta" class="btn btn-warning btnOrang">Registrar Oferta</button>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+	<!-- API's -->
+	<script src="assets/DataTables/jQuery-3.2.1/jquery-3.2.1.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/tooltip.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/popper.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/bootstrap.bundle.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/bootstrap.js"></script>
+	<script src="assets/DataTables/datatables.js"></script>
+  	<script src="assets/lobibox/dist/js/lobibox.min.js"></script>
+  	<script src="assets/js/lobiboxOptions.js"></script>
+  	<script src="assets/js/jquery-clockpicker.min.js"></script>
+  	<script src="assets/js/chart.js"></script>
+
+  	<!-- JS -->
+	<script src="assets/js/prueba.js"></script>
+	<script src="assets/js/oferta.js"></script>
+
+	<script src="assets/js/infoProfile.js"></script>
+	<script src="assets/js/dTables.js"></script> 
+	<script src="assets/js/publicar.js"></script>
+	<script src="assets/js/requestOferta.js"></script>
+	<script src="assets/js/myChart.js"></script>
+</body>
+</html>

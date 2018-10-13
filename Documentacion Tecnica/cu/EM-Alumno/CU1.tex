@@ -1,0 +1,75 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Alumno-CU1}{Consultar perfil del alumno.}{
+	\noindent
+	Este caso de uso permite al actor consultar su información registrada dentro del sistema por medio de su perfil, esta información es su nombre, fotografía, número de boleta, correo electrónico, así como las citas próximas programadas. También sirve de acceso para buscar a profesores de ESCOM, ver el mapa de la ESCOM o modificar la información de su cuenta. 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar su información registrada en el sistema.}
+	\UCitem{Entradas}{
+		Ninguna.
+	}
+	\UCitem{Origen}{
+		No aplica.
+	}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información del alumno:
+		\begin{itemize}
+			\item Nombre.
+			\item Boleta.
+			\item Fotografía.
+			\item Correo electrónico.
+			\item Próxima cita. 
+		\end{itemize}
+	}
+	\UCitem{Destino}{
+		Pantalla.
+	}
+	\UCitem{Precondiciones}{
+		Ninguna.
+	}
+	\UCitem{Postcondiciones}{
+		Ninguna.
+	}
+	\UCitem{Errores}{
+		Ninguno.
+	}
+	\UCitem{Tipo}{Primario.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita consultar su perfil con su información registrada en el sistema seleccionando la opción ''Mi perfil'' de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}.
+
+	%Paso 2.
+	\UCpaso Obtiene Nombre, Boleta, Fotografía, Correo electrónico y la Próxima cita asociada a la cuenta del actor.  
+
+	%Paso 3.
+	\UCpaso Muestra la pantalla \IUref{EM-Alumno-UI1}{Consultar Perfil del Alumno} con la información obtenida.
+
+	%Paso 4.
+	\UCpaso[\UCactor] Consulta su información por medio de su perfil.
+
+	%Paso 5.
+	\UCpaso [\UCactor] Presiona uno de los siguientes botones, según sea la acción que desee realizar: 
+	\begin{itemize}
+		\item \IUbutton{Consultar citas} para consultar todas las citas asociadas a su cuenta.
+		\item \IUbutton{Buscar profesores} para realizar la búsqueda de algún profesor.
+		\item \IUbutton{Ver mapa mapa} para consultar el mapa de ESCOM.
+		\item \IUbutton{Editar perfil} para modificar su información dentro del sistema.
+		\item \IUbutton{Regresar} para regresar a la pantalla anterior.  
+	\end{itemize}
+
+\end{UCtrayectoria}
+
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

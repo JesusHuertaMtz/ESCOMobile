@@ -1,0 +1,68 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introducci\IeC {\'o}n}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Justificaci\IeC {\'o}n}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Problem\IeC {\'a}tica}{2}{subsection.1.2.1}
+\contentsline {chapter}{\numberline {2}Marco te\IeC {\'o}rico}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Mercado meta}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Glosario del Negocio}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Tecnolog\IeC {\'\i }as a usar}{8}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}IDE}{8}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Sistema Gestor de Base de Datos en la aplicaci\IeC {\'o}n m\IeC {\'o}vil}{10}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Sistema Gestor de Base de Datos del lado del servidor}{11}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Servidor}{11}{subsection.2.3.4}
+\contentsline {chapter}{\numberline {3}Estado del arte}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Historia}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}Aplicaci\IeC {\'o}nes }{13}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Red An\IeC {\'a}huac}{13}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}MIT MOBILE}{14}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}CONEXION UVM}{15}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}IBERO MOVIL}{16}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}MANIFEST ESCOM}{17}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}ESCOMobile}{18}{subsection.3.2.6}
+\contentsline {chapter}{\numberline {4}Propuesta del proyecto.}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}Objetivos}{20}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}General}{20}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Espec\IeC {\'\i }ficos}{20}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Requisitos}{21}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Requisitos funcionales}{21}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Requisitos de plataforma}{25}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Requisitos de negocio}{26}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Requisitos de informaci\IeC {\'o}n}{28}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Requisitos de interacci\IeC {\'o}n con el usuario}{32}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Requsitos de la propiedad de software}{33}{subsection.4.2.6}
+\contentsline {chapter}{\numberline {5}Trabajo Realizado.}{34}{chapter.5}
+\contentsline {section}{\numberline {5.1}Primera iteraci\IeC {\'o}n}{34}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Activity}{35}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Primera app}{35}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Segunda iteraci\IeC {\'o}n}{36}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Servicio}{37}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Fragment}{37}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Tercera iteraci\IeC {\'o}n}{40}{section.5.3}
+\contentsline {section}{\numberline {5.4}Cuarta iteraci\IeC {\'o}n}{42}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Casos de uso}{42}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Mapas de navegaci\IeC {\'o}n}{42}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Quinta iteraci\IeC {\'o}n}{43}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Balsamiq Mockups 3}{43}{subsection.5.5.1}
+\contentsline {section}{\numberline {5.6}Sexta Iteraci\IeC {\'o}n}{44}{section.5.6}
+\contentsline {section}{\numberline {5.7}S\IeC {\'e}ptima Iteraci\IeC {\'o}n}{45}{section.5.7}
+\contentsline {section}{\numberline {5.8}Octava Iteraci\IeC {\'o}n}{45}{section.5.8}
+\contentsline {section}{\numberline {5.9}An\IeC {\'a}lisis y dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{47}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Paquete General}{48}{subsection.5.9.1}
+\contentsline {subsection}{\numberline {5.9.2} Acceso}{49}{subsection.5.9.2}
+\contentsline {subsection}{\numberline {5.9.3} Mapa}{50}{subsection.5.9.3}
+\contentsline {subsection}{\numberline {5.9.4} Alumno}{51}{subsection.5.9.4}
+\contentsline {subsection}{\numberline {5.9.5} Profesor}{51}{subsection.5.9.5}
+\contentsline {subsection}{\numberline {5.9.6} Administracion}{52}{subsection.5.9.6}
+\contentsline {subsection}{\numberline {5.9.7} Cita}{53}{subsection.5.9.7}
+\contentsline {subsection}{\numberline {5.9.8} Evento}{54}{subsection.5.9.8}
+\contentsline {section}{\numberline {5.10}Desarrollo, prototipo de la aplicaci\IeC {\'o}n}{55}{section.5.10}
+\contentsline {section}{\numberline {5.11}Trabajo futuro}{56}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}M\IeC {\'o}dulo de acceso}{56}{subsection.5.11.1}
+\contentsline {subsection}{\numberline {5.11.2}M\IeC {\'o}dulo de Mapa}{56}{subsection.5.11.2}
+\contentsline {subsection}{\numberline {5.11.3}M\IeC {\'o}dulo de Alumno}{56}{subsection.5.11.3}
+\contentsline {subsection}{\numberline {5.11.4}M\IeC {\'o}dulo de Profesor}{57}{subsection.5.11.4}
+\contentsline {subsection}{\numberline {5.11.5}M\IeC {\'o}dulo de Administraci\IeC {\'o}n}{57}{subsection.5.11.5}
+\contentsline {subsection}{\numberline {5.11.6}M\IeC {\'o}dulo de Cita}{57}{subsection.5.11.6}
+\contentsline {subsection}{\numberline {5.11.7}M\IeC {\'o}dulo de Evento}{57}{subsection.5.11.7}
+\contentsline {subsection}{\numberline {5.11.8}M\IeC {\'o}dulos web}{57}{subsection.5.11.8}

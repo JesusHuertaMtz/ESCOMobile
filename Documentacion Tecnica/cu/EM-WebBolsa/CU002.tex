@@ -1,0 +1,91 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-WebBolsa-CU02}{Registrar nueva Empresa}{
+		Este caso de uso permite al actor registrar la información de una nueva empresa interesada en ofertar empleos para los alumnos de la ESCOM, manteniendo con ello un mayor control de las empresas y ofertas que éstas abren para los alumnos, ademaás de brindar un servicio más seguro a quienes deseen aplicar para una o varias de las ofertas profestas.
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, invitado}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita tener un mayor control sobre el registro de empresas y las ofertas que éstas proponen a la ESCOM.}
+	\UCitem{Entradas}{
+		Se requieren los siguientes datos de la empresa:
+		\begin{itemize}
+			\item Imagen con RFC. 
+			\item Nombre.
+			\item Giro.
+			\item Sector.
+			\item Correo electrónico.
+			\item Imagen.
+		\end{itemize}
+	}
+	\UCitem{Origen}{
+		Teclado, ratón.
+	}
+	\UCitem{Salidas}{
+		Ninguna.
+	}
+	\UCitem{Destino}{
+		No aplica.
+	}
+	\UCitem{Precondiciones}{
+		Ninguna.
+	}
+	\UCitem{Postcondiciones}{
+		Persiste la información de la empresa.
+	}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			%%  E1: Campos obligatorios. 
+			\item \label{EM-WebBolsa-CU02-E1} Cuando no se introducen todos los campos obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{termina el caso de uso.}
+			%%  E2: Duplicidad de información. 
+			\item \label{EM-WebBolsa-CU02-E2} Cuando el nombre de la empresa ya se encuentra registrado en el sistema, muestra el mensaje \MSGref{MSG4}{Información duplicada} y \textbf{termina el caso de uso.}
+		\end{enumerate}	
+	}
+	\UCitem{Tipo}{Primario}
+	\UCitem{Observaciones}{Es la primera propuesta de este caso de uso, se espera que se revise para implementar las correciones adecuadas.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita presiona el botón \IUbutton{Registrar empresa} de la pantalla ESCOMobile Bolsa. 
+
+	%Paso 2.
+	\UCpaso Muestra la pantalla \IUref{EM-WebBolsa-UI2}{Registrar nueva Empresa} con el formulario necesario para registrar a la empresa. 
+
+	%Paso 3.
+	\UCpaso [\UCactor] Introduce los datos requeridos en el formulario. 
+
+	%Paso 4.
+	\UCpaso [\UCactor] Solicita registar una nueva empresa presionando el botón \IUbutton{Registrar empresa} de la pantalla \IUref{EM-WebBolsa-UI2}{Registrar nueva Empresa}. \Trayref{A} 
+
+	%Paso 5.
+	\UCpaso Valida que los campos del formulario no estén vacios, de acuedo a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios} [Error \ref{EM-WebBolsa-CU02-E1}] 
+
+	%Paso 6.
+	\UCpaso Valida que el nombre de la emrpesa no se encuentre registrado ya en el sistema, de acuerdo a la regla de negocio \BRref{EM-RN-S007}{Unicidad de elementos.} [Error \ref{EM-WebBolsa-CU02-E2}] 
+	
+	%Paso 7.
+	\UCpaso Obtiene los datos de la empresa introducidos en el formulario. 
+
+	%Paso 8.
+	\UCpaso Persiste la información en el sistema.
+
+	%Paso 9.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla ESCOMobile Bolsa.  
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea registrar más una empresa.}
+	%Paso A1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{cancelar} de la pantalla \IUref{EM-WebBolsa-UI2}{Registrar nueva Empresa}. 
+
+	%Paso A2.
+	\UCpaso Muestra la pantalla ESCOMobile Bolsa.  
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

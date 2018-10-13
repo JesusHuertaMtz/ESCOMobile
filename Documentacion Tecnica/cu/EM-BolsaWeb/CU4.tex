@@ -1,0 +1,87 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-BolsaWeb-CU4}{Gestionar Empresas}{
+		Este caso de uso permite al actor gestionar las empresas de la bolsa de trabajo de ESCOMobile, dando un punto de acceso al registro, edición, consulta y eliminación de las empresas en el sistema, pues son las empresas quienes ofertarán trabajo a los alumnos de la ESCOM interesados en encontrar empleo.
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{ Encargado de Bolsa de Trabajo.}
+	\UCitem{Propósito}{ Proporcionar al actor acceso al registro, edición, consulta y eliminación de empresas en el sistema.}
+	\UCitem{Entradas}{
+		Ninguna.
+	}
+	\UCitem{Origen}{
+		No aplica.
+	}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Número de empresas registradas.
+			\item Tabla que muestra la siguiente información de las empresas registradas
+			\begin{itemize}
+				\item Nombre de la Empresa.
+				\item Giro.
+				\item Contacto.
+				\item RFC.
+				\item Número de ofertas publicadas.
+				\item Número de ofertas visualizadas. 
+			\end{itemize}
+			\end{itemize}
+	}
+	\UCitem{Destino}{
+		Pantalla.
+	}
+	\UCitem{Precondiciones}{
+		Ninguna.
+	}
+	\UCitem{Postcondiciones}{
+		Ninguna.
+	}
+	\UCitem{Errores}{
+		Ninguno. 
+	}
+	\UCitem{Tipo}{ Primario}
+	\UCitem{Observaciones}{ Es la primera propuesta de este caso de uso, se espera que se revise para implementar las correciones adecuadas.}
+	\UCitem{Autor}{ Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{ Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita gestionar las empresas de ESCOMobile Bolsa dando clic en la opción ''Empresas'' de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+
+	%Paso 2.
+	\UCpaso Verifica que haya empresas registradas. \Trayref{A} 
+
+	%Paso 3.
+	\UCpaso Obtiene nombre, giro y RFC de las empresas registradas, así como el número total de empresas registradas.
+
+	%Paso 4.
+	\UCpaso Obtiene el nombre de contacto, los tipos de contacto y los valores de contacto asociados a cada una de las empresas previamente obtenidas.
+
+	%Paso 5.
+	\UCpaso Obtiene las ofertas con estado de ''publicadas'' y ''visualizadas'' asociadas a cada una de las empresas previamente obtenidas.
+
+	%Paso 6.
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas} con el número de empresas registradas, así como una tabla que contiene: Nombre de la Empresa, Giro, Contacto, RFC, Número de ofertas publicadas, Número de ofertas visualizadas, así como las acciones editar (\UCicono{lapiz.png}) y eliminar (\UCicono{eliminar.png}) habilitadas para las empresas registradas en el sistema. \label{EM-BolsaWeb-CU4-TAA}
+
+	%Paso 7.
+	\UCpaso [\UCactor] Consulta las empresas registradas en el sistema y los contactos que a éstas se asocian. 
+
+	%Paso 8. 
+	\UCpaso [\UCactor] Gestiona las empresas por medio del botón \IUbutton{Añadir empresa} para registrar una nueva empresa en el sistema o bien, de las acciones \UCicono{lapiz.png} para editar alguna de las empresas registradas y \UCicono{eliminar.png} para eliminar alguna de las empresas registradas.
+
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando no hay empresas registradas.}
+	%Paso A1.
+	\UCpaso Establece el número de empresas registradas igual a 0. 
+
+	\UCpaso Regresa al paso \ref{EM-BolsaWeb-CU4-TAA} de la trayectoria principal.
+\end{UCtrayectoriaA}
+
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

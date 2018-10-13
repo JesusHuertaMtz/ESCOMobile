@@ -1,0 +1,310 @@
+\section{Pantallas del módulo de Acceso.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Pantalla de Inicio de ESCOMobile.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar al actor tres opciones. Registrarse, iniciar sesión o consultar el mapa.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla mostrará el logo de la aplicación ESCOMobile y dos botones principales \IUbutton{Registrarse} e \IUbutton{Iniciar sesión}.
+	Además del botón \IUbutton{Continuar sin registrarse} 
+
+\IUfig[.5]{gui/Maquetas/Acceso/EM_Acceso_UI1_Pantalla_de_Inicio}{Pantalla Inicio}{}
+
+\subsubsection{Salidas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+	\begin{itemize}
+		\item \IUbutton{Registrarse}: Manda al actor a la pantalla de registro.
+		\item \IUbutton{Iniciar sesión}: Manda al actor a la pantalla para iniciar sesión.
+		\item \IUbutton{Continuar sin registrarse}: Manda al actor a la pantalla para consultar el mapa.
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	\begin{Citemize}
+		\item Ningún mensaje es mostrado.
+	\end{Citemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{EM-Acceso-UI1 Registrar Nuevo Usuario.}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá registrarse en el sistema para acceder a todas las funcionalidades de la aplicación.
+
+\subsubsection{Diseño}
+	\noindent
+	Se mostrarán los campos que serán obligatorios para llevar a cabo el registro del nuevo usuario.
+	\begin{itemize}
+		\item Boleta / número de empleado.
+		\item Nombre.
+		\item Apellido Paterno.
+		\item Apellido Materno.
+		\item Correo electrónico.
+		\item Contraseña.
+	\end{itemize}
+
+	\noindent
+	Así mismo se mostrará el botón \IUbutton{Registrarse} y el botón \IUbutton{¿Ya tienes cuenta? Entra!}.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Acceso/EM_Acceso_UI1_Registrar_nuevo_usuario}{EM-Acceso-UI1}{Registrar Nuevo Usuario}
+
+\subsubsection{Salidas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Entradas}
+	
+	\begin{itemize}
+		\item Número de Boleta del alumno o número de empleado del profesor.
+	    \item Nombre. 	
+	    \item Apellido Paterno.
+	    \item Apellido Materno.
+		\item Correo electronico.
+		\item Contraseña.
+		\item Repetir Contraseña.
+		\item Tipo de usuario.
+		\item Términos y condiciones. 
+	\end{itemize}
+
+\subsubsection{Comandos}
+	
+	\begin{itemize}
+		\item \IUbutton{Registrarse}: Manda al actor a la pantalla de \IUref{UI2}{Pantalla de Inicio de
+		 Sesión.}
+		\item \IUbutton{¿Ya tienes cuenta? ¡Entra!}: Manda al actor a la pantalla de \IUref{UI2}{Inicio de Sesión.}
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	
+	\begin{Citemize}
+		\item \MSGref{MSG1}{Operación Exitosa}.
+		\item \MSGref{MSG5}{Falta dato obligatorio}.	
+	    \item \MSGref{MSG6}{Formato de campo Incorrecto}.
+	    \item \MSGref{MSG9}{Número de Boleta/Número de empleado no válido}.
+	    \item \MSGref{MSG16}{Contraseñas no coinciden}.
+	\end{Citemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{EM-Acceso-UI2 Iniciar Sesión.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor un mecanismo para acceder al sistema por medio de sus credenciales. 
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra los campos Boleta/\# Empleado y contraseña.
+	\noindent
+	Además del botones \IUbutton{Ingresar}, \IUbutton{¿No tienes una cuenta? Regístrate!} y \IUbutton{Olvidé mi contraseña}, mismos que ayudarán al actor a realizar diversas actividades en caso de no tener aún una cuenta creada o haber olvidado la contraseña de la misma. 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Acceso/EM_Acceso_UI2_Iniciar_Sesion}{EM-Acceso-UI2}{Iniciar Sesión}
+
+\subsubsection{Salidas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Entradas}
+	
+	\begin{itemize}
+		\item Boleta o número de usuario.
+		\item Contraseña del actor.
+	\end{itemize}
+
+\subsubsection{Comandos}
+	
+	\begin{itemize}
+		\item \IUbutton{Ingresar}: Da acceso al sistema si las credenciales del usuario son correctas.
+		\item \IUbutton{¿No tienes cuenta? ¡Regístrate!}: Manda al actor a la pantalla de registro.
+		\item \IUbutton{Olvidé mi contraseña}: Manda al actor a la pantalla de recuperar contraseña.
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	
+	\begin{Citemize}
+		\item {\bf MSG02} Las credenciales no son correctas.
+	\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{EM-Acceso-UI3 Recuperar Contraseña.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Permite al usuario recuperar la contraseña de su cuenta en el caso de haberla olvidado. Para ello
+	es necesario introducir el correo electrónico que se proporcionó a la hora de crear la cuenta. 
+	La contraseña temporal generada se podrá modificar una vez que se ingrese al sistema..
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se divide en tres principales secciones. La primera con el título de la app y la
+	leyenda ''Recuperar contraseña'', haciendo referencia de que nos encontramos en ese apartado; la
+	segunda sección muestra las instrucciones para el restablecimiento de la contraseña y el campo
+	para ingresar el correo electrónico con el cual se dio de alta la cuenta; finalmente, en la tercera
+	sección se encuentra el \IUbutton{Enviar}, con el cual se finaliza el proceso.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Acceso/EM_Acceso_UI3_Recuperar_Contrasena}{EM-Acceso-UI3}{Recuperar Contraseña}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item \MSGref{MSG1}{Operación Exitosa}.
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\begin{itemize}
+		\item Correo electrónico.
+	\end{itemize}
+
+\subsubsection{Comandos}
+	\begin{itemize}
+		\item \IUbutton{Enviar}: Para restablecer la contraseña en caso de haber una cuenta asociada
+		al correo dado.
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	
+	\begin{Citemize}
+		\item {\bf MSG07} El formato del correo electrónico no es correcto.
+	\end{Citemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 							EM-Acceso-CU6 Info de ESCOMobile			
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{EM-Acceso-UI6 Consultar información de ESCOMobile.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Permite al actor consultar información de la aplicación ESCOMobile, como lo es una breve
+	descripción de la misma y lo que pretende lograr, el ámbito en el que opera y la forma en que lo hace. Se
+	dispone, además, de la información del equipo detrás de la creación de la app, de quienes colaboraron en
+	ella y de las personas a quienes se agradece por su apoyo hacia la misma.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se divide en cuatro principales secciones. La primera muestra información general
+	de la aplicación ESCOMobile, como lo que hace y la manera en que lo lleva a cabo; la segunda
+	sección muestra información de los desarrolladores de la app; la tercera sección nos deja
+	ver la información de quienes colaboraron en la creación de la misma y, finalmente, en la cuarta
+	sección se observan agradecimientos a quienes brindaron su apoyo durante el desarrollo de ésta.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Acceso/EM_Acceso_UI4_Consultar_Info_Desarrollo}{EM-Acceso-UI6}{Consultar información de ESCOMobile}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Se muestra una pequeña desripción de ESCOMobile, lo que hace y cómo funciona. 
+		\item Se muestra la siguiente información de cada uno de los integrantes del equipo detrás de la app: 
+			\begin{itemize}
+				\item Nombre completo. 
+				\item Correo electrónico de contacto.
+				\item Fotografía.
+			\end{itemize}
+		\item Se muestra la siguiente información acerca de los colaboradores: 
+			\begin{itemize}
+				\item Nombre completo. 
+				\item Apartado en donde colaboró.
+			\end{itemize}
+		\item Se muestra la siguiente información sobre las personas a quienes se agradece: 
+			\begin{itemize}
+				\item Nombre completo. 
+				\item Motivo por el cual se le agradece.
+			\end{itemize}
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+	\noindent
+	Ninguno.
+
+\subsubsection{Mensajes}
+	\noindent
+	Ninguno.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 									Hamburger			
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{ESCOMobile Menú Hamburger}
+
+\subsubsection{Objetivo}
+	\noindent
+	Proporcionar al actor acceso a diferentes acciones sobre la aplicación ESCOMobile, como lo son la consulta del mapa de ESCOM, búsqueda de profesores en el plantel, las citas generadas con los profesores, la bolsa de trabajo ofrecida por empresas y organizaciones externas, edición de la información de la cuenta del alumno así como cerrar la sesión o eliminar la cuenta con la que se usa la aplicación.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se muestra en tres grandes secciones en la parte izquierda. La primera sección muestra la información básica del alumno a quién pertenece la cuenta, ésta información es su nombre y su fotografía. La segunda sección muestra diferentes acciones que se pueden realizar en la aplicación ESCOMobile, como lo son la consulta del mapa de ESCOM, la búsqueda de profesores, la citas que el alumno ha agendado y la consulta de la bolsa de trabajo ofrecida para la institución. Finalmente, la tercera sección muestra acciones sobre la cuenta registrada, como lo son la edición de dato del alumno, cierre de la sesión usada o eliminación de la cuenta creada para la app. 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/Acceso/Menu_Hamburguer.png}{EM-ESCOMobile-Hamburger}{}
+
+\subsubsection{Salidas}
+	\noindent
+	La pantalla muestra la siguiente información del alumno en la primera sección:
+	\begin{itemize}
+		\item Nombre.
+		\item Fotografía. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+ 	\begin{itemize}
+		\item Opción \textbf{Mapa de ESCOM}: Muestra el mapa de la ESCOM para consulta.
+		\item Opción \textbf{Profesores}: Muestra una pantalla con los profesores de la ESCOM enlistados para posterior búsqueda y consulta.
+		\item Opción \textbf{Mis citas}: Muestra una pantalla para gestionar las citas que el alumno ha generado.
+		\item Opción \textbf{Bolsa de trabajo}: Muestra una pantalla en donde el actor podrá visualizar la bolsa de trabajo disponible para la ESCOM.
+		\item Opción \textbf{Mi perfil}: Muestra una pantalla con el perfil del actor.
+		\item Opción \textbf{Cerrar Sesión}: Cierra la sesión establecida previamente, regresa a la pantalla principal de ESCOMobile.
+		\item Opción \textbf{Eliminar cuenta}: Elimina la cuenta creada, regresa a la pantalla principal de ESCOMobile.
+		\item Opción \textbf{Sobre nosotros}: Muestra una pantalla con la información de ESCOMobile y el equipo de desarrollo.
+	\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

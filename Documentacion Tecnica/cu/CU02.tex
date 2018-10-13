@@ -1,0 +1,69 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU2}{EM-Acceso-CU2-Iniciar sesión.}{
+		Este caso de uso sirve para dar acceso a actores previamente registrados o invitados en el sistema y poder interactuar con la aplicacion en caso de alumnos o profesores.}
+		\UCitem{Versión}{1.0}
+		\UCitem{Actor}{Alumno, profesor e invitado}
+		\UCitem{Propósito}{Dar acceso a usuarios ya registrados.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Número de Boleta ó número de empleado
+		\item Contraseña
+		\end{itemize}}
+		\UCitem{Origen}{Teclado}
+		\UCitem{Salidas}{}
+		\UCitem{Destino}{Pantalla}
+		\UCitem{Precondiciones}{
+		\begin{itemize}
+		\item El actor debe estar registrado en el sistema
+		\end{itemize}}
+		\UCitem{Postcondiciones}{
+		\begin{itemize}
+		\item Ninguna
+		\end{itemize}}
+		\UCitem{Errores}{
+		       \begin{itemize}
+		  \item Error 1:  Contraseña no valida.   
+		\item Error 2 : Boleta o numero de empleado no valida.  
+		\item Error 3:Boleta o número de empleado inexistente.
+		\item Error 4: Contraseña incorrecta.
+		\end{itemize}}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{
+			
+		}
+		\UCitem{Autores}{ Pérez García José David.}
+		\UCitem{Reviso}{Fernández Quiñones Isaac.}
+	\end{UseCase}
+	\newpage
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso [\UCactor] Abre la aplicación ESCOMobile desde su celular.
+	\UCpaso Muestra la pantalla \IUref {IU1}{Pantalla de Inicio.}
+	\UCpaso[\UCactor] Proporciona el número de boleta o número de empleado.
+	\UCpaso[\UCactor] Proporciona su contraseña para acceder al sistema.
+	\UCpaso[\UCactor] El actor pulsa el boton Iniciar Sesión.
+	\UCpaso Válida que la contraseña según la BS tal. [Error 1]
+	\UCpaso Válida que num de boleta o num emplado según BS. [Error 2]
+	\UCpaso Verifica que la boleta se encuentre registrada en el sistema. [Error 3]
+	\UCpaso Obtiene la contaseña asociada a la boleta. 
+	\UCpaso Verifica que la contraseña ingresada por el actor coincida con la 
+	que se obtuvo en el paso anterior. [Error 4] 
+	\UCpaso 
+	Se utiliza la regla \BRref{BR117}{Determinar si el usuario tiene acceso al sistema.} \Trayref{A}.
+      	
+		
+	\UCpaso Despliega la pantalla Consultar Edificio y Plantas
+	
+	
+\end{UCtrayectoria}
+
+
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

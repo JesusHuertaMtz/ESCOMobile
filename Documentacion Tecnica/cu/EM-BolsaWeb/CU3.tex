@@ -1,0 +1,80 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU3}{EM-WebBolsa-CU3-Publicar Boletín de Ofertas de Trabajo}{
+		En este caso de uso el actor podrá seleccionar ofertas de trabajo sin publicar y publicarlas en formato de imagen, primero se mostrará una vista previa y posteriormente se publicará en la pagina de Facebook.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Encargado de Bolsa de Trabajo}
+		\UCitem{Propósito}{ Proporcionar al actor un mecanismo que le permita publicar  ofertas de trabajo con el estatus de sin publicar del sistema a una pagina de Facebook.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Ninguna
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{Teclado y Ratón}
+		\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}
+		\end{itemize}}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Que haya al menos una oferta de trabajo registrada no publicada en el sistema.}
+		\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item Publica en una pagina de Facebook la imagen de la oferta de trabajo.
+			\item Publica en la app ESCOMobile las ofertas de trabajo.
+			\item Actualiza la tabla que muestra las ofertas de trabajo sin publicar .
+		\end{itemize}
+		}
+		\UCitem{Errores}{
+	
+		}
+		\UCitem{Tipo}{Secundario}
+		\UCitem{Observaciones}{	
+
+
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso [\UCactor] Selecciona las ofertas de trabajo que desea publicar.
+	\UCpaso[\UCactor] Solicita publicar boletín presionando el boton \IUbutton{Publicar Boletín} de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+	\UCpaso Obtiene la siguiente información de las ofertas de trabajo seleccionadas:
+	\begin{itemize}
+			\item Número de oferta de trabajo.
+			\item Nombre de empresa.
+			\item Horario.
+			\item Vacante.
+			\item Sueldo.
+			\item Contacto.
+		\end{itemize}
+	.
+	\UCpaso Crea una imagen con las ofertas de trabajo obtenidas, la cual incluye los logos y el nombre de la ESCOM y el IPN, subdirección de servicios educativos e integracón social, departamento de extensión y apoyos educativos.Y una tabla, con el número de oferta,nombre de la empresa,horario,vacante,sueldo y contacto.
+	\UCpaso Muestra la pantalla  \IUref{EM-BolsaWeb-UI3}{Publicar Boletín} con la vista previa de la imagen para confirmar la publicación de la oferta de trabajo. 
+\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar}, confirmando la publicación del boletín. \Trayref{A} 
+	%Paso 4.
+	\UCpaso Publica la imagen de las ofertas de trabajo en la pagina de facebook.
+	\UCpaso Publica en la app ESCOMobile las ofertas de trabajo publicadas.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+	\UCpaso Se actualizan las tablas Ofertas Sin Publicar y las Ofertas publicadas.  
+	
+	
+	\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea publicar el boletín.}
+	%Paso A1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{cancelar}  de la pantalla .
+
+	%Paso A2.
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.   
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.

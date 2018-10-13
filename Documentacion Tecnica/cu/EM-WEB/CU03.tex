@@ -1,0 +1,77 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU03}{EM-WebBolsa-CU03-Registrar oferta}{
+		En este caso de uso el actor registra una oferta de trabajo,selecciona la empresa,horario,vacante,sueldo y seleccionara el contacto.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Responsable Bolsa de Trabajo}
+		\UCitem{Propósito}{Registrar ofertas que los alumnos puedan consultar.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Puesto
+		\item Descripción
+		\item Empresa
+		\item Salario
+		\item Horario
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{Teclado y Ratón}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Existan empresas registradas}
+		\UCitem{Postcondiciones}{
+		Persiste la información de la empresa.
+		}
+		\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+\item \label{EM-WebBolsa-CU03-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{termina el caso de uso}
+			
+		\end{enumerate}	
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+
+
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Solicita registrar una nueva oferta presionando en el botón \IUbutton{Añadir oferta laboral} de la pantalla \IUref{EM-WebBolsa-UI1}{Principal}.
+	\UCpaso Muestra la pantalla \IUref{EM-WebBolsa-UI4}{Registrar nueva oferta}
+	\UCpaso [\UCactor] Introduce el nombre de la empresa.
+	\UCpaso [\UCactor] Selecciona el tipo de Horario.
+	\UCpaso [\UCactor] Selecciona los días y/o ingresa el horario.(Se puede dejar vacio).
+	\UCpaso [\UCactor] Introduce el número de vacantes.
+	\UCpaso [\UCactor] Introduce los requisitos.
+	\UCpaso [\UCactor] Selecciona los idiomas.
+	\UCpaso [\UCactor] Selecciona el perfil.
+	\UCpaso [\UCactor] Selecciona tipo de sueldo, definido o sin definir.
+	\UCpaso [\UCactor] Selecciona el sueldo en caso de que sea definido.
+	\UCpaso [\UCactor] Introduce las prestaciones.
+	\UCpaso [\UCactor] Solicita registar una nueva oferta presionando el botón \IUbutton{Registrar Oferta} de la pantalla \IUref{EM-WebBolsa-UI4}{Registrar nueva Empresa}. \Trayref{A} 
+	\UCpaso Verifica que los campos introducidos no estén vacios según la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-WebBolsa-CU03-E1}] \label{Almacenainfo} 
+	\UCpaso Obtiene los datos de la empresa introducidos en el formulario. 
+	\UCpaso Persiste la información en el sistema.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla ESCOMobile Bolsa.  
+	
+	
+	\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea registrar una oferta.}
+	%Paso A1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{cancelar} de la pantalla \IUref{EM-WebBolsa-UI4}{Registrar nueva oferta}
+
+	%Paso A2.
+	\UCpaso Muestra la pantalla ESCOMobile Bolsa.  
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.

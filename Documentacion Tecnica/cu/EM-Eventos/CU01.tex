@@ -1,0 +1,55 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU05}{EM-Evento-CU01-Consultar vista  de eventos}{
+		En este caso de uso el actor podra visualizar los eventos proximos a realizarse, mostrando solo la imagen del evento y una descripción}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Alumno y Profesor}
+		\UCitem{Propósito}{Mostrar los eventos de la table de eventos.}
+
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Ninguna
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Tener eventos dados de alta en el sistema . }
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Evento-CU01-E1} Cuando no existen eventos en el sistema. Muestra el mensaje \MSGref{MSG11}{Eventos inexistentes} y \textbf{termina el caso de uso.}.
+			
+		\end{enumerate}	
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			
+		
+		
+ 		}
+		\UCitem{Autores}{ Pérez García José David.}
+		\UCitem{Reviso}{sin revisar}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Pulsa el botón \IUbutton{Eventos}  de la pantalla \IUref{EM-Acceso-IU5}{Menu Hamburguer.}.
+	\UCpaso Verifica que existan eventos registrados segun regla \BRref{EM-RN-N003}{Eventos Registrados}.[Error \ref{EM-Evento-CU01-E1}]
+	
+	\UCpaso Obtiene la lista de eventos registrados en el sistema.
+	\UCpaso Muestra pantalla \IUref{EM-Evento-UI1}{Consultar Eventos}.
+	
+	\end{UCtrayectoria}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

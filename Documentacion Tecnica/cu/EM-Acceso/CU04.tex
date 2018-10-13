@@ -1,0 +1,56 @@
+
+	\begin{UseCase}{EM-Acceso-CU4}{Cerrar Sesión.}{
+		\noindent
+		Este caso de uso permite al actor cerrar la sesión previamente iniciada en ESCOMobile, pues no desea
+		continuar, temporalmente, con los servicios que ésta ofrece; porque desea iniciar sesión con otro usuario
+		y contraseña; o bien, por la seguridad de su cuenta. Se debe mencionar que al cerrar la sesión, se conservan
+		los datos del usuario, así como citas y demás información, y se podrá reingresar a la cuenta desde el mismo
+		u otro dispositivo en cualquier momento. 
+		\newline
+		}
+		\UCitem{Versión}{0.2}
+		\UCitem{Actor}{Alumno y Profesor.}
+		\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita no contar con los servicios de la app
+		sin perder su información dentro de la misma y con la opción de reingresar después.}
+		\UCitem{Entradas}{Ninguna.}
+		\UCitem{Origen}{No aplica.}
+		\UCitem{Salidas}{
+			\begin{itemize}
+				\item \MSGref{MSG17}{Cerrar sesión}.
+			\end{itemize}
+		}
+		\UCitem{Destino}{Pantalla.}
+		\UCitem{Precondiciones}{Tener una sesión iniciada.}
+		\UCitem{Postcondiciones}{Ninguna.}
+		\UCitem{Errores}{Ninguno.}
+		\UCitem{Tipo}{Caso de uso primario.}
+		\UCitem{Observaciones}{Corregido.}
+		\UCitem{Autores}{Pérez García José David, Huerta Martínez Jesús Manuel.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel.}
+	\end{UseCase}
+
+	\begin{UCtrayectoria}{Principal.}
+
+		% Paso 1.
+		\UCpaso[\UCactor] Presiona el botón \IUbutton{Cerrar sesión} de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}.
+
+		% Paso 2.
+		\UCpaso Muestra el mensaje \MSGref{MSG17}{Cerrar sesión}, solicitando la confirmación para cerrar la sesión.
+
+		% Paso 3.
+		\UCpaso [\UCactor] Pulsa boton \IUbutton{Aceptar} del mensaje mostrado. \Trayref{A}
+
+		% Paso 4.
+		\UCpaso Cierra la sesión y muestra la pantalla \IUref{EM-Acceso-UI2}{Iniciar Sesión}.
+
+	\end{UCtrayectoria}
+
+	\begin{UCtrayectoriaA}{A}{Cuando el actor no desea cerrar su sesión.}
+
+		% A1.
+		\UCpaso	Presiona el botón \IUbutton{Cancelar} del mensaje mostrado.
+
+		% A2.
+		\UCpaso Muestra Pantalla anterior.
+
+	\end{UCtrayectoriaA}

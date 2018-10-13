@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/blueGrayLight">
+	
+	<TextView
+		android:id="@+id/txt_asignatura"
+		android:layout_width="0dp"
+		android:layout_height="50dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="8dp"
+		android:padding="5dp"
+		android:text="@string/hint_profesores"
+		android:textColor="@color/black"
+		app:layout_constraintEnd_toStartOf="@+id/txt_horario"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+	
+	<TextView
+		android:id="@+id/txt_horario"
+		android:layout_width="143dp"
+		android:layout_height="0dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginTop="8dp"
+		android:padding="5dp"
+		android:text="@string/txt_hint_horario"
+		android:textColor="@color/black"
+		app:layout_constraintBottom_toBottomOf="@+id/txt_asignatura"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/txt_asignatura"
+		app:layout_constraintTop_toTopOf="parent" />
+	
+	<TextView
+		android:id="@+id/lbl_grupo"
+		android:layout_width="0dp"
+		android:layout_height="30dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginStart="16dp"
+		android:padding="5dp"
+		android:text="Grupo:"
+		android:textColor="@color/black"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/txt_grupo"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/txt_asignatura" />
+	
+	<TextView
+		android:id="@+id/txt_grupo"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginStart="8dp"
+		android:padding="5dp"
+		android:text="TextView"
+		android:textColor="@color/black"
+		app:layout_constraintBottom_toBottomOf="@+id/lbl_grupo"
+		app:layout_constraintEnd_toStartOf="@+id/lbl_salon"
+		app:layout_constraintStart_toEndOf="@+id/lbl_grupo"
+		app:layout_constraintTop_toBottomOf="@+id/txt_asignatura" />
+	
+	<TextView
+		android:id="@+id/lbl_salon"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginStart="8dp"
+		android:padding="5dp"
+		android:text="Salon:"
+		android:textColor="@color/black"
+		app:layout_constraintBottom_toBottomOf="@+id/lbl_grupo"
+		app:layout_constraintEnd_toStartOf="@+id/txt_salon"
+		app:layout_constraintStart_toEndOf="@+id/txt_grupo"
+		app:layout_constraintTop_toBottomOf="@+id/txt_asignatura" />
+	
+	<TextView
+		android:id="@+id/txt_salon"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="8dp"
+		android:padding="5dp"
+		android:text="TextView"
+		android:textColor="@color/black"
+		app:layout_constraintBottom_toBottomOf="@+id/lbl_grupo"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/lbl_salon"
+		app:layout_constraintTop_toBottomOf="@+id/txt_asignatura" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,73 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-BolsaWeb-CU4.2}{Eliminar Empresa}{
+		Este caso de uso permite al actor eliminar una empresa previamente registrada en el sistema así como la información de contacto que a ésta se asocia. Es importante mencionar que la eliminación de una empresa será posible en cualquier momento, considerando dos situaciones: cuando no se le han asociado ofertas de trabajo y cuando se le han asociado ofertas de trabajo. De ser el segundo caso, las ofertas de trabajo asociadas a la empresa se eliminarán también. 
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{ Encargado de Bolsa de Trabajo.}
+	\UCitem{Propósito}{ Proporcionar al actor un mecanismo que le permita eliminar empresas del sistema.}
+	\UCitem{Entradas}{
+		Ninguna.
+	}
+	\UCitem{Origen}{
+		No aplica.
+	}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG7}{Eliminar elemento}
+			\item \MSGref{MSG1}{Operación Exitosa}
+		\end{itemize}
+	}
+	\UCitem{Destino}{
+		Pantalla.
+	}
+	\UCitem{Precondiciones}{
+		Que haya al menos una empresa registrada en el sistema..
+	}
+	\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item Elimina la información de la empresa, conctactos y ofertas del sistema.
+			\item Actualiza las tablas que muestran las empresas y las ofertas registradas.
+		\end{itemize}
+	}
+	\UCitem{Errores}{
+		Ninguno.
+	}
+	\UCitem{Tipo}{Secundario}
+	\UCitem{Observaciones}{
+}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita eliminar una empresa dando clic el ícono \UCicono{eliminar.png} de alguna de las empresas registradas, en la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}. 
+
+	%Paso 2.
+	\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento} en la pantalla \IUref{EM-BolsaWeb-UI4.1}{Añadir nueva Empresa} para confirmar la eliminación de la emprea. 
+
+	%Paso 3.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Sí}, confirmando eliminar la empresa. \Trayref{A} 
+	%Paso 4.
+	\UCpaso Elimina la empresa seleccionada y la información a ésta asociada. 
+
+	%Paso 5.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas} con la tabla de empresas actualizada. 
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea eliminar la empresa.}
+	%Paso A1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{No} del mensaje de confirmación.
+
+	%Paso A2.
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}. 
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

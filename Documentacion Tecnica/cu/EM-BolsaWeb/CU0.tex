@@ -1,0 +1,62 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{EM-Acceso-CU0}{Iniciar sesión Bolsa de Trabajo.}{
+		Este caso de uso sirve para que el actor pueda ingresar al sistema ESCOMobile Bolsa por medio de su cuenta de facebook para así poder publicar las ofertas de trabajo en la pagina de facebook.}
+		\UCitem{Versión}{1.0}
+		\UCitem{Actor}{Encargado Bolsa de Trabajo}
+		\UCitem{Propósito}{Dar acceso al sistema por medio de la cuena de facebook.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Ninguna.
+		\end{itemize}}
+		\UCitem{Origen}{Ratón}
+		\UCitem{Salidas}{
+		\begin{itemize}
+		\item Inicio de sesión en Facebook.
+		\item \MSGref{MSG2}{Operación Fallida} 
+		\end{itemize}
+		}
+		\UCitem{Destino}{Pantalla}
+		\UCitem{Precondiciones}{
+		\begin{itemize}
+		\item El actor debe tener una cuenta de facebook.
+		\end{itemize}}
+		\UCitem{Postcondiciones}{
+		\begin{itemize}
+		\item Ninguna
+		\end{itemize}}
+		\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+\item \label{EM-WebBolsa-CU0-E1}Cuando no se obtuvo un inicio de sección satisfactorio en Facebook. Muestra el mensaje \MSGref{MSG2}{Operación Fallida} 
+
+		\end{enumerate}	
+		}
+		     
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{
+			
+		}
+		\UCitem{Autores}{ Pérez García José David.}
+		\UCitem{Reviso}{En espera de revisión.}
+	\end{UseCase}
+	\newpage
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso [\UCactor] Presiona el botón  \IUbutton{iniciar sesión con Facebook} de la pantalla \IUref {EM-BolsaWeb-UI0}{Iniciar sesión} .
+	\UCpaso Se muestra una pantalla de el inicio de sesión de Facebook.
+	\UCpaso Proporciona sus credenciales de Facebook.
+	\UCpaso[\UCactor] Recibe confirmación del registro en facebook correcto.[Error  \ref{EM-WebBolsa-CU0-E1}].
+	\UCpaso Obtiene la imagen asociada a su cuenta de facebook.
+	\UCpaso Obtiene el enlace a su pagina de facebook.
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} con la foto del perfil y un enlace con el nombre de su perfil de Facebook obtenidos anteriormente.
+	
+\end{UCtrayectoria}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.

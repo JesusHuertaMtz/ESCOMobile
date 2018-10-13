@@ -1,0 +1,154 @@
+\subsection{Requisitos de información}
+Los requisitos de información describen que información debe persistir el sistema para poder cumplir sus
+objetivos. Además, deben identificar el concepto relevante sobre el que guardar información así como 
+qué datos específicos del concepto son importantes para cumplir los objetivos del sistema.
+%REFERENCIA http://www.lsi.us.es/docencia/get.php?id=6845
+
+\begin{requisitos}{RI Información de horarios.} 
+	\RFitem{Descripción}{El sistema desplegará la siguiente información referente al horario del profesor:
+		\begin{itemize}
+			\item Día de la semana en el que la unidad de aprendizaje se imparte.
+			\item Hora de inicio y termino de la unidad de aprendizaje.
+			\item Nombre del profesor que imparte la unidad de aprendizaje.
+			\item Nombre de la unidad de aprendizaje.
+			\item Salón en el que se imparte la unidad de aprendizaje.
+		\end{itemize}
+	La información anterior se podrá consultar a través del perfil del profesor del cual se deseé conocer
+	su horario.} 
+	\RFitem{Propósito}{Proporcionar al alumno la información de cuando un profesor se encuentra 
+	impartiendo clase, que unidades de aprendizaje imparte.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RI Información en el mapa de ESCOM.}
+	\RFitem{Descripción}{Se mostrará en el mapa textos descriptivos como:
+		\begin{itemize}
+			\item Nombre del salón.
+			\item Nombre de cada área.
+			\item Divisiones de salones.
+			\item Nombre de las áreas administrativas.
+		\end{itemize}}
+	\RFitem{Propósito}{Ayudar a ubicar con mayor facilidad el lugar que busca el actor.} 
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}	
+
+\begin{requisitos}{RI Información de club.}
+	\RFitem{Descripción}{Habrá un módulo para poder consultar, dentro de la aplicación, los horarios 
+	y clubes disponibles en ESCOM. Así como las horas necesarias que debe asistir al club para 
+	liberar la unidad de aprendizaje Electiva.}
+	\RFitem{Propósito}{Mostrar la variedad de clubes a los que los alumnos de ESCOM podrían unirse.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RI Eventos.}
+	\RFitem{Descripción}{Se dispondrá de una sección, dentro de la aplicación, para poder consultar 
+	los eventos que están próximos a llevarse acabo en las instalaciones de ESCOM. La información 
+	que se debe mostrar es la siguiente:
+	\begin{itemize}
+		\item Cartel del evento.
+		\item Fecha y hora de inicio del evento.
+		\item Breve descripción del mismo.
+		\item Lugar en donde se realizará.
+		\item Nombre del ponente.
+	\end{itemize}} 
+	\RFitem{Propósito}{Difundir los eventos y de esta manera interesar al actor de ESCOM a asistir 
+	al evento.}
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RI Información para el registro del profesor.}
+	\RFitem{Descripción}{Los campos necesarios para el registro del profesor son los siguientes: 
+		\begin{itemize}
+			\item Nombre completo.
+			\item Numero de empleado.
+			\item Correo electrónico.
+			\item Horarios de asesorías.
+			\item Contraseña para acceder al sistema.
+			\item Fotografía. (opcional)
+		\end{itemize}} 
+	\RFitem{Propósito}{Identificar a los profesores de ESCOM.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.}
+\end{requisitos}
+
+\begin{requisitos}{RI Información editable del perfil del profesor.} 
+	\RFitem{Descripción}{La información que puede editar el profesor en su perfil es la siguiente:
+		\begin{itemize}
+			\item Correo electrónico.
+			\item Contraseña.
+			\item Fotografía. (opcional)
+		\end{itemize}} 
+	\RFitem{Propósito}{Mantener actualizada la información del profesor.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RI Información para el registro de alumnos.}
+	\RFitem{Descripción}{La información necesaria para poder registrar a un alumno es la siguiente:
+		\begin{itemize}
+			\item Nombre completo.
+			\item Número de boleta.
+			\item Correo electrónico.
+			\item Fotografía. (opcional)
+		\end{itemize}}
+	\RFitem{Propósito}{Saber si el alumno es parte de la comunidad de ESCOM.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RI Información editable del alumno. } 
+	\RFitem{Descripción}{La aplicación permite al usuario editar:
+		\begin{itemize}
+			\item Nombre completo.
+			\item Número de boleta.
+			\item Correo electrónico.
+			\item Fotografía. (opcional)
+		\end{itemize}} 
+	\RFitem{Propósito}{El usuario mantiene al día (actualizados) su información e intereses.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RI Tiempo recordatorio.} 
+	\RFitem{Descripción}{El tiempo de notificación podrá ser seleccionado (por el alumno) y podrá ser de 5
+	opciones diferentes:
+	\begin{itemize}
+		\item 5 minutos.
+		\item 15 minutos.
+		\item 30 minutos.
+		\item 1 hora.
+		\item 1 día.
+	\end{itemize}} 
+	\RFitem{Propósito}{El alumno podrá estar notificado y asi no se le olvidara su cita.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+%\begin{requisitos}{RI Usuarios no registrados.} 
+%	\RFitem{Descripción}{El sistema muestra a los usuarios que no cuenten con una cuenta activa (pues no se
+%	han registrado) únicamente el mapa de la ESCOM así como la distribución de la misma.} 
+%	\RFitem{Propósito}{Extender la información y el servicio del mapa a quienes no desean o puedan
+%	registrar una cuenta.} 
+%	\RFitem{Usuario}{Visitante}
+%	\RFitem{Tipo}{Web / móvil.} 
+%\end{requisitos}
+%
+%\begin{requisitos}{RI Horarios libres del profesor.} 
+%	\RFitem{Descripción}{La app habilita o deshabilita como disponible los espacios en donde el profesor
+%	no tiene clase, según sean sus citas ya programadas.} 
+%	\RFitem{Propósito}{El usuario puede ver como disponible solo las horas en donde el profesor no tiene
+%	ya citas agendadas.}
+%	\RFitem{Usuario}{Alumno.}
+%	\RFitem{Tipo}{Web / móvil.} 
+%\end{requisitos}
+
+\begin{requisitos}{RI Muestra de estadísticas.} 
+	\RFitem{Descripción}{La aplicación muestra dichas estadísticas para personas registradas en la app. } 
+	\RFitem{Propósito}{Controlar esas estadísticas para solo alumnos.} 
+	\RFitem{Usuario}{Alumno.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}

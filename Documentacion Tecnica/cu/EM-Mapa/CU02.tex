@@ -1,0 +1,140 @@
+\begin{UseCase}{EM-Mapa-CU02}{Realizar Búsqueda Sobre el Mapa.}{
+	\noindent
+	Este caso de uso permite al actor realizar una búsqueda de cubículos de profesores, salones, grupos 
+	o academmias de su interés dentro del mapa de la ESCOM por medio de ESCOMobile. Para ello basta con
+	seleccionar el tipo de búsqueda que desea realizar y escribir el nombre del profesor, grupo, salón
+	o academia de la cual desea saber la ubicación dentro de la Superior de cómputo, pues, de haber 
+	resultados coincidentes, éstos se dibujarán en el propio mapa. 
+	\newline 
+	}
+	\UCitem{Versión}{0.2}
+	\UCitem{Actor}{Alumno, Profesor, Invitado.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo para ubicar en el mapa de ESCOM el cubículo de 
+	algún profesor, salón, grupo o academia.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Nombre del área que desea buscar (academia, salón, grupo) o nombre del profesor
+			del cual se desea caber la ubicación del cubículo.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Pantalla.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Área coincidente en el mapa con la búsqueda realizada. 
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item Tener registradas las coordenadas de las diferentes áreas que componen el mapa 
+			(edificios, plantas, salones, etc.).
+			\item El actor debe haber iniciado sesión.
+			\item Tener cargada la imagen del plano de ESCOM.
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+
+			\item \label{EM-Mapa-CU02-E1} Cuando no hay resultados coincidentes con la búsqueda realizada, 
+			muestra el mensaje \MSGref{MSG15}{Ninguna coincidencia encontrada} y \textbf{termina el caso de uso.}
+
+			\item \label{EM-Mapa-CU02-E2} Cuando no se es posible dibujar las áreas académicas sobre el mapa, pues no se cuentan
+			con las coordenadas para ello, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
+
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Primario}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1. 
+	\UCpaso[\UCactor] Presiona sobre la barra de búsqueda de la pantalla \IUref{EM-Mapa-UI1}{Consultar Mapa de ESCOM}.
+
+	% Paso 2. 
+	\UCpaso Se muestra sobre la pantalla \IUref{EM-Mapa-UI1}{Consultar Mapa de ESCOM} los filtros de búsqueda (profesores,
+	salones, grupos, academias), como se puede observar en la pantalla \IUref{EM-Mapa-UI2-A}{Realizar búsqueda sobre el mapa}.
+
+	% Paso 3.
+	\UCpaso [\UCactor] Selecciona alguno de los cuatro filtros disponibles para realizar la búsqueda. 
+
+	% Paso 4.
+	\UCpaso [\UCactor] Introduce el nombre del área que desea buscar (en el caso de haber seleccionado el filtro ''profesores'',
+	deberá introducir el nombre del profesor del cual desea conocer su cubículo).
+
+	% Paso 5.
+	\UCpaso [\UCactor] Presiona sobre el Icono \UCicono{lupa}, solicitando realizar la búsqueda. 
+
+	% Paso 6.
+	\UCpaso Verifica que haya concidencias entre la cadena introducida por el usuario y la información contenida en el sistema,
+	aplicando el filtro seleccionado. [Error: \ref{EM-Mapa-CU02-E1}]
+
+	% Paso 7.
+	\UCpaso Obtiene y muestra la(s) coincidencia(s) de la búsqueda debajo de los filtros de búsqueda, como se puede ver en la
+	pantalla \IUref{EM-Mapa-UI2-A}{Realizar búsqueda sobre el mapa}.
+
+	% Paso 8.
+	\UCpaso [\UCactor] Selecciona uno de los resultados coincidentes. 
+
+	% Paso 9.
+	\UCpaso Obtiene las coordenadas del área asoiada al resultado seleccionado. [Error: \ref{EM-Mapa-CU02-E2}]
+
+	% Paso 10.
+	\UCpaso Dibuja el área sobre el mapa de ESCOM. 
+
+	% Paso 11.
+	\UCpaso Muestra la pantalla \IUref{EM-Mapa-UI2-B}{Realizar búsqueda sobre el mapa} con el área coincidente con la búsqueda
+	ya dibujado en el mapa. 
+
+	% Paso 12.
+	\UCpaso [\UCactor] Consulta en el mapa el área coincidente. 
+
+
+\end{UCtrayectoria}
+
+%========
+%\subsection{Puntos de extensión}
+
+%\UCExtensionPoint{EPAcademias}{El actor desea consultar academias por planta}
+%{Paso \ref{CU04ConsultarOtros} de la trayectoria principal.}
+%{Continua en el caso de uso \UCref{EM-Mapa-CU04}.}
+
+%\UCExtensionPoint{EPAdminstrativa}{El actor desea consultar áreas administrativas por planta}
+%{Paso \ref{CU04ConsultarOtros} de la trayectoria principal.}
+%{Continua en el caso de uso \UCref{EM-Mapa-CU05}.}
+
+%\UCExtensionPoint{EPSalones}{El actor desea consultar salones por planta}
+%{Paso \ref{CU04ConsultarOtros} de la trayectoria principal.}
+%{Continua en el caso de uso \UCref{EM-Mapa-CU06}.}
+
+%\begin{UCtrayectoriaA}{A}{El actor selecciona ver los salones.}
+%	\UCpaso[\UCactor] Presiona el botón \IUbutton{ Salones } de la \IUref{IU6}{Pantalla de inicio del alumno.}
+%\end{UCtrayectoriaA}
+%
+%\begin{UCtrayectoriaA}{B}{El actor selecciona ver los áreas admnistrativas.}
+%	\UCpaso[\UCactor] Presiona el botón \IUbutton{ Salones } de la \IUref{IU6}{Pantalla de inicio del alumno.}
+%\end{UCtrayectoriaA}
+%
+%\begin{UCtrayectoriaA}{C}{El actor selecciona ver los academias.}
+%	\UCpaso[\UCactor] Presiona el botón \IUbutton{ Salones } de la \IUref{IU6}{Pantalla de inicio del alumno.}
+%\end{UCtrayectoriaA}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

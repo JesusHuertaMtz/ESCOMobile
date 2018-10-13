@@ -1,0 +1,107 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Alumno-CU1.1}{Modificar Información.}{
+	\noindent
+	Este caso de uso permite al actor modificar su información registrada en el 
+	sistema, pues algún dato está erróneo o desactualizado. La información que
+	se encuentra disponible para edición es el correo electrónico, la contraseña
+	y la fotografía, siendo los dos primeros ingresados cuando se realizó el registro. Se debe mencionar que la edición de los anteriores no afecta en
+	nada el funcionamiento de la cuenta en la aplicación o las citas previamente
+	asociadas a su cuenta. Además, la información antes referida puede ser
+	modificada cuantas veces sea requerido por el actor dentro de la app.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita
+	actualizar su información registrada en el sistema.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Correo electrónico (nuevo).
+			\item Contraseña (nueva).
+			\item Duplicado de contraseña (nueva). 
+			\item Fotografía (nueva). 
+		\end{itemize}
+	}
+	\UCitem{Origen}{Pantalla.}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información del alumno:
+		\begin{itemize}
+			\item Nombre.
+			\item Boleta.
+			\item Fotografía (original).
+			\item Correo electrónico (original).
+			\item Contraseña (original).
+			\item \MSGref{MSG1}{Operación Exitosa}.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Persiste la información actualizada en el sistema.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Alumno-CU1-1-E1} Cuando algún campo no comple con el formato valido definido. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{l_Alumno_CU1_1_E1} de la trayectoria Principal.}
+
+			\item \label{EM-Alumno-CU1-1-E2} Cuando las contraseñas introducidas no coinciden. Muestra el mensaje \MSGref{MSG16}{Contraseñas no coinciden} y \textbf{continúa en el paso \ref{l_Alumno_CU1_1_E1} de la trayectoria Principal.}.
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Secundario, viene de \UCref{EM-Alumno-CU1}.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita modificar su información registrada en el sistema
+	presionando en el icono \UCicono{engrane} de la pantalla \IUref{EM-Alumno-UI1}{Consultar Perfil del Alumno}. 
+
+	%Paso 2.
+	\UCpaso Obtiene Nombre, Boleta, Fotografía, Correo electrónico y contraseña
+	asociados a la cuenta del alumno.
+
+	%Paso 3.
+	\UCpaso Muestra la pantalla \IUref{EM-Alumno-UI1-1}{Modificar información} con la información obtenida.
+
+	%Paso 4.
+	\UCpaso[\UCactor] Introduce los campos que desea modificar. \label{l_Alumno_CU1_1_E1}
+
+	%Paso 5.
+	\UCpaso [\UCactor] Solicita modificar la información de la cuenta
+	presionando el botón \IUbutton{Aceptar}.
+	
+	%Paso 6.
+	\UCpaso Valida que el correo electrónico proporcionado cumpla con el formato correcto, según la regla \BRref{EM-RN-S001}{Formato de correo electronico}. [Error  \ref{EM-Alumno-CU1-1-E1}]
+
+    % Paso 7.
+    \UCpaso Valida la contraseña ingresada cumpla con el formato de contraseña defido, según la regla de nogocio \BRref{EM-RN-S004}{Formato de Contraseña}. [Error  \ref{EM-Alumno-CU1-1-E1}]
+
+    % Paso 8.
+    \UCpaso Valida que las contraseñas obtenidas de los campos ''Contraseña'' y ''Repite tu contraseña'' coincidan una con la otra. [Error  \ref{EM-Alumno-CU1-1-E2}]
+
+    % Paso 9. 
+    \UCpaso Valida que la fotografía seleccionada cumpla con el formato adecuado, según la regla \BRref{EM-RN-N011}{Formato de fotografía}. [Error \ref{EM-Alumno-CU1-1-E1}] \Trayref{A} 
+
+    % Paso 10. 
+    \UCpaso Persiste la información introducida del alumno en el sistema. \label{l_EM_Alumno_CU1_1_PersisteInfo}
+
+	% Paso 11. 
+    \UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla
+    \IUref{EM-Alumno-UI1}{Consultar Perfil del Alumno} y actualiza la
+    información de la misma. 
+     
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea agregar o modificar
+una foto en su perfil.}
+
+	% A1.
+	\UCpaso Continua en el paso \ref{l_EM_Alumno_CU1_1_PersisteInfo} de la trayectoria principal.
+
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

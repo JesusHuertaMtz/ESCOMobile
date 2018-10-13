@@ -1,0 +1,234 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+						%%		EM-CITAS	  %%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{EM-Citas-UI1 Consultar citas Agendadas}
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar un listado de todas las citas agendadas ordenadas por fecha y hora, comenzando por la cita
+	próxima a realizarse. De esta manera se podrá consultar el día, hora y asunto de la cita.
+
+\subsubsection{Diseño}
+	\noindent
+	El listado de las citas agendadas muestra un breve resumen del asunto por el cual se agendó la cita.
+	Al presionar sobre un elemento de la lista se desplegará información detallada de 
+	la cita. Además, cada elemento de la lista contendrá un menú de opciones donde se podrán cancelar
+	o eliminar las citas.
+
+\IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI1_Consultar_Citas_Agendadas}{EM-Citas-UI1}{Consultar citas agendadas}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Fecha en la que se agendó la cita.
+		\item Hora en la que comenzará la cita.
+			\item Alumno que solicitó la cita.
+		\item Asunto por el cual se agendó la cita.
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Ninguna.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{ Por Confirmar } Muestra la pantalla de citas por confirmar.
+	\item \IUbutton{ Citas pasadas } Muestra la pantalla del historial de citas.
+	\item \UCicono{plus} Muestra pantalla para solicitar una cita.
+	\item \UCicono{vdots} Muestra menú para cancelar o eliminar la cita.
+	\item \UCicono{arrowL} Regresa a la pantalla anterior.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item Ninguno.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\subsection{EM-Citas-UI1.2 Consultar citas por Confirmar}
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar un listado de todas las citas por confirmar ordenadas por fecha y hora, comenzando por la primera cita solicitada. De esta manera se podrá consultar el día, hora y asunto de la cita y aceptar o rechazar las citas .
+
+\subsubsection{Diseño}
+	\noindent
+	El listado de las citas por confirmar muestra un breve resumen del asunto por el cual se agendó la cita.
+	Al presionar sobre un elemento de la lista se desplegará información detallada de 
+	la cita solicitada. Además, cada elemento de la lista contendrá un menú de opciones donde se podrá aceptar o cancelar las citas.
+
+\IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI1_2_Consultar_Citas_por_Confirmar}{EM-Citas-UI1-2}{Consultar citas por Confirmar}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Fecha en la que se agendó la cita.
+		\item Hora en la que comenzará la cita.
+			\item Alumno que solicitó la cita.
+		\item Asunto por el cual se agendó la cita.
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Ninguna.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{ Agendadas } Muestra la pantalla de citas agendadas.
+	\item \IUbutton{ Citas pasadas } Muestra la pantalla del historial de citas.
+	\item \UCicono{vdots} Muestra menú para cancelar o eliminar la cita.
+	\item \UCicono{arrowL} Regresa a la pantalla anterior.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item Ninguno.
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{EM-Citas-UI1.3 Consultar citas Pasadas}
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar un listado de todas las citas pasadas ordenadas por fecha y hora. De ésta manera se podrá consultar el día, hora y asunto de las citas pasadas y eliminarlas .
+
+\subsubsection{Diseño}
+	\noindent
+	El listado de las citas pasadas muestra un breve resumen del asunto por el cual se agendó la cita.
+	Al presionar sobre un elemento de la lista se desplegará información detallada de 
+	la cita . Además, cada elemento de la lista contendrá un botón de eliminar el registro de esa cita.
+
+\IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI1_3_Consultar_Citas_Pasadas}{EM-Citas-UI1-3}{Consultar citas pasadas}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Fecha en la que se agendó la cita.
+		\item Hora en la que se realizó la cita.
+		\item Alumno que solicitó la cita.
+		\item Asunto por el cual se agendó la cita.
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	\item Ninguna.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{ Agendadas } Muestra la pantalla de citas agendadas.
+	\item \IUbutton{ Citas por Confirmar } Muestra la pantalla de las citas por confirmar.
+	\item Borrar: Borra la cita.
+	\item \UCicono{arrowL} Regresa a la pantalla anterior.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item \MSGref{MSG1}{Operación Exitosa}
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{EM-Cita-UI2 Agendar una cita }
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar los campos: Profesor a agendar, fecha, hora, tipo de cita y
+	motivo de la cita, para que el actor pueda generar una solicitud de cita con un profesor.
+
+\subsubsection{Diseño}
+	\noindent
+	Se mostrarán los campos: nombre del profesor, fecha, hora, tipo de cita, salón, agregar recordatorio y
+	motivo de la cita.
+	 Al presionar sobre la etiqueta de fecha de la cita se mostrará un pop up con un
+	calendario mostrando la fecha actual. Al presionar sobre la etiqueta de hora se mostrará un
+	pop up que indique la hora actual y pueda seleccionar una hora diferente.
+	Al presionar sobre la etiqueta tipo de cita se mostrará un pop up con una lista de opciones, de las
+	cuales solo podrá seleccionar una. Al presionar sobre la etiqueta Agregar notificación se mostrará
+	un pop up con opciones para programar el recordatorio.
+
+\IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI2_Agendar_una_Cita}{EM-Cita-UI2}{Agendar una cita}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Caledario.
+		\item Reloj.
+		\item Pop up con opciones para agregar un recordatorio.
+		\item Pop up con las opciones para seleccionar el tipo de cita.
+		\item Pop up indicando que la operación se realizó con éxito.
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+	
+	\item Fecha en la que se propone se lleve a cabo la reunión.
+	\item Propuesta de la hora de inicio de la cita.
+	\item Motivo por el cual se realiza la cita.
+\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Profesor a agendar}:Muestra la pantalla Seleccionar Profesor para Cita.
+	\item \IUbutton{ \UCicono{reloj} Fecha de la cita }: Muestra el pop up para seleccionar la fecha.
+	\item \IUbutton{ \UCicono{reloj} Hora de la cita }: Muestra el pop up para seleccionar la hora de 
+	la cita.
+	\item \IUbutton{ \UCicono{trian_invert} Tipo de cita }: Muestra un listado de opciones.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item \MSGref{MSG1}{Operación Exitosa}
+	\item \MSGref{MSG12}{Traslape de hora de cita con hora de clase}
+\end{Citemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\subsection{EM-Cita-UI2.1 Seleccionar Profesor para Cita }
+
+\subsubsection{Objetivo}
+	\noindent
+	Mostrar una lista de profesores para que el alumno seleccione o busque el profesor al cual decida solicitar una cita.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se muestra en dos secciones. La primera sección muestra una barra de búsqueda para profesores de ESCOM y el botón para regresar. La segunda sección muestra una lista con los nombres de los profesores de la ESCOM registrados en el sistema, o bien, los coincidentes con la búsqueda ordenados alfabéticamente. 
+
+\IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI2_1_Seleccionar_Profesor_para_Cita}{EM-Cita-UI2-1}{Seleccionar Profesor}
+
+\subsubsection{Salidas}
+	\begin{itemize}
+		\item Lista que muestra alfabéticamente los nombres de todos los profesores registrados en ESCOM, o bien, los coincidentes con la búsqueda. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+
+\begin{itemize}
+		\item Nombre del profesor que se requiere solicitar cita.  
+	\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+		\item Botón de regreso: Para regresar a la pantalla anterior. 
+	\end{itemize}
+
+\subsubsection{Mensajes}
+Ninguno.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

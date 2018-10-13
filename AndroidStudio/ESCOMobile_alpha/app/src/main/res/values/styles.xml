@@ -1,0 +1,57 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Splash" parent="Theme.AppCompat.NoActionBar">
+        <!--<item name="android:windowBackground">@drawable/splash_background</item>-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- estilo para el progress bar -->
+    <style name="NewDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <!-- Estilos para fastscroll reddit -->
+    <style name="Widget.FastScrollSample.FastScroller" parent="Widget.IndicatorFastScroll.FastScroller">
+        <item name="iconColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="Widget.FastScrollSample.FastScroller.Floating">
+        <item name="iconColor">@color/amber_4</item>
+        <item name="android:textColor">@color/amber_4</item>
+        <item name="android:background">@drawable/fastscroller_floating_background</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+
+    <style name="Widget.FastScrollSample.FastScrollerThumb" parent="Widget.IndicatorFastScroll.FastScrollerThumb" />
+
+    <style name="Widget.FastScrollSample.FastScrollerThumb.Colorful">
+        <item name="thumbColor">@color/amber_4</item>
+    </style>
+</resources>

@@ -1,0 +1,261 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+					% 			Alumno Profesor			%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\newpage
+\subsection{EM-AlumnoProfesor-IU1 Buscar Profesores de ESCOM.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Permitir al usuario registrado realizar la búsqueda de algún profesor de ESCOM de su interés dado
+	de alta en la aplicación ESCOMobile.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se muestra en dos secciones. La primera sección muestra el nombre de ESCOMobile, una barra de búsqueda para profesores de ESCOM y el botón para regresar. La segunda sección muestra una lista con los nombres de los profesores de la ESCOM registrados en el sistema, o bien, los coincidentes con la búsqueda ordenados alfabéticamente. 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_Buscar_Profesor_de_ESCOM.png}{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM}
+
+\subsubsection{Salidas}
+	\noindent
+	\begin{itemize}
+		\item Lista que muestra alfabéticamente los nombres de todos los profesores registrados en ESCOM, o bien, los coincidentes con la búsqueda. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	\begin{itemize}
+		\item Nombre del profesor que se requiere buscar.  
+	\end{itemize}
+
+\subsubsection{Comandos}
+	\noindent
+ 	\begin{itemize}
+		\item Botón de regreso: Para regresar a la pantalla anterior. 
+	\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+\pagebreak
+\subsection{EM-AlumnoProfesor-UI1.1 Consultar perfil del profesor.}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá consultar la información de algún profesor de su interés por medio de su perfil, ésta información es su nombre, fotografía, academia, así también, sirve de acceso para consultar su horario y estadísticas de desempeño docente, calificarlo, ubicarlo en el mapa de ESCOM o solicitarle una cita. 
+
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra primeramente la información básica del profesor a consultar, como su foto, su nombre, academia, cubículo y calificación promedio otorgada por los alumnos que lo han calificado; se muestran también cinco botones los cuales son \IUbutton{Horario}, \IUbutton{Estadísticas}, \IUbutton{Ubicar en el mapa}, \IUbutton{Calificar}, \IUbutton{Solicitar cita} y el botón de regreso, para lograr una mayor interacción con el profesor por medio de la app.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_1_Consultar_perfIl_del_profesor.png}{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}
+
+\subsubsection{Salidas}
+	\noindent
+	Se muestra la siguiente información del profesor:
+	\begin{itemize}
+		\item Nombre.
+		\item Academia a la que pertenece.
+		\item Cubículo.
+		\item Calificación promedio.
+		\item Fotografía. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Horario}: Muestra pantalla con horario del profesor.
+	\item \IUbutton{Estadísticas}: Muestra pantalla con las estadísticas del profesor.
+	\item \IUbutton{Ubicar en el mapa}: Muestra mapa con el cubículo del profesor.
+	\item \IUbutton{Calificar}: Muestra pantalla para calificar el desempeño docente del profesor.
+	\item \IUbutton{Solicitar cita}: Muestra formulario de cita a solicitar.
+	\item \IUbutton{Regresar}: Para regresar a la pantalla anterior.
+\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent
+	Ninguno.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\subsection{EM-AlumnoProfesor-UI1.1.1 Consultar Horario del Profesor.}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá consultar el horario de algún profesor de su interés, ésto es: las materias que imparte a lo largo de la semana, así como la hora, grupo y salón en las que éstas se ubican.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra primeramente la información básica del profesor, como su foto y su nombre; debajo se muestran en forma de tarjetas desplegables los días de la semana, de lunes a viernes, con la información de las materias impartidas por el profesor, como el nombre de la materia, grupo, salón y hora. Es importante mencionar que las tarjetas correspondientes a los días en donde los profesores no tienen clase se mostrarán vacías.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_1_1_Consultar_horario_de_profesor.png}{EM-AlumnoProfesor-UI1-1-1}{Consultar Horario del Profesor}
+
+\subsubsection{Salidas}
+	\noindent
+	Se muestra la siguiente información del profesor:
+	\begin{itemize}
+		\item Nombre.
+		\item Fotografía. 
+	\end{itemize}
+	E información de la materia:
+	\begin{itemize}
+		\item Nombre.
+		\item Hora, grupo y salón en que se imparte. 
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item Botón de regreso: Para regresar a la pantalla anterior.
+\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent
+	Ninguna.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\subsection{EM-AlumnoProfesor-UI1.1.2 Calificar desempeño académico del Profesor.}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá calificar y comentar el desempeño académico de algún profesor de ESCOM para compartir su opinión, retroalimentar y motivar al propio profesor a mejorar sus actitudes y habilidades en el salón de clases.
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra el nombre, fotografía y calificación promedio obtenida del profesor, así como dos recuadros disponibles para calificar y comentar el desempeño académico del profesor, éstos recuadros son:
+	\begin{Citemize}
+		\item Tu puntuación: que muestra gráficamente (con el uso de estrellas) la calificación de 1 a 5 que se puede otorgar al desempeño académico del profesor.
+		\item Comentario: cuadro de texto dedicado a algún comentario que el alumno quiera hacer llegar al profesor calificado. 
+	\end{Citemize}
+	Además muestra los botones \IUbutton{Enviar} y el botón regresar.
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_1_2_Calificar_desempeno_academico_del_Profesor.png}{EM-AlumnoProfesor-UI1-1-2}{Calificar desempeño académico del Profesor}
+
+\subsubsection{Salidas}
+	\noindent
+	Se muestra la siguiente información del profesor:
+	\begin{itemize} 
+		\item Nombre.
+		\item Fotografía.
+		\item Promedio obtenido.
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	\begin{itemize}
+		\item Calificación otorgada por el alumno para el profesor.
+		\item Comentario del alumno.
+	\end{itemize}
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item Botón regresar: Para regresar a la pantalla anterior.
+	\item \IUbutton{Enviar}: Para enviar calificación y comentario otorgados del alumno al profesor, persiste la información brindada por el alumno.
+\end{itemize}
+
+\subsubsection{Mensajes}
+\begin{Citemize}
+	\item \MSGref{MSG1}{Operación Exitosa}
+	\item \MSGref{MSG5}{Falta dato obligatorio}
+\end{Citemize}
+
+
+\subsection{EM-AlumnoProfesor-UI1.1.3 Consultar estadísticas del profesor.}
+
+\subsubsection{Objetivo}
+	\noindent
+	Permitir consultar estadísticas de algún profesor en específico, las estadísticas que se muestran son: el promedio de la calificación del profesor, así como una gráfica que detalla el comportamiento del profesor con respecto a sus citas, es decir, del total de citas registradas para el profesor, cuántas de ellas han sido aceptadas, cuántas canceladas y cuántas se encuentran pendientes de ser aceptadas o rechazadas. 
+
+\subsubsection{Diseño}
+	\noindent
+	La pantalla se divide en tres grandes partes. La primera de ellas muestra las opciones directas que se pueden realizar, éstas son: regresar a la pantalla anterior, y cambiar entre las consultas de estadísticas y comentarios. La segunda sección nos presenta la información básica del profesor, esto es, su nombre, fotografía (en el caso de haber) y su promedio de desempeño asignado (calificación) por los alumnos. Finalmente, en el tercer apartado, tenemos una gráfica que detalla el comportamiento del profesor ante sus citas, los apartados contenidos en ella son: citas aceptadas, citas canceladas y solicitudes pendientes. 
+
+\pagebreak
+\IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_1_3_Consultar_Estadisticas_del_profesor.png}{EM-AlumnoProfesor-UI1-1-3}{Consultar estadísticas del profesor}
+
+\subsubsection{Salidas}
+	\noindent
+	Se muestra la siguiente información del profesor:
+	\begin{itemize} 
+		\item Nombre.
+		\item Fotografía.
+		\item Puntuación del profesor.
+		\item Gráfica con las citas Aceptadas, Citas canceladas y solicitudes pendientes.
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+	\begin{itemize}
+		\item Botón de regreso: Para regresar a la pantalla anterior.
+		\item Botón  \IUbutton{Comentarios}: para consultar los comentarios asignados por los alumnos al profesor.
+	\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent
+	Ninguno.
+
+\subsection{EM-AlumnoProfesor-UI1.1.3.1 Consultar comentarios del profesor.}
+
+\subsubsection{Objetivo}
+	\noindent
+	El actor podrá consultar los comentarios que se le han escrito al profesor de la ESCOM, así el alumno estará más informado sobre éste mismo.
+\subsubsection{Diseño}
+	\noindent
+	La pantalla muestra el nombre, fotografía y los comentarios sobre el profesor de ESCOM
+	
+	Además muestra el botón de regreso.
+
+\IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_1_3_1_Consultar_Comentarios_del_Profesor.png}{EM-AlumnoProfesor-UI1-1-3-1}{Consultar comentarios del profesor}
+
+
+\subsubsection{Salidas}
+	\noindent
+	Se muestra la siguiente información del profesor:
+	\begin{itemize} 
+		\item Nombre.
+		\item Fotografía.
+		\item Comentarios sobre el profesor.
+	\end{itemize}
+
+\subsubsection{Entradas}
+	\noindent
+	Ninguna.
+
+\subsubsection{Comandos}
+\begin{itemize}
+	\item Botón de regreso: Para regresar a la pantalla anterior.
+	
+\end{itemize}
+
+\subsubsection{Mensajes}
+	\noindent
+	No aplica.
+
+
+
+
+

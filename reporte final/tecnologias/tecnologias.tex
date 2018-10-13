@@ -1,0 +1,94 @@
+En este capítulo abordaremos las distintas herramientas tecnológiacas que usaremos para desarrollar y documentar la aplicación. Presentaremos las características de cada herramienta así como las posibles ventajas y desventajas de cada una, además, mostraemos una tabla comparativa de cada tecnoogía y la razón por la cual elegimos usar alguna de ellas.
+Las harramientas tecnológicas que compararemos son los IDE de desarrollo de Android, el lenguaje de programación que usaremos, las herramientas para hacer los mockups, editores de LaTex, un par de repositorios para realizar el trabajo colaborativo, la plataforma del servidor y las herramientas CASE.
+
+\section{Tecnologías a usar}
+
+\subsection{IDE}
+Un entorno de desarrollo integrado o entorno de desarrollo interactivo, en inglés Integrates Development Environment (IDE), es una aplicación informática que proporciona servicios integrales para facilitarle al desarrollador o programador el desarrollo de software. Encontramos dos IDE's que funcionan para editar código que pueda ser compilado para una apliacación Android. El primero de ellos es Android Studio el cual es el IDE oficial para desarrollar aplicaciones Android y el segundo es IntelliJ IDEA.
+\begin{itemize}
+	\item \textbf{Android Studio:} Este IDE esta completamente diseñado para crear aplicaciones de Android. Cuenta con la opción de ejecutar un apk dentro de un dispositivo emulado. Convierte código Java a código Kotlin si el proyecto se configuró de dicha forma. Cuenta con el soporte de Google. Es completemente gratuito. Esta basado en IntelliJ IDEA pero con más funcionalidades que aumentan la productividad durante la compilación de apps para Android, como las siguientes:
+	\begin{itemize}
+		\item Un sistema de compilación basado en Gradle flexible.
+		\item Un emulador rápido con varias funciones.
+		\item Un entorno unificado en el que puedes realizar desarrollos para todos los dispositivos Android.
+		\item Instant Run para aplicar cambios mientras tu app se ejecuta sin la necesidad de compilar un nuevo APK.
+		\item Integración de plantillas de código y GitHub para ayudarte a compilar funciones comunes de las apps e importar ejemplos de código.
+		\item Herramientas Lint para detectar problemas de rendimiento, usabilidad, compatibilidad de versión, etc.
+		\item Soporte incorporado para Google Cloud Platform, lo que facilita la integración de Google Cloud Messaging y App Engine
+	\end{itemize}
+	\item \textbf{IntelliJ IDEA: } Este IDE tiene soporte, en su versión de paga, para compilar aplicaiones Android tanto escritas en Java como en Kotlin, tiene soporte para escribir aplicaciones Java EE, Spring, Vaadin, cuenta con soporte para Javascript y Typscript. Una de las funciones interesantes con las que cuenta es el de detectar código repetido en el proyecto. El precio por un año de uso de este IDE es de 149 dólares. En la versión gratuita del IDE solo se cuenta con el soporte para  Android.
+\end{itemize}
+Aunque IntelliJ IDEA en su versión de paga tiene más funcionalidades que ofrecer no las requerimos, en cambio Android Studio ofrece las mismas capacidades que IntelliJ IDEA para el desarrollo de apps para Android e inclusive añade más funcionalidades. A continuación mostraremos una tabla comparativa de los dos IDE.
+
+\begin{tecnologias}{Características}{IntelliJ IDEA}{Android Studio}
+	\Titem{Lenguaje soportado: Java, Kotlin}{check}{check}
+	\Titem{Android}{check}{check}
+	\Titem{Completar código de forma inteligente}{check}{check}
+	\Titem{Verificador de sintaxys}{check}{check}
+	\Titem{Cenversión de código Java a Kotlin}{uncheck}{check}
+	\Titem{Emulador de dispositivos}{uncheck}{check}
+	\Titem{Instant Run}{uncheck}{check}
+	\Titem{Soporte Google Cloud Plataform}{uncheck}{check}
+	
+	\caption{Tabla comparativa entre las dos opciones de IDE para el desarrollo de la aplicación móvil.}
+\end{tecnologias}
+Debido a que Android Studio ofrece más herramientas para el desarrollo de aplicaciones de Android será el IDE que utilizaremos para desarrollar ESCOMobile.
+
+\subsection{Sistema Gestor de Base de Datos en la aplicación móvil}
+Para el manejo de caché dentro de la aplicación se necesita almacenar cierta información temporalmente. Esto se puede realizar utlizando archivos, en los que se le puede almacenar la información bajo algún tipo de formato como JSON o XML, una base de datos o usando shared preferences ofrecidas por Android.
+Como mencionamos en el párrafo anterior Android nos permite almacenar la información de diferentes maneras. La solución que se elija depende de las necesidades de cada aplicación, se debe tomar en cuenta el tamaño de datos que se va a almacenar, si el usuario u otras apps puede acceder a esos datos y que tipo de información se va a almacenar. Bien las 4 opciones que nos ofrece Android son las siguientes:
+\begin{itemize}
+	\item \textbf{Almacenamiento interno de archivos} Almacena archivos en el sistema de ficheros del dispositivo. La app es la única que puede acceder a estos archivos.
+	\item \textbf{Almacenamiento externo de archivos} Almacena archivos en el sistema de ficheros externo compartido. Es donde se pueden compartir archivos, como fotografías.
+	\item \textbf{Shared preferences} Almacena datos primitivos en pares clave-valor. Se utliza cuando se desea almacenar pocos datos sin una estructura especifíca.
+	\item \textbf{Base de datos} Almacena información estructurada en bases de datos privadas.
+\end{itemize}
+Las aplicaciones que manejan cantidades no triviales de datos estructurados pueden beneficiarse enormemente de la persistencia de esos datos a nivel local. El caso de uso más común es almacenar en caché piezas de datos relevantes. De esta forma, cuando el dispositivo no puede acceder a la red, el usuario puede navegar por ese contenido mientras no está conectado a la red. Cualquier cambio de contenido iniciado por el usuario se sincroniza con el servidor después de que el dispositivo vuelva a estar en línea.\cite{ROOM}
+Debido al negocio la información que proporciona la aplicación debe ser almacenada de manera privada y estructurada. Por lo que decidimos utilizar una base de datos privada en la app.
+Android provee de un soporte completo para base de datos SQLite. Hay dos formas de interactuar con ésta base de datos, la primera es usando la \textbf{API de SQLite} que es de bajo nivel y requieren de tiempo y esfuerzo para que funcione correctamente con la app. Por ejemplo:
+\begin{itemize}
+	\item No hay verificación en tiempo de compilación de las consultas SQL sin formato.
+	\item A medida que el esquema cambia, se debe actualizar las consultas SQL afectadas manualmente. Este proceso puede llevar mucho tiempo y puede ser propenso a errores.
+	\item Se repite código para convertir consultas SQL a objetos de datos Java o Kotlin y viceversa.
+\end{itemize}
+Y la segunda opción, que es la que se recomienda usar y que de hecho es la que usaremos, es la \textbf{Room persistence library}. Room proporciona una capa de abstracción sobre SQLite para permitir el acceso fluido a la base de datos y, al mismo tiempo, aprovechar toda la potencia de SQLite.
+Hay 3 componentes principales en Room:
+%https://developer.android.com/training/data-storage/room/
+\begin{itemize}
+	\item \textbf{Database} Contiene el holder de la base de datos y sirve como el punto de acceso para la conexión subyacente a los datos relacionales persistentes de la aplicación.
+	\item \textbf{Entity} Representa una tabla dentro de la base de datos.
+	\item \textbf{DAO} Contiene los métodos para acceder a la base de datos.
+\end{itemize}
+En la figura \IMGref{roomArchitecture} podemos observar la arquitectua de los componentes citados anteriormente y de como estos interactuan con la app. Por las razones descritas en esta sección decidimos utilizar \textbf{Room persistence library} para almacenar información de manera estructurada dentro de la aplicación.
+
+\IMGfig[.7]{room_architecture}{roomArchitecture}{Componentes de la API Room y su interacción con la app.}
+
+\subsection{Sistema Gestor de Base de Datos del lado del servidor}
+Para persistir la información que se genere a tráves de la aplicación y que este disponible la mayor parte del tiempo por los usuarios es necesario contar con un SGBD en el servidor para que los datos esten centralizados y se puedan agregar, actualizar, consultar y eliminar los datos generados por los usuarios.
+Comparando los SGBD, ver la \TABref{IDTabla}, más populares encontramos que la opción más confiable sería utilizar \textbf{MySQL} debido a que es de código abierto, gratuito, con soporte técnico y abundante documentación.
+
+\begin{comparativa}{Característica}{Oracle}{MySQL}{SQL Server}{IDTabla}
+	\Comitem{Interfaz}{GUI, SQL}{SQL}{GUI, SQL}
+	\Comitem{Lenguaje soportado}{C, C++, C\#, Java, Ruby y Objective-C}{C, C\#, C++, D, Java, Ruby y Objective C}{Java, Ruby, Python, VB, .Net y PHP}
+	\Comitem{Sistema operativo}{Windows, GNU/Linux, Solaris, OS-X}{Windows, GNU/Linux, OS-X, FreeBSD, Solaris}{Windows}
+	\Comitem{Licencia}{Propietario}{Código libre}{Propietario}
+	
+	\caption{Tabla comparativa entre los SGBD populares.}
+\end{comparativa}
+
+\subsection{Servidor}
+Un sevidor web es un sistema informático permanentemente conectado a la red donde se almacenan las distintas páginas que forman un sitio Web disponibles para ser visitadas por los usuarios a través de navegadores de Web utilizando el protocolo HTTP.%https://www.cert.org.mx/taxonomy/term/1287
+%http://frikibloggeo.blogspot.mx/2017/01/crear-un-web-service-api-rest-con-php-y.html
+
+
+
+
+
+
+
+
+
+
+
+
+

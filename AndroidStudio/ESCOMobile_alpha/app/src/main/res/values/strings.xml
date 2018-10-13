@@ -1,0 +1,78 @@
+<resources>
+	<string name="app_name">ESCOMobile_alpha</string>
+	<string name="txt_main_name">ESCOMobile</string>
+	<string name="img_main_logo_desc">Logo de ESCOM</string>
+	<string name="btn_registrarse">Registrarse</string>
+	<string name="btn_iniciar_sesion">Iniciar sesión</string>
+	<string name="btn_continuar_sin_registro">Continuar sin registrarse</string>
+	
+	<!-- TODO: Nombre de actividades -->
+	<string name="title_activity_maps">Map</string>
+	<string name="title_activity_registro">ESCOMobile</string>
+	
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="map_request_denied">Lo sentimos, no podemos acceder a tu ubicación.</string>
+	<string name="btn_planta_baja">PB</string>
+	<string name="btn_segundo_piso">P2</string>
+	<string name="btn_primer_piso">P1</string>
+	<string name="txt_hint_primer_ap">Apellido Paterno</string>
+	<string name="txt_hint_nombre">Nombre</string>
+	<string name="txt_hint_boleta_empleado">Boleta / # Empleado</string>
+	<string name="txt_hint_segundo_ap">Apellido Materno</string>
+	<string name="txt_hint_mail">Correo electrónico</string>
+	<string name="txt_hint_pass">Contraseña (mínimo 8 caracteres)</string>
+	<string name="txt_hint_pass2">Repite tu contraseña</string>
+	<string name="lbl_iniciar_como_profesor">Iniciar sesión como profesor</string>
+	<string name="lbl_condiciones">He leído y acepto términos y condiciones</string>
+	<string name="lbl_registrarse">Registrarse</string>
+	<string name="lbl_ya_tiene_cuenta">¿Ya tienes una cuenta? ¡Entra!</string>
+	<string name="txt_sin_cuenta_registrate">¿No tienes una cuenta? ¡Registrate!</string>
+	<string name="txt_olvide_pass">Olvidé mi contraseña</string>
+	<string name="btn_ingresar">Ingresar</string>
+	
+	<!-- TODO: Menú -->
+	<string name="dmenu_dashboard">Menucito principal</string>
+	<string name="dmenu_ver_mapa">Ver mapa</string>
+	<string name="dmenu_eventos">Eventos</string>
+	<string name="dmenu_citas">Citas</string>
+	<string name="dmenu_profesor">Profesores</string>
+	<string name="dmenu_bolsa_de_trabajo">Bolsa de trabajo</string>
+	<string name="dmenu_editar_perifl">Modificar información</string>
+	<string name="dmenu_cerrar_sesion">Cerrar sesión</string>
+	<string name="dmenu_borar_cuenta">Eliminar cuenta</string>
+	<string name="open">Open</string>
+	<string name="close">Close</string>
+	<string name="title_activity_manager">ManagerActivity</string>
+	<string name="nav_header_title">Jhon Lennon</string>
+	<string name="nav_header_subtitle">thebeatles@gmail.com.uk</string>
+	<string name="nav_header_desc">Navigation header</string>
+	<string name="action_settings">Settings</string>
+	<string name="action_search">Buscar profesor</string>
+	<string name="txt_hint_nombre_empresa">Nombre empresa</string>
+	<string name="txt_hint_puesto">Arquitecto de software</string>
+	<string name="txt_hint_sueldo">Sueldo: $45, 000</string>
+	<string name="txt_hint_logo_empresa">logo empresa</string>
+	<string name="txt_hint_horario">Horario:</string>
+	<string name="txt_hint_hora">L -V 9:00:00 a 18:00:00 hrs</string>
+	<string name="txt_hint_prestaciones">Prestaciones:</string>
+	<string name="txt_hint_requisitos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ullamcorper tellus vestibulum congue ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus venenatis nibh a ligula porta, congue ultricies nisi tincidunt. Etiam sit amet sem velit. Vivamus ac molestie lacus. Phasellus luctus eros in ultricies dignissim. Nunc fermentum tincidunt risus accumsan congue. Aliquam eu augue aliquet, cursus metus sed, finibus nibh. Sed ac felis efficitur, tempor elit id, iaculis magna. Vestibulum placerat mollis erat et pharetra. Ut eu neque mauris. Phasellus consequat justo eget euismod ultrices. Morbi dictum, nibh in feugiat egestas, orci ligula ultrices urna, et gravida lacus justo tempus turpis. Duis cursus sagittis ipsum, ac varius nunc.</string>
+	<string name="txt_hint_contacto">Contacto:</string>
+	<string name="txt_hint_medio_contacto">correo: escomobile@outlook.com teléfono: 5545542343</string>
+	<string name="preferences_login_key">com.example.master.escomobile.PREFERENCES_LOGIN</string>
+	
+	<string name="hint_profesores">profesores</string>
+	<string name="hint_grupos">grupos</string>
+	<string name="hint_salones">salones</string>
+	<string name="hint_academias">academias</string>
+	<string name="hint_progress_bar">Espera un momento</string>
+	<string name="txt_hint_calificar">Calificar</string>
+	<string name="txt_hint_cita">Solicitar cita</string>
+	<string name="btn_desc_horario_profesor">Horario</string>
+	<string name="btn_desc_estadisticas">Estadisticas</string>
+	<string name="btn_desc_ubicar_mapa">Ubicar en mapa</string>
+	<string name="img_desc_foto_profesor">foto de profesor</string>
+	<string name="txt_perfil_profesor">Perfil de profesor</string>
+	<string name="txt_profesor_de_escom">Profesor de ESCOM</string>
+	<string name="txt_comentarios_sobre_el_profesor">Comentarios sobre el profesor</string>
+</resources>

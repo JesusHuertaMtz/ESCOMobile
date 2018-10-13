@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white_transparent"
+	tools:context=".vista.fragment.HorarioProfesorFragment">
+	
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="@color/colorPrimary"
+			android:elevation="5dp"
+			android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+			app:title="Horario"
+			app:titleTextColor="@android:color/white" />
+		
+		<ExpandableListView
+			android:id="@+id/expandable_list_view"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_marginBottom="8dp"
+			android:layout_marginEnd="24dp"
+			android:layout_marginStart="24dp"
+			android:layout_marginTop="24dp"
+			android:childDivider="@color/white_transparent"
+			android:divider="@color/white_transparent"
+			android:dividerHeight="10dp"
+			android:indicatorRight="?android:attr/expandableListPreferredChildIndicatorRight"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/imageView4">
+		
+		</ExpandableListView>
+		
+		<ImageView
+			android:id="@+id/imageView4"
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:layout_marginStart="24dp"
+			android:layout_marginTop="8dp"
+			android:contentDescription="@string/img_desc_foto_profesor"
+			android:src="@mipmap/ic_launcher_round"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+		
+		<TextView
+			android:id="@+id/txt_nombre_prof"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_marginBottom="8dp"
+			android:layout_marginEnd="8dp"
+			android:layout_marginStart="16dp"
+			android:padding="5dp"
+			android:textSize="18sp"
+			app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/imageView4"
+			app:layout_constraintTop_toTopOf="@+id/imageView4" />
+	</android.support.constraint.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,57 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU008}{EM-Web-Bolsa-CU008-Consultar ofertas publicadas y no publicadas.}{
+		En este caso de uso el actor  podrá visualizar las ofertas de trabajo publicadas o aún no publicadas.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Administrador Bolsa}
+		\UCitem{Propósito}{Informar al actor cuales ofertas ya han sido publicadas y cuales aún no han sido publicadas.}
+
+		\UCitem{Entradas}{
+		
+		}
+
+		\UCitem{Origen}{}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{ }
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Ingresa al sistema .
+	\UCpaso Obtiene la lista de ofertas registradas en el sistema.\Trayref{A}
+	\UCpaso Muestra la pantalla principal \IUref {EM-WebBolsa-UI3}{Vista}.    
+	\UCpaso Se muestran las ofertas sin publicar \Trayref{B}
+		\end{UCtrayectoria}
+		
+\begin{UCtrayectoriaA}{A}{No hay ofertas registradas.}
+	\UCpaso Muestra la pantalla principal \IUref {EM-WebBolsa-UI3}{Vista}.   
+	\UCpaso Termina caso de uso.
+\end{UCtrayectoriaA}
+	
+\begin{UCtrayectoriaB}{B}{Ofertas Publicadas.}
+	\UCpaso[\UCactor] Da click en el boton \IUbutton{Ofertas publicadas}.  
+	\UCpaso Obtiene la lista de ofertas publicadas.
+	\UCpaso Termina caso de uso.
+\end{UCtrayectoriaB}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

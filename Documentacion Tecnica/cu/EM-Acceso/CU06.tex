@@ -1,0 +1,69 @@
+	\begin{UseCase}{EM-Acceso-CU6}{Consultar información de ESCOMobile}{
+		\noindent
+		Este caso de uso permite al actor consultar información de la aplicación ESCOMobile, como lo es una breve
+		descripción de la misma y lo que pretende lograr, el ámbito en el que opera y la forma en que lo hace. Se
+		dispone, además, de la información del equipo detrás de la creación de la app, de quienes colaboraron en
+		ella y de las personas a quienes se agradece por su apoyo hacia la misma.
+		\newline
+		}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Alumno, Profesor, Invitado.}
+		\UCitem{Propósito}{Brindar al actor información general acerca de ESCOMobile y el equipo responsable
+		de su desarrollo.}
+		\UCitem{Entradas}{Ninguna.}
+		\UCitem{Origen}{No aplica.}
+		\UCitem{Salidas}{
+			\begin{itemize}
+				\item Se muestra una pequeña desripción de ESCOMobile, lo que hace y cómo funciona. 
+				\item Se muestra la siguiente información de cada uno de los integrantes del equipo detrás de la app: 
+					\begin{itemize}
+						\item Nombre completo. 
+						\item Correo electrónico de contacto.
+						\item Fotografía.
+					\end{itemize}
+				\item Se muestra la siguiente información acerca de los colaboradores: 
+					\begin{itemize}
+						\item Nombre completo. 
+						\item Apartado en donde colaboró.
+					\end{itemize}
+				\item Se muestra la siguiente información sobre las personas a quienes se agradece por su apoyo: 
+					\begin{itemize}
+						\item Nombre completo. 
+						\item Motivo por el cual se le agradece.
+					\end{itemize}
+			\end{itemize}
+		}
+		\UCitem{Destino}{Pantalla.}
+		\UCitem{Precondiciones}{Ninguna.}
+		\UCitem{Postcondiciones}{Ninguna.}
+		\UCitem{Errores}{Ninguno.}
+		\UCitem{Tipo}{Caso de uso primario.}
+		\UCitem{Observaciones}{Corregido.}
+		\UCitem{Autores}{Huerta Martínez Jesús Manuel.}
+		\UCitem{Reviso}{Fernández Quiñones Isaac.}
+	\end{UseCase}
+	
+	\begin{UCtrayectoria}{Principal.}
+
+		% Paso 1.
+		\UCpaso[\UCactor] Presiona el botón \IUbutton{Sobre nosotros} de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}.
+
+		% Paso 2.
+		\UCpaso Obtiene la información general de ESCOMobile, así como la información de desarrolladores y colaboradores
+		de la misma, además de las personas a quienes se agreadece. 
+
+		% Paso 3.
+		\UCpaso Ordena la información de las personas según la posición alfabética de los nombres y sus grupos. 
+
+		% Paso 4.
+		\UCpaso Muestra la pantalla \IUref{EM-Acceso-UI6}{Consultar información de ESCOMobile} con la información
+		obtenida organizada en secciones. 
+
+		% Paso 5.
+		\UCpaso [\UCactor] Consulta la información general de la aplicación y del equipo detrás de su creación.
+
+	\end{UCtrayectoria}
+
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.

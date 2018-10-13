@@ -1,0 +1,58 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Profesor-CU01}{Consultar Perfil de otros Profesores}
+	{Este caso de uso Permite al profesor consultar cierta información asociada a otro profesor, como su nombre y fotografía, además, en caso de existir, ubcación de su cubículo. Por otro lado se alojan también las posibilidades de consultar sus estadístcias o comentarios.}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Profesor}
+	\UCitem{Propósito}{Proporcionar un mecanismo de consulta, donde los profesores registrados puedan informarse acerca de otros profesores así como los comentarios y estadísticas que éstos han adquirido.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Nombre del profesor.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Botón en la pantalla del smartphone.}
+	\UCitem{Salidas}{Muestra la pantalla con la siguiente información del profesor: 
+		\begin{itemize}
+			\item Nombre.
+			\item Academia a la que pertenece,
+			\item Cúbiculo.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item Haber iniciado sesión como profesor. 
+			\item Que exista un profesor dado de alta con la información necesaria para ser consultada.
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{
+		Ninguno				
+	}
+	\UCitem{Tipo}{Caso de uso secundario. Alumno-CU1 'Buscar Profesores y área escolar'}
+	\UCitem{Observaciones}{Es la primer propuesta de este caso de uso, se espera que se revise para
+	 implementar las correciones adecuadas.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel .}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	\UCpaso [\UCactor] Solicita consultar la información del profesor oprimiendo sobre su nombre en la pantalla \IUref{RegistroIU4}{Pantalla Consultar Salones Por Planta} con su nombre.
+	\UCpaso Obtiene la información del Profesor seleccionado.
+	\UCpaso Muestra la información obtenida del Profesor en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil de otros Profesores}.
+	\UCpaso[\UCactor] Consulta la información del Profesor.
+	\UCpaso [\UCactor] Gestiona las diferentes posibles opciones de la pantalla por medio de los botones \IUbutton{Estadísticas}, \IUbutton{Comentarios} \IUbutton{Ubicar en el mapa} \IUref{buscarIU1-1}{Consultar Perfil del Profesor}..
+\end{UCtrayectoria}
+
+\subsection{Puntos de extensión}
+
+\UCExtensionPoint{Solicitar agendar cita a profesor} {El actor desea solicitar una cita a un profesor} {Paso 5 de la Trayectoria Principal}{referancia a CU citas (alumno 1.1.1)}
+
+\UCExtensionPoint{Ubicar cubículo en mapa}{El actor desea ubicar en el mapa de la ESCOM el cubículo del profesor}{Paso 5 de la Trayectoria Principal.}{referencia a caso de uso}
+
+\UCExtensionPoint{Consultar horario del profesor}{El actor desea consultar el horario completo del profesor}{Paso 5 la Trayectoria Principal} {referencia a caso de uso}
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

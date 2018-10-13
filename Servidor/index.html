@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ESCOMobile</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/DataTables/Bootstrap-4-4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.css"/>
+	<!-- Para los iconos se necesita conexión a internet-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!------>
+	<link rel="stylesheet" type="text/css" href="assets/css/dTables.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/estilo.css"/>
+	<link rel="stylesheet" href="assets/css/dashboard.css">
+	<script type="text/javascript" src="assets/js/prueba.js"></script>
+	<script type="text/javascript" src="assets/DataTables/jQuery-3.2.1/jquery-3.2.1.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-light flex-md-nowrap p-0 shadow"> <!-- fixed-top -->
+		<div class="col-sm-4 col-md-4"></div>
+		<h1><span class="blue">ESCOMobile</span> <span class="orange">bolsa</span></h1>
+		<div class="col-sm-2 col-md-2"></div>
+		<img class="imagenPerfil" src="assets/image/escom.jpg"/>
+		<a class="nav-link-2" href="#">Bolsa de trabajo</a>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+								Ofertas laborales <span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://localhost/ESCOMobileServer/empresas.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+								Empresas
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<!--<div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+			<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+				<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+
+				</div>
+			</div>
+			<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+				<div style="position:absolute;width:200%;height:200%;left:0; top:0">
+
+				</div>
+			</div>
+		</div>
+
+		-->
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-0 mb-3 border-bottom">
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3 myDiv">
+				<div class="btn-group btn-group-lg">
+					<button type="button" class="button button1" disabled>
+						<i class="material-icons md-48">business_center</i>
+					</button>
+					<button type="button" class="button button3" disabled><span class="orange">140</span> Ofertas publicadas</button>
+				</div>
+			</div>
+
+			<div class="col-sm-7">
+				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="350" height="100%"
+					style="display: block;"></canvas>
+			</div>
+
+			<div class="col-sm-2 myDiv">
+				<div class="d-flex flex-column center">
+					<button class="btn btn-outline-secondary btnOrang mb-3" id="myBtn">Registrar empresa</button>
+					<button class="btn btn-outline-secondary btnOrang" id="publicar">Publicar boletín</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="d-flex flex-row-reverse bd-highlight">
+			<div class="p-2 bd-highlight">&nbsp;</div>
+			<div class="p-2 bd-highlight">
+				<button class="btn btn-default btn-icon" id="myOferta">
+					<i class="fa fa-plus-square-o md-36"></i>
+					<p>Añadir oferta</p>
+				</button>
+			</div>
+		</div>
+
+		<table id="ofertasNoPublicadas" class="display">
+		    <thead>
+		        <tr>
+					<th>No.</th>
+		            <th>NOMBRE DE LA EMPRESA</th>
+		            <th>HORARIO</th>
+		            <th>VACANTE</th>
+		            <th>SUELDO</th>
+		            <th>CONTACTO</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	<tr>
+		            <td>1</td>
+		            <td>Secretaría de Hacienda y Crédito Público – Banco Interamericano de Desarrollo (BID)</td>
+		            <td>10:00 a 20:00 hrs.</td>
+		            <td>Analista de Sistemas (una vacante) Conocimiento en casos de uso, diagramas de flujo, levantamiento de requerimientos, elaboración de prototipos y en sistemas operacionales o transaccionales.</td>
+		            <td> $27,000 Bruto (Según aptitudes)</td>
+		            <td>Marco Antonio Chávez Leal                                                    Tel:36881212                                          Correo: marco_chavezl@hacienda.gob.mx</td>
+		        </tr>
+		        <tr>
+		            <td>2</td>
+		            <td>Secretaría de Hacienda y Crédito Público – Banco Interamericano de Desarrollo (BID)</td>
+		            <td>10:00 a 20:00 hrs.</td>
+		            <td>Programador Java Jr. (tres vacantes) Conocimientos en Java, Javascript, JSP, Spring, SQL – Oracle, Sistemas operacionales o transaccionales, control de versiones  (Subversion) y desarrollo en 3 capas.</td>
+		            <td>$27,000 Bruto (Según aptitudes)</td>
+		            <td>Marco Antonio Chávez Leal                                                    Tel:36881212                                          Correo: marco_chavezl@hacienda.gob.mx</td>
+		        </tr>
+		        <tr>
+		            <td>3</td>
+		            <td>SAAT</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$15,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>4</td>
+		            <td>Software plus XD</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$5,000 apoyo mensual</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>5</td>
+		            <td>Un nombre extremadamente largo y dicil de capturar</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$16,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>6</td>
+		            <td>IMSS</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$4,500 apoyo mensual</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>7</td>
+		            <td>Solutions max</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$45,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>8</td>
+		            <td>ESCOMobile</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$27,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>9</td>
+		            <td>ESCOMobile</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$27,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>10</td>
+		            <td>ESCOMobile</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$27,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>11</td>
+		            <td>ESCOMobile</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$27,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>12</td>
+		            <td>ESCOMobile</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$27,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		        <tr>
+		            <td>13</td>
+		            <td>ESCOMobile</td>
+		            <td>9:00:00 a 18:00:00 hrs.</td>
+		            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis purus eu felis bibendum, a mattis dui efficitur. Nulla facilisi. Nulla convallis magna in mauris consequat hendrerit. Aliquam aliquam vitae nisl sed tristique. Phasellus dapibus velit quis elementum ultricies. Vivamus semper aliquet dolor sit amet maximus. Nulla quis imperdiet sapien. Vestibulum ullamcorper nisl vel lacinia ultricies. </td>
+		            <td>$27,000 Bruto</td>
+		            <td>escomobile@outlook.com</td>
+		        </tr>
+		    </tbody>
+		    <!--
+		    <tfoot>
+		        <tr>
+		            <th>No.</th>
+		            <th>NOMBRE DE LA EMPRESA</th>
+		            <th>HORARIO</th>
+		            <th>VACANTE</th>
+		            <th>SUELDO</th>
+		            <th>CONTACTO</th>
+		        </tr>
+		    </tfoot>
+		-->
+		</table>
+	</main>
+</div>
+</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><span class="blue">ESCOMobile</span> <span class="orange">bolsa</span></h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal registrar nueva empresa -->
+				<div class="modal-body">
+					<div class="textCenter">
+						<h5>Registrar nueva empresa</h5>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-1"></div>
+						
+						<div class="col-sm-10">
+							<h8>Es necesario introducir los campos marcados con *</h6>
+							<form>
+								<br><h6>Información de la empresa</h6>
+								<!-- Campo: Nombre de la empresa. -->
+								<div class="form-group">
+									<label for="nombreEmpresa">*Nombre de la empresa</label>
+									<input type="text" class="form-control" id="nombreEmpresa" placeholder="Nombre de la empresa">
+								</div>
+								<!-- Campo: RFC. -->
+								<div class="form-group">
+									<label for="rfcEmpresa">RFC</label>
+									<input type="text" class="form-control" id="rfcEmpresa" placeholder="RFC">
+								</div>
+								<!-- Campo: Giro. -->
+								<div class="form-group">
+									<label for="giroEmpresa">*Giro</label>
+									<select class="form-control" id="giroEmpresa">
+										<option>Servicios</option>
+										<option>Educación</option>
+										<option>Bancarios</option>
+										<option>Otro</option>
+									</select>
+								</div>
+								<!-- Campo: Sector. 								<div class="form-group">
+									<label for="sector">Sector</label>
+									<select class="form-control" id="sector">
+										<option>Sector 1</option>
+										<option>Sector 2</option>
+										<option>Sector 3</option>
+										<option>Sector 4</option>
+										<option>Sector 5</option>
+									</select>
+								</div>
+								-->
+
+
+								<br><h6>Contacto de la empresa</h6>
+								<!-- Campo: Nombre de encargado RU. -->
+								<div class="form-group">
+									<label for="nombreContactoEmp">*Encargado de Recursos Humanos</label>
+									<input type="text" class="form-control" id="nombreContactoEmp" placeholder="Nombre de encargado">
+								</div>
+								<!-- Campo: Contacto. -->
+								<div class="form-group">
+									<label for="tipoContactoEmpresa">*Tipo de Contacto</label>
+									<select class="form-control" id="tipoContactoEmpresa">
+										<option>Teléfono fijo</option>
+										<option>Teléfono celular</option>
+										<option>Correo electrónico</option>
+										<option>Linked in</option>
+										<option>Facebook</option>
+										<option>Twitter</option>
+										<option>Otro</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="contactoEmpresa">*Contacto</label>
+									<input type="text" class="form-control" id="contactoEmpresa" placeholder="conctacto">
+								</div>
+								
+								<button type="submit" class="btn btn-primary" id="button_regEmpresa">Registrar Empresa</button>
+							</form>
+						</div>
+
+						<div class="col-sm-1"></div>
+					</div>
+
+				</div>
+
+
+			</div>
+			<!-- end content -->
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalOferta" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+					  <h4 class="modal-title" id=""> ESCOMobile bolsa</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+	      </div>
+	      <div class="modal-body">
+	       <div class="textCenter">
+	       	<p>Registrar Nueva Oferta</p>
+	       </div>
+	      </div>
+				<div class="row">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-10">
+						<form action="" id="form">
+				<div class="form-group">
+
+					<input type="text" class="form-control-inline" id="name_empresa" placeholder="Nombre de la empresa">
+					<button type="button" class="btn btn-primary btn-sm-inline">+</button>
+							<input type="text" class="form-control-inline" id="Contacto" placeholder="Contacto">
+								<button type="button" class="btn btn-inline">+</button>
+	      <p>Horario:</p>
+
+				<div class="form-check form-check-inline">
+				  <label class="form-check-label">
+				    <input class="form-check-input" type="radio" name="inlineRadioOptions" onchange="habilitar(this.value);" id="inlineRadio1" value="option1"> Medio Tiempo
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <label class="form-check-label">
+				    <input class="form-check-input" type="radio" name="inlineRadioOptions" onchange="habilitar(this.value);" id="inlineRadio2" value="option2"> Tiempo Completo
+				  </label>
+				</div>
+				<div class="form-check-inline">
+	  <label class="form-check-label">
+	    <input class="form-check-input position-static" type="radio" name="blankRadio" onchange="visualizar(this.value);" id="blankRadio1" value="option3" > Horario Definido
+	  </label>
+	</div>
+
+
+
+	<div class="form-check-inline">
+		<label class="form-check-label">
+			<input class="form-check-input position-static" type="radio" name="blankRadio" onchange="visualizar(this.value);" id="blankRadio1" value="option4" > Horario indefinido
+		</label>
+	</div>
+	<div class="row">
+	<div class="form-group col-md-12">
+		<div class="input-group">
+
+			<select id="horario1" class="form-control form-control-default">
+					<option selected>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+				</select></p>
+			 <p> a </p>
+				<select id="horario2" class="form-control form-control-default">
+					<option selected>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					</select></p>
+		</div>
+	</div>
+	<input type="text" class="form-control" id="vacante" placeholder="Vacante">
+	<div class="form-row">
+	    <div class="form-group col-md-6">
+	    <p>Sueldo:  <select id="inputState"  onchange="mostrar(this.value);" class="form-control form-control-sm">
+	        <option selected value="1">Rango</option>
+	        <option value="2">Sin definir</option>
+					<option value="3">Fijo</option>
+	      </select></p>
+	    </div>
+
+			<div class="row">
+		  <div class="form-group col-md-12">
+		    <div class="input-group">
+
+					<select id="rango" class="form-control form-control-default">
+			        <option selected>10000</option>
+			        <option>11000</option>
+							<option>12000</option>
+							<option>13000</option>
+							<option>14000</option>
+							<option>15000</option>
+							<option>16000</option>
+							<option>17000</option>
+							<option>18000</option>
+							<option>19000</option>
+							<option>20000</option>
+							<option>21000</option>
+							<option>22000</option>
+							<option>23000</option>
+							<option>24000</option>
+							<option>25000</option>
+			      </select></p>
+	         <p> a </p>
+						<select id="rango2" class="form-control form-control-default">
+							<option selected>10000</option>
+							<option>11000</option>
+							<option>12000</option>
+							<option>13000</option>
+							<option>14000</option>
+							<option>15000</option>
+							<option>16000</option>
+							<option>17000</option>
+							<option>18000</option>
+							<option>19000</option>
+							<option>20000</option>
+							<option>21000</option>
+							<option>22000</option>
+							<option>23000</option>
+							<option>24000</option>
+							<option>25000</option>
+				      </select></p>
+		    </div>
+		  </div>
+		  <div class="form-group col-md-12">
+		    <div class="input-group">
+					<select id="fijo" class="form-control form-control-default">
+						<option selected>10000</option>
+						<option>11000</option>
+						<option>12000</option>
+						<option>13000</option>
+						<option>14000</option>
+						<option>15000</option>
+						<option>16000</option>
+						<option>17000</option>
+						<option>18000</option>
+						<option>19000</option>
+						<option>20000</option>
+						<option>21000</option>
+						<option>22000</option>
+						<option>23000</option>
+						<option>24000</option>
+						<option>25000</option>
+						</select></p>
+		    </div>
+		  </div>
+		</div>
+			<input type="text" class="form-control" id="Prestaciones" placeholder="Prestaciones">
+		</div>
+		<div class="textCenter">
+			<button type="button" id="oferta" class="btn btn-warning"  >Registrar Oferta</button>
+		</div>
+
+				</div>
+
+	    </div>
+		</form>
+			</div>
+	  </div>
+	</div>
+	<script type="text/javascript" src="assets/DataTables/datatables.js"></script>
+	<script type="text/javascript" src="assets/js/dTables.js"></script>
+	<script type="text/javascript" src="assets/js/publicar.js"></script>
+	<script type="text/javascript" src="assets/js/chart.js"></script>
+	<script src="assets/js/myChart.js"></script>
+</body>
+</html>

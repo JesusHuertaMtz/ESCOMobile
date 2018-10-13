@@ -1,0 +1,286 @@
+\noindent
+En este capítulo se muestran las iteraciones que realizamos los primeros 4 meses del año 2018 siguiendo la metodología Scrum. 
+En las primeras iteraciones se realizó la investigación acerca de los aspectos fundamentales de las aplicaciones de Android, con el fin de comprender los conceptos del desarrollo de aplicaciones en ésta plataforma móvil y poder llevarlos a la práctica.
+En iteraciones posteriores se hizo un análisis de lo que va a realizar ESCOMobile; de ese análisis se obtuvieron los requisitos funcionales y no funcionales del sistema, una breve descripción de los casos de uso, así como la identificación de los actores, se fueron obteniendo reglas de negocio. Además, de seguir con la investigación y práctica de la creación de aplicaciones de Android y del uso de la API de Google Maps. Posteriormente se comenzó con la redacción de la documentación técnica, la investigación del estado del arte, el análisis y diseño de la base de datos, la comprensión de comandos de LaTeX, el diseño que tendrá el mapa de la ESCOM en cada una de sus plantas, se realizaron pantallas de como lucirá la apliación, se definieron los iconos que se utilizarán en la aplicación, se definieron las tecnologías a utilizar, se implementó un servidor local para la interacción con el sistema móvil, se definió el formato del protocolo de comunicación entre el servidor y la aplicación de Android ESCOMobile, se creó un primer prototipo de la aplicación con la vista del primer piso de la ESCOM y se realizó la redacción de este documento que es el reporte de actividades realizadas. También se creó el repositorio para el desarrollo colaborativo de los documentos. En estas iteraciones surgieron problemas e inconvenientes que afectan al proyecto ESCOMobile tales como el cobro por el uso de los servicios de la API de Google Maps que superen las 1000 solicitudes al día que la versión gratuita ofrece, la curva de aprendizaje del desarrollo de aplicaciones de Android, las limitaciones de tiempo debido a que los miembros del equipo trabajan o están realizando su servicio social y que están cursando unidades de aprendizaje en la ESCOM. Pese a los problemas mencionados o no, tenemos un prototipo funcional de la aplicación así como la mayor parte de la documentación técnica y la elaboración de este documento. El resto de este capítulo presenta en mayor o menor medida los detalles del trabajo realizado en cada iteración.
+
+\section{Primera iteración}
+\noindent
+En esta iteración nos dimos a la tarea de investigar los aspectos fundamentales de las aplicaciones de Android. Encontramos que cada apliacación Android, instalada en el dispositivo, se aloja en su propia zona de pruebas de seguridad lo que significa que:
+\begin{itemize}
+	\item El sistema operativo Android es un sistema Linux multiusuario en el que cada aplicación es un usuario diferente.
+	\item De forma predeterminada, el sistema le asigna a cada aplicación una ID de usuario de Linux única (solo el sistema utiliza la ID y la aplicación la desconoce). El sistema establece permisos para todos los archivos en una aplicación de modo que solo el ID de usuario asignado a esa aplicación pueda acceder a ellos.
+	\item Cada proceso tiene su propio equipo virtual (EV), por lo que el código de una aplicación se ejecuta de forma independiente de otras aplicaciones.
+	\item De forma predeterminada, cada aplicación ejecuta su proceso de Linux propio. Android inicia el proceso cuando se requiere la ejecución de alguno de los componentes de la aplicación, luego lo cierra cuando el proceso ya no es necesario o cuando el sistema debe recuperar memoria para otras aplicaciones.
+\end{itemize}
+
+\noindent
+De esta manera cada aplicación tiene acceso solo a los componentes que necesita para llevar a cabo su trabajo únicamente. Esto crea un entorno seguro en el que una aplicación no puede acceder a partes del sistema para las que no tiene permiso.  \cite{fundamentalsAndroid} 
+Hay cuatro tipos diferentes de componentes de una aplicación de Android. \label{componentes_android}Cada tipo tiene un fin específico y un ciclo de vida diferente que define cómo se crea y se destruye el componente. En esta primera iteración solo nos concentraremos en uno: \textbf{Activity}; dejando los demás componentes para posteriores iteraciones, en el caso que se utilizen para realizar un incremento de software.
+
+\subsection{Activity} \label{sec_activity}
+\noindent
+Una Activity es un componente de la aplicación que contiene una pantalla con la que los usuarios pueden interactuar para realizar una acción, como marcar un número telefónico, tomar una foto, enviar un correo electrónico o ver un mapa. A estos componentes se les puede asociar un archivo XML en el que añaden los elementos que conforman una vista de usuario que pueden ser botones, campos de texto editables, mapas, etc.
+
+\noindent
+Para crear una actividad, debes crear una subclase de Activity (o una subclase existente de ella). En tu subclase debes implementar métodos callback a los que el sistema invoca cuando la actividad alterna entre diferentes estados de su ciclo de vida, como cuando se crea, se detiene, se reanuda o se destruye. Los dos métodos callback más importantes son los siguientes:
+\begin{itemize}
+	\item \textbf{OnCreate()} Se inicializan componentes fundamentales para la actividad y se llama a setContentView() para definir el diseño de la interfaz de usuario de la actividad.
+	\item \textbf{OnPause()} El sistema llama a este método como el primer indicador de que el usuario está abandonando tu actividad, aunque no siempre significa que la actividad se esté destruyendo. Generalmente este es el momento en el que debes confirmar los cambios que deban conservarse.\cite{activity}
+\end{itemize}
+En la \IMGref{IDActivityLifeCycle} se muestra el ciclo de vida de una Activity. No se detallan los demás métodos ya que por el momento no es necesario.
+
+\IMGfig[.7]{activity_lifecycle}{IDActivityLifeCycle}{Ciclo de vida de una Activity.}
+
+\subsection{Primera app}
+\noindent
+Al termino de la investigación de los aspectos fundamentales de Android, realizamos una aplicación ``Hola mundo" \IMGref{IDfirstApp}, la funcionalidad que implementa es permitir ingresar un texto y al presionar el botón manda ese texto a otra Activity. También tuvimos un primer acercamiento a los ``constraints", que son básicamente "reglas" para posicionar un elemento dentro de la interfaz. Estos constraints nos permiten desarrollar una interfaz gráfica responsiva y flexible.
+
+\IMGfig[.3]{first_app}{IDfirstApp}{Primera aplicación desarrollada para Android.}
+
+\noindent
+Durante esta iteración comparamos los lenguajes de programación Kotlin y Java. Al desarrollar con Java notamos que se tenía más información disponible que la existente para Kotlin, esto debido a que Kotlin es un lenguaje nuevo. En cuanto a las líneas de código escritas para realizar la misma aplicación se generaron más en Java que en Kotlin, ya que se debían crear las clases para manejar los eventos del botón a diferencia de Kotlin que manejaba este evento con closures. Además, en Kotlin es menos frecuente encontrarse con una excepción debida a un valor nulo en los datos que se procesan. Por las ventajas que encontramos en Kotlin decidimos usarlo para desarrollar ESCOMobile.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SEGUNDA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Segunda iteración}
+\noindent
+Continuando con los componentes de una aplicación de Android \ref{componentes_android} mostraremos el segundo de ellos en esta iteración. Los objetivos planteados son: 
+\begin{itemize}
+	\item Crear una aplicación para tilizar la API de Google Maps.
+	\item Mostrar un Marker sobre el mapa proporcionado por la API de Google Maps.
+	\item Consumir un servicio web.
+	\item Crear listas en Adroid.
+\end{itemize}
+
+\noindent
+Planeamos que la aplicación que desarrollaríamos obtuviera la posición geográfica del usuario y que le mostrará los bancos cercanos en un radio de dos kilómetro. 
+
+\subsection{Servicio}
+
+\noindent
+Un Service es un componente de una aplicación que puede realizar operaciones de larga ejecución en segundo plano y que no proporciona una interfaz de usuario. Otro componente de la aplicación puede iniciar un servicio y continuará ejecutándose en segundo plano aunque el usuario cambie a otra aplicación. Además, un componente puede enlazarse con un servicio para interactuar con él e incluso realizar una comunicación entre procesos.\cite{service}
+
+\noindent
+Un Service nos sirve para realizar operaciones de larga duración, como la petición de un recurso al servidor. El problema de crear una clase que herede de la clase Service e implemente todos sus métodos es que tendríamos que realizar los métodos para conectar con el servidor usando el protocolo HTTP. Para simplificar ésta tarea usaremos Volley que es una API para Android que hace las conexiones fáciles y rápidas.\cite{volley}
+
+\noindent
+Investigamos cómo se utiliza la API de Google Maps lo que nos llevo a encontrarnos con otros componentes de Android necesarios para crear un mapa con la API. Uno de ellos se describe a continuación.
+
+\subsection{Fragment}
+\noindent
+Un Fragment representa un comportamiento o una parte de la interfaz de usuario en una Activity \ref{sec_activity}. Puedes combinar múltiples fragmentos en una sola actividad para crear una IU multipanel y volver a usar un fragmento en múltiples actividades. Puedes pensar en un fragmento como una sección modular de una actividad que tiene su ciclo de vida propio, recibe sus propios eventos de entrada y que puedes agregar o quitar mientras la actividad se esté ejecutando.
+
+\noindent
+Para crear un fragmento, debes crear una subclase Fragment. La clase Fragment tiene un código que se asemeja bastante a una Activity. Contiene métodos callback similares a los de una actividad, como onCreate(), onStart(), onPause() y onStop(). Solo descriobimos los métodos más relevantes al momento de crear un Fragment.
+
+\begin{itemize}
+	\item \textbf{onCreate()} Se debe inicializar componentes esenciales del fragmento que quieres conservar cuando el fragmento se pause o se detenga y luego se reanude.
+	\item \textbf{onCreateView()} Carga la interfaz de usuario por primera vez. Para diseñar una IU para tu fragmento, debes devolver una View desde este método que será la raíz del diseño de tu fragmento. Puedes devolver nulo su el fragmento no proporciona una IU.
+\end{itemize}
+
+\noindent
+En la \IMGref{IDFragmentLifeCycle} se muestra el ciclo de vida de un Fragment. Necesitabamos definir un Fragment debido a que la API de Google Maps para mostrar el mapa se debe implementar una clase de tipo MapsFragment que se añade a una Activity.
+
+\IMGfig[.4]{fragment_lifecycle}{IDFragmentLifeCycle}{Ciclo de vida de un Fragment.}
+
+%%REVISAR
+\noindent
+Siguiendo los siguientes pasos:
+\begin{itemize}
+	\item Obtener una clave de la API de Google Maps.
+ 	\item Agrega un objeto Fragment a la Activity que administrará el mapa. 
+    \item Implementa la interfaz OnMapReadyCallback y usa el método de callback onMapReady para administrar el objeto GoogleMap. El objeto GoogleMap es la representación interna del propio mapa.
+    \item Llama a getMapAsync() en el fragmento para registrar el callback.
+\end{itemize}
+
+\noindent
+Pudimos agregar una vista del mapa en nuestra aplicación, cómo hacer listas (RecyclerView) en Android, y añadir Markers al mapa. Al realizar este proyecto nos encontramos con una limitación de la API de Google Maps y que supondría un problema para ESCOMobile; se debe generar una clave asociada a tu cuenta de Google Maps con la cual se puede tener acceso a los beneficios que Google ofrece en su API de mapas, pero esa clave tiene un precio si se utiliza para proyectos en los que se realicen más de 1000 solicitudes al día.
+%https://developers.google.com/maps/pricing-and-plans/?hl=es-419
+
+\noindent
+A continuación mostramos, en la \IMGref{IDBancosList} y la figura \IMGref{IDMapaBanco} las capturas de pantalla de este proyecto que nos sirvió para entender de que manera realizaremos la parte del mapa de la ESCOM y familiarizarnos con los algunos de los componentes que la API ofrece.
+
+\IMGfig[.4]{bancos_lista}{IDBancosList}{Vista con los bancos encontrados en un radio de dos kilómetros usando la API de Google Maps.}
+
+\IMGfig[.4]{mapa_bancos}{IDMapaBanco}{Vista cuando se presiona un elemento de la lista de bancos. Se muestran los datos del banco y un Marker en la ubicación del mismo.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  TERCERA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Tercera iteración}
+\noindent
+En esta tercera iteración se tuvo cumplió el objetivo de obtener los requisitos que proporcionarán a todas las partes, directores, sinodales, director de seguimiento y alumnos, un entendimiento escrito del problema. Esto se logra modelando los requisitos o especificaciones del software. Los requisitos de software se pueden consultar en el capítulo \ref{Requisitos}.
+En la etapa de concepción e indagación de los requisitos identificamos cierto número de problemas:
+\begin{itemize}
+	\item \textbf{Problemas de alcance:} Obtuvimos algunos requisitos funcionales cuyas características darían un valor agregado al proyecto, tal es el caso del apartado: grupos. En el se podrían subir documentos, PDF, Word, Power Point, etc. que sirvierá al profesor para compartir su material de apoyo a la enseñanza con los alumnos. Además, publicar fechas de exámenes, mensajes informando que no habrá clase o que la clase se dará en el salón y no en el laboratorio, y que se notificará a los alumnos de estas publicaciones. Aunque nos parecieron buenas ideas, salen del alcance previsto del proyecto y por esa razón no se implementarán.
+	\item \textbf{Problemas de entendimiento:} El principal problema al obtener los requisitos fue la falta de comunicación efectiva al momento de transmitir las necesidades del sotfware a los miembros del equipo, con esto nes referimos a que las especificaciones solían ser ambiguas y que no teniamos el mismo entendimiento del problema. Lo provechoso de esta situación fue que pudimos darnos cuenta de las capacidades y limitaciones del ambiente de computación y del tiempo y esfuerzo que nos llevaría realizar todos y cada uno de los requisitos que obteniamos del análisis y solo nos enfocaremos en los requisitos principales de la aplicación y retomando los demás si tenemos tiempo para ello.
+	\item \textbf{Problemas de volatilidad:} Los requisitos cambiaron en cada reunión que tuvimos para realizar el análisis. Con estos cambios en los requisitos se fue homologando la comprensión de lo que sería el sistema.
+\end{itemize}
+
+\noindent
+Con lo que en esta etapa se logro saber qué es lo que la aplicación será. Cada requisito tiene los siguientes elementos:
+\begin{itemize}
+	\item \textbf{ID} Identificador del requisito funcional. Ejemplo: RF1.
+	\item \textbf{Nombre} Nombre que tiene el requisito. Ejemplo: Visitantes.
+	\item \textbf{Descripción} Redacción de lo que es el requisito. Ejemplo: Los visitantes solo tendrán acceso límitado a consultar el mapa de ESCOM y los eventos que en ésta se realicen.
+	\item \textbf{Próposito} Motivo por el cual es necesario el requisito. Ejemplo: Proporciona la ubicación de salones a personas que se encuentren de visita en la ESCOM y de esta manera poder orientarlos.
+	\item \textbf{Usuario} Nombre del potencial usuario del requisito. Ejemplo: Visitante.
+	\item \textbf{Tipo} Se refiere si pertenece a la clase e requisito para la apliación móvil o para el servidor de la aplicación.
+\end{itemize}
+
+\noindent
+Fue en esta etapa del proyecto donde comenzamos con el cronograma propuesto en el documento del protocolo, el cual específica lo que se realizará en el presente trabajo terminal. En la \IMGref{IDCronograma1} se observa que comenzamos con el análisis del sistema, justamente lo que hicimos en esta iteración. Pero no fue lo único que cumplimos del cronograma sino que también comenzamos con la planeación del proyecto como se específico en la \IMGref{IDCronograma2} y la \IMGref{IDCronograma2}. En esta planeación nos propusimos vernos los fines de semana para trabajar juntos en el proyecto y separadamente de lunes a viernes. Además, de visitar períodicamente, al menos una vez a la semana, a nuestros directores y agendar citas con nuestros sinodales y director de seguimiento para mostrarles los avances realizados desde la última cita con ellos.
+
+\IMGfig[.9]{cronograma/cronograma_if}{IDCronograma1}{Cronograma de trabajo propuesto en el documento del protocolo.}
+
+\IMGfig[.9]{cronograma/cronograma_jh}{IDCronograma2}{Cronograma de trabajo propuesto en el documento del protocolo.}
+
+\IMGfig[.9]{cronograma/cronograma_dp}{IDCronograma3}{Cronograma de trabajo propuesto en el documento del protocolo.}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  CUARTA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Cuarta iteración}
+\noindent
+Una vez que reúnimos los requisitos de software, capítulo \ref{Requisitos}, realizamos una breve descripción de los casos de uso que tendrá la aplicación, así como la identificación de actores para poder avanzar hacia actividades más técnicas y para entender cómo los usuarios finales podrán usar las funciones y características descritas en los requisitos.
+
+\subsection{Casos de uso}
+\noindent
+Los casos de uso proporcionan la descripción de la manera en la que se utilizará el sistema.
+Describen el comportamiento del sistema en distintas condiciones en las que el sistema responde a una petición de alguno de sus participantes.
+
+\noindent
+Los actores son las distintas personas o dispositivos que usan el sistema o producto en el contexto de la  función y comportamiento que va a describirse. Los actores representan los papeles que desempeñan las personas o dispositivos cuando opera el sistema. \cite{ISPressman}
+
+\noindent
+Realizamos historias de usuario para obtener una breve descripción de los casos de uso. Cada una de estas descripciones de caso de uso tenía las siguentes características:
+\begin{itemize}
+	\item \textbf{ID} Identificador del caso de uso. Tenía el formato CU-Número del caso de uso-Nombre del caso de uso. Ejemplo: CU-01-Registrar nuevo usuario.
+	\item \textbf{Nombre} Nombre del caso de uso. Ejemplo: Registrar nuevo usuario.
+	\item \textbf{Actores} Lista de los actores separada por comas que utilizan el caso de uso. Ejemplo: Alumno, Profesor.
+	\item \textbf{Descripción} Redacción general y poco detallada de como el actor usa el caso de uso. Ejemplo: El actor abre la aplicación ESCOMobile y busca el apartado para registrarse, llena los todos los campos que el registro en la aplicación solicita; elige la opción iniciar como profesor en caso de serlo. El sistema registra al actor.
+\end{itemize}
+
+\noindent
+Cabe aclarar que durante en la elaboración de estos casos de uso también se replantearon los requisitos de software donde se eliminaron, añadieron y modificaron los mismos.
+
+\subsection{Mapas de navegación}
+\noindent
+Para modelar la navegación se considera cómo navegará cada actor de un elemento, interfaz de usuario, de la apliación a otro. En esa etapa centramos la atención en los requerimientos generales de navegación. Como mostrar el mapa, poder registrarse, iniciar sesión, consultar eventos. Todos estos aspecto obtenidos de los requisitos y casos de uso. Consideramos si los usuarios debian tener un panorama de toda la aplicación y concluimos que debería de ser así, entonces decidimos incluir un menú que resaltará los elementos más importantes que disponga la aplicación para que los usuarios puedan pasar de un elemento a otro de manera más rápida. Los mapas de navegación pueden consultarse en el documento técnico. La herramienta CASE para la generación de los mapas de navegación fue Visal paradigm del cual se habla en el capítulo \ref{tecnologias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  QUINTA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Quinta iteración}
+
+\noindent
+Para esta quinta iteración, después de modelar el mapa de interacción, se comenzó a desarrollorar el diseño de algunas pantallas como interfaces gráficas de usuario, se empezó a discutir el formato de las mismas, los colores que se implementarían, qué botones iban a colocar, el estilo general de la mismas y el impacto que estas tendrían en la app y en sus usuarios. Para ello, se hizo uso de una herramienta de diseño de interfaces, balsamiq MockUps, con la cual nos apoyamos y definimos propuestas inciales sobre pantallas de de la app. 
+
+\subsection{Balsamiq Mockups 3}
+
+
+Así, con más entendimiento de la herramiento y con la definición de nuestras pantallas y diseños generales, fuimos creando cada una de las pantallas que serían más tarde el estilo y diseño de la app. 
+El diseño de las interfaces implementarse hasta ahora puede consultarse en la documentación técnica de ESCOMobile. A continuación, como ejemplo, se coloca la siguiente pantalla sobre la bienvenida al sistema, perteneciente al módulo de acceso, donde se puede observar el estilo general de la app. \IMGref{InterfazBienvenida} 
+\IMGfig[.4]{gui/Acceso/EM_Acceso_UI1_Pantalla_inicio}{InterfazBienvenida}{Pantalla de bienvenida.}
+
+\noindent
+Por otro lado, y a la par de las propuestas de interces del sistema con apoyo de la herramienta Balsamiq, se empezaron a programar como prototipos las pantallas de bienvenida inicio -misma cuyo diseño se muetra en \IMGref{InterfazBienvenida}-, por la cuál se puede acceder al sistema por dos caminos distindos. El primero como usuario con previo registro. Sin embargo, en este apartado no se ha desarrollado aún esa parte del prototipo, en cambio se comienza a programar la segunda forma de acceso al sistema, como invitado, donde se comienza a trabajar con el diseño 2D del mapa, el movimiento del mismo, la visualización general de éste en la app. Así, se continúan con las prubas, esta vez introduciendo las áreas como salones. Obteniendo como resultado la siguiente imagen \IMGref{PrototipoMapa}.
+\pagebreak
+\IMGfig[.4]{gui/Mapa/mapa_sin_registrarse}{PrototipoMapa}{Primer prototipo del Mapa.}
+
+\noindent
+A continuación se describe de una manera más detallada el proceso que se siguió para obtener el resultado mostrado. Pues, como para la vista invitado se tenía que mostrar el mapa, nuestra primera solución fue con una API de Google maps empezamos a cargar el mapa, luego como queríamos tener vista y distribución de cada uno de los edificios, dibujamos polígonos, este proceso fue muy tardado ya que teníamos que guardar cada coordenada en la base de datos, para que la fuera dibujando, posicionábamos el marker para obtener coordenadas, vimos que este proceso era muy tardado y no era efectivo, por lo que decidimos buscar otra solución, con ayuda de Violeta Pérez García una pasante de Facultad Arquitectura de la UNAM, se pudo realizar un bosquejo del plano de la ESCOM, para esto tomamos fotos de toda la escuela, nos reuníamos semanalmente con ella para ver detalles de los planos y distribución y así mismo se le dio una visita guiada en la ESCOM para que realizara los planos de cada planta, hasta el momento se tiene la PB y el P1, después de obtener estos planos se pasaban a imágenes y con ayuda de eso fue fácil y exacto colocar el marker y obtener las coordenadas así que el proceso fue sencillo, la recolección de coordenadas y el dibujo de los polígonos en el mapa de Google maps.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SEXTA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sexta Iteración}
+
+\noindent
+Se procedió a realizar el documento técnico, se plantearon las bases del mismo, se pensó en la estructura del mismo, y con base a la organización que ya se tenía de la app, se comenzó trabajar en la estructura del documento, mismo que incluye, portada, introducción, justificación, estado del arte, objetivo general y específicos, análisis de riesgos, modelo de negocios, tecnologías requeridas, requisitos de software, descripción de casos de uso, modelo de casos de uso, diagramas de casos de uso, modelo de la interacción, modelo de mensajes, mapas de navegación, diseño de las interfaces gráficas de usuario, y la respectiva bibliografía. Sin embargo, al comienzo no se contemplaron todos estos puntos ni se abordaron de la manera en la que ahora están descritos. Es aquí donde se comienza principalmente a plantear la idea y estructura y a redactar la introducción y justificación. 
+
+\noindent
+Por otro lado se empieza a trabajar con el diagrama de la base de datos donde, de especial importancia pues requerimos almacenar, no solo datos de alumnos, profesores y eventos -por poner un ejemplo-, sino guardar los datos y coordenadas de lo que el mapa iba a mostrar. se iba almacenar los polígonos, pues el prototipo previo no tenía una base de datos bien estructurada y establecida. Así bien, se comenzó con el diseño de la base de datos, se piensa en lo que se requiere guardar en ella y en cómo se iba a implementar. 
+
+\noindent
+Una vez que se tuvo una propuesta se comienza a trabajar de nueva cuenta con los polígonos para las figuras en el mapa, para ellos se comenzó a desarrollar un KML para los polígonsos y así manejaros de manera más estructurada y sencilla. 
+Se integraron los poligonos con el mapa y se obtiene una nueva versión de la app. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SÉPTIMA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Séptima Iteración}
+
+\noindent
+En esta iteración, una vez obtenidos los resultados descritos, nos dedicamos principalmente al documento técnico del sistema, a la identificación de casos de uso, redacción de requerimientos, información del estado del arte, para el cuál estuvimos recabando infromación de las aplicaciones similares a la nuestra que estuvieran ya implementadas para otras escuela o servicios similares; los requisitos del software, etc. pero principalmente nos concentramos en la redacción de los Casos de uso, para los cuáles nos realizabamos las siguientes preguntas:
+
+%PRINCIPALES RESPUESTA AL HACER CASOS DE USO
+\begin{itemize}
+	\item ¿Quién o quiénes son los actores que interactuan con el caso de uso?
+	\item ¿Cuál es el propósito del caso de uso?
+	\item ¿Qué precondiciones deben existir hasta ese punto para poder realizarse?
+	\item ¿Qué información desea obtener el actor del sistema?
+	\item ¿Cuáles son las trayectoria ideal para el actor y cuáles las posibles trayectorias alternas?
+	\item ¿Qué información del sistema adquiere, produce o cambia el actor?
+\end{itemize}
+
+\noindent
+Se empieza a dar un formato específico al documento, se empiezan a generar links en el mismo para una mejor navegación y comprensión del mismo. Y se continúa con el desarrollo de diseño de pantallas para los demás módulos. 
+Además, una parte súmamente importante aquí fue el redactar las reglas de negocio y mensajes que acompañan a nuestros casos de uso, pues son las reglas de negocio quienes se encargan de restrigir la funcionalidad y el alcance del mismo, y los mensajes una forma de interactuar presente entre el sistema y el usuario, de donde, es importante que se reaizaran de forma organizada y bien hecha. 
+
+\noindent
+Se realizan los módulos para una mejor organización del sistema y sus casos de uso así como los diagramas de casos de uso correspondientes a cada módulo y un digrama general para el sistema, con apoyo de la herramienta Visual Paradigm y se continúa trabajando en una nueva versión del prototipo. Es importante decir que es esta iteración una de las más largas y en la que más tiempo invertimos, pues es el modelado de los casos de uso una parte fundamental en el desarrollo de cualquier sistema, así decidimos dedicar el tiempo necesario. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  OCTAVA ITERACION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Octava Iteración}
+En esta iteración se continúa con la diocumentación técnica del sistema, se corrigen ciertos aspectos que estaban con errores y se terminan otros que faltan concluirse. Además se continúa con el prototipo que se tiene, esta vez, al seleccionar una de las áreas presentes en el mapa, ésta se colorea, aparace un marker y el número del salón que se seleccionó, también para el prototipo se implementa un log in y un apartado de registro, mismos que no cuentan aún cn la seguridad pertinente; así, con éstos implementados, la app hasta ahora es capaz de dar acceso al sistema a invitados y a personas registradas, mostrando para ambos el mapa previamente descrito. 
+Finalmente para esta iteracción se comienza a realizar las diapositvas a usar en la presentación y defensa de TT1. Así mismo, se realiza el reporte final del sistema, mismo que se entrega previo a la presentación. 
+
+
+%
+%\section{Quinta iteración}
+%
+%Comenzamos a realizar breves descripciones de casos de uso. También continuamos investigando como utilizar la API de Google Maps. 
+%
+%\newpage
+%\section{Otra iteración}
+%Se realizó una encuesta a 35 Alumnos para determinar que Android fuera la mejor opción para desarrollar la app, ya que queríamos que la mayoría de la comunidad de la ESCOM pueda usar nuestra app.
+%
+%En esa encuesta se comprobó que la mayoría de los alumnos usan un dispositivo móvil con Android.
+%
+%Estuvimos investigando las aplicaciones de las demás escuelas para ver que era lo que tenían, lo que faltaba, checar que ofrecían al alumno, lo que no ofrecían e hicimos una comparación entre cada una y lo que tenemos planeado agregar a nuestra app ESCOMobile.
+%
+%
+%%\IUfig[.3]{prueba}{Prueba}{poligonos}
+%\pagebreak
+%A partir de aquí nos enfocamos más en el análisis  que tendrá la aplicación y como lo aplicaremos, fueron dos meses de análisis en los cuales determinamos 8 módulos.
+%
+%Acceso: Los actores, alumno y profesor podrán registrar y acceder a la aplicación.
+%
+%Alumno: EL Alumno podrá consultar perfiles de profesores, calificarlos, consultar bolsa de trabajo, modificar su información y consultar el mapa curricular.
+%
+%Profesor:Consultará perfiles de otro profesores, modificara su perfil, subirá su foto, consultara sus respectivas estadísticas y consultara su horario.
+%
+%Mapa: Se podrá consultar los salones, áreas administrativas, cubiculos, académias y salas de TT.
+%
+%Cita: Se podrá agendar citas, cancelar citas, solicitar citas, consultar citas agendadas, pendientes, eliminar citas, cambiar fecha de cita.
+%
+%Administración: Este modulo servirá para que el alumno informe al sistema que hay algún error, por ejemplo, área administrativa errónea, inexistente o cambio de ubicación, así mismo como las academias.
+%
+%Eventos: Se podrá consultar los eventos que se realizarán en la ESCOM.
+%
+%WebEvento: Se podrá agregar, eliminar o modificar los eventos.
+%
+%Web Club: Se podrá registrar, modificar, consultar y eliminar clubes.
+%
+%Web bolsa: Se podrá registrar, modificar o eliminar una oferta de trabajo.
+%
+%En este momento tenemos contemplados realizar 54 casos de uso.
+%Se realizarón las diferentes pantallas de como se verá nuetsra aplicación esto para que fuera mas facil programarlas y describirlas en los casos de usos.
+%
+%
+%Así mismo, gracias al Director de la escuela Andres Ortigoza, se nos proporcionó una vista de la información del Profesor, también nos mencionó que los datos del correo, número de empleado y boleta del alumno, es información privada y en estos momentos no se nos podría proporcionar.
+%
+%Así que para eso usaremos una base de datos pruebas con esos mismos datos.
+%
+%Se programaron los casos de uso registro de usuario, inicio de sesión, vista del mapa.
+%%\IUfig[.2]{escomobile}{Prueba}{kotlin}
+%Se procedio a realizar el documento técnico, el cual incluye, portada, introducción, justificación, estado del arte, objetivo general y específicos, análisis de riesgos,modelo de negocios, tecnologías requeridas, requisitos de software, descripción de casos de uso, modelo de casos de uso, diagramas de casos de uso, modelo de la interacción, modelo de mensajes, mapa de navegación,modelo del domino del problema y la respectiva bibliografía. 

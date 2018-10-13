@@ -1,0 +1,74 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU1.1}{EM-WebBolsa-CU1.2-Editar Oferta de Trabajo}{
+		En este caso de uso el actor modificará una oferta de trabajo sin publicar para los Alumnos de la ESCOM, se mostrará el formulario de añadir oferta con los datos que introdujo, así podrá ver y modificar el campo o campos que desee.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Encargado de Bolsa de Trabajo}
+		\UCitem{Propósito}{Modificar ofertas de trabajo incluyendo el nombre de la empresa, tipo de horario, horario, vacante,requisitos,idioma, perfil y prestaciones de las oferta de trabajo.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Nombre de la Empresa.
+		\item Tipo de Horario.
+		\item Horario.
+		\item Vacante.
+		\item Requisitos.
+		\item Idiomas.
+		\item Perfil.	
+		\item Sueldo.
+		\item Prestaciones.
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{Teclado y Ratón}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Existan empresas registradas}
+		\UCitem{Postcondiciones}{
+		Persiste la información de la empresa.
+		}
+		\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+\item \label{EM-WebBolsa-CU1.2-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{termina el caso de uso}
+\item \label{EM-WebBolsa-CU1.2-E2} Cuando la empresa no esta registrada en el sistema. Muestra el mensaje \MSGref{MSG11}{Empresa no registrada} y \textbf{termina el caso de uso}
+			
+		\end{enumerate}	
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+
+
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Solicita modificar una oferta de trabajo presionando en el icono \UCicono{lapiz.png} de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+	\UCpaso Muestra la pantalla \IUref{EM-WebBolsa-UI1.2}{Modificar oferta}
+	\UCpaso [\UCactor] Mdifica los datos que desee del formulario.
+	\UCpaso [\UCactor] Solicita modificar una oferta de trabajo presionando el botón \IUbutton{Editar Oferta} de la pantalla \IUref{EM-WebBolsa-UI4}{Modificar Empresa}. \Trayref{A} 
+	\UCpaso Verifica que los campos introducidos no estén vacios según la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-WebBolsa-CU1.2-E1}] 
+	\UCpaso Verifica el nombre de la empresa introducido segun la regla de negocio \BRref{EM-RN-S009}{Empresa Registrada.} . [Error \ref{EM-WebBolsa-CU1.2-E2}] 
+	\UCpaso Obtiene los datos de la oferta de trabajo introducidos en el formulario. 
+	\UCpaso Persiste la información en el sistema.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla ESCOMobile Bolsa.  
+	
+	
+	\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea editar una oferta de trabajo.}
+	%Paso A1.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{cancelar} de la pantalla \IUref{EM-WebBolsa-UI1.2}{Modificar nueva oferta}
+
+	%Paso A2.
+	\UCpaso Muestra la pantalla ESCOMobile Bolsa.  
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.

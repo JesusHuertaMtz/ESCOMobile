@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ESCOMobile</title>
+
+	<link rel="stylesheet" href="assets/DataTables/Bootstrap-4-4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/DataTables/datatables.css"/>
+	<link rel="stylesheet" href="assets/lobibox/dist/css/lobibox.min.css"/>
+
+	<!-- Para los iconos se necesita conexión a internet-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!------>
+	
+	<link rel="stylesheet" href="assets/css/dTables.css"/>
+	<link rel="stylesheet" href="assets/css/estilo.css"/>
+	<link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+	<nav class="navbar navbar-light flex-md-nowrap p-0 shadow"> <!-- fixed-top -->
+		<div class="col-sm-4 col-md-4"></div>
+		<h1><span class="blue">ESCOMobile</span> <span class="orange">bolsa</span></h1>
+		<div class="col-sm-2 col-md-2"></div>
+		<img class="imagenPerfil" id="pictureProfile" src=""/>
+		<a class="nav-link-2" id="namePage" href="">Bolsa de trabajo</a>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="https://localhost/ESCOMobileServer/escomobilebolsa.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+								Ofertas laborales <span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+								Empresas
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0 pb-0 mb-3 border-bottom">
+		</div>
+
+		<div class="d-flex flex-row-reverse myDiv">
+			<div class="btn-group btn-group-lg">
+				<button type="button" class="button button1" disabled>
+					<i class="fa fa-vcard-o md-48"></i>
+				</button>
+				<button type="button" class="button button3" disabled><span id="numEmpresasReg" class="orange">0</span> Empresas registradas</button>
+			</div>
+		</div>
+
+		<div class="d-flex bd-highlight">
+			<div class="p-2 bd-highlight">&nbsp;</div>
+			<div class="p-2 bd-highlight">
+				<button class="btn btn-default btn-icon" id="addEmpresa">
+					<i class="fa fa-plus-square-o md-36"></i>
+					<p>Añadir empresa</p>
+				</button>
+			</div>
+		</div>
+
+		<table id="empresas" class="display">
+		    <thead>
+		        <tr>
+					<th>NOMBRE  </th>
+		            <th>GIRO    </th>
+		            <th>CONTACTO</th>
+		            <th>RFC     </th>
+		            <th>O. PUBL.</th>
+		            <th>VISUALI.</th>
+		            <th>OPCIONES</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    </tbody>
+		</table>
+	</main>
+</div>
+</div>
+
+<!-- ============================ MODAL YISUS: INICIO. ============================ -->	
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalEmpresa" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title"><span class="blue">ESCOMobile</span> <span class="orange">bolsa</span></h3>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal registrar nueva empresa -->
+				<div class="modal-body">
+					<div class="textCenter pb-1">
+						<h4>Registrar nueva empresa</h4>
+						<h5>Es necesario introducir los campos marcados con *</h5>
+					</div>
+
+
+					<div class="m-2">
+						<form id="formRegistroEmpresa">
+							<h6>Información de la empresa</h6>
+							<!-- Campo: Nombre de la empresa. -->
+							<div class="form-ingroup" id="formEmpresa">
+								<div class="form-group">
+									<label for="nombreEmpresa">*Nombre de la empresa</label>
+									<input type="text" class="form-control" id="nombreEmpresa" placeholder="Nombre de la empresa">
+								</div>
+								<!-- Campo: RFC. -->
+								<div class="form-group">
+									<label for="rfcEmpresa">RFC</label>
+									<input type="text" class="form-control" id="rfcEmpresa" placeholder="RFC">
+								</div>
+								<!-- Campo: Giro. -->
+								<div class="form-group">
+									<label for="giroEmpresa">*Giro</label>
+									<select class="form-control" id="giroEmpresa">
+										<option>Servicios</option>
+										<option>Educación</option>
+										<option>Bancarios</option>
+										<option>Otro</option>
+									</select>
+								</div>
+								<!-- Label y botón: imagen empresa. -->
+								<div class="form-group row align-items-end">
+									<div class="col-sm-8"></div>
+									<div class="col-sm-4">
+										<button class="btn btn-primary" form = "" id="button_agregarImagen">
+											Agregar logo
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- FIN Campo: Nombre de la empresa. -->
+
+							<h6>Contacto de la empresa</h6>
+							<!-- Campo: Nombre de encargado RU. -->
+							<div class="form-group">
+								<label for="nombreContactoEmp">*Encargado de Recursos Humanos</label>
+								<input type="text" class="form-control" id="nombreContactoEmp" placeholder="Nombre de encargado">
+							</div>
+							<!-- Campo: Contacto. -->
+							<div class="form-group">
+								<label for="giroEmpresa">*Contacto</label>
+							</div>
+
+							<div class="form-row" id="formContacto">
+								<div class="form-group col-sm-4">
+									<select class="form-group" id="tipoContactoEmpresa">
+										<option>Teléfono fijo</option>
+										<option>Teléfono celular</option>
+										<option>Correo electrónico</option>
+										<option>Linked in</option>
+										<option>Facebook</option>
+										<option>Twitter</option>
+										<option>Otro</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-1"></div>
+								<div class="form-group col-sm-7"> 
+									<div  class="form-inline">
+										<input type="text" class="form-control" id="contactoEmpresa" placeholder="Contacto">
+										<button class="btn btn-primary" form = "" id="button_agregarContacto">+</button>
+									</div>
+								</div>
+							</div>
+							<div class = "container">
+								<p style="line-height: 70px; text-align: center;"><button type="button" form = "formRegistroEmpresa" class="btn btn-warning btnOrang" id="button_regEmpresa">Registrar Empresa</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+			<!-- end content -->
+		</div>
+	</div>
+
+	<!-- ============================ MODAL YISUS: FINAL. ============================ -->	
+	<script src="assets/DataTables/jQuery-3.2.1/jquery-3.2.1.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/tooltip.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/popper.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/bootstrap.bundle.js"></script>
+	<script src="assets/DataTables/Bootstrap-4-4.0.0/js/bootstrap.js"></script>
+	<script src="assets/DataTables/datatables.js"></script>
+  	<script src="assets/lobibox/dist/js/lobibox.min.js"></script>
+  	<script src="assets/js/lobiboxOptions.js"></script>
+
+  	<script src="assets/js/infoProfile.js"></script>
+	<script src="assets/js/empresa.js"></script>
+	<script src="assets/js/registroEmpresa.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+        <variable
+            name="evento"
+            type="com.example.master.escomobile_alpha.modelo.entidad.Evento" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/image_evento"
+            imageResource="@{evento.imagen}"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/img_main_logo_desc"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_evento"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_evento"
+            tools:text="@{evento.nombre}" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

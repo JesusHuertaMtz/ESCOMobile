@@ -1,0 +1,106 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU04}{EM-WebBolsa-CU04-Modificar Oferta}{
+		En este caso de uso el actor  modifica una oferta de trabajo, seleccionara la empresa, horario,vacante, sueldo y seleccionara el contacto. Para asi dar de alta sus respectivas ofertas de trabajo.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Administrador}
+		\UCitem{Propósito}{Modificar y mantener actualizadas las ofertas para los alumnos de la ESCOM.}
+
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Empresa
+		\item Horario
+		\item Vacante
+		\item Sueldo
+		\item Contacto
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{}
+		\UCitem{Salidas}{Ninguna}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{NInguna. }
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+\item \label{EM-WebEvento-CU04-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{faltainfo} de la trayectoria Principal.}
+			
+		\end{enumerate}	
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			
+			En el resumen.
+			\begin{itemize}
+				\item Falta de ortografía: ''Seleccionara'' a ''Seleccionará'' y ''asi'' a ''así''.
+				\item Espaciar de manera adecuada después de las comas. 
+				\item Verbos en futuro no describen lo que el caso de uso. 
+				\item Se deben agregar elementos importantes para comprender el caso, como lo son definiciones puntuales y carácterísticas generales a considerar. YA LO HEMOS HABLADO. 
+			\end{itemize}
+			
+			En el propósito.
+			\begin{itemize}
+				\item No se recomienda mencionar aspectos ''técnicos'', la base de datos puede ser uno de ellos. ¿Es ese realmente el propósito?
+			\end{itemize}
+
+			En las entradas.
+			\begin{itemize}
+				\item No corresponden a las solicitadas en la pantalla UI3 Vista.
+			\end{itemize}
+
+			En el origen.
+			\begin{itemize}
+				\item ¿Cuál es el origen de las entradas?
+			\end{itemize}
+
+			En las precondiciones y postcondiciones. 
+			\begin{itemize}
+				\item Debe de haber precondiciones y postcondiciones para modificar una oferta, por ejemplo, que haya una OFERTA o EMPRESA previamente REGISTRADA o bien, QUE PERSISTA LA INFORMACIÓN.
+			\end{itemize}
+
+			En los errores. 
+			\begin{itemize}
+				\item Link roto después de ''[...] continúa en el paso...''.
+			\end{itemize}
+
+			En la trayectoria principal. 
+			\begin{itemize}
+				\item Se recomienda describir la acción que el actor realiza en los pasos en donde él participa, y de escribir el verbo ''presiona'' para cuando la acción se realiza a través de un botón. Por ejemplo, en el paso 1: ''[el actor] solicita <acción en infinitivo> una nueva oferta presionando en el botón...'', corregir esos detalles en los actuales pasos 1, 3, 5 y 6.
+				\item Se recomieda representar los botones con el comando de botones.
+				\item Paso 1: De dónde o de quién presiona el botón.
+				\item Pasos 1 y 2: ¿Dónde está el link a la pantalla? 
+				\item ¿Podrá? Mejor dicho ''Introduce los campos a modificar'' o algo por el estilo y bien redactado. NO verbos en futuro, porque además les faltan acentos, verbos en presente. 
+				\item Paso 4: enriquece la descipción. 
+				\item No sé si los botones descritos existan en las interfaces, no las muestras.
+				\item ¿No puede cancelar la operación? Lo puedes manejar como una trayectoria alternativa.
+			\end{itemize}
+		
+		
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Pulsa el botón Modificar oferta de la pantalla principal.
+	\UCpaso Muestra la pantalla registro de ofertas.
+	\UCpaso[\UCactor] podrá modificar la empresa,ingresará horario,vacante, sueldo y seleccionara el contacto.
+	\UCpaso[\UCactor] Da click en aceptar.
+	\UCpaso Valida que los campos introducidos no estén vacios. [Error \ref{EM-WebEvento-CU04-E1}] \label{Almacenainfo}
+	\UCpaso Obtiene la empresa, el horario ingresado, la vacante, sueldo y el contacto.
+	\UCpaso Persiste la informacion en el sistema.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa}
+	
+	\end{UCtrayectoria}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

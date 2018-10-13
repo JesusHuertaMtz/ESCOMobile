@@ -1,0 +1,63 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-WebBolsa-CU03}{Consultar empresa}{
+Este caso de uso permite al actor consultar la información de las empresas registradas en el sistema. Así se podrá determinar si es necesario o no registrar una empresa que quiere publicar una oferta laboral.	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Jefe de Departamento de Extensión y Apoyos Educativos}
+	\UCitem{Propósito}{Proporcionar un listado de las empresas registradas en el sistema así como la información de cada una de ellas.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Imagen con RFC.
+			\item Nombre.
+			\item Giro.
+			\item Sector.
+			\item Correo electrónico.
+			\item Imagen.
+		\end{itemize}}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item El actor debe haber iniciado sesión.
+			\item Debe existir al menos una empresa registrada en el sistema.
+		\end{itemize}}
+	\UCitem{Postcondiciones}{Ninguna}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			%%  E1: No hay registros. 
+			\item \label{EM-WebBolsa-CU003-E1} Cuando no existe ninguna empresa registrada en el sistema muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.} }
+	\UCitem{Tipo}{Primario}
+	\UCitem{Observaciones}{Es la primera propuesta de este caso de uso, se espera que se revise para implementar las correciones adecuadas.}
+	\UCitem{Autor}{Fernández Quiñones Isaac.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	\UCPaso[\UCActor]
+
+
+
+
+	\UCpaso [\UCactor] Solicita presiona el botón \IUbutton{Registrar empresa} de la pantalla ESCOMobile Bolsa. 
+	\UCpaso Muestra la pantalla \IUref{EM-WebBolsa-UI2}{Registrar nueva Empresa} con el formulario necesario para registrar a la empresa. 
+	\UCpaso [\UCactor] Introduce los datos requeridos en el formulario. 
+	\UCpaso [\UCactor] Solicita registar una nueva empresa presionando el botón \IUbutton{Registrar empresa} de la pantalla \IUref{EM-WebBolsa-UI2}{Registrar nueva Empresa}. \Trayref{A} 
+	\UCpaso Valida que los campos del formulario no estén vacios, de acuedo a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios} [Error \ref{EM-WebBolsa-CU02-E1}] 
+	\UCpaso Valida que el nombre de la emrpesa no se encuentre registrado ya en el sistema, de acuerdo a la regla de negocio \BRref{EM-RN-S007}{Unicidad de elementos.} [Error \ref{EM-WebBolsa-CU02-E2}] 
+	\UCpaso Obtiene los datos de la empresa introducidos en el formulario. 
+	\UCpaso Persiste la información en el sistema.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla ESCOMobile Bolsa.  
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea registrar más una empresa.}
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{cancelar} de la pantalla \IUref{EM-WebBolsa-UI2}{Registrar nueva Empresa}. 
+	\UCpaso Muestra la pantalla ESCOMobile Bolsa.  
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

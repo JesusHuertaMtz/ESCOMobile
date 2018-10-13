@@ -1,0 +1,114 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-alumnoProfesor-CU1.1.5}{Solicitar Cita con un profesor.}
+	{Este caso de uso permite  a un alumno solicitar agendar una cita con un profesor de la ESCOM para tratar temas
+	académicos. La fecha, hora y el salón dónde se llevará a cabo la cita son propuestos por el alumno, tomando en cuenta los horarios de clase del profesor.
+	La hora y salón pueden ser modificadas por el profesor siempre y cuando explique el motivo del cambio.}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar un mecanismo para que el alumno pueda solicitar una cita al profesor para tratar temas académicos.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Fecha  para agendar la cita.
+			\item Hora  para comenzar la cita.
+			\item Salón  para que tenga lugar la cita.
+			\item Motivo por el cual se requiere agendar la cita.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Teclado.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Fecha en la que se realizará la cita.
+			\item Hora en la que comenzará la cita.
+			\item Salón en el que tendrá lugar la cita.
+			\item Asunto por el cual se llevará a cabo la cita.
+			\item Nombre de la persona con la que se reunirá en la cita.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item El actor debe estar registrado.
+			\item El actor debe haber iniciado sesión.
+			\item Debe estar registrado el profesor con el que se requiere agendar la cita.
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item El sistema tendrá un nuevo registro asociado al alumno con la fecha, hora, asunto,
+			salón y nombre del profesor con el que se agendará la cita.
+			\item El nuevo registro de la cita estará en estado de no aceptado.
+			\item El sistema notificará al profesor que tiene una nueva solicitud de cita.
+		\end{itemize}			
+	}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]	
+\item \label{EM-alumnoProfesor-CU1-1-5-E1} Cuando no se introducen todos los campos obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{Continúa en el paso \ref{error} de la trayectoria 
+principal}.
+\item \label{EM-alumnoProfesor-CU1-1-5-E2} Cuando la fecha o hora se translapa con cita ya agendada, o con hora de clase del profesor o es dia inhabil, muestra el mensaje \MSGref{MSG12}{Translape o fecha y hora no valida} y \textbf{Continúa en el paso \ref{error} de la trayectoria 
+principal}.
+
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Primario}
+	\UCitem{Observaciones}{
+		\begin{itemize}
+			\item Título: Es correcto, pero puedes agregar ''con un profesor'' y que queda más completo.
+			\item Descripción completa: ¿Permite solicitar al alumno? ¿El alumno acepta la cita? Revisar. 
+			\item Entradas: 
+			\begin{itemize}
+				\item El nombre del profesor no es una entrada. Tampoco el salón, aunque se puede tomar por default el cubículo del profesor, y dar la oción a cambiar el salón, así sí sería entrada. 
+				\item Origen: No son por teclado. 
+			\end{itemize}
+			\item Errores: Liga rota en el E1. ¿Qué pasa si el horario o fechas propuestas no son hábiles? ¿Qué pasa si el profesor ya tiene agendada una cita ese día a esa hora? Contemplar esos errores y más. 
+			\item Tipo: No es primario. 
+			\item Trayectoria principal: 
+			\begin{itemize}
+				\item Paso 2: Tienes que obtener el horario del profesor y todo lo que éste conlleva para poder comparar con el horario en que solicitas agendar la cita y comparar si s posible. De lo contrario, siempre te dejaría solicitar, incluso fuera de los días y horarios laborales.  
+				\item Pasos 6 y 7: Replantear el anaálisis del salón y notificación.
+				\item Paso 9: No hay ningún botón llamado ''Agendar cita'' en la pantalla. 
+				\item Paso 6. Actualiza pantallas. 
+				\item En algún paso debes validar que 1) el profesor no tenga asociada ya una cita los días y horas solictados, y 2) que el día y hora introducidos estén dentro de los días y horarios hábiles del profesor.
+				\item Corregir pantalla para la cita y su descripción.
+			\end{itemize}
+			\item Trayectoria alternativa: En l pantalla no hay ningún botón llamado ''cancelar''.
+		\end{itemize}
+	}
+	\UCitem{Autor}{José David Pérez García.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Solicita una cita presionando el botón \IUbutton{ Solicitar cita  } de la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+
+	\UCpaso Obtiene el nombre del profesor.
+	\UCpaso Muestra pantalla \IUref{EM-Cita-IU09}{Crear cita II} con el nombre del profesor al que se le pedirá la cita y se mostrará un formulario a llenar. \label{error}
+	\UCpaso [\UCactor] Selecciona fecha y hora, en la cual desea la cita.
+	\UCpaso  [\UCactor] Selecciona el tipo de cita.
+	\UCpaso  [\UCactor] Selecciona tipo de notificación.
+	\UCpaso  [\UCactor] Escribe el motivo de la cita.
+	\UCpaso  [\UCactor] Presiona el botón \IUbutton{ Solicitar Cita }.
+	\UCpaso Valida que los campos del formulario no estén vacios, de acuedo a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-alumnoProfesor-CU1-1-5-E1}]. \Trayref{A}
+		\UCpaso Obtiene los datos de la cita introducidos en el formulario. 
+		\UCpaso Obtiene el horario del profesor.
+		\UCpaso Valida el horario de la cita con el horario del profesor según la regla de negocio \BRref{EM-RN-N007}{Horario citas}.[Error \ref{EM-alumnoProfesor-CU1-1-5-E2}].
+		\UCpaso Persiste la información en el sistema.
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+
+
+
+\end{UCtrayectoria}
+		
+%========Trayectorias alternativas
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor desea cancelar la operación.}
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} de la pantalla \IUref{EM-Cita-IU09}{Crear cita II}
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+\end{UCtrayectoriaA}
+
+%========
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

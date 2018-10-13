@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="empresaConOfertasVigentes"
+            type="com.example.master.escomobile_alpha.modelo.entidad.Empresa" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/logo_empresa"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/txt_hint_logo_empresa"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+        <TextView
+            android:id="@+id/lbl_puesto"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingTop="5dp"
+            android:text="@string/txt_hint_puesto"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/amber_4"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/logo_empresa"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_nombre_empresa"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/txt_hint_nombre_empresa"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/logo_empresa"
+            app:layout_constraintEnd_toStartOf="@+id/lbl_sueldo"
+            app:layout_constraintStart_toEndOf="@+id/logo_empresa"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_puesto" />
+
+        <TextView
+            android:id="@+id/lbl_sueldo"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_hint_sueldo"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/colorSecundary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/logo_empresa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_puesto" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorSecundaryLight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_empresa" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

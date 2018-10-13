@@ -1,0 +1,80 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU09}{EM-Web-Bolsa-CU08-Consultar número de ofertas por mes.}{
+		En este caso de uso el actor podrá visualizar el número de ofertas de trabajo para los Alumnos de ESCOM publicadas en un periodo de 6 meses antes. Estas se mostrarán en una gráfica de lineas. Las cuales en el eje x indica los meses y el eje y el número de ofertas en esos respectivos meses.}
+		\UCitem{Versión}{0.2}
+		\UCitem{Actor}{Administrador Bolsa}
+		\UCitem{Propósito}{Informar al actor el número de  ofertas publicadas por en cada mes .}
+
+		\UCitem{Entradas}{
+		No aplica.
+		}
+
+		\UCitem{Origen}{No aplica.}
+		\UCitem{Salidas}{
+         Numero de Ofertas por mes.		
+		}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{ }
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			\begin{itemize}
+				\item Identar código LATEX.
+				\item NO identar texto en los párrafos del documento.
+				\item Homologar nombre con el resto, no es necesario especificar que es hasta 6 meses antes, eso en el resumen.  
+				\item Descripción completa:
+
+						1) Escribir un resumen más completo.
+				\item Atributos importantes.
+
+						1) Escribir algo en los campos ''entradas'' y ''origen'' así sea las palabras ''ninguna'' o ''no aplica''.
+
+						2) ¿No hay salidas en una CONSULTA? Corregir este campo y su correspondiente ''destino''.
+				\item Trayectoria principal: Las trayectorias, principales y alternativas se escriben para que el programados sepa qué camino seguir exactamente para que el sistema funcione correctamente. Tu trayectoria no le dice nada al programador. 
+
+						1) En el paso 1: No puedes decir que ingresa al sistema, pues esta pntalla se obtiene después de eso. 
+
+						2) Paso 2 y 3: ¿Con solo obtener la info de las ofertas tenemos mágicamente todo?
+
+						3) El caso de uso habla sobre consultar el número de ofertas, se liga con la gráfica, en qué momento se hace referencia a las gráficas y la manera en que se construyen.
+
+						4) Como sabemos, una TP, es para que el programador sepa cómo obtener cada dato y cómo generar las salidas, la gráfca y los datos que muestra, son salidas, tienes que explicar como se manejan esos datos, si se promedian, si se suman, si se restan, etc (con base a una regla de negocio que debes escribir), y la manera en que se va a construír y cómo se va a presentar (estructura, ejes, datos mostrados) al usuario. 
+				\item En la descripción de la pantalla WebBolsa-UI3 Vista:
+
+						1) Debes de poner nombre alucivo.
+
+						2) No es el único objetivo de la pantalla. 
+						
+						3) Ya entendí, NO COPIES Y PEGUES. Corrige la descripción de la pantalla.
+			\end{itemize}
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Ingresa al sistema .
+	\UCpaso Verifica que existan ofertas de trabajo.
+	\UCpaso Obtiene el número de ofertas publicadas en el sistema según la regla de Negocio \BRref{EM-RN-N006}.
+	\UCpaso Muestra la pantalla principal \IUref {EM-WebBolsa-UI3}{Vista} con una gráfica de lineas, en el eje x el mes y eje y el número de ofertas con los datos obtenidos.
+ 	\UCpaso Consulta el número de ofertas.
+	
+
+	\end{UCtrayectoria}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.

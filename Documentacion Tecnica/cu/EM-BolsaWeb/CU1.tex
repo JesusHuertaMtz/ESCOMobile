@@ -1,0 +1,151 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-BolsaWeb-CU1}{Gestionar Ofertas de Trabajo}{
+Este caso de uso permite al actor subir y editar las ofertas de trabajo para los alumnos de la ESCOM en la bolsa de trabajo de ESCOMobile, proporcionando el acceso al registro, edición, consulta, eliminación y publicación de las ofertas antes mencionadas en el sistema, ya que éste es el medio por el cual dichos alumnos estarán informados de las ofertas.
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{ Encargado de Bolsa de Trabajo.}
+	\UCitem{Propósito}{ Proporcionar al actor acceso al registro, edición, consulta , eliminación y publicación de ofertas de Trabajo para los alumnos de ESCOM de la bolsa de trabajo ESCOMobile en el sistema.}
+	\UCitem{Entradas}{
+		Ninguna.
+	}
+	\UCitem{Origen}{
+		No aplica.
+	}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Número de ofertas de trabajo para los alumnos de la ESCOM publicadas.
+			\item Gráfica de linea mostrando el número de ofertas de los ultimos 6 meses.
+			\item Tabla que muestra la siguiente información de las ofertas sin publicar
+				\begin{itemize}
+         		\item Numero de Oferta.
+				\item Nombre de la empresa.
+				\item Horario.
+				\item Vacante.
+				\item Sueldo.
+				\item Contacto.
+				\item Fecha Publicación.
+				\end{itemize}	
+			\end{itemize}
+	}
+	\UCitem{Destino}{
+		Pantalla.
+	}
+	\UCitem{Precondiciones}{
+		Ninguna.
+	}
+	\UCitem{Postcondiciones}{
+		Ninguna.
+	}
+	\UCitem{Errores}{
+		Ninguno. 
+	}
+	\UCitem{Tipo}{ Primario}
+	\UCitem{Observaciones}{ 
+		\begin{itemize}
+			\item NO identar texto en los párrafos del documento. 
+			\item Descripción completa:
+
+					1) Resumen poco comprensible al inicio. 
+					2) En el renglón 3, ''Ofertas'' => ''Ofertas de Trabajo'', siempre ser MUY especifico. Ofertas de quién, ¿de mi abuelita? NO, ofertas de trabajo. Este error está dos veces. 
+					3) En el tercer renglón, ''Este'' => ''Éste''. Revisa cuándo acentuar esas palabras y cómo. 
+			\item Atributos importantes.
+
+					1) Propósito: Ofertas de quién, ¿de mi abuelita?
+
+					2) Salidas: En el primer punto, Ofertas de quién, ¿de mi abuelita?, además, no son ofertas de trabajo registradas, son ofertas de trabajo PUBLICADAS. En la tabla, ¿qué es ''no''? 
+			\item Trayectoria principal:
+
+					1) En el paso 2: Ofertas de quién, ¿de mi abuelita? 
+
+					2) Paso 3: ¿Obtiene las ofertas con el estado ''sin publicar'' y en el paso 4 dices que son la de estado ''publicadas''?
+
+					3) Paso 5: Ofertas de quién, ¿de mi abuelita? Faltan datos mostrados en la tabla. Siguen incosistencias entre las ofertas publicadas y no publicadas. Cuándo calculaste la gráfica para poder mostrarla, no salió de la nada. 
+
+					4) Paso 6: En el paso 3 de la TP dices que las ofertas sin publicar se van a trabajar como una trayectoria alternativa (la TA B, que ni siquiera redactaste ¿qué pasó ahí?), y en el paso 6 dices que es por un punto de extensión, es decir, otro caso de uso, o es TA o es PE. En cualquiera de los casos REDACTA.
+
+					5) En general. Ofertas de quién, ¿de mi abuelita? 
+
+					6) Puntos de extensión. Los puntos de extensión se llaman igual a los CU a los cuales hacen referencias. Así no se llaman.
+			\item En la descripción de la pantalla WebBolsa-UI3 Vista:
+
+					1) Describir bien los atributos del diseño / salida. Y Ofertas de quién, ¿de mi abuelita? xD
+		\end{itemize}
+	}
+	\UCitem{Autor}{ Pérez García José David.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{ Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita gestionar las ofertas de ESCOMobile Bolsa presionando en la opción ''Ofertas laborales'' de la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}.
+
+	%Paso 2.
+	\UCpaso  Verifica que existan ofertas laborales para los alumnos de ESCOM registradas. \Trayref{A} 
+
+	%Paso 3.
+	\UCpaso Obtiene las ofertas con estado de '' Sin publicar'' y ''Publicadas'' 
+	%Paso 4.
+	\UCpaso Calcula el número de ofertas Publicadas según la regla de negocio \BRref{EM-RN-S010}{Total de Ofertas de Trabajo publicadas.} .
+%Paso 5.
+	\UCpaso Calcula el número de ofertas publicadas en el sistema de cada mes por los ultimos 6 meses según la regla de Negocio \BRref{EM-RN-N006}.
+	%Paso 6.
+	\UCpaso Obtiene nombre de las empresas, horario, vacante, sueldo y contacto de las ofertas de trabajo registradas con el estado de "Sin Publicar".
+	
+		%Paso 7.
+		
+		
+		\UCpaso Realiza una grafica de lineas con la información obtenida de las ofertas de trabajo publicadas en los ultimos 6 meses.
+		
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} con la gráfica de lineas, en el eje X el mes y en el eje Y el número de ofertas de trabajo con los datos obtenidos. El número de Ofertas de trabajo publicadas en total, así como una tabla que contiene:Selección,Número de oferta, Nombre de la Empresa, Horario, Vacante, Sueldo y contacto, así como las acciones editar (\UCicono{lapiz.png}) y eliminar( \UCicono{eliminar.png}) habilitadas para las ofertas registradas en el sistema. \label{EM-BolsaWeb-CU1-TAA}  \Trayref{B}
+
+%Paso 9.
+
+	\UCpaso Gestiona las ofertas por medio del botón \IUbutton{Añadir Oferta} para registrar una nueva oferta de trabajo para los alumnos de ESCOM en el sistema o bien, de las acciones \IUbutton{Ofertas Publicadas} para visualizar y gestionar las ofertas de trabajo publicadas, \UCicono{lapiz.png} para editar alguna de las Ofertas de trabajo registradas y \UCicono{eliminar.png} para eliminar alguna de las Ofertas de trabajo registradas.
+
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando no hay Ofertas Publicadas.}
+	%Paso A1.
+	\UCpaso Establece el número de Ofertas de trabajo publicadas igual a 0. 
+
+	\UCpaso Regresa al paso \ref{EM-BolsaWeb-CU1-TAA} de la trayectoria principal.
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaB}{B}{Consultar ofertas Publicadas.}
+	\UCpaso[\UCactor] Presiona el \IUbutton{Ofertas publicadas}.
+	\UCpaso Verifica que existan ofertas  de trabajo registradas.
+	\UCpaso Busca los nombres de las empresas. 
+	\UCpaso Obtiene la lista de ofertas registradas.
+	\UCpaso Separa las ofertas  de trabajo publicadas.	
+	\UCpaso Muestra en la pantalla  \IUref {EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} una tabla de Ofertas publicadas la cual que tiene los siguiente atributos:
+	\begin{itemize}
+	\item No.
+	\item Nombre de la empresa.
+	\item Horario.
+	\item Vacante.
+	\item Sueldo.
+	\item Contacto.
+	\item Fecha Publicación.
+	\end{itemize}
+	\UCpaso[\UCactor] Consulta las ofertas de trabajo obtenidas.
+	\UCpaso Fin caso de uso.
+\end{UCtrayectoriaB}
+
+
+
+\subsection{Puntos de extensión}
+
+\UCExtensionPoint{Solicitar Añadir Oferta} {El actor desea añadir una oferta de trabajo} {Paso 8 de la Trayectoria Principal}{referancia a Caso de uso Añadir Oferta de Trabajo}
+
+
+\UCExtensionPoint{Modificar Oferta}{El actor desea modificar una oferta de trabajo}{Paso 8 la Trayectoria Principal} {referencia a caso de uso Editar Oferta de trabajo}
+
+\UCExtensionPoint{Eliminar Oferta}{El actor desea eliminar una oferta de trabajo}{Paso 8 la Trayectoria Principal} {referencia a caso de uso Eliminar Oferta de Trabajo}
+
+\UCExtensionPoint{Publicar Boletín}{El actor desea publicar las ofertas de trabajo}{Paso 8 la Trayectoria Principal} {referencia a caso de uso Publicar Boletín de Ofertas de Trabajo}
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

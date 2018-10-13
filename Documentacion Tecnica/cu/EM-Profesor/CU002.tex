@@ -1,0 +1,103 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Alumno-CU04}{Modificar perfil del Profesor}{
+		Este caso de uso permite al profesor modificar su información en el sistema, pues requiere o desea hacerlo por motivos personales o porque había información errónea o desactualizada en el mismo. La información disponible para cambio es: correo y contraseña, mismos que podrán ser visualizados y utilizados en diferentes apartados del sistema por el alumno, de donde, es importante tener la información siempre actualizada.
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Profesor}
+	\UCitem{Propósito}{Proporcionar al profesor un mecanismo, con el cual pueda mantener actualizada su información en el sistema.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Correo electrónico.
+			\item Contraseña.
+			\item Nombre.
+		\end{itemize}
+	}
+	\UCitem{Origen}{
+		\begin{itemize}
+			\item Teclado del smartphone
+		\end{itemize}
+	}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		Ninguna. 
+	}
+	\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item Persiste la información sobre el profesor en el sistema.
+		\end{itemize}
+	}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Profesor-CU02-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{InfoObligatoria} de la trayectoria Principal.}
+			\item \label{EM-Profesor-CU02-E2} Cuando no se cumple con los alguno de los formatos definifdos en la información definida. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{FotmatoCorrecto} de la trayectoria Principal.}
+			\item \label{EM-Profesor-CU02-E3} Cuando no se puede llevar a cabo la operación de manera exitosa. Muestra el mensaje \MSGref{MSG2}{Operación Fallida} y  \textbf{termina el caso de uso.}
+		\end{enumerate}	
+	}
+	\UCitem{Tipo}{Caso de uso primario.}
+	\UCitem{Observaciones}{Es la primera propuesta de este caso de uso, se espera que se revise para implementar las correciones adecuadas.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita actualizar su información presionando el icono \UCicono{lapiz.png} de la pantalla \IUref{EM-Menu1}{Menú hamburguer}.
+
+	%Paso 2.
+	\UCpaso Muestra la pantalla \IUref{EM-Alumno-UI4a}{Modificar información del alumno}. 
+
+	% Paso 3.
+	\UCpaso [\UCactor] Selecciona el (los) campo(s) de información que deseé actualizar por medio de los botones \IUbutton{\UCicono{sobre.png} Correo} y \IUbutton{\UCicono{candado_cerrado.png} Contraseña}.
+
+	%Paso 4.
+	\UCpaso [\UCactor] Solicita modificar los campos seleccionados presionando el botón \IUbutton{Siguiente}. 
+
+	%Paso 5.
+	\UCpaso [\UCactor] Muestra la pantalla \IUref{EM-Alumno-UI4b}{Modificar información del alumno} con los campos previamente seleccionados para modificar.  
+
+	%Paso 6.
+	\UCpaso [\UCactor] Introduce la nueva información en los campos mostrados.
+
+	%Paso 7.
+	\UCpaso [\UCactor] Solicita actualizar su información presionando el botón \IUbutton{Aceptar}.
+
+	%Paso 8.
+	\UCpaso Muestra mensaje de confirmación sobre el cambio de información.
+
+	%Paso 9. 
+	\UCpaso Presiona el botón \IUbutton{Sí}. \Trayref{A} 
+
+	%Paso 10.
+	\UCpaso Valida que se hayan introducido todos los campos, de acuero a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-Profesor-CU02-E1}] \label{InfoObligatoria}
+	
+	%Paso 11.
+	\UCpaso Obtiene la información de los campos introducidos.
+	
+	%Paso 12.
+	\UCpaso Valida que los datos cumplan con sus formatos, de acuerdo a las reglas de negocio \BRref{EM-RN-S001}{Formato de correo electronico}, \BRref{EM-RN-S003}{Caracteres aceptados por el sistema} y \BRref{EM-RN-S004}{Contraseña}. [Error \ref{EM-Profesor-CU02-E2}] \label{FotmatoCorrecto}
+	
+	%Paso 13. 
+	\UCpaso Persiste los nuevos datos de los usuarios. [Error \ref{EM-Profesor-CU02-E3}]
+
+	%Paso 14. 
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-Alumno-UI4b}{Modificar información del alumno}.
+
+	%Paso 15.
+	\UCpaso Muestra la pantalla \IUref{EM-Mapa-UI1}{Pantalla de inicio de alumno}.
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor ha presionado el botón 'No'.}
+	\UCpaso Muestra la pantalla \IUref{EM-Mapa-UI1}{Pantalla de inicio de alumno}.
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

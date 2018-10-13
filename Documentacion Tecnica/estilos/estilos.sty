@@ -1,0 +1,65 @@
+\usepackage{longtable}
+\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{array}
+
+%Mi color
+\definecolor{blueGrey}{rgb}{0.56,0.64,0.68}
+\definecolor{ENTColor}{rgb}{0.133, 0.501, 0.917}
+\definecolor{ENTColorVisited}{rgb}{0.039, 0.274, 0.541}
+
+\newcommand{\EntityAttr}[3]{\bf #1 & #2 \hypertarget{#3}{}\label{#3} \\ \hline}%
+
+\newcommand{\EAT}[2]{%
+\begin{description}
+	\item[#1] #2
+\end{description}}
+%\newcommand{\EAT}[3]{\bf #1 & #2} \hypertarget{#3}{}\label{#3} \\ \hline}
+
+\newcommand{\EntiyRef}[2]{%
+	\hypersetup{linkcolor=ENTColor}%
+	\hyperlink{#1}{#1 #2}%
+	\hypersetup{linkcolor=ENTColorVisited}%
+}
+
+\newenvironment{Entity}[4][blueGrey]%
+{\centering%
+	\hypertarget{#3}{}\label{#3}%
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|m{.4\textwidth}|m{.4\textwidth}|}%
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		%\bf\color{white}#2 \\% & \bf\color{white}#3 Para varias columnas
+		\multicolumn{2}{|c|}{\bf\color{white} {#2} }\\% Para una sola columna
+		\arrayrulecolor{#1}%
+		\hline%	
+		%%Pone la descripción
+		\multicolumn{2}{|l|}{\multirow{5}{130mm}{#4}}\\% Para una sola columna y muchas filas
+		\multicolumn{2}{|l|}{\multirow{1}{130mm}{}}\\
+		\multicolumn{2}{|l|}{\multirow{1}{130mm}{}}\\
+		\multicolumn{2}{|l|}{\multirow{1}{130mm}{}}\\
+		\multicolumn{2}{|l|}{\multirow{1}{130mm}{}}\\
+		\multicolumn{2}{|l|}{\multirow{1}{130mm}{}}\\
+		\hline%
+}{%
+	\end{longtable}%
+}%
+
+%%EJEMPLO DE USO
+%\begin{Entity}{Alumno}{ENTITYAlumno}{Aquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripciónAquí va la descripción}
+%	\EntityAttr{Nombre}{
+%		\EAT{Tipo}{Cadena de caracteres.}
+%		\EAT{Rango}{De 3 a 20 caracteres.}
+%		\EAT{Otra cosa}{Mundo X2}
+%	}{IDNOMBRE}
+%	\EntityAttr{Correo}{
+%		\EAT{Tipo}{Cadena de caracteres.}
+%		\EAT{Rango}{De 3 a 80 caracteres.}
+%		\EAT{Dominios}{hotmail, gmail}
+%		\EAT{Expresión regular}{{a-z0-9}@algo}
+%	}{IDTIPO}
+%\end{Entity}
+

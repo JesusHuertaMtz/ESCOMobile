@@ -1,0 +1,105 @@
+% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Acceso-CU2}{Iniciar sesión.}{
+	\noindent
+	Este caso de uso permite al actor iniciar su sesión dentro de la aplicación ESCOMobile. Es importante mencionar que para poder iniciar sesión es necesario haberse regitrado previamente en el sitema, como alumno o profesor, así como introducir sus datos como su boleta o número de empleado (según sea el caso) y la contraseña que se designó a la hora de crear la cuenta.
+	\newline
+	}
+		\UCitem{Versión}{3.0}
+		\UCitem{Actor}{Alumno, Profesor.}
+		\UCitem{Propósito}{Proporsionar al actor un mencanismo de acceso al sistema que lo identifique como un usuario único en el mismo.}
+		\UCitem{Entradas}{
+			\begin{itemize}
+				\item Número de Boleta o número de empleado.
+				\item Contraseña.
+			\end{itemize}
+		}
+		\UCitem{Origen}{Pantalla.}
+		\UCitem{Salidas}{
+			\begin{itemize}
+		        \item \MSGref{MSG5}{Falta dato obligatorio}.	
+		        \item \MSGref{MSG6}{Formato de campo Incorrecto}.
+		        \item \MSGref{MSG9}{Número de Boleta/Número de empleado no válido}.
+		        \item \MSGref{MSG16}{Contraseñas no coinciden}.
+			\end{itemize}
+		}
+		\UCitem{Destino}{Pantalla}
+		\UCitem{Precondiciones}{
+			El actor debe estár registrado en el sistema de ESCOMobile (haber creado una cuenta previamente).
+		}
+		\UCitem{Postcondiciones}{
+			Ninguna.
+		}
+		\UCitem{Errores}{
+	        \begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+	        	% Error 1.
+	    	 	\item \label{EM-Acceso-CU2-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{l_Acceso_CU2_E1} de la trayectoria Principal.}
+		      	
+		      	% Error 2.
+		       	\item \label{EM-Acceso-CU2-E2} Cuando algún campo no comple con el formato valido definido. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{l_Acceso_CU2_E1} de la trayectoria Principal.}
+
+		       	% Error 3.
+		       	\item \label{EM-Acceso-CU2-E3} Cuando no existe una cuenta asociada al número de boleta o empleado proporcionado. Muestra el mensaje \MSGref{MSG9}{Número de Boleta/Número de empleado no válido} y \textbf{continúa en el paso \ref{l_Acceso_CU2_E1} de la trayectoria Principal.}
+
+		       	% Error 4.
+		       	\item \label{EM-Acceso-CU02-E4} Cuando las contraseña introducida no coincide con la asociada ala cuenta. Muestra el mensaje \MSGref{MSG16}{Contraseñas no coinciden} y \textbf{continúa en el paso \ref{l_Acceso_CU2_E1} de la trayectoria Principal.}.
+	       	\end{enumerate}
+	    }
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{
+			Corregido.
+		}
+		\UCitem{Autores}{Pérez García José David, Huerta Martínez Jesús Manuel.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel.}
+	\end{UseCase}
+	
+	\begin{UCtrayectoria}{Principal}
+
+		% Paso 1.
+		\UCpaso [\UCactor] Presiona el botón \IUbutton{iniciar sesión} de la pantalla \IUref{Pantalla Inicio} o bien, presiona el botón \IUbutton{¿Ya tienes cuenta? ¡Entra!} de la pantalla \IUref{EM-Acceso-UI1}{Registrar Nuevo Usuario}.
+		
+		% Paso 2.
+		\UCpaso Muestra la pantalla \IUref {EM-Acceso-UI2}{Iniciar Sesión}. \label{l_Acceso_CU2_E1}
+		
+		% Paso 3.
+		\UCpaso[\UCactor] Introduce su boleta o número de empleado en el campo boleta/número de empleado, según sea el caso.
+		
+		% Paso 4.
+		\UCpaso[\UCactor] Proporciona su contraseña en el campo de contraseña.
+		
+		% Paso 5.
+		\UCpaso[\UCactor] Presiona el boton \IUbutton{Ingresar}.
+		
+		% Paso 6.
+		\UCpaso Valida que los campos introducidos no estén vacios. [Error \ref{EM-Acceso-CU2-E1}]
+		
+		% Paso 7.
+		\UCpaso Verifica que los campos introducidos cumplan con el formato determinado, de acuerdo a las reglas de negocio \BRref{EM-RN-N002}{Boleta o número de empleado} y \BRref{EM-RN-S004}{Formato de Contraseña}. [Error \ref{EM-Acceso-CU2-E2}].
+		
+		% Paso 8.
+		\UCpaso Obtiene la boleta o el número de empleado introducido.
+		
+		% Paso 9.
+		\UCpaso Valida que exista un usuario registrado en el sistema con esa boleta o ese número de empleado. [Error \ref{EM-Acceso-CU2-E3}]
+
+		% Paso 10.
+		\UCpaso Obtiene la contraseña dada por el actor en el campo ''contraseña''.
+		
+		% Paso 11.
+		\UCpaso Obtiene la contraseña registrada previamente en el sistema ESCOMobile, asociada a la cuenta del usario registrado.
+
+		% Paso 12.
+		\UCpaso Valida que la contraseña proporcionada con la contraseña asociada a la cuenta sean iguales. [Error \ref{EM-Acceso-CU02-E4}]
+		
+		% Paso 13.
+		\UCpaso Muestra pantalla \IUref{EM-Mapa-UI1}{Consultar Mapa de ESCOM} con la sesión iniciada.
+	\end{UCtrayectoria}
+		
+%-------------------------------------- TERMINA descripción del caso de uso.

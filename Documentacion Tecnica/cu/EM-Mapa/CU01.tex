@@ -1,0 +1,110 @@
+\begin{UseCase}{EM-Mapa-CU01}{Consultar mapa de ESCOM.}{
+	\noindent
+	Este caso de uso permite al actor consultar la distribución de las diferentes áreas dentro de la ESCOM
+	como lo son lon salones, cubículos, academias, etc. en los diferentes edificos y plantas contenidos en
+	la misma institución. Lo anterior se logra por medio de un mapa 2D, en donde se muestran organizados
+	las diferentes áreas tal cual se encuentran en la Superior de Cómputo, pues de esta forma se facilitan,
+	entre otras cosas, el encontrar una determinada área académica, localizar la estancia de algún profesor
+	en específico, conocer los salones en los cuales se imparten clases dado un grupo, etc., agilizando
+	así tareas cotidianas en el plantel.
+	\newline 
+	}
+	\UCitem{Versión}{0.2}
+	\UCitem{Actor}{Alumno, Profesor, Invitado.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo para localizar áreas académicas dentro de la ESCOM.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Muestra en el mapa 2D la ubicación del área.
+			\item Nombre del área.
+			\item Planta en la que se ubica el área.
+			\item Edificio al que pertenece el área.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item Tener registradas las coordenadas de las diferentes áreas que componen el mapa 
+			(edificios, plantas, salones, etc.).
+			\item El actor debe haber iniciado sesión.
+			\item Tener cargada la imagen del plano de ESCOM.
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Mapa-CU01-E1} Cuando no se es posible dibujar las áreas académicas sobre el mapa, pues no se cuentan
+			con las coordenadas para ello, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Primario}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Fernández Quiñones Isaac.}
+	\UCitem{Revisor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1. 
+	\UCpaso[\UCactor] Inicia sesión en el sistema siguiendo los pasos en el caso de uso \UCref{EM-Acceso-CU2}.
+
+	% Paso 2.
+	\UCpaso Verifica que existan las coordenadas de las áreas que componen el mapa de ESCOM. [Error: \ref{EM-Mapa-CU01-E1}]
+
+	% Paso 3.
+	\UCpaso Obtiene las coordenadas del mapa de ESCOM.
+
+	% Paso 4.
+	\UCpaso Dibuja las coordenadas de los edificios en el mapa de ESCOM sobre una imagen que muestra el plano de la misma.
+
+	% Paso 5.
+	\UCpaso Muestra la \IUref{EM-Mapa-UI1}{Consultar Mapa de ESCOM}.
+
+	% Paso 6.
+	\UCpaso[\UCactor] Consulta el mapa ESCOM. \label{CU04ConsultarOtros}
+
+\end{UCtrayectoria}
+
+%========
+%\subsection{Puntos de extensión}
+
+%\UCExtensionPoint{EPAcademias}{El actor desea consultar academias por planta}
+%{Paso \ref{CU04ConsultarOtros} de la trayectoria principal.}
+%{Continua en el caso de uso \UCref{EM-Mapa-CU04}.}
+
+%\UCExtensionPoint{EPAdminstrativa}{El actor desea consultar áreas administrativas por planta}
+%{Paso \ref{CU04ConsultarOtros} de la trayectoria principal.}
+%{Continua en el caso de uso \UCref{EM-Mapa-CU05}.}
+
+%\UCExtensionPoint{EPSalones}{El actor desea consultar salones por planta}
+%{Paso \ref{CU04ConsultarOtros} de la trayectoria principal.}
+%{Continua en el caso de uso \UCref{EM-Mapa-CU06}.}
+
+%\begin{UCtrayectoriaA}{A}{El actor selecciona ver los salones.}
+%	\UCpaso[\UCactor] Presiona el botón \IUbutton{ Salones } de la \IUref{IU6}{Pantalla de inicio del alumno.}
+%\end{UCtrayectoriaA}
+%
+%\begin{UCtrayectoriaA}{B}{El actor selecciona ver los áreas admnistrativas.}
+%	\UCpaso[\UCactor] Presiona el botón \IUbutton{ Salones } de la \IUref{IU6}{Pantalla de inicio del alumno.}
+%\end{UCtrayectoriaA}
+%
+%\begin{UCtrayectoriaA}{C}{El actor selecciona ver los academias.}
+%	\UCpaso[\UCactor] Presiona el botón \IUbutton{ Salones } de la \IUref{IU6}{Pantalla de inicio del alumno.}
+%\end{UCtrayectoriaA}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

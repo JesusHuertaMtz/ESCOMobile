@@ -1,0 +1,59 @@
+	\begin{UseCase}{EM-Acceso-CU5}{Eliminar Cuenta}{
+		\noindent
+		Este caso de uso permite al actor eliminar su cuenta previamente creada en ESCOMobile, pues no desea
+		continuar, permanentemente, con los servicios que ésta ofrece; porque la información ingresada es errónea,
+		no deseaba crear una cuenta o o bien, por la seguridad de su cuenta. Se debe mencionar que al eliminar
+		la cuenta, los datos proporcionados serán eliminados, así como citas y demás información, y ésta no se
+		se podrá recuperar ni se podrá reingresar a la cuenta desde el mismo u otro dispositivo.
+		\newline
+		}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Alumno y Profesor.}
+		\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita eliminar su cuenta, sin contar más
+		con los servicios de la app y eliminando su información proporcionada permanentemente.}
+		\UCitem{Entradas}{Ninguna.}
+		\UCitem{Origen}{No aplica.}
+		\UCitem{Salidas}{
+			\begin{itemize}
+				\item \MSGref{MSG18}{Eliminar cuenta}.
+			\end{itemize}
+		}
+		\UCitem{Destino}{Pantalla.}
+		\UCitem{Precondiciones}{Tener una sesión iniciada.}
+		\UCitem{Postcondiciones}{Elimina toda la información que el actor introdujo para su registro, así
+		como la información de citas asocida a su cuenta.}
+		\UCitem{Errores}{Ninguno.}
+		\UCitem{Tipo}{Caso de uso primario.}
+		\UCitem{Observaciones}{Corregido.}
+		\UCitem{Autores}{Pérez García José David, Huerta Martínez Jesús Manuel.}
+		\UCitem{Reviso}{Huerta Martínez Jesús Manuel.}
+	\end{UseCase}
+	
+	\begin{UCtrayectoria}{Principal.}
+
+		% Paso 1.
+		\UCpaso[\UCactor] Presiona el botón \IUbutton{Eliminar Cuenta} de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}.
+
+		% Paso 2.
+		\UCpaso Muestra el mensaje \MSGref{MSG18}{Eliminar cuenta}, solicitando la confirmación para eliminar la cuenta.
+
+		% Paso 3.
+		\UCpaso [\UCactor] Pulsa boton \IUbutton{Aceptar} del mensaje mostrado. \Trayref{A}
+
+		% Paso 4.
+		\UCpaso Elimina la cuenta, la información proporcionada al hacer el registro y la referente a citas asociada a la cuenta, muestra la pantalla \IUref{Pantalla Inicio}{}.
+
+	\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{cancela.}
+
+		% A1.
+		\UCpaso	Presiona el botón \IUbutton{Cancelar} del mensaje mostrado.
+
+		% A2.
+		\UCpaso Muestra Pantalla anterior.
+
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.

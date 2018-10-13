@@ -1,0 +1,75 @@
+\documentclass[oneside,10pt]{book}
+
+\usepackage{cdtBook}
+\usepackage{usecases}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{requerimientos/requisitos}
+\usepackage{pdfpages} %Para cargar pdfs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\includepdf[pages=1]{portada/posible_portada}
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+\mainmatter
+
+%=========================================================
+\chapter{Introducción}
+
+%Añadir la intro de lo que trata este documento.
+\cfinput{intro/Introduccion}
+\cfinput{intro/Justificacion}
+
+\chapter{Marco teórico}
+\cfinput{marco_teorico/marco_teorico}
+\cfinput{marco_teorico/glosario}
+\cfinput{tecnologias/tecnologias} \label{tecnologias}
+
+%=========================================================
+\chapter{Estado del arte}
+
+\cfinput{estado_arte/estadoarte}
+
+%=========================================================
+\chapter{Propuesta del proyecto.}
+\cfinput{intro/propuesta}
+
+\cfinput{intro/Objetivos}
+
+\section{Requisitos} \label{Requisitos}
+%\cfinput{requerimientos/requisitos}
+\cfinput{requerimientos/requisitos_funcionales}
+\newpage
+\cfinput{requerimientos/requisitos_plataforma}
+\newpage
+\cfinput{requerimientos/requisitos_negocio}
+\newpage
+\cfinput{requerimientos/requisitos_informacion}
+\newpage
+\cfinput{requerimientos/requisitos_iu}
+\newpage
+\cfinput{requerimientos/requisitos_propiedadsw}
+\newpage
+
+%=========================================================
+
+\chapter{Trabajo Realizado.}
+\cfinput{realizado/trabajorealizado}  \label{trabajo_realizado}
+\newpage
+\cfinput{realizado/resultados}
+\newpage
+\cfinput{realizado/trabajoFuturo}
+
+%=========================================================
+
+\cfinput{bibliografia/bibliografia}
+
+\end{document}

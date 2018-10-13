@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="sesionViewModel"
+            type="com.example.master.escomobile_alpha.viewmodel.IniciarSesionViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".vista.fragment.IniciarSesionFragment">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="5dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="Iniciar sesión"
+            app:titleTextColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/txt_main_name_app"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/txt_main_name"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/img_main_logo_desc"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/txt_boleta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_name_app"
+            app:srcCompat="@drawable/escom_logo_white" />
+
+        <EditText
+            android:id="@+id/txt_boleta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:hint="@string/txt_hint_boleta_empleado"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:textColor="@android:color/white"
+            android:textColorHighlight="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_pass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/txt_pass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:hint="@string/txt_hint_pass"
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:textColor="@android:color/white"
+            android:textColorHighlight="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_ingresar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_registrate"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginStart="60dp"
+            android:text="@string/txt_sin_cuenta_registrate"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btn_olvide_pass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_olvide_pass"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginStart="70dp"
+            android:text="@string/txt_olvide_pass"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_ingresar"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/button_main_custom"
+            android:text="@string/btn_ingresar"
+            android:textAllCaps="false"
+            android:textSize="21sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_registrate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,106 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU10}{EM-Web-Bolsa-CU10-Consultar las empresas y contactos}{
+		En este caso de uso el actor podrá visualizar la empresas registradas, estas empresas serán las que mandarán las ofertas de trabajo y el actor las registrará para tener un control de que empresas solicitan alumnos o egresados de la ESCOM así como los contactos de cada empresa.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Administrador Bolsa}
+		\UCitem{Propósito}{Visualizar las empresas y contactos en el sistema.}
+
+		\UCitem{Entradas}{
+		Ninguna
+		}
+
+		\UCitem{Origen}{No aplica}
+		\UCitem{Salidas}{
+		\begin{itemize}
+		\item Nombre
+		\item Giro
+		\item Contacto
+		\item RFC
+		\item Ofertas Publicadas.
+		\item Visualizaciones.
+		\end{itemize}
+		}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Ninguna.}
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			\begin{itemize}
+				\item Identar código LATEX.
+				\item NO identar texto en los párrafos del documento.
+				\item Homologar nombre con el resto.
+				\item Descripción completa:
+
+						1) Escribir un resumen más completo.
+
+						2) ''Así mismo'' es un conector que junta dos oraciones diferentes de una misma idea, tomando la segunda como una adicón a la primera. En este caso no es así, no son dos oraciones diferentes, es una misma, usa otro coector. Recomendación: así como.
+				\item Atributos importantes.
+
+						1) Escribir algo en los campos ''entradas'' y ''origen'' así sea las palabras ''ninguna'' o ''no aplica''.
+
+						2) ¿No hay salidas en una CONSULTA? Corregir este campo y su correspondiente ''destino''.
+
+						3) No es primario, viene de consultar ofertas.
+				\item Trayectoria principal: Las trayectorias, principales y alternativas se escriben para que el programados sepa qué camino seguir exactamente para que el sistema funcione correctamente. Tu trayectoria no le dice nada al programador. 
+
+						1) En el paso 1: el caso de uso hace referencia a las empresas, entonces comienza cuando el actor presiona el botón de empresas, lo demás no nos importa.
+
+						2) Paso 2 ¿Con solo obtener la info de las empresas tenemos mágicamente todo? Debes especificar qué info y de dónde se obtiene. Previamente validado que haya, de lo contrario se habre una TA.
+
+						3) Falta agregar un en el paso después de obtener la info que ésta se mostrará una tabla con tantos y cuales atributos. 
+
+						4) Un paso más para decir que el actor consulta la info y que las empresas tienen acciones, se enlistan y linkean a trayectorias alternativas. 
+				\item Trayectoria Alternativa A:
+
+						1) Con base a lo anterior, replantear TA A.
+				\item En la descripción de la pantalla WebBolsa-UI5 Consultar empresa:
+
+						1) Describir bien pantalla y llenar todos sus atributos como diseño, salidas, etc. TODOS los que apliquen (todos menos entradas, para este caso).
+			\end{itemize}
+ 		}
+		\UCitem{Autores}{Pérez García José David}
+		\UCitem{Revisó}{Huerta Martínez Jesús Manuel}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	
+	\UCpaso [\UCactor] Da click en el botón \IUbutton{Empresas} de la pantalla \IUref {EM-WebBolsa-UI3}{Vista}
+	\UCpaso Verifica que exista información de las empresas.\Trayref{A}
+	\UCpaso Obtiene la información en el sistema.
+	\UCpaso Muestra la pantalla \IUref {EM-WebBolsa-UI5}{Consultar empresa}con una tabla que tiene los siguiente atributos
+	\begin{itemize}
+		\item Nombre
+		\item Giro
+		\item Contacto
+		\item RFC
+		\item Ofertas Publicadas.
+		\item Visualizaciones.
+		\item Opciones.
+	\end{itemize}
+	\UCpaso[\UCactor] Consulta las empresas obtenidas. 
+	
+	\end{UCtrayectoria}
+	
+\begin{UCtrayectoriaA}{A}{No hay empresas registradas.}
+	\UCpaso Muestra la pantalla principal \IUref {EM-WebBolsa-UI5}{Consultar empresa}. 
+	\UCpaso Muestra en la tabla MSG:Ningún dato disponible en esta tabla  
+	\UCpaso Termina caso de uso.
+\end{UCtrayectoriaA}
+	
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.

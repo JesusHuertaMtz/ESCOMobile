@@ -1,0 +1,96 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-AlumnoProfesor-CU1.1.2}{Calificar desempeño de Profesor.}{
+	\noindent
+	Este caso de uso permite al actor dar su opinión de los profesores de ESCOM consultados, expresar lo que piensa acerca del desempeño de éstos en las aulas, sus conocimientos generales de las materias que imparten, la manera en que dan sus clases y la forma en que se dirigen e interactúan con los alumnos en los diferentes espacios dedicados a ellos. Además, también se permite calificar a los profesores en una escala de 1 a 5 por su trabajo y los puntos descritos anteriormente. Todo para poder conocerlos mejor y retroalimentar directamente el papel que desempeñan en la escuela, de esta forma se conocen las opniones y se permite mejorar el nivel y dedicación de los profesores para los alumnos y de los alumnos a los profesores, siempre con respeto y honestidad.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo con el cual pueda compartir su opinión sobre el desempeño de los profesores de ESCOM en sus actividades escolares.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Calificación para el profesor.
+			\item Comentario para el profesor.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Pantalla.}
+		%\begin{itemize}
+		%	\item Botones en la pantalla del smartphone.
+		%	\item Teclado Android.
+		%\end{itemize}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Nombre, fotografía y promedio asignado (calificación) del profesor.
+			\item \MSGref{MSG1}{Operación Exitosa}.
+			\item \MSGref{MSG5}{Falta dato obligatorio}.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item Actualiza calificación promedio del profesor y persiste la información en el sistema.
+		\end{itemize}
+	}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-AlumnoProfesor-CU1-1-2-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{InfoObligatoria} de la trayectoria Principal.}
+			\item \label{EM-AlumnoProfesor-CU1-1-2-E2} Cuando no se puede llevar a cabo la operación de manera exitosa. Muestra el mensaje \MSGref{MSG2}{Operación Fallida} y \textbf{termina el caso de uso.} 
+		\end{enumerate}	
+	}
+	\UCitem{Tipo}{Caso de uso secundario. Viene de \UCref{EM-AlumnoProfesor-CU1.1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita calificar el desempeño académico del profesor presionando el botón \IUbutton{Calificar} de la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+
+	%Paso 2.
+	\UCpaso Verifica que el profesor tenga ya asignada una calificaión promedio, resultado de las calificaciones previas hechas por los alumnos. 
+
+	% Paso 3.
+	\UCpaso Obtiene nombre y fotografía del profesor. \Trayref{A} \label{CalifPromedio}
+
+	% Paso 4.
+	\UCpaso Obtiene la calificación promedio del profesor. 
+
+	%Paso 5.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1-2}{Calificar desempeño académico del Profesor} con la información obtenida y los recuadros para asignar una calificación y comentario al profesor. 
+
+	%Paso 6.
+	\UCpaso [\UCactor] Introduce la calificación de 1 a 5 que deseé asignar al profesor. \label{InfoObligatoria} 
+
+	%Paso 7.
+	\UCpaso [\UCactor] Introduce un comentario para retroalimentar al profesor.
+
+	%Paso 8.
+	\UCpaso [\UCactor] Solicita calificar el desempeño académico del profesor presionando el botón \IUbutton{Enviar}.
+
+	%Paso 9.
+	\UCpaso Valida que se hayan introducido todos los campos obligatorios, de acuero a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-AlumnoProfesor-CU1-1-2-E1}]
+	
+	%Paso 10.
+	\UCpaso Obtiene calificación promedio del profesor y calcula nuevo promedio, de acuerdo a la regla de negocio \BRref{EM-RN-N004}{Calificación Promedio de Profesor}. 
+	
+	%Paso 11.
+	\UCpaso Persiste la nueva calificación promedio del profesor y el comentario obtenido. [Error \ref{EM-AlumnoProfesor-CU1-1-2-E2}]
+
+	%Paso 12.
+	\UCpaso Muestra la pantalla \IUref{EM-Alumno-UI1}{Consultar Perfil del Profesor} con el mensaje \MSGref{MSG1}{Operación Exitosa}.
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando no hay calificación promedio asignada al profesor.}
+	\UCpaso	Se asigna calificación promedio igual a cero al profesor.
+	\UCpaso Continua en el paso \ref{CalifPromedio} de la trayectoria proncipal.
+\end{UCtrayectoriaA}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

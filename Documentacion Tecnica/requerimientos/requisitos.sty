@@ -1,0 +1,198 @@
+\usepackage{longtable}
+\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{multirow}
+
+%Mi color
+\definecolor{blueGrey}{rgb}{0.56,0.64,0.68}
+
+\newcommand{\RFitem}[2]{\bf #1 & #2 \\ \hline}
+
+\newenvironment{requisitos}[2][blueGrey]%
+{\noindent%
+	\arrayrulecolor{#1}%
+	\par\begin{longtable}{| p{.2\textwidth} | p{.75\textwidth} |}%
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\multicolumn{2}{|c|}{\bf\color{white} {#2} }\\%
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\arrayrulecolor{black}%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Titem}[3]{\bf #1 & \includegraphics[scale=.05]{images/#2} & \includegraphics[scale=.05]{images/#3} \\ \hline}
+
+\newenvironment{tecnologias}[4][blueGrey]
+{\centering%
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|c|c|c|}%{|p{.2\textwidth}|p{.3\textwidth}|p{.3\textwidth}|}%
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		%\multicolumn{3}{|c|}{\bf\color{white} {#2} }\\%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4 \\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Comitem}[4]{\bf #1 & #2 & #3 & #4 \\ \hline}
+
+\newcommand{\TABref}[1]{%
+	\hypersetup{linkcolor=RFReferenceColor}%
+	\hyperlink{#1}{tabla \ref{#1}}%
+	\hypersetup{linkcolor=UCInterfaceColor}%
+}
+
+\newenvironment{comparativa}[6][blueGrey]
+{\centering%
+	\hypertarget{#6}{}\label{#6}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.2\textwidth}|p{.23\textwidth}|p{.23\textwidth}|p{.23\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4 & \bf\color{white}#5 \\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%% TABLAS 2 a 6 columnas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 2 Columnas
+\newcommand{\CCitem}[2]{\bf #1 & #2 \\ \hline}
+
+\newenvironment{tablaCC}[4][blueGrey]
+{\centering%
+	\hypertarget{#4}{}\label{#4}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.4\textwidth}|p{.4\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 \\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 Columnas
+\newcommand{\CCCitem}[3]{\bf #1 & #2 & #3\\ \hline}
+
+\newenvironment{tablaCCC}[5][blueGrey]
+{\centering%
+	\hypertarget{#5}{}\label{#5}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.3\textwidth}|p{.3\textwidth}|p{.3\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4\\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 4 Columnas
+\newcommand{\CCCCitem}[4]{\bf #1 & #2 & #3 & #4\\ \hline}
+
+\newenvironment{tablaCCCC}[6][blueGrey]
+{\centering%
+	\hypertarget{#6}{}\label{#6}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.19\textwidth}|p{.23\textwidth}|p{.23\textwidth}|p{.23\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4 & \bf\color{white}#5\\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 Columnas
+\newcommand{\CCCCCitem}[5]{\bf #1 & #2 & #3 & #4 & #5\\ \hline}
+
+\newenvironment{tablaCCCCC}[7][blueGrey]
+{\centering%
+	\hypertarget{#7}{}\label{#7}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.14\textwidth}|p{.18\textwidth}|p{.18\textwidth}|p{.18\textwidth}|p{.18\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4 & \bf\color{white}#5 & \bf\color{white}#6\\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 6 Columnas
+\newcommand{\CCCCCCitem}[6]{\bf #1 & #2 & #3 & #4 & #5 & #6\\ \hline}
+
+\newenvironment{tablaCCCCCC}[8][blueGrey]
+{\centering%
+	\hypertarget{#8}{}\label{#8}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.13\textwidth}|p{.14\textwidth}|p{.14\textwidth}|p{.14\textwidth}|p{.14\textwidth}|p{.14\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4 & \bf\color{white}#5 & \bf\color{white}#6 & \bf\color{white}#7\\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7 Columnas
+\newcommand{\CCCCCCCitem}[7]{\bf #1 & #2 & #3 & #4 & #5 & #6 & #7\\ \hline}
+
+\newenvironment{tablaCCCCCCC}[9][blueGrey]
+{\centering%
+	\hypertarget{#9}{}\label{#9}
+	\arrayrulecolor{#1}%
+	\par\centering\begin{longtable}{|p{.13\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.11\textwidth}|}
+		\arrayrulecolor{#1}%
+		\hline%
+		\rowcolor{#1}%
+		\bf\color{white}#2 & \bf\color{white}#3 & \bf\color{white}#4 & \bf\color{white}#5 & \bf\color{white}#6 & \bf\color{white}#7 & \bf\color{white}#8\\
+		\arrayrulecolor{#1}%
+		\hline%
+}{%
+	\end{longtable}%
+}
+
+%% Plantilla de tabla
+%\begin{table}[htb]
+%	\centering
+%	\arrayrulecolor{blueGrey}
+%	\par\begin{longtable}{| p{.2\textwidth}| p{.8\textwidth} |}
+%		\hline
+%		\rowcolor{blueGrey}
+%		\multicolumn{2}{|c|}{\bf\color{white} RFN1 Plataforma móvil.} \\
+%		\arrayrulecolor{blueGrey}
+%		\hline
+%		\bf Descripción & La aplicación se ejecutará sobre la plataforma móvil Android. En la versión
+% Android 5.0 (Lollipop) a la versión Android 8.0 (Oreo). \\ \hline
+%		\bf Propósito & Para que una gran parte, sino es que, en su totalidad, de la comunidad de
+% ESCOM disponga de ESCOMobile en sus dispositivos con S.O. Android. \\ \hline
+%		\bf Usuario & N/A. \\ \hline
+%		\bf Tipo & Móvil. \\ \hline
+%	\end{longtable}
+%	\caption{Tabla de ancho fijo.}
+%	\label{tabla:anchofijo}
+%\end{table}

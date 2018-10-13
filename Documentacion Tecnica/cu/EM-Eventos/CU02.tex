@@ -1,0 +1,64 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU05}{EM-Evento-CU02-Descripción de evento}{
+		En este caso de uso el actor podra consultar mas información del evento que haya seleccionado, asi mismo podra ver el lugar, la fecha y el horario en el que se realizará dicho evento.}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Alumno y Profesor}
+		\UCitem{Propósito}{Proporcionar al actor la información acerca del evento de su interes.
+		}
+
+		\UCitem{Entradas}{
+		\begin{itemize}
+		\item Ninguna
+		\end{itemize}
+		}
+
+		\UCitem{Origen}{No aplica}
+		\UCitem{Salidas}{
+		Se muestra la siguiente información del evento:
+		\begin{itemize}
+			\item Tipo de evento.
+			\item Nombre de evento.
+			\item Fecha de evento.
+			\item Ubicación.
+			\item Hora de evento.
+			\item Descripción del evento. 
+		
+		\end{itemize}}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{Tener eventos dados de alta en el sistema . }
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		
+			
+	
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			
+		Revisiones:
+		
+ 		}
+		\UCitem{Autores}{ Pérez García José David.}
+		\UCitem{Reviso}{Sin revisar}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Pulsa un evento en la pantalla \IUref{EM-Eventos-UI1}{Consultar Eventos}.
+	\UCpaso Muestra la pantalla \IUref{EM-Evento-UI2}{Descripción evento}.
+	
+
+	
+	\end{UCtrayectoria}
+
+%-------------------------------------- TERMINA descripción del caso de uso.

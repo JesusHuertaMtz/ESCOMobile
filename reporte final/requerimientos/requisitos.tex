@@ -1,0 +1,418 @@
+\section{Requisitos}
+
+\begin{requisitos}{RFN6 Mapa de ESCOM en móviles.} 
+	\RFitem{Descripción}{El mapa de ESCOM descrito solo estará disponible en la versión 
+	móvil de la aplicación.} 
+	\RFitem{Propósito}{Atraer a los estudiantes y profesores de ESCOM a usar ESCOMobile.} 
+	\RFitem{Usuario}{N/A.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+
+%% ***********************************************************************************************
+\begin{requisitos}{RFN7 Presentación del mapa de ESCOM.} 
+	\RFitem{Descripción}{El mapa de ESCOM que mostrará la aplicación es en 2D, la vista será aérea 
+	y mostrará texto que describe cada área.}
+	\RFitem{Propósito}{Hacer la navegación en el mapa sencilla para el actor.} 
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+%% ***********************************************************************************************
+
+%% ***********************************************************************************************
+\begin{requisitos}{RFN8 Vistas del mapa de ESCOM.} 
+	\RFitem{Descripción}{El mapa mostrará una vista de la planta baja, primer piso y segundo piso 
+	del plantel. Solo se puede mostrar una vista a la vez.} 
+	\RFitem{Propósito}{Saber en qué piso se encuentran ubicados, los laboratorios, salones, cubículos, 
+	etc. Para orientar al actor.}
+	\RFitem{Usuario}{Alumno, profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+%% ***********************************************************************************************
+
+%% ***********************************************************************************************
+\begin{requisitos}{RFN9 Información en el mapa de ESCOM.}
+	\RFitem{Descripción}{Se mostrará en el mapa textos descriptivos, como el nombre del salón, de 
+	cada área, divisiones de los salones y áreas administrativas.}
+	\RFitem{Propósito}{Ayudar a ubicar con mayor facilidad el lugar que busca el actor.} 
+	\RFitem{Usuario}{Alumno, Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}	
+%% ***********************************************************************************************
+
+\begin{requisitos}{RFN10 Eventos.}
+	\RFitem{Descripción}{Se dispondrá de una sección, dentro de la aplicación, para poder consultar 
+	los eventos que están próximos a llevarse acabo en las instalaciones de ESCOM. La información 
+	que se debe mostrar es el cartel del evento, hora y fecha en el que se realizará el evento,
+	descripción breve acerca del evento, lugar en donde tendrá cabida el evento y quién es 
+	el ponente.} 
+	\RFitem{Propósito}{Difundir los eventos y de esta manera interesar al actor de ESCOM a asistir 
+	al evento.}
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+%% ***********************************************************************************************
+%% **********************************  DESCRIPCIÓN Y PROPÓSITO ***********************************
+\begin{requisitos}{RFN11 Perfil o cuenta del profesor.}
+	\RFitem{Descripción}{Se tendrá un apartado para configurar el perfil del profesor. Es en este 
+	apartado podrá modificar su correo electrónico, contraseñad, fotografía, etc. Y consultar sus 
+	citas agendadas.} 
+	\RFitem{Propósito}{El profesor podrá publicar la información, extra a la obtenida, para que los alumnos tengan mayor información acerca de él.} 
+	\RFitem{Usuario}{Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+%% ***********************************************************************************************
+
+\begin{requisitos}{RFN12 Registro del Profesor.} 
+	\RFitem{Descripción}{La aplicación permitirá a los profesores registrarse y poder acceder a su perfil y proporcionar más información a la previamente obtenida.}
+	\RFitem{Propósito}{Contar con un perfíl de profesor más completo y con mayor información.}
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+%% ***********************************************************************************************
+\begin{requisitos}{RFN13 Información para el registro del profesor.}
+	\RFitem{Descripción}{Los campos necesarios para el registro del profesor son los siguientes: 
+		\begin{itemize}
+			\item Verificar si la información se puede obtener de SAES
+			\item Nombre completo.
+			\item RFC.
+			\item Numero de empleado.
+			\item Correo electrónico.
+			\item Teléfono.
+			\item Asignaturas que imparte.
+			\item Horarios en los que se encuentra frente a grupo.
+			\item Horarios de asesorías.
+			\item Cubículo.
+			\item Fotografía. (opcional)
+		\end{itemize}} 
+	\RFitem{Propósito}{Identificar a los profesores de ESCOM.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.}
+\end{requisitos}
+%% ***********************************************************************************************
+
+%% ***********************************************************************************************
+\begin{requisitos}{RFN14 Información editable del perfil del profesor.} 
+	\RFitem{Descripción}{La información que puede editar el profesor en su perfil es la siguiente:
+		\begin{itemize}
+			\item Correo electrónico.
+			\item Teléfono.
+			\item Asignaturas que imparte.
+			\item Horarios en los que se encuentra frente a grupo.
+			\item Horarios de asesorías.
+			\item Cubículo.
+			\item Fotografía. (opcional)
+		\end{itemize}} 
+	\RFitem{Propósito}{Mantener actualizada la información del profesor.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+%% ***********************************************************************************************
+
+%% ***********************************************************************************************
+\begin{requisitos}{RFN15 Información para el registro de alumnos.} 
+	\RFitem{Descripción}{La información necesaria para poder registrar a un alumno es la siguiente:
+		\begin{itemize}
+			\item Nombre completo.
+			\item Número de boleta.
+			\item Correo electrónico.
+			\item Teléfono.
+			\item Fotografía. (opcional)
+		\end{itemize}}
+	\RFitem{Propósito}{Saber si el alumno es parte de la comunidad de ESCOM.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+%% ***********************************************************************************************
+
+\begin{requisitos}{RFN16 Perfil del alumno.} 
+	\RFitem{Descripción}{El alumno contará con un perfil en el que se mostrará su información y podrá cambiar la misma.}
+	\RFitem{Propósito}{Mostrar los datos del alumno registrado y permitir la actualización de éstos.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN17 Acciones del alumno.} 
+	\RFitem{Descripción}{El alumno contará con la posibilidad de consultar y modificar su información, consultas sus citas, eventos, bolsa de trabajo, consultar áreas escolares a través del mapa, consultar profesores y su información, cerrar su sesión, eliminar su cuenta, etc.}
+	\RFitem{Propósito}{Que el usuario tengo acceso a la información escolar.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN18 Acciones del profesor.} 
+	\RFitem{Descripción}{El profesor contará con la posibilidad de consultar y modificar su información, consultas sus citas, eventos, consultar áreas escolares a través del mapa, cerrar su sesión, eliminar su cuenta, etc.}
+	\RFitem{Propósito}{Que el usuario tengo acceso a la información escolar.} 
+	\RFitem{Usuario}{Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN19 Citas.}
+	\RFitem{Descripción}{La aplicación permite a los alumnos gestionar sus citas con los profesores
+	(registrar nuevas citas, editar, eliminar y consultar las ya existentes).}
+	\RFitem{Propósito}{Agilizar procesos y tareas del alumno que necesiten la atención de los profesores.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN20 Gestión citas profesores.}
+	\RFitem{Descripción}{Los profesores gestionan las citas registradas con ellos (aceptan o rechazan la
+	cita según el propósito y urgencia de la misma), (Consultar, evaluar). } 
+	\RFitem{Propósito}{El profesor pueda controlar sus citas y explicar motivos del cual no puede.}
+	\RFitem{Usuario}{Profesor.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN21 Notificación Recordatorio.} 
+	\RFitem{Descripción}{ La aplicación notifica al usuario (profesor y alumno) tiempo antes de la cita, en
+	forma de recordatorio.}
+	\RFitem{Propósito}{Evitar un olvido de la cita y no desperdiciar ese tiempo.} 
+	\RFitem{Usuario}{Profesor y Alumno.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN22 Tiempo recordatorio.} 
+	\RFitem{Descripción}{El tiempo de notificación podrá ser seleccionado (por el alumno) y podrá ser de 5
+	opciones diferentes (5, 15, 30 60 min o bien, un día).} 
+	\RFitem{Propósito}{El alumno podrá estar notificado y asi no se le olvidara su cita.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN23 Configuración Notificaciones.}
+	\RFitem{Descripción}{El usuario puede configurar ciertos aspectos de la app, como las notificaciones.}
+	\RFitem{Propósito}{Evitar molestar al alumno con cualquier notificación que el no desee en ciertos
+	momentos.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+%\begin{requisitos}{RFN24 Modificacion estado.}
+%	\RFitem{Descripción}{Los profesores modifican su estado de perfil, según sea el caso (disponible,
+%	ocupado, no disponible, etc).}
+%	\RFitem{Propósito}{Que los alumnos estén informados del status del profesor.}
+%	\RFitem{Usuario}{Profesor.}
+%	\RFitem{Tipo}{Móvil.} 
+%\end{requisitos}
+
+%\begin{requisitos}{RFN25 Modificación Automática.} 
+%	\RFitem{Descripción}{La app permite tener un modo automático a los profesores, mismo que modifica el
+%	estado según el horario del profesor.}
+%	\RFitem{Propósito}{Si el profesor olvida cambiar su estatus, ayudar a que el alumno sepa que el
+%	profesor ya no se encuentra en la escuela.}
+%	\RFitem{Usuario}{Profesor.}
+%	\RFitem{Tipo}{Móvil.} 
+%\end{requisitos}
+
+\begin{requisitos}{RFN26 Estadísticas.} 
+	\RFitem{Descripción}{La app genera estadísticas con información importante de los profesores, como
+	 hora promedio de llegada y salida, momento preferido para comer, tiempo que pasa en el cubículo, etc.}
+	\RFitem{Propósito}{Para ayudar al alumno en decidir mejor el horario de sus cita.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN27 Muestra de estadísticas.} 
+	\RFitem{Descripción}{La aplicación muestra dichas estadísticas para personas registradas en la app. } 
+	\RFitem{Propósito}{Controlar esas estadísticas para solo alumnos.} 
+	\RFitem{Usuario}{Alumno.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN28 Personalización Perfiles.} 
+	\RFitem{Descripción}{La aplicación permite configurar y personalizar los perfiles con ajustes menores
+	(foto de perfil, algún comentario, etc) de los alumnos. } 
+	\RFitem{Propósito}{}.
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN29 Editar datos del alumno. } 
+	\RFitem{Descripción}{La aplicación permite al usuario editar ciertos datos o intereses dentro de su
+	perfil.} 
+	\RFitem{Propósito}{El usuario mantiene al día (actualizados) su información e intereses.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN30 Eliminar alumnos.} 
+	\RFitem{Descripción}{La aplicación permite al usuario dar de baja (eliminar) su cuenta previamente
+	registrada, eliminado así su perfil e información.} 
+	\RFitem{Propósito}{El usuario elimine una cuenta que no desea utilizar más. } 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN31 Personalización del perfil del profesor.} 
+	\RFitem{Descripción}{La aplicación permite al usuario configurar y personalizar su perfil con ajustes
+	menores como su foto de perfil, comentarios, etc.} 
+	\RFitem{Propósito}{El usuario personaliza su perfil y se siente más en conforme con la app.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN32 Editar datos del profesor. } 
+	\RFitem{Descripción}{La aplicación permite al usuario editar ciertos datos o intereses dentro de su
+	perfil.} 
+	\RFitem{Propósito}{El usuario mantiene al día (actualizados) su información e intereses.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN33 Consulta de perfiles. } 
+	\RFitem{Descripción}{La aplicación al usuario consultar los perfiles únicamente de los profesores, así
+	como cierta información pública como sus horarios, estados, fotos, descripción, estadísticas, etc.} 
+	\RFitem{Propósito}{El usuario conoce información importante sobre los profesores.} 
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN34 Eliminar profesores.} 
+	\RFitem{Descripción}{La aplicación permite al usuario dar de baja (eliminar) su cuenta previamente
+	registrada, eliminado así su perfil e información.} 
+	\RFitem{Propósito}{El elimine una cuenta que no desea utilizar más.} 
+	\RFitem{Usuario}{Profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN35 Comentarios en perfiles.} 
+	\RFitem{Descripción}{La aplicación permite al usuario hacer comentarios en los perfiles de los
+	profesores. } 
+	\RFitem{Propósito}{Dar al profesor una idea de lo que los alumnos piensan acerca de él. } 
+	\RFitem{Usuario}{Alumno.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN36 Cifrado de información.} 
+	\RFitem{Descripción}{La información importante del usuario es cifrada mediante AES 256.} 
+	\RFitem{Propósito}{Brindar al usuario seguridad y confianza al proteger sus datos. } 
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN37 Usuarios no registrados.} 
+	\RFitem{Descripción}{El sistema muestra a los usuarios que no cuenten con una cuenta activa (pues no se
+	han registrado) únicamente el mapa de la ESCOM así como la distribución de la misma.} 
+	\RFitem{Propósito}{Extender la información y el servicio del mapa a quienes no desean o puedan
+	registrar una cuenta.} 
+	\RFitem{Usuario}{Visitante}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN38 Concepto de GUIs.} 
+	\RFitem{Descripción}{El sistema ofrece al usuario interfaces gráficas basadas en Material Design de
+	Google.} 
+	\RFitem{Propósito}{Ofrecer interfaces frescas y que se puedan adaptar a diferentes tamaños y
+	orientaciones de pantalla de los dispositivos.} 
+	\RFitem{Usuario}{Alumno, Profesor, Visitante} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN39 Estilo de GUIs. } 
+	\RFitem{Descripción}{El sistema ofrece al usuario interfaces gráficas minimalistas y con el contenido
+	necesario.}
+	\RFitem{Propósito}{El usuario siente empatía con el sistema. } 
+	\RFitem{Usuario}{Alumno, Profesor, Visitante}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN40 Usabilidad de GUIs.} 
+	\RFitem{Descripción}{El sistema ofrece al usuario interfaces gráficas intuitivas y fáciles de usar.} 
+	\RFitem{Propósito}{El usuario siente aprende a usar fácil y rápidamente la app.} 
+	\RFitem{Usuario}{Alumno, Profesor, Visitante} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN41 Diseño de GUIs.} 
+	\RFitem{Descripción}{El sistema ofrece al usuario interfaces gráficas visualmente atractivas y
+	llamativas usando la psicología del color y formas.} 
+	\RFitem{Propósito}{El usuario siente aprende a usar fácil y rápidamente la app.} 
+	\RFitem{Usuario}{Alumno, Profesor, Visitante} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN42 App sin conexión.} 
+	\RFitem{Descripción}{El sistema ofrece un modo “sin conexión”, mismo que permite al usuario
+	visualizar ciertos servicios de la app (por medio del caché) sin necesidad de tener una conexión a
+	Internet.} 
+	\RFitem{Propósito}{El usuario continúa usando servicios de la app incluso sin conexión.} 
+	\RFitem{Usuario}{Alumno, Profesor, Visitante} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN43 Cancelación de citas por alumnos. } 
+	\RFitem{Descripción}{El usuario puede cancelar una cita previamente registrada, siempre y cuando
+	falte determinado tiempo para la cita; ofreciendo además una razón en un apartado que la app 
+	también muestra.} 	
+	\RFitem{Propósito}{El alumno y el profesor puedan realizar otras actividades cuando sea necesario
+	cancelar.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN44 Cancelación de citas por alumnos.}
+	\RFitem{Descripción}{El usuario puede cancelar una cita previamente registrada, siempre y cuando
+	falte determinado tiempo para la cita.} 
+	\RFitem{Propósito}{El alumno y el profesor puedan realizar otras actividades cuando sea necesario
+	cancelar. } 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN45 Horarios libres del profesor.} 
+	\RFitem{Descripción}{La app habilita o deshabilita como disponible los espacios en donde el profesor
+	no tiene clase, según sean sus citas ya programadas.} 
+	\RFitem{Propósito}{El usuario puede ver como disponible solo las horas en donde el profesor no tiene
+	ya citas agendadas.}
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN46 Estadísticas de asistencia a citas.} 
+	\RFitem{Descripción}{La app muestra en los perfiles una estadista de cumplimiento y asistencia a las
+	citas programadas para el usuario.} 
+	\RFitem{Propósito}{El usuario puede saber que tan responsable es con sus citas el profesor o el
+	alumno en cuestión.} 
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN47 Solicitud de alerta sobre disponibilidad de profesores.} 
+	\RFitem{Descripción}{El usuario solicita que se le envíe una alerta cuando cierto profesor esté
+	disponible.} 
+	\RFitem{Propósito}{El usuario sabe cuando un profesor está disponible.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN48 Alerta a alumnos sobre disponibilidad de profesores.} 
+	\RFitem{Descripción}{La app envía una alerta a un usuario cuando un profesor que el usuario
+	previamente solicitó esté disponible.} 
+	\RFitem{Propósito}{El usuario sabe cando un profesor está disponible.} 
+	\RFitem{Usuario}{Alumno.}
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN49 Actualización del programa de eventos especiales.} 
+	\RFitem{Descripción}{El sistema actualizará semanalmente el programa de eventos especial, con los
+		nuevos eventos a realizarse en los próximos días. } 
+	\RFitem{Propósito}{El usuario conoce los eventos a realizarse en los días consecutivos. }
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN50 Campos obligatorios.} 
+	\RFitem{Descripción}{El sistema valida que no se omitan los campos marcados como obligatorios. } 
+	\RFitem{Propósito}{No se omita información necesaria e importante para el sistema. } 
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}
+
+\begin{requisitos}{RFN51 Información correcta.}
+	\RFitem{Descripción}{El sistema valida que los datos introducidos en cada campo cumplan con un
+		formato determinado.} 
+	\RFitem{Propósito}{Los datos proporcionados tengan el formato adecuado para su uso correcto.} 
+	\RFitem{Usuario}{Alumno, profesor.} 
+	\RFitem{Tipo}{Web / móvil.} 
+\end{requisitos}

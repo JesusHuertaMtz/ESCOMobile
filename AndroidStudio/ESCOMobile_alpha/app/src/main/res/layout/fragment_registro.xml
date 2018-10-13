@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="registroViewModel"
+            type="com.example.master.escomobile_alpha.viewmodel.RegistroViewModel"/>
+        <variable
+            name="user"
+            type="com.example.master.escomobile_alpha.modelo.entidad.Usuario" />
+    </data>
+    
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".vista.fragment.RegistroFragment">
+        
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="5dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="ESCOMobile"
+            app:titleTextColor="@android:color/white" />
+        
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="65dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txt_boleta_numEmpleado"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_boleta_empleado"
+                        android:inputType="number"
+                        android:imeOptions="actionNext"
+                        android:maxLength="10"
+                        android:textColor="@android:color/white"
+                        android:textColorHighlight="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textColorLink="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_nombre" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <EditText
+                        android:id="@+id/txt_nombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóú ÁÉÍÓÚ"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_nombre"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+                        android:maxLength="20"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_primer_ap" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <EditText
+                        android:id="@+id/txt_primer_ap"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóú ÁÉÍÓÚ"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_primer_ap"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+                        android:maxLength="20"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <EditText
+                        android:id="@+id/txt_segundo_ap"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóú ÁÉÍÓÚ"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_segundo_ap"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+                        android:maxLength="20"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_boleta_numEmpleado" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <EditText
+                        android:id="@+id/txt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_mail"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        android:maxLength="80"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_segundo_ap" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <EditText
+                        android:id="@+id/txt_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_pass"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@android:color/white">
+                    
+                    <EditText
+                        android:id="@+id/txt_confirm_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:ems="10"
+                        android:hint="@string/txt_hint_pass2"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
+                        android:maxLength="30"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
+                
+                </android.support.design.widget.TextInputLayout>
+                
+                <CheckBox
+                    android:id="@+id/check_profesor"
+                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/custom_checkbox"
+                    android:text="@string/lbl_iniciar_como_profesor"
+                    android:textColor="@android:color/white" />
+                
+                <CheckBox
+                    android:id="@+id/check_terminos"
+                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/custom_checkbox"
+                    android:text="@string/lbl_condiciones"
+                    android:textColor="@android:color/white" />
+                
+                <Button
+                    android:id="@+id/btn_registrarse"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/button_main_custom"
+                    android:elevation="5dp"
+                    android:text="@string/lbl_registrarse"
+                    android:textAllCaps="false"
+                    android:textSize="21sp" />
+                
+                <Button
+                    android:id="@+id/btn_iniciar_sesion"
+                    style="@android:style/Widget.Holo.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginEnd="55dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="8dp"
+                    android:elevation="5dp"
+                    android:text="@string/lbl_ya_tiene_cuenta"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
+</layout>

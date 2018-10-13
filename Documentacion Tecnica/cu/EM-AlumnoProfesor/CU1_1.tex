@@ -1,0 +1,76 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-AlumnoProfesor-CU1.1}{Consultar perfil del profesor.}{
+	\noindent
+	Este caso de uso permite al actor consultar la información de algún
+	profesor de su interés por medio de su perfil, esta información es su
+	nombre, fotografía, académia, así, también sirve de acceso para consultar
+	su horario y estadísticas de desempeño docente, calificarlo, ubicarlo en
+	el mapa de ESCOM o solicitarle una cita. Es importante decir que las citas
+	solo se podrán solicitar y llevar a cabo en el caso en el que el profesor
+	consultado esté regitrado en el sistema, pues aunque se cuenta de igual
+	forma con su información básica, es necesario el registro de éste para
+	lograr la interración con los alumnos por medio de las citas. En el caso
+	en el cual el profesor no se encuentra registrado, se podrá consultar aún
+	su información antes mencionada (exceptuando las citas y estadísticas). 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar
+	la información de algún profesor de ESCOM de su interés.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información del profesor:
+		\begin{itemize}
+			\item Nombre.
+			\item Academia a la que pertenece
+			\item Cúbiculo.
+			\item Calificación promedio.
+			\item Fotografía. 
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{Ninguno.}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-AlumnoProfesor-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita consultar la información de algún profesor de ESCOM seleccionando su nombre en la lista de profesores mostrada en la pantalla \IUref{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM}.
+
+	%Paso 2.
+	\UCpaso Obtiene nombre, fotografía (en caso de tener), académia, cubículo y calificación promedio del profesor seleccionado.
+
+	%Paso 3.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor} con la información obtenida.
+
+	%Paso 4.
+	\UCpaso[\UCactor] Consulta la información del Profesor.
+
+	%Paso 5.
+	\UCpaso [\UCactor] Presiona uno de los siguientes botones, según sea la acción que desee realizar: 
+	\begin{itemize}
+		\item \IUbutton{Horario} para consultar el horario del profesor.
+		\item \IUbutton{Estadísticas} para consultar las estadísticas del profesor.
+		\item \IUbutton{Ubicar en el mapa} para ubicar el cubículo del profesor en el mapa.
+		\item \IUbutton{Calificar} para calificar su desempeño docente
+		\item \IUbutton{Solicitar cita} para solicitar generar una cita con el profesor.
+		\item \IUbutton{Regresar} para regresar a la pantalla anterior.  
+	\end{itemize}
+
+\end{UCtrayectoria}
+
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

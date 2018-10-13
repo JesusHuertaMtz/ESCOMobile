@@ -1,0 +1,101 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-AlumnoProfesor-CU1}{Buscar Profesor de ESCOM.}{
+	\noindent
+	Este caso de uso permite al actor realizar la búsqueda de algún profesor de ESCOM de su interés dado
+	de alta en la aplicación ESCOMobile, ya sea de manera manual en la lista desplegada de inicio (que
+	muestra los nombres de los profesores de ESCOM registrados) o bien, por medio de un filtro y las
+	coincidencias que éste arroja con los nombres de profesores en el sistema. 
+	Se debe mencionar que se puede realizar la búsqueda de los profesores sin necesidad de que éstos se
+	ecuentren registrados como usuarios de la app, pues se tiene registro de ellos igualmente en el sistema.
+	Sin embargo, de ser el caso, solo se podrá coonsultar la información de los referidos, mas no se
+	podrá agendar cita con ellos. 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita buscar dentro de la applicación
+	a algún profesor de ESCOM de su interés.}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Nombre del profesor a buscar.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Pantalla.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Lista que muestra alfabéticamente los nombres de todos los profesores registrados en
+			ESCOM, o bien, los coicidentes con la búsqueda. 
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item Haber iniciado sesión en el sistema.
+			\item Tener profesores dados de alta en el sistema.
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			%%  E1: Campos obligatorios. 
+			\item \label{EM-AlumnoProfesor-CU1-E1} Cuando no hay profesores cargados en el sistema, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso}.
+		\end{enumerate}. 
+	}
+	\UCitem{Tipo}{Caso de uso primario.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernándes Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita buscar a un profesor de ESCOM seleccionando la opción \textbf{Profesores} de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}.
+
+	%Paso 2.	
+	\UCpaso Verifica que haya profesores dados de alta en el sistema. [Error: \ref{EM-AlumnoProfesor-CU1-E1}] 
+
+	%Paso 3.
+	\UCpaso Obtiene el nombre de todos los profesores en el sistema. 
+
+	%Paso 4.
+	\UCpaso Ordena los nombres obtenidos de manera alfabética. 
+
+	%Paso 6.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM} con una lista que contiene los nombres de los profesores ya ordenados. \label{EM-AlumnoProfesor-CU1-Busqueda}.
+
+	%Paso 7.
+	\UCpaso [\UCactor] Introduce en la barra de búsqueda el nombre de algún profesor de su interés. 
+
+	%Paso 8.
+	\UCpaso Obtiene el nombre del profesor introducido.
+
+	%Paso 9.
+	\UCpaso Verifica que haya concidencias con los profesores en el sistema, comparando el nombre introducido con los nombres de profesores dados de alta en la aplicación. \Trayref{A}.
+
+	%Paso 10.
+	\UCpaso Obtiene los nombres coincidentes con el nombre introducido.
+
+	%Paso 11.
+	\UCpaso Ordena los nombres coincidentes obtenidos de manera alfabética. 
+
+	%Paso 12.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM} con una lista que contiene los nombres de los profesores que coincidieron ya ordenados. 
+
+\end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando no se han encontrado coicidencias de los profesores dados de alta en el sistema y el nombre introducido}
+	%Paso A1.
+	\UCpaso Muestra el mensaje \MSGref{MSG13}{Ninguna coincidencia encontrada} en la pantalla \IUref{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM}.
+
+	\UCpaso Regresa al paso \ref{EM-AlumnoProfesor-CU1-Busqueda} de la trayectoria principal.
+\end{UCtrayectoriaA}
+
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

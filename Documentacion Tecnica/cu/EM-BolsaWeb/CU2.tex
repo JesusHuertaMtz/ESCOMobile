@@ -1,0 +1,57 @@
+	% \IUref{IUAdmPS}{Administrar Planta de Selección}
+% \IUref{IUModPS}{Modificar Planta de Selección}
+% \IUref{IUEliPS}{Eliminar Planta de Selección}
+
+
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+	\begin{UseCase}{CU09}{EM-Web-Bolsa-CU08-Consultar estadisticas de las ofertas.}{
+		En este caso de uso el actor podrá consultar estadisticas de las ofertas de trabajo que ha publicado,podrá visualizar el número de ofertas de trabajo para los Alumnos de ESCOM publicadas en un periodo de 6 meses antes. Estas se mostrarán en una gráfica de lineas. Las cuales en el eje x indica los meses y el eje y el número de ofertas en esos respectivos meses.Así mismo visualizará a un costado el número de ofertas  de trabajo que ha publicado en total.}
+		\UCitem{Versión}{0.2}
+		\UCitem{Actor}{Administrador Bolsa}
+		\UCitem{Propósito}{Proporcionar al actor estadisticas sobre las ofertas de trabajo.}
+
+		\UCitem{Entradas}{
+		No aplica.
+		}
+
+		\UCitem{Origen}{No aplica.}
+		\UCitem{Salidas}{
+		\begin{itemize}
+		\item Número total de ofertas de trabajo publicadas.
+		\item Grafica de lineas que muestra el número de Ofertas de trabajo por mes de los ultimos 6 meses.		
+		\end{itemize}
+         
+		}
+		\UCitem{Destino}{No aplica}
+		\UCitem{Precondiciones}{ }
+		\UCitem{Postcondiciones}{
+		Ninguna
+		}
+		\UCitem{Errores}{
+		
+		}
+		\UCitem{Tipo}{Caso de uso primario}
+		\UCitem{Observaciones}{	
+			
+ 		}
+		\UCitem{Autores}{Pérez García José David.}
+		\UCitem{Reviso}{}
+	\end{UseCase}
+	\newpage
+	
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Ingresa al sistema de la pantalla \IUref {EM-BolsaWeb-UI0}{Iniciar sesión} .
+	\UCpaso Verifica que existan ofertas de trabajo.
+	\UCpaso Calcula el número de ofertas de trabajo Publicadas según la regla de negocio \BRref{EM-RN-S010}{Total de Ofertas de Trabajo publicadas.} .
+	\UCpaso Calcula el número de ofertas de trabajo publicadas en el sistema de cada mes por los ultimos 6 meses según la regla de Negocio \BRref{EM-RN-N006}.
+	\UCpaso Muestra la pantalla principal \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} con una gráfica de lineas, en el eje X el mes y en el eje Y el número de ofertas con los datos obtenidos.Y el número de ofertas de trabajo publicadas.
+ 	\UCpaso Consulta el número de ofertas de trabajo publicadas y el número de ofertas de trabajo publicadas de cada mes en los ultimos 6 meses.
+	
+
+	\end{UCtrayectoria}
+
+
+%-------------------------------------- TERMINA descripción del caso de uso.

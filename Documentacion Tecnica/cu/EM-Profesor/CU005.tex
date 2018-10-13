@@ -1,0 +1,58 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Profesor-CU05}{Buscar Profesores y cubículos}
+	{Este caso de uso permite al alumno realizar búsquedas de profesores y o cubículos que deseén visitar, para atender algún asusnto académico (en el caso del profesor) o simplemente conocer la ubicación del salón, área o cubículo buscado.}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno}
+	\UCitem{Propósito}{Proporcionar una mecanismo de búsqueda con la cual el alumno registrado pueda ubicar nformación general de algún profesor o área académica}
+	\UCitem{Entradas}{
+		\begin{itemize}
+			\item Nombre del profesor/área escolar.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Teclado del Smartphone.}
+	\UCitem{Salidas}{Muestra en lista con los profesores/cubiculos encontrados
+		\begin{itemize}
+			\item Nombre del profesor
+			\item Nombre/número del área escolar.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item Haber iniciado sesión como alumno. 
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{
+		\begin{itemize}
+			\item No hay conexión a Internet.
+			\item Hubo un problema con el servidor.
+		\end{itemize}					
+	}
+	\UCitem{Tipo}{Caso de uso secundario. Extiende de EM-Presentacion CU4 'Consultar salones por plantas'}
+	\UCitem{Observaciones}{Es la primera propuesta de este caso de uso, se espera que se revise para
+	 implementar las correciones adecuadas.}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel .}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Sin revisión.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Presiona la barra de búsqueda de la pantalla \IUref{IU6}{Pantalla de inicio del alumno.}
+	\UCpaso Despliega el teclado como se muestra en la pantalla EM-Registro-UI4.1.
+	\UCpaso[\UCactor] Ingresa el nombre del profesor ó área académica.
+	\UCpaso[\UCactor] Da clic en el botón \IUbutton{Ok} del teclado.
+	\UCpaso Obtiene a los profesores que coincida su nombre con lo ingresado por el actor. 
+	\UCpaso Obtiene las áreas académicas que coincida su nombre con lo ingresado por el actor.
+	\UCpaso Verifica que se haya obtenido información de la búsqueda. \Trayref{A}
+	\UCpaso Muestra la información obtenida en la pantalla \IUref{RegistroIU4}{Pantalla Consultar Salones Por Planta}.
+	\UCpaso[\UCactor] Consulta la información obtenida.
+\end{UCtrayectoria}
+		
+\begin{UCtrayectoriaA}{A}{No existe información relacionada con lo ingesado por el actor}
+	\UCpaso Muestra el mensaje MSGX - No se encontraron resultados de la búsqueda en la pantalla EM-Registro-UI4.3.
+\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

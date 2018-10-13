@@ -1,0 +1,86 @@
+%\item[$	\textbf{ID1:}$]: EM-Mapa-CU2 
+%\item[$\textbf{Nombre:}$]: Mostrar cubículo en mapa.
+%\item[$\textbf{Actores:}$]: Alumno.
+%\item[$\textbf{Descripción:}$]: El actor podrá consultar la ubicación del cubículo de un profesor. La ubicación se mostrará en el mapa de la ESCOM.
+
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-alumnoProfesor-CU1.1.4}{Ubicar profesor en el Mapa.}
+	{Este caso de uso brinda al alumno la información de a qué edificio, en qué planta y en qué área se encuentra el
+	 cubículo del profesor al mostrar en el mapa la ubicación de su cubiculo. Para que el alumno pueda saber en dónde se encuentra, la mayor parte del 
+	 tiempo, el profesor, cuando este último no está impartiendo clase.
+	 
+	 Debe tenerse en cuenta que la ubicación se mostrará en el mapa de ESCOM en 2D}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar la ubicación y localización del cubículo de un profesor para que 
+	el alumno pueda encontrarlo de una manera rápida y sencilla.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Muestra en el mapa 2D la ubicación del cubículo.
+			\item Nombre del área donde se encuentra el cubículo.
+			\item Planta en la que se ubica el cubículo.
+			\item Edificio al que pertenece el cubículo.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{
+		\begin{itemize}
+			\item Deben estar registradas en el sistema las coordenadas de ESCOM.
+			\item Deben estar registradas en el sistema las coordenadas de los cubículos.
+			\item Debe estar el profesor asignado a un cubículo o salón.
+
+		\end{itemize}
+	}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{
+		\begin{itemize}
+			\item Título: A quién ubicamos en el mapa... Piénsalo bien. 
+			\item Descripción completa: 
+			\begin{itemize}
+				\item Título: Acostumbramos a poner ''Este caso de uso'' al inicio de cada CU. 
+				\item El caso de uso no te muestra esa información, se redirige al mapa y te pinta el cubículo del profesor, luego si presionas sobre él, entonces sí te muestra más info. 
+				\item ''En que planta'', ''en que área'', ''en que edificio'', la palabra ''que'' se acentúa en todos esos casos -> ''qué'', investiga por qué. 
+				\item Redactar mejor el CU. 
+			\end{itemize}
+			\item Precondiciones: 
+			\begin{itemize}
+				\item Precondición 3: ¿Solo 1?
+				\item Precondiciones 4 y 5: Debes definir si realmente se necesita estar registrado y con la sesión activa. 
+			\end{itemize}
+			\item Errores: ¿No hay errores? 
+			\item Tipo: No es primario. 
+			\item Trayectoria principal: 
+			\begin{itemize}
+				\item Paso 1: Cuando hablamos de botones escribimos ''presiona'', cuando son iconos escribimos ''da clic'', entonces en android no hay iconos, por tanto, ''ubicar'' en el mapa es un botón.
+				\item Paso 1: No cierras las comillas que abres en ''Ubicar en el mapa
+				\item Paso 1: No hay ningún botón llamado ''Ubicar en el mapa'' en la pantalla. 
+				\item Paso 6. Actualiza pantallas. 
+				\item De la interfaz, corrígela y descríbela. -.-
+				\item Contempla errores. 
+			\end{itemize}
+		\end{itemize}
+	}
+	\UCitem{Tipo}{Secundario}
+	\UCitem{Observaciones}{
+
+	}
+	\UCitem{Autor}{José David Pérez García.}
+	\UCitem{Revisor}{}
+	\UCitem{Estatus}{Corregir revisiones}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Presiona el el botón  \IUbutton{Ubicar en mapa} que se encuentra en la pantalla  \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+	\UCpaso Obtiene las coordenadas del cubículo del profesor.
+	\UCpaso Dibuja en el mapa las coordenadas del cubículo.
+	\UCpaso Añade una marca sobre el cubículo dibujado.
+	\UCpaso Añade el nombre del área, planta y edificio del cubículo a la etiqueta.
+	\UCpaso Muestra la pantalla \IUref{EM-Mapa-UI2b}{Realizar busqueda sobre el mapa.}
+	\UCpaso[\UCactor] Consulta la información desplegada en la pantalla.
+\end{UCtrayectoria}
+
+%-------------------------------------- TERMINA descripción del caso de uso.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

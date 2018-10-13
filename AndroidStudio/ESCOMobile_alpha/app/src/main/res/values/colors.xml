@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#42a5f5</color>
+    <color name="colorPrimaryLight">#80d6ff</color>
+    <color name="colorPrimaryDark">#0077c2</color>
+    <color name="colorSecundary">#607d8b</color>
+    <color name="colorSecundaryLight">#8eacbb</color>
+    <color name="colorSecundaryDark">#34515e</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="blueGrayLight">#eceff1</color>
+    <color name="amber_1">#ffd54f</color>
+    <color name="amber_2">#ffca28</color>
+    <color name="amber_3">#ffc107</color>
+    <color name="amber_4">#ffb300</color>
+    <color name="white_transparent">#c8ffffff</color>
+    <color name="light_gray">#c88eacbb</color>
+    <color name="transparent">#22ffffff</color>
+	
+	<color name="redlight">#F5B7B1</color>
+	<color name="purplelight">#D7BDE2</color>
+	<color name="bluelight">#A9CCE3</color>
+    <color name="blueoceanlight">#A3E4D7</color>
+	<color name="greenlight">#ABEBC6</color>
+	<color name="yellowlight">#F9E79F</color>
+	<color name="orangelight">#FAD7A0</color>
+</resources>
