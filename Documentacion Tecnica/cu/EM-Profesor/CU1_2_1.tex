@@ -1,0 +1,60 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Profesor-CU1.2.1}{Consultar Comentarios Asignados.}{
+	\noindent
+	Este caso de uso permite al actor consultar los diferentes comentarios que los alumnos le han compartido. Así que puede conocer las opiniones de sus alumnos, analizarlas y plantearse nuevas y mejores formas para compartir su conocimiento y experiencia en el salón de calses. Además, es gracias a los comentarios que la comunidad de ESCOM tiene mayor conocimiento de los maestros del plantel, de su forma de trabajo y diversas actitudes que tiene para con sus grupos y alumnos.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo para conocer las opiniones que la comunidad de ESCOM tiene sobre su trabajo y desempeño docente.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item Nombre y fotografía del profesor.
+			\item Lista con los comentarios asignados al profesor y el nombre de quienes escribieron cada comentario.
+			\item \MSGref{MSG3}{Elementos No Disponibles}.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguno.}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			%%  E1: Campos obligatorios. 
+			\item \label{EM-Profesor-CU1-2-1-E1} Cuando no hay comentarios disponibles para consulta, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso}.
+		\end{enumerate} 
+	}
+	\UCitem{Tipo}{Caso de secundario, viene \UCref{EM-Profesor-CU1.2}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita consultar sus comentarios asignados, presionando la opción ''COMENTARIOS'' de la pantalla \IUref{EM-Profesor-UI1-2}{Consultar estadísticas Asignadas}.
+
+	% Paso 2.
+	\UCpaso Valida que haya comentarios asociados al profesor consultado. [Error: \ref{EM-Profesor-CU1-2-1-E1}]
+
+	% Paso 3.
+	\UCpaso Obtiene nombre y fotografía del profesor. 
+
+	% Paso 4.
+	\UCpaso Obtiene los comentarios asociados al profesor y los alumnos quienes otorgaron cada comentario. 
+
+	% Paso 5.
+	\UCpaso Ordena los comentarios y alumnos según la fecha de publicación de los comentarios (más reciente a más antiguo).
+
+	% Paso 6.
+	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI1-2-1}{Consultar comentarios asignados} con la información obtenida del profesor y comentarios.
+
+	% Paso 7.
+	\UCpaso[\UCactor] Consulta los comentarios que le han asignado.
+
+\end{UCtrayectoria}

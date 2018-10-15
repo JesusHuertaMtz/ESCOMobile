@@ -1,5 +1,8 @@
-\begin{UseCase}{EM-alumnoProfesor-CU1.1.4}{Ubicar profesor en el Mapa.}
-	{Este caso de uso permite al actor localizar en el mapa 2D de ESCOMobile el cubículo de algún profesor de su interés por medio del perfil de éste último. El proceso parte de la búsqueda del referido, desde la pantalla de perfil del profesor, gracias al icono de ''ubicar en el mapa''. Se debe mencionar que solo se puede ubicar el cubículo del profesor en el mapa si éste tiene asociado un cubículo, en el caso de no tenerlo (pues es profesor invitado o similar), el espacio que se mostrará en el mapa es el alguno de los salones en donde el profesor imparte clases.}
+\begin{UseCase}{EM-alumnoProfesor-CU1.1.4}{Ubicar profesor en el Mapa.}{
+	\noindent
+	Este caso de uso permite al actor localizar en el mapa 2D de ESCOMobile el cubículo de algún profesor de su interés por medio del perfil de éste último. El proceso parte de la búsqueda del referido, desde la pantalla de perfil del profesor, gracias al icono de ''ubicar en el mapa''. Se debe mencionar que solo se puede ubicar el cubículo del profesor en el mapa si éste tiene asociado un cubículo, en el caso de no tenerlo (pues es profesor invitado o similar), el espacio que se mostrará en el mapa es el alguno de los salones en donde el profesor imparte clases.
+	\newline
+	}
 	\UCitem{Versión}{0.1}
 	\UCitem{Actor}{Alumno, Profesor.}
 	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita conocer la ubicación del cubículo de algún profesor de su interés.}
@@ -8,27 +11,26 @@
 	\UCitem{Salidas}{
 		\begin{itemize}
 			\item Muestra en el mapa 2D la ubicación del cubículo del profesor de interés.
-			\item Nombre del área donde se encuentra el cubículo.
-			\item Planta en la que se ubica el cubículo.
+			\item Nombre del profesor y cubículo / salón donde se encuentra ubicado.
 		\end{itemize}
 	}
 	\UCitem{Destino}{Pantalla.}
 	\UCitem{Precondiciones}{
 		\begin{itemize}
-			\item Deben estar registradas en el sistema las coordenadas de los cubículos.
+			\item Deben estar registradas en el sistema las coordenadas de los cubículos y salones.
 		\end{itemize}
 	}
 	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
 	\UCitem{Errores}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
 			%%  E1: Campos obligatorios. 
-			\item \label{EM-AlumnoProfesor-CU1-1-4-E1} Cuando no hay registradas en el sistema las coordenadas de los salones, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso}.
+			\item \label{EM-AlumnoProfesor-CU1-1-4-E1} Cuando no hay registradas en el sistema las coordenadas de los cubículos o salones, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso}.
 		\end{enumerate}. 
 	}
 	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-alumnoProfesor-CU1.1}}
 	\UCitem{Observaciones}{}
-	\UCitem{Autor}{José David Pérez García, Huerta Martínez Jesús Manuel.}
-	\UCitem{Revisor}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
 	\UCitem{Estatus}{Corregido.}
 \end{UseCase}
 
@@ -41,26 +43,42 @@
 	\UCpaso Valida que el profesor consultado tenga un cubículo asociado. 
 
 	% Paso 3.
-	\UCpaso Verifica que hayan guardadas en el sistema coordenadas asociadas al cubículo del profesor consultado
-
-	% Paso 2.
-	\UCpaso Obtiene las coordenadas del cubículo del profesor.
-
-	% Paso 3.
-	\UCpaso Dibuja en el mapa el cubículo del profesor delimitado por las coordenadas obtenidas. 
+	\UCpaso Verifica que hayan guardadas en el sistema coordenadas asociadas al cubículo / salón del profesor consultado.
+	 \Trayref{A}. \label{EM-AlumnoProfesor-CU1-1-4-Coordenadas}
 
 	% Paso 4.
-	\UCpaso Añade una marca sobre el cubículo dibujado.
-	
+	\UCpaso Obtiene las coordenadas del cubículo / salón del profesor. [Error: \ref{EM-AlumnoProfesor-CU1-1-4-E1}]		
+
 	% Paso 5.
-	\UCpaso Añade el nombre del área, planta y edificio del cubículo a la etiqueta.
-	
+	\UCpaso Obtiene nombre del profesor y el nombre del cubículo / salón al cual se le asocia. 
+
 	% Paso 6.
-	\UCpaso Muestra la pantalla \IUref{EM-Mapa-UI2b}{Realizar busqueda sobre el mapa.}
+	\UCpaso Dibuja en el mapa el cubículo / salón del profesor delimitado por las coordenadas obtenidas. 
 
 	% Paso 7.
+	\UCpaso Añade una marca sobre el cubículo / salón dibujado.
+	
+	% Paso 8.
+	\UCpaso Añade los nombres del profesor y del cubículo / salón sobre él.
+	
+	% Paso 9.
+	\UCpaso Muestra la pantalla \IUref{EM-Mapa-UI2-B}{Realizar búsqueda sobre el mapa} con el cubículo / salón y el nombre del profesor
+	al cual se le asocia ya dibujados en el mapa.
+
+	% Paso 10.
 	\UCpaso[\UCactor] Consulta la información desplegada en la pantalla.
+
 \end{UCtrayectoria}
+
+%Trayectoria Alternativa A.
+\begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asociado.}
+
+	%Paso A1.
+	\UCpaso Obtiene las coordenadas del salón correspondiente a su primera clase marcada en su horario. 
+
+	\UCpaso Regresa al paso \ref{EM-AlumnoProfesor-CU1-1-4-Coordenadas} de la trayectoria principal.
+
+\end{UCtrayectoriaA}
 
 %-------------------------------------- TERMINA descripción del caso de uso.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

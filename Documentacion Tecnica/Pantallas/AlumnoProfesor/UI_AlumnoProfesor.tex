@@ -128,7 +128,7 @@
 
 \subsubsection{Mensajes}
 	\noindent
-	Ninguna.
+	\MSGref{MSG3}{Elementos No Disponibles}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -218,27 +218,28 @@
 	\noindent
 	Ninguno.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{EM-AlumnoProfesor-UI1.1.3.1 Consultar comentarios del profesor.}
 
 \subsubsection{Objetivo}
 	\noindent
-	El actor podrá consultar los comentarios que se le han escrito al profesor de la ESCOM, así el alumno estará más informado sobre éste mismo.
+	Consultar los diferentes comentarios que los alumnos han compartido hacia algún profesor en particular. Pues es así que la comunidad de ESCOM tiene mayor conocimiento de los maestros del plantel, de su forma de
+	trabajo y diversas actitudes que tiene para con sus grupos y alumnos.
+
 \subsubsection{Diseño}
 	\noindent
-	La pantalla muestra el nombre, fotografía y los comentarios sobre el profesor de ESCOM
-	
-	Además muestra el botón de regreso.
+	La pantalla muestra el nombre y fotografía del profesor del cual se consultan los comentarios, así como una lista con ellos (incuyendo el nombre quien escribió cada comentario).
+	Además muestra la opción para acceder a la consulta de las estadísticas y el botón de regreso.
 
+\pagebreak
 \IUfig[.5]{gui/Maquetas/AlumnoProfesor/EM_AlumnoProfesor_UI1_1_3_1_Consultar_Comentarios_del_Profesor.png}{EM-AlumnoProfesor-UI1-1-3-1}{Consultar comentarios del profesor}
 
-
 \subsubsection{Salidas}
-	\noindent
-	Se muestra la siguiente información del profesor:
-	\begin{itemize} 
-		\item Nombre.
-		\item Fotografía.
-		\item Comentarios sobre el profesor.
+	\begin{itemize}
+		\item Muestra en el mapa 2D la ubicación del cubículo del profesor de interés.
+		\item Nombre del profesor y cubículo / salón donde se encuentra ubicado.
 	\end{itemize}
 
 \subsubsection{Entradas}
@@ -247,13 +248,13 @@
 
 \subsubsection{Comandos}
 \begin{itemize}
+	\item Opción de estadísticas: para consultar las estadísticas del profesor.
 	\item Botón de regreso: Para regresar a la pantalla anterior.
-	
 \end{itemize}
 
 \subsubsection{Mensajes}
 	\noindent
-	No aplica.
+	\MSGref{MSG3}{Elementos No Disponibles}.
 
 
 

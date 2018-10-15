@@ -48,16 +48,22 @@
 	%Paso 1.
 	\UCpaso [\UCactor] Solicita consultar la información de algún profesor de ESCOM seleccionando su nombre en la lista de profesores mostrada en la pantalla \IUref{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM}.
 
-	%Paso 2.
-	\UCpaso Obtiene nombre, fotografía (en caso de tener), académia, cubículo y calificación promedio del profesor seleccionado.
+	% Paso 2.
+	\UCpaso Valida que haya un cubículo asignada para el profesor.
 
-	%Paso 3.
+	% Paso 3.
+	\UCpaso Obtiene el cubículo del profesor. \Trayref{A}
+
+	% Paso 4.
+	\UCpaso Obtiene nombre, fotografía (en caso de tener), académia y calificación promedio del profesor seleccionado. \label{l_EM_AlumnoProfesor_CU1_1_informacion}
+
+	% Paso 5.
 	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor} con la información obtenida.
 
-	%Paso 4.
+	% Paso 6.
 	\UCpaso[\UCactor] Consulta la información del Profesor.
 
-	%Paso 5.
+	% Paso 7.
 	\UCpaso [\UCactor] Presiona uno de los siguientes botones, según sea la acción que desee realizar: 
 	\begin{itemize}
 		\item \IUbutton{Horario} para consultar el horario del profesor.
@@ -69,6 +75,15 @@
 	\end{itemize}
 
 \end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asignado.}
+
+	% A1.
+	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuículo en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
+	% A2.
+	\UCpaso Continua en el paso \ref{l_EM_AlumnoProfesor_CU1_1_informacion} de la trayectoria proncipal.
+
+\end{UCtrayectoriaA}
 
 
 

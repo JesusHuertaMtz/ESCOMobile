@@ -1,32 +1,19 @@
 % Copie este bloque por cada caso de uso:
 %-------------------------------------- COMIENZA descripción del caso de uso.
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
-\begin{UseCase}{EM-alumnoProfesor-CU1.1.5}{Solicitar Cita con un profesor.}
-	{Este caso de uso permite  a un alumno solicitar agendar una cita con un profesor de la ESCOM para tratar temas
-	académicos. La fecha, hora y el salón dónde se llevará a cabo la cita son propuestos por el alumno, tomando en cuenta los horarios de clase del profesor.
-	La hora y salón pueden ser modificadas por el profesor siempre y cuando explique el motivo del cambio.}
+\begin{UseCase}{EM-alumnoProfesor-CU1.1.5}{Solicitar Cita con un profesor.}{
+	\noindent
+	Este caso de uso permite al actor solicitar a algún profesor de la ESCOM el agendar una cita con él, pues requiere apoyo para la resolución de algún asunto académico, por ejemplo, dudas de algún tema de clase, asesorías de una materia en particular, revisiones de TT, entrega de proyectos, entre otros.
+	Para solocitar agendar una cita se debe seleccionar al profesor con el cual se desea realizar la cita para, posteriormente ser redireccionado a otra pantalla para establecer los puntos de la misma.
+	\newline
+	}
 	\UCitem{Versión}{0.1}
 	\UCitem{Actor}{Alumno.}
 	\UCitem{Propósito}{Proporcionar un mecanismo para que el alumno pueda solicitar una cita al profesor para tratar temas académicos.}
-	\UCitem{Entradas}{
-		\begin{itemize}
-			\item Fecha  para agendar la cita.
-			\item Hora  para comenzar la cita.
-			\item Salón  para que tenga lugar la cita.
-			\item Motivo por el cual se requiere agendar la cita.
-		\end{itemize}
-	}
-	\UCitem{Origen}{Teclado.}
-	\UCitem{Salidas}{
-		\begin{itemize}
-			\item Fecha en la que se realizará la cita.
-			\item Hora en la que comenzará la cita.
-			\item Salón en el que tendrá lugar la cita.
-			\item Asunto por el cual se llevará a cabo la cita.
-			\item Nombre de la persona con la que se reunirá en la cita.
-		\end{itemize}
-	}
-	\UCitem{Destino}{Pantalla.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{Ninguna.}
+	\UCitem{Destino}{No aplica..}
 	\UCitem{Precondiciones}{
 		\begin{itemize}
 			\item El actor debe estar registrado.
@@ -75,8 +62,8 @@ principal}.
 			\item Trayectoria alternativa: En l pantalla no hay ningún botón llamado ''cancelar''.
 		\end{itemize}
 	}
-	\UCitem{Autor}{José David Pérez García.}
-	\UCitem{Revisor}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
 	\UCitem{Estatus}{Sin revisión.}
 \end{UseCase}
 

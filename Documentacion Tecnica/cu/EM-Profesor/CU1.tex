@@ -1,0 +1,73 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Profesor-CU1}{Consultar Perfil Propio.}{
+	\noindent
+	Este caso de uso permite al actor consultar su información registrada en el sistema, esta información es su nombre, fotografía, académia, cubículo y cita más próxima a realizarse. También sirve de acceso para consultar su horario y estadísticas de desempeño docente, o bien para consultar todas sus citas o editar su perfil.  
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar
+	su información registrada en ESCOMobile.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+	Muestra la pantalla con la siguiente información del profesor: 
+		\begin{itemize}
+			\item Nombre.
+			\item Fotogrfía.
+			\item Academia a la que pertenece,
+			\item Cúbiculo.
+			\item Próxima cita.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguno.}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{Ninguno.}
+	\UCitem{Tipo}{Caso de primario.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+	
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita consultar su perfil con su información registrada en el sistema seleccionando la opción ''Mi perfil'' de la pantalla \IUref{EM-ESCOMobile-Hamburger}{}.
+
+	% Paso 2.
+	\UCpaso Valida que haya un cubículo asignada para el profesor.
+
+	% Paso 3.
+	\UCpaso Obtiene el cubículo del profesor.  \Trayref{A}
+
+	% Paso 4.
+	\UCpaso Obtiene Nombre, fotografía, academia y cita más cercana. \label{l_EM_Profesor_CU1_informacion}
+
+	% Paso 5.
+	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio} con la información obtenida.
+
+	% Paso 6.
+	\UCpaso[\UCactor] Consulta su información por medio de su perfil.
+
+	% Paso 7.
+	\UCpaso [\UCactor] Presiona uno de los siguientes botones, según sea la acción que desee realizar: 
+	\begin{itemize}
+		\item \IUbutton{Estadísticas y comentario}: Para cosultar sus estadísticas.
+		\item \IUbutton{Comentarios}: Para consultar los comentarios que le han asignado.
+		\item \IUbutton{Editar perfil}: Para editar perfil.  
+	\end{itemize}
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asignado.}
+
+	% A1.
+	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuículo en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
+	% A2.
+	\UCpaso Continua en el paso \ref{l_EM_Profesor_CU1_informacion} de la trayectoria proncipal.
+
+\end{UCtrayectoriaA}

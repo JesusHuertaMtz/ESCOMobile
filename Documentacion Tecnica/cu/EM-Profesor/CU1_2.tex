@@ -1,0 +1,69 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Profesor-CU1.2}{Consultar Estadísticas Asignadas.}{
+	\noindent
+	Este caso de uso permite al actor ver sus estadísticas asignadas en el cumplimiento de sus citas, las estadísticas que se muestran son: el promedio de la calificación del profesor, así como una gráfica que detalla su el comportamiento del actor con respecto a sus citas, es decir, del total de citas registradas, cuántas de ellas han sido aceptadas, cuántas canceladas y cuántas se encuentran pendientes de ser aceptadas o rechazadas. De esta forma se puede conocer el compromiso que los profesores tienen para con sus citas, mismas a las que los alumnos asisten con el objetivo de solventar algún punto específico de sus clases. 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar
+	su comportamiento respecto a sus citas.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+	Se muestra la siguiente información del profesor:
+		\begin{itemize}
+			\item Nombre.
+			\item Fotografía.
+			\item Calificación promedio.
+			\item Gráfica que muestra estadísticas de citas.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguno.}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{Ninguno.}
+	\UCitem{Tipo}{Caso de secundario, viene \UCref{EM-Profesor-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita consultar sus estadisticas asignadas presionando el botón \IUbutton{Estadisticas y comentarios} de la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
+
+	% Paso 2.
+	\UCpaso Obtiene el nombre del profesor. 
+
+	% Paso 3.
+	\UCpaso Verifica que el profesor tenga asignada una calificación promedio, resultado de las calificaciones previas hechas por los alumnos. 
+
+	% Paso 4.
+	\UCpaso Obtiene la calificación promedio del profesor según la regla de negocio \BRref{EM-RN-N004}{Calificación Promedio de Profesor}. \label{CalifPromedio} \Trayref{A} 
+
+	% Paso 5. 
+	\UCpaso Obtiene el total de citas solicitadas al profesor, el número de citas aceptadas, canceladas y solicitudes pendientes de revisar por el mismo, así como la fotografía del perfil (en caso de haber). 
+
+	% Paso 6. 
+	\UCpaso Calcula el porcentaje equivalente para las Citas aceptadas, Citas canceladas y Solicitudes pendientes, con respecto al total de las solicitudes obtenidas. \label{l_EM_Profesor_CU1_2_datosGrafica}
+
+	% Paso 7. 
+	\UCpaso Construye una gráfica con los datos obtenidos en el paso \ref{l_EM_Profesor_CU1_2_datosGrafica} de la trayectoria principal.
+
+	%Paso 8.
+	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI1-2}{Consultar estadísticas Asignadas}
+
+	% Paso 9.
+	\UCpaso [\UCactor] Consulta sus estadísticas.
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando no hay calificación promedio asignada al profesor.}
+	\UCpaso	Se asigna calificación promedio igual a cero.
+	\UCpaso Continúa en el paso \ref{CalifPromedio} de la trayectoria principal.
+\end{UCtrayectoriaA}

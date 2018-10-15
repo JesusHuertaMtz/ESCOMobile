@@ -3,7 +3,7 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 \begin{UseCase}{EM-AlumnoProfesor-CU1.1.1}{Consultar Horario del Profesor.}{
 	\noindent
-	Este caso de uso permite al actor consultar el horario de algún profesor de su interés en ESCOM, esto es, las materias que imparte a lo largo de la semana, así como la hora, grupo y salón en las que las mismas se ubican. Es importante mencionar los horarios son asignados por la institución a los profesores, y las materias, grupos, salones y horas que éstos contemplan varían semestre a semestre, así mismo, se muestran en ESCOMobile solo los horarios previamente descritos, por lo que horarios extraclase o de actividades personades de los profesores no son considerados. 
+	Este caso de uso permite al actor consultar el horario de algún profesor de su interés en ESCOM, esto es, las materias que imparte a lo largo de la semana, así como la hora, grupo y salón en las que las mismas se ubican. Es importante mencionar los horarios son asignados por la institución a los profesores, y las materias, grupos, salones y horas que éstos contemplan varían semestre a semestre, así mismo, se muestran en ESCOMobile solo los horarios previamente descritos, por lo que horarios extraclase o de actividales personades de los profesores no son considerados. 
 	\newline
 	}
 	\UCitem{Versión}{0.1}
@@ -26,7 +26,12 @@
 	\UCitem{Destino}{Pantalla.}
 	\UCitem{Precondiciones}{Ninguna.}
 	\UCitem{Postcondiciones}{Ninguna.}
-	\UCitem{Errores}{Ninguno.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			%%  E1: Campos obligatorios. 
+			\item \label{EM-AlumnoProfesor-CU1-1-1-E1} Cuando no hay materias asociadas al profesor, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso}.
+		\end{enumerate} 
+	}
 	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-AlumnoProfesor-CU1.1}.}
 	\UCitem{Observaciones}{}
 	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
@@ -36,16 +41,19 @@
 
 \begin{UCtrayectoria}{Principal}
 
-	%Paso 1.
+	% Paso 1.
 	\UCpaso [\UCactor] Solicita consultar el horario del profesor presionando el botón \IUbutton{Horario} de la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
 
-	%Paso 2.
+	% Paso 2.
+	\UCpaso Verifica que haya materias para impartir asociadas al profesor. [Error: \ref{EM-AlumnoProfesor-CU1-1-1-E1}]
+
+	% Paso 3.
 	\UCpaso Obtiene por día (de lunes a viernes) las materias que el profesor imparte, así como los grupos, salones y horas en que éstas se encuentran. 
 
-	%Paso 3.
-	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1-1}{Consultar Horario del Profesor} con la información obtenida organizada en tarjetas despelgables, una por cada día de la semana.
+	% Paso 4.
+	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1-1}{Consultar Horario del Profesor} con la información obtenida organizada en tarjetas despelgables, una por cada día de la semana. 
 
-	%Paso 4.
+	% Paso 5.
 	\UCpaso[\UCactor] Consulta el horario del Profesor seleccionando las tarjetas con los días de las semana.
 
 \end{UCtrayectoria}
