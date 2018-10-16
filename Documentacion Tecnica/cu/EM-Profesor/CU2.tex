@@ -1,0 +1,77 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Profesor-CU2}{Consultar Perfil de otro Profesor.}{
+	\noindent
+	Este caso de uso permite al actor consultar la información de algún
+	profesor de su interés por medio de su perfil, esta información es su
+	nombre, fotografía, académia, cubículo y calificación promedio. Además, sirve de acceso para consultar su horario y estadísticas de desempeño docente, calificarlo, o bien, ubicarlo en
+	el mapa de ESCOM. 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita consultar
+	la información de algún profesor registrado en ESCOMobile.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+	Muestra la pantalla con la siguiente información del profesor consultado: 
+		\begin{itemize}
+			\item Nombre.
+			\item Fotogrfía.
+			\item Academia a la que pertenece,
+			\item Cubículo.
+			\item Calificación promedio.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguno.}
+	\UCitem{Postcondiciones}{Ninguna. Solo se realizan consultas.}
+	\UCitem{Errores}{Ninguno.}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-AlumnoProfesor-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	%Paso 1.
+	\UCpaso [\UCactor] Solicita consultar la información de algún profesor de ESCOM seleccionando su nombre en la lista de profesores mostrada en la pantalla \IUref{EM-AlumnoProfesor-UI1}{Buscar Profesores de ESCOM}.
+
+	% Paso 2.
+	\UCpaso Valida que haya un cubículo asignada para el profesor consultado.  \Trayref{A}
+
+	% Paso 3.
+	\UCpaso Obtiene el cubículo del profesor.
+
+	% Paso 4.
+	\UCpaso Obtiene nombre, fotografía (en caso de tener), académia y calificación promedio del profesor seleccionado. \label{l_EM_Profesor_CU2_informacion}
+
+	% Paso 5.
+	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI2}{Consultar Perfil de otro Profesor} con la información obtenida.
+
+	% Paso 6.
+	\UCpaso[\UCactor] Consulta la información del Profesor de su interés.
+
+	% Paso 7.
+	\UCpaso [\UCactor] Presiona uno de los siguientes botones, según sea la acción que desee realizar: 
+	\begin{itemize}
+		\item \IUbutton{Horario} para consultar el horario del profesor.
+		\item \IUbutton{Estadísticas} para consultar las estadísticas del profesor.
+		\item \IUbutton{Ubicar en el mapa} para ubicar el cubículo del profesor en el mapa.
+		\item \IUbutton{Regresar} para regresar a la pantalla anterior.  
+	\end{itemize}
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asignado.}
+
+	% A1.
+	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuículo en la pantalla \IUref{EM-Profesor-UI2}{Consultar Perfil de otro Profesor}.
+	% A2.
+	\UCpaso Continua en el paso \ref{l_EM_Profesor_CU2_informacion} de la trayectoria proncipal.
+
+\end{UCtrayectoriaA}

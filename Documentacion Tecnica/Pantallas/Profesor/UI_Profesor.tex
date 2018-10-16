@@ -47,6 +47,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{EM-Profesor-UI1.1 Consultar Horario Propio.}
 
 \subsubsection{Objetivo}
@@ -87,6 +88,7 @@
 	\MSGref{MSG3}{Elementos No Disponibles}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{EM-Profesor-UI1.2 Consultar estadísticas Asignadas.}
 
 \subsubsection{Objetivo}
@@ -160,50 +162,61 @@
 	\MSGref{MSG3}{Elementos No Disponibles}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{EM-Alumno-UI1.1 Modificar Perfil del Profesor}
+
+\subsection{EM-Profesor-UI1.3 Modificar Perfil del Profesor.}
 
 \subsubsection{Objetivo}
 	\noindent
-	El actor podrá visualizar su información como nombre y fotografía, además de tener la posibilidad de elegir cambiar o actualizar su información en el sistema. 
+	Permitir modificar la información del profesor registrada en el sistema. La información que se encuentra disponible para edición es el correo electrónico, la contraseña, su cubículo y la fotografía, siendo los dos primeros ingresados cuando se realizó el registro. La información antes referida puede ser modificada cuantas veces sea requerido por el actor dentro de la app.
 
 \subsubsection{Diseño}
 	\noindent
-	Mostrará el nombre y foto del profesor, además muestra los campos de información que puede cambiar o actualizar.
+	La pantalla muestra el nombre y foto del profesor, además de los campos de información que puede cambiar o actualizar, éstos son:
 	\begin{itemize} 
-	\item Cubículo: para actualizar el cubículo.
+		\item Cubículo: para actualizar el cubículo.
 		\item Correo: para actualizar el correo electrónico.
 		\item Contraseña: para actualizar la contraseña.
-		\item Repetir contraseña.
+		\item Repetir contraseña: escribe nuevamente la contraseña para asegurar que no haya errores con ella por parte del usuario.
 	\end{itemize} 
 
-
+\pagebreak
 \IUfig[.5]{gui/Maquetas/Profesor/EM_Profesor_UI1_3_Modificar_Perfil_del_Profesor.png}{EM-Profesor-UI1-3}{Modificar Perfil del Profesor}
 
 \subsubsection{Salidas}
-	\begin{itemize} 
-		\item Ninguna
+	\noindent
+	Se muestra la siguiente información del Profesor:
+	\begin{itemize}
+		\item Nombre.
+		\item Fotografía (original).
+		\item Correo electrónico (original).
+		\item Contraseña (original).
+		\item Cubículo (original).
 	\end{itemize}
 
 \subsubsection{Entradas}
-\begin{itemize} 
-	\item Cubículo: para actualizar el cubículo.
-		\item Correo: para actualizar el correo electrónico.
-		\item Contraseña: para actualizar la contraseña.
-		\item Repetir contraseña.
-	\end{itemize} 
+	\noindent
+	Se introduce la información que el profesor desea modificar, ésta puede ser:
+	\begin{itemize}
+		\item Correo electrónico (nuevo).
+		\item Contraseña (nueva).
+		\item Duplicado de contraseña (nueva). 
+		\item Cubículo (nueva).
+		\item Fotografía (nueva). 
+	\end{itemize}
 
 \subsubsection{Comandos}
-\begin{itemize}
-	\item \IUbutton{Aceptar} :Para aceptar los campos que se modificaron.
-\end{itemize}
+	\begin{itemize}
+		\item Botón \IUbutton{Aceptar}: Para aceptar la edición de los datos del profesor.
+		\item Botón ''regresar'': pare regresar a la pantalla anterior.
+	\end{itemize}
 
 \subsubsection{Mensajes}
-\begin{Citemize}
-	\item MSG1:Operación exitosa.
-\end{Citemize}
+	\begin{Citemize}
+		\item \MSGref{MSG1}{Operación Exitosa}.
+	\end{Citemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{EM-AlumnoProfesor-UI1.1 Consultar perfil de otro profesor}
+\subsection{EM-Profesor-UI2 Consultar perfil de otro profesor.}
 
 \subsubsection{Objetivo}
 	\noindent
@@ -214,6 +227,7 @@
 	\noindent
 	La pantalla muestra primeramente la información básica del profesor a consultar, como su foto, su nombre, academia, cubículo y calificación promedio otorgada por los alumnos que lo han calificado; se muestran también tres botones los cuales son \IUbutton{Horario}, \IUbutton{Estadísticas}, \IUbutton{Ubicar en el mapa},  y el botón de regreso.
 
+\pagebreak
 \IUfig[.5]{gui/Maquetas/Profesor/EM_Profesor_UI2_Consultar_Perfil_de_Otro_Profesor.png}{EM-Profesor-UI2}{Consultar Perfil de otro Profesor}
 
 \subsubsection{Salidas}
@@ -233,14 +247,13 @@
 
 \subsubsection{Comandos}
 \begin{itemize}
-	\item \IUbutton{Horario}: Muestra pantalla con horario del profesor.
-	\item \IUbutton{Estadísticas}: Muestra pantalla con las estadísticas del profesor.
-	\item \IUbutton{Ubicar en el mapa}: Muestra mapa con el cubículo del profesor.
+	\item \IUbutton{Horario}: Para visualizar el horario del profesor consultado.
+	\item \IUbutton{Estadísticas}: Para conocer las estadísticas del profesor de interés. 
+	\item \IUbutton{Ubicar en el mapa}: Para ubicar en el mapa de ESCOM el cubículo del profesor.
 	\item \IUbutton{Regresar}: Para regresar a la pantalla anterior.
 \end{itemize}
 
 \subsubsection{Mensajes}
-\begin{Citemize}
-	\item Ninguno.
-\end{Citemize}
+	\noindent
+	Ninguno.
 

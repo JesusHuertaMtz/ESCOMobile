@@ -20,30 +20,31 @@
 			\item Correo electrónico (nuevo).
 			\item Contraseña (nueva).
 			\item Duplicado de contraseña (nueva). 
-			\item Cubículo (nueva).
+			\item Cubículo (nuevo).
 			\item Fotografía (nueva). 
 		\end{itemize}
 	}
 	\UCitem{Origen}{Teclado en pantalla.}
 	\UCitem{Salidas}{
-	Se muestra la siguiente información del profesor:
-		Se muestra la siguiente información del Profesor:
 		\begin{itemize}
-			\item Nombre.
-			\item Fotografía (original).
-			\item Correo electrónico (original).
-			\item Contraseña (original).
-			\item Cubículo (original).
+			\item Se muestra la siguiente información del Profesor:
+			\begin{itemize}
+				\item Nombre.
+				\item Fotografía (original).
+				\item Correo electrónico (original).
+				\item Contraseña (original).
+				\item Cubículo (original).
+			\end{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}.
 		\end{itemize}
-		\item \MSGref{MSG1}{Operación Exitosa}.
 	}
 	\UCitem{Destino}{Pantalla.}
 	\UCitem{Precondiciones}{Ninguno.}
 	\UCitem{Postcondiciones}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
-			\item \label{EM-Profesor-CU1-3-E1} Cuando algún campo no comple con el formato valido definido. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{l_Alumno_CU1_1_E1} de la trayectoria Principal.}
+			\item \label{EM-Profesor-CU1-3-E1} Cuando algún campo no comple con el formato valido definido. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{l_Profesor_CU1_3_E1} de la trayectoria Principal.}
 
-			\item \label{EM-Profesor-CU1-3-E2} Cuando las contraseñas introducidas no coinciden. Muestra el mensaje \MSGref{MSG16}{Contraseñas no coinciden} y \textbf{continúa en el paso \ref{l_Alumno_CU1_1_E1} de la trayectoria Principal.}.
+			\item \label{EM-Profesor-CU1-3-E2} Cuando las contraseñas introducidas no coinciden. Muestra el mensaje \MSGref{MSG16}{Contraseñas no coinciden} y \textbf{continúa en el paso \ref{l_Profesor_CU1_3_E1} de la trayectoria Principal.}.
 		\end{enumerate}
 	}
 	\UCitem{Errores}{Ninguno.}
@@ -56,36 +57,65 @@
 
 \begin{UCtrayectoria}{Principal}
 
-	%Paso 1.
-	\UCpaso [\UCactor] Solicita consultar sus estadisticas asignadas presionando el botón \IUbutton{Estadisticas y comentarios} de la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita modificar su información registrada en el sistema
+	presionando en el icono \UCicono{engrane} de la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
 
 	% Paso 2.
-	\UCpaso Obtiene el nombre del profesor. 
+	\UCpaso Valida que el profesor tenga un cubículo asignado. \Trayref{A} 
 
 	% Paso 3.
-	\UCpaso Verifica que el profesor tenga asignada una calificación promedio, resultado de las calificaciones previas hechas por los alumnos. 
+	\UCpaso Obtiene el cubículo asociado al profesor. 
 
 	% Paso 4.
-	\UCpaso Obtiene la calificación promedio del profesor según la regla de negocio \BRref{EM-RN-N004}{Calificación Promedio de Profesor}. \label{CalifPromedio} \Trayref{A} 
+	\UCpaso Obtiene Nombre, Fotografía, Correo electrónico y contraseña
+	asociados a la cuenta del profesor. \label{l_EM_Profesor_CU1_3_SinCubo}
 
-	% Paso 5. 
-	\UCpaso Obtiene el total de citas solicitadas al profesor, el número de citas aceptadas, canceladas y solicitudes pendientes de revisar por el mismo, así como la fotografía del perfil (en caso de haber). 
+	% Paso 5.
+	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI1-3}{Modificar Perfil del Profesor} con la información obtenida. 
 
-	% Paso 6. 
-	\UCpaso Calcula el porcentaje equivalente para las Citas aceptadas, Citas canceladas y Solicitudes pendientes, con respecto al total de las solicitudes obtenidas. \label{l_EM_Profesor_CU1_2_datosGrafica}
+	% Paso 6.
+	\UCpaso[\UCactor] Introduce los campos que desea modificar. \label{l_Profesor_CU1_3_E1}
 
-	% Paso 7. 
-	\UCpaso Construye una gráfica con los datos obtenidos en el paso \ref{l_EM_Profesor_CU1_2_datosGrafica} de la trayectoria principal.
+	% Paso 7.
+	\UCpaso [\UCactor] Solicita modificar la información de la cuenta
+	presionando el botón \IUbutton{Aceptar}.
+	
+	% Paso 8.
+	\UCpaso Valida que el correo electrónico proporcionado cumpla con el formato correcto, según la regla \BRref{EM-RN-S001}{Formato de correo electronico}. [Error: \ref{EM-Profesor-CU1-3-E1}]
 
-	%Paso 8.
-	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI1-2}{Consultar estadísticas Asignadas}
+    % Paso 9.
+    \UCpaso Valida la contraseña ingresada cumpla con el formato de contraseña defido, según la regla de nogocio \BRref{EM-RN-S004}{Formato de Contraseña}. [Error: \ref{EM-Profesor-CU1-3-E1}]
 
-	% Paso 9.
-	\UCpaso [\UCactor] Consulta sus estadísticas.
+    % Paso 10.
+    \UCpaso Valida que las contraseñas obtenidas de los campos ''Contraseña'' y ''Repite tu contraseña'' coincidan una con la otra. [Error: \ref{EM-Profesor-CU1-3-E2}]
 
+    % Paso 11. 
+    \UCpaso Valida que la fotografía seleccionada cumpla con el formato adecuado, según la regla \BRref{EM-RN-N011}{Formato de fotografía}. [Error \ref{EM-Profesor-CU1-3-E1}] \Trayref{B} 
+
+    % Paso 12. 
+    \UCpaso Persiste la información introducida del alumno en el sistema. \label{l_EM_Profesor_CU1_3_PersisteInfo}
+
+	% Paso 13. 
+    \UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla
+    \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}. y actualiza la
+    información de la misma. 
+     
 \end{UCtrayectoria}
 
-\begin{UCtrayectoriaA}{A}{Cuando no hay calificación promedio asignada al profesor.}
-	\UCpaso	Se asigna calificación promedio igual a cero.
-	\UCpaso Continúa en el paso \ref{CalifPromedio} de la trayectoria principal.
+\begin{UCtrayectoriaA}{A}{Cuando el actor no tiene un cubículo asignado.}
+
+	% A1.
+	\UCpaso Muestra vacío el campo de cubículo en la pantalla: \IUref{EM-Profesor-UI1-3}{Modificar Perfil del Profesor}.
+
+	\UCpaso Continúa en el paso \ref{l_EM_Profesor_CU1_3_SinCubo} de la trayectoria principal.
+
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{B}{Cuando el actor no desea agregar o modificar
+una foto en su perfil.}
+
+	% B1.
+	\UCpaso Continúa en el paso \ref{l_EM_Alumno_CU1_1_PersisteInfo} de la trayectoria principal.
+
 \end{UCtrayectoriaA}
