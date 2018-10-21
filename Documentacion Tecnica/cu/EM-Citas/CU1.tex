@@ -1,93 +1,67 @@
 % Copie este bloque por cada caso de uso:
 %-------------------------------------- COMIENZA descripción del caso de uso.
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
-\begin{UseCase}{EM-alumnoProfesor-CU1.5}{Consultar citas Agendadas.}
+\begin{UseCase}{EM-Citas-CU1}{Consultar citas Agendadas.}
 	{
 	\noindent
-	Este caso de uso permite solicitar a un alumno agendar una cita con un profesor de la ESCOM para tratar temas
-	académicos. La fecha, hora y el salón dónde se llevará a cabo la cita son propuestos por el alumno, tomando en cuenta los horarios de clase del profesor.
-	La hora y salón pueden ser modificadas por el profesor siempre y cuando explique el motivo del cambio.
+	Este caso de uso permite al actor consultar de manera ordenada todas las citas en estado de ''agendadas'' que tiene asociadas a su cuenta, esto es, las próximas citas ya aceptadas para realizarse, pues es de esta manera que los profesores pueden brindar su apoyo los estudiantes de ESCOM para mejorar su aprendizaje, ya que se pueden presentar dudas o inquietudes con las clases impartidas en los salones de la institución, o bien, se puede requerir asistencia académica de los profesores para los alumnos en diversos temas, como lo son proyectos, asesorías, trabajos terminales, etc. 
+	\newline
+	Para que una cita se considere ''agendada'' debe ser solicitada por un alumno para llevarse a cabo en ciertas condiciones y aceptada por el profesor a quien se solicitó la misma. Estas citas pueden ser canceladas (si una situación dada así lo amerita). De ser cancelada una cita, ésta deja de ser una cita ''agendada'' y pasa a ser una cita ''cancelada'', enviando una notificación al alumno o el profesor (según sea el caso) al respecto. Asimismo, se notifica al profesor en caso de que un alumno le solicite una cita y se lo nitifica a éste último si su petición es aceptada o rechazada. 
 	\newline
 	}
 	\UCitem{Versión}{0.1}
-	\UCitem{Actor}{Alumno.}
-	\UCitem{Propósito}{Proporcionar un mecanismo para que el alumno pueda solicitar una cita al profesor para tratar temas académicos.}
-	\UCitem{Entradas}{
-		\begin{itemize}
-			\item Fecha  para agendar la cita.
-			\item Hora  para comenzar la cita.
-			\item Salón  para que tenga lugar la cita.
-			\item Nombre del profesor con el que se agendará la cita.
-			\item Motivo por el cual se requiere agendar la cita.
-		\end{itemize}
-	}
-	\UCitem{Origen}{Teclado.}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita estar al corrinte con las citas que tiene agendadas por medio de la consulta de éstas.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
 	\UCitem{Salidas}{
+		Se muestra la siguiente información acerca de las citas agendadas:
 		\begin{itemize}
-			\item Fecha en la que se realizará la cita.
-			\item Hora en la que comenzará la cita.
-			\item Salón en el que tendrá lugar la cita.
-			\item Asunto por el cual se llevará a cabo la cita.
-			\item Nombre de la persona con la que se reunirá en la cita.
+			\item Fecha y hora en las cuales la cita está programada.
+			\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
+			\item Nombre del alumno quien solicitó la cita.
+			\item Descripción (motivo) por la cual el alumno solicita la cita.
 		\end{itemize}
 	}
 	\UCitem{Destino}{Pantalla.}
-	\UCitem{Precondiciones}{
-		\begin{itemize}
-			\item El actor debe estar registrado.
-			\item El actor debe haber iniciado sesión.
-			\item Debe estar registrado el profesor con el que se requiere agendar la cita.
-		\end{itemize}
-	}
-	\UCitem{Postcondiciones}{
-		\begin{itemize}
-			\item El sistema tendrá un nuevo registro asociado al alumno con la fecha, hora, asunto,
-			salón y nombre del profesor con el que se agendará la cita.
-			\item El nuevo registro de la cita estará en estado de no aceptado.
-			\item El sistema notificará al profesor que tiene una nueva solicitud de cita.
-		\end{itemize}			
-	}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Ninguna.}
 	\UCitem{Errores}{
-	
-		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]	
-		\item \label{EM-alumnoProfesor-CU1.5-E1} Cuando no se introducen todos los campos obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{Continúa en el paso \ref{EM-alumnoProfesor-CU1.5-DatosObligatorios} de la trayectoria principal}.
-}
-			Continua en el paso \ref{} de la trayectoria principal.
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Cita-CU1-E1} Cuando no hay citas agendadas para consulta, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
 		\end{enumerate}
 	}
-	\UCitem{Tipo}{Primario}
+	\UCitem{Tipo}{Caso de uso primario.}
 	\UCitem{Observaciones}{}
-	\UCitem{Autor}{José David Pérez García.}
-	\UCitem{Revisor}{}
-	\UCitem{Estatus}{Sin revisión.}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
 \end{UseCase}
 
 \begin{UCtrayectoria}{Principal}
-	\UCpaso[\UCactor] Solicita una cita presionando el botón \IUbutton{ Solicitar cita  } de la pantalla \IUref{EM-Alumno-UI1}{Consultar Perfil del Profesor}.
-	\UCpaso Obtiene el nombre del profesor.
-	\UCpaso Muestra pantalla \IUref{EM-Cita-IU09}{Crear cita II} con el nombre del profesor al que se le pedirá la cita y se mostrará un formulario a llenar.\label{EM-alumnoProfesor-CU1.5-DatosObligatorios}
-	\UCpaso [\UCactor] Selecciona fecha y hora, en la cual desea la cita.
-	\UCpaso  [\UCactor] Selecciona el tipo de cita.
-	\UCpaso  [\UCactor] Selecciona el salón en el cual se realizará la cita.
-	\UCpaso  [\UCactor] Selecciona si desea agregar una notificación.
-	\UCpaso  [\UCactor] Escribe el motivo de la cita.
-	\UCpaso  [\UCactor] Presiona el botón \IUbutton{ Agendar cita }.
-	\UCpaso Valida que los campos del formulario no estén vacios, de acuedo a la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-alumnoProfesor-CU1.5-E1}]  \Trayref{A}
-		\UCpaso Obtiene los datos de la cita introducidos en el formulario. 
-		\UCpaso Persiste la información en el sistema.
-	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-Alumno-UI1}{Consultar Perfil del Profesor}.
 
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita consultar sus citas agendadas seleccionando la opción ''Mis citas'' de la pantalla \IUref{EM-ESCOMobile-Hamburger}{} o bien, presionando el botón \IUbutton{Consultar citas} de las pantallas \IUref{EM-Alumno-UI1}{Consultar Perfil del Alumno} o \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}, según sea el caso.
+
+	% Paso 2. 
+	\UCpaso Valida que haya citas en estado ''agendada'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-E1}.]
+
+	% Paso 3. 
+	\UCpaso Obtiene las siguiente información de las citas ''agendadas'' asociadas a la cuenta del actor cuyas fechas y horas aún no transcurren: fecha y hora en las cuales la cita está programada, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicita la cita.
+
+	% Paso 4.
+	\UCpaso Agrupa las citas obtenidas según la fecha programada para la cita.
+
+	% Paso 5.
+	\UCpaso Ordena las citas de cada grupo según la hora en la que se vayan a realizar. 
+
+	% Paso 5.
+	\UCpaso Ordena los grupos de citas según la fecha para la cual éstas están programadas.
+
+	% Paso 6. 
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con las citas agrupadas por fecha y hora de realizción. 
+
+	% Paso 7.
+	\UCpaso [\UCactor] Consulta sus citas agendadas. 
 
 \end{UCtrayectoria}
-		
-%========Trayectorias alternativas
-
-\begin{UCtrayectoriaA}{A}{Cuando el actor desea cancelar la operación.}
-	\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} de la pantalla \IUref{EM-Cita-IU09}{Crear cita II}
-	\UCpaso Muestra la pantalla \\IUref{EM-Alumno-UI1}{Consultar Perfil del Profesor.
-\end{UCtrayectoriaA}
-
-%========
-
-%-------------------------------------- TERMINA descripción del caso de uso.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

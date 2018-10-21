@@ -490,3 +490,31 @@
 		\end{itemize}
 
 \end{BussinesRule}
+
+
+
+% RNN12. *******************************************************
+\begin{BussinesRule}{EM-RN-N012}{Tiempo máximo para cancelar cita}
+	\BRitem[Descripción:] Para poder cancelar una cita agendada en necesario contar con un límite de tiempo para hacerlo, pues por respeto a los alumnos y profeores y a sus tiempos, se establece que una cita se podrá cancelar máximo dos horas antes de que ésta comience, notificando al otro agente acerca de la cancelación de la misma. Si la cita está a menos de dos hora de realizarce, no puede ser cancelada.
+	\BRitem[Tipo: ] Habilitadora.
+	\BRitem[Nivel: ] Estricta.
+	\BRitem[Sentenia: ] Sea A un alumno, P un profesor, C una cita previamente agendada por A con P y S el servidor de ESCOMobile, entonces:
+	\begin{center}
+		$\forall \: A \: \&\& P \in ESCOMobile \mid  S.fechaActaul \: <= \: C.fechaAgendada \: \&\& \: S.tiempoActual \: - \: C.tiempoAgendado \: >= \: 2 \: Horas \: \Rightarrow$ se puede cancelar la cita.
+	\end{center}
+	\BRitem[Ejemplo positivo:] que cumple la regla.
+		\begin{itemize}
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: C_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: C_{1}.tiempoAgendado \: = \: 12:00:00$, se permite
+			cancelar la cita.
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: C_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: C_{1}.tiempoAgendado \: = \: 14:00:00$, no se permite
+			cancelar la cita.
+		\end{itemize}
+	\BRitem[Ejemplo negativo:] que no cumple la regla.
+		\begin{itemize}
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: C_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: C_{1}.tiempoAgendado \: = \: 12:00:00$, no se permite
+			cancelar la cita.
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: C_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: C_{1}.tiempoAgendado \: = \: 14:00:00$, se permite
+			cancelar la cita.
+		\end{itemize}
+
+\end{BussinesRule}

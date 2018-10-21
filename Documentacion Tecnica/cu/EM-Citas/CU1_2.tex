@@ -1,0 +1,69 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Citas-CU1.2}{Consultar citas por Confirmar.}
+	{
+	\noindent
+	Este caso de uso permite al actor consultar de manera ordenada todas las citas en estado de ''por confirmar'' que tiene asociadas a su cuenta, esto es, las solicitudes de citas que ha realizado y que aún no han sido aceptadas o rechazadas. 
+	\newline
+	Para que una solicitud de cita pueda ser aceptada o cancelada, ésta debe de verse reflejada en el apartado de ''POR CONFIRMAR'' en la sección de citas del actor, tomando como referencia el estado de la cita (por confirmar) y la fecha y hora propuestas por el alumno para la realización de la cita, es decir, si la fecha y hora en las cuales el alumno desea realizar la cita han transcurrido ya, y no se emitió un juicio (aceptar o rechazar) sobre la cita, ésta automáticamente se rechaza y no aparece más como una solicitud de cita. 
+	\newline 
+	Es importante mencionar que el aceptar o rechazar una solicitud de cita no afecta en nada el comportamiento de la aplicación o los perfiles de los involucrados, permitiendo además solicitar y aceptar más citas entre los alumnos y profesores sin ningún problema en el futuro. 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita estar al corrinte con las solicitudes de citas que tiene por medio de la consulta de éstas.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información acerca de las solicitudes de citas:
+		\begin{itemize}
+			\item Fecha y hora en las cuales la cita está se desea realizar.
+			\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
+			\item Nombre del alumno quien solicitó la cita.
+			\item Descripción (motivo) por la cual el alumno solicita la cita.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Cita-CU1-2-E1} Cuando no hay solicitudes de citas por confirmar para consulta, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita consultar sus solicitudes de citas por confirmar presionando sobre el botón \IUbutton{ POR CONFIRMAR } de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
+
+	% Paso 2. 
+	\UCpaso Valida que haya solicitudes de citas en estado ''por confirmar'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-2-E1}.]
+
+	% Paso 3. 
+	\UCpaso Obtiene las siguiente información de las solicitudes de citas ''por confirmar'' asociadas a la cuenta del actor cuyas fechas y horas aún no transcurren: fecha y hora en las cuales la cita está programada, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicita la cita.
+
+	% Paso 4.
+	\UCpaso Agrupa las solicitudes de citas obtenidas según la fecha programada para la cita.
+
+	% Paso 5.
+	\UCpaso Ordena las solicitudes de citas de cada grupo según la hora en la que se vayan a realizar. 
+
+	% Paso 5.
+	\UCpaso Ordena los grupos con las solicitudes de citas según la fecha para la cual éstas están programadas.
+
+	% Paso 6. 
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} con las solicitudes de citas agrupadas por fecha y hora de realizción. 
+
+	% Paso 7.
+	\UCpaso [\UCactor] Consulta sus solicitudes de citas. 
+
+\end{UCtrayectoria}

@@ -192,3 +192,23 @@
     \item[Ejemplo:] ¿Estás seguro que deseas eliminar tu cuenta?
 	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
 \end{mensaje}
+
+%===========================  MSG19 ==================================
+\begin{mensaje}{MSG19}{Cancelar cita agendada}{Error}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Informar al actor que la cita agendada seleccionada no se puede Cancelar, pues faltan menos de dos horas para que ésta comience. 
+    \item[Redacción:] No es posible cancelar la cita agendada, pues falta menos de dos hora para que ésta comience.
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] No es posible cancelar la cita agendada, pues falta menos de dos hora para que ésta comience.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG20 ==================================
+\begin{mensaje}{MSG20}{Cita cancelada}{Informativo}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Informar al alumno o profesor que una cita previamente agendada se canceló. 
+    \item[Redacción:] Tu cita con $<ACTOR>$ del día $<DIA>$ a las $<HORA>$ hrs, ha sido cancelada. 
+    \item[Parámetros:] ACTOR: Profesor o alumno con quien se llevaría a cabo la cita. DIA: Día acordado para realizar la cita. HORA: Hora establecida para la cita.
+    \item[Ejemplo:] Tu cita con Hernández Contreras Euler del día 10 NOV 2018 a las 17:00:00 hrs, ha sido cancelada. 
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}

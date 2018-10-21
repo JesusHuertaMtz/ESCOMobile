@@ -10,90 +10,93 @@
 
 \subsubsection{Objetivo}
 	\noindent
-	Mostrar un listado de todas las citas agendadas ordenadas por fecha y hora, comenzando por la cita
-	próxima a realizarse. De esta manera se podrá consultar el día, hora y asunto de la cita.
+	Consultar de manera ordenada todas las citas en estado de agendadas que un alumno o un profesor tiene asociadas a su cuenta, esto es, los próximas citas ya aceptadas para realizarse.
 
 \subsubsection{Diseño}
 	\noindent
-	El listado de las citas agendadas muestra un breve resumen del asunto por el cual se agendó la cita.
-	Al presionar sobre un elemento de la lista se desplegará información detallada de 
-	la cita. Además, cada elemento de la lista contendrá un menú de opciones donde se podrán cancelar
-	o eliminar las citas.
+	La pantalla muestra dos principales secciones. La primera sección, de encabezado, nos permite navegar entre los diferentes tipos de citas (según el estado de las mismas) y las consultas de las las referidas, siendo éstas ''agendadas'', ''por confirmar'', ''pasadas'' y ''canceladas'', asimismo, nos presenta un botón para regresar a la pantalla anterior.
+	\newline
+	La segunda sección enlista ordenadas y agrupadas por día las citas que el profesor o el alumno tienen programadas, detallando el tipo de cita, nombre del alumno quien la solicitó y un breve motivo de la misma. 
+	\newline
+	Finalmente, se nos permite también solicitar agregar una nueva cita (función solo disponible para los alumnos), por medio de botón \IUbutton{ + }.
 
+\pagebreak
 \IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI1_Consultar_Citas_Agendadas}{EM-Citas-UI1}{Consultar citas agendadas}
 
 \subsubsection{Salidas}
-	\begin{itemize}
-		\item Fecha en la que se agendó la cita.
-		\item Hora en la que comenzará la cita.
-			\item Alumno que solicitó la cita.
-		\item Asunto por el cual se agendó la cita.
-	\end{itemize}
+	\noindent
+	Se muestra la siguiente información acerca de las citas agendadas:
+		\begin{itemize}
+			\item Fecha y hora en las cuales la cita está programada
+			\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
+			\item Nombre del alumno quien solicitó la cita.
+			\item Descripción (motivo) por la cual el alumno solicita la cita.
+		\end{itemize}
 
 \subsubsection{Entradas}
-
-\begin{itemize}
-	\item Ninguna.
-\end{itemize}
+	\noindent
+	Ninguna.
 
 \subsubsection{Comandos}
-\begin{itemize}
-	\item \IUbutton{ Por Confirmar } Muestra la pantalla de citas por confirmar.
-	\item \IUbutton{ Citas pasadas } Muestra la pantalla del historial de citas.
-	\item \UCicono{plus} Muestra pantalla para solicitar una cita.
-	\item \UCicono{vdots} Muestra menú para cancelar o eliminar la cita.
-	\item \UCicono{arrowL} Regresa a la pantalla anterior.
-\end{itemize}
+	\begin{itemize}
+		\item \IUbutton{ POR CONFIRMAR } Muestra la pantalla con las cita por confirmar.
+		\item \IUbutton{ PASADAS } Muestra la pantalla con todas las citas pasadas ya atendidas.
+		\item \IUbutton{ CANCELADAS } Muestra la pantalla con las citas que el alumno o el profesor cancelaron antes de realizarse.
+		\item \IUbutton{ + } Muestra pantalla para solicitar agendar una nueva cita.
+		\item \UCicono{tache} Para cancelar una cita agendada.
+		\item \UCicono{arrowL} Regresa a la pantalla anterior.
+	\end{itemize}
 
 \subsubsection{Mensajes}
-\begin{Citemize}
-	\item Ninguno.
-\end{Citemize}
+	\noindent
+	\MSGref{MSG3}{Elementos No Disponibles}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\subsection{EM-Citas-UI1.2 Consultar citas por Confirmar}
+\subsection{EM-Citas-UI1.2 Consultar citas por Confirmar.}
 
 \subsubsection{Objetivo}
 	\noindent
-	Mostrar un listado de todas las citas por confirmar ordenadas por fecha y hora, comenzando por la primera cita solicitada. De esta manera se podrá consultar el día, hora y asunto de la cita y aceptar o rechazar las citas .
+	Mostrar para consulta, de manera ordenada, todas las citas en estado de ''por confirmar'' que tiene asociadas a su cuenta, esto es, las solicitudes de citas que ha realizado y que aún no han sido aceptadas o rechazadas. 
 
 \subsubsection{Diseño}
 	\noindent
-	El listado de las citas por confirmar muestra un breve resumen del asunto por el cual se agendó la cita.
-	Al presionar sobre un elemento de la lista se desplegará información detallada de 
-	la cita solicitada. Además, cada elemento de la lista contendrá un menú de opciones donde se podrá aceptar o cancelar las citas.
+	La pantalla muestra dos principales secciones. La primera sección, de encabezado, nos permite navegar entre los diferentes tipos de citas (según el estado de las mismas) y las consultas de las las referidas, siendo éstas ''agendadas'', ''por confirmar'', ''pasadas'' y ''canceladas'', asimismo, nos presenta un botón para regresar a la pantalla anterior.
+	\newline
+	La segunda sección enlista ordenadas y agrupadas por día las solicitudes de citas que el profesor o el alumno tienen asociadas, detallando el tipo de cita, nombre del alumno quien la solicitó y un breve motivo de la misma. Mostrando además por solicitud de cita la opción de cancelar (rechazar) o bien, aceptar la solicitud de cita, estando disponible la última opción solo para los profesores. 
 
+\pagebreak
 \IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI1_2_Consultar_Citas_por_Confirmar}{EM-Citas-UI1-2}{Consultar citas por Confirmar}
 
 \subsubsection{Salidas}
-	\begin{itemize}
-		\item Fecha en la que se agendó la cita.
-		\item Hora en la que comenzará la cita.
-			\item Alumno que solicitó la cita.
-		\item Asunto por el cual se agendó la cita.
-	\end{itemize}
+	\noindent
+	Se muestra la siguiente información acerca de las solicitudes de citas:
+		\begin{itemize}
+			\item Fecha y hora en las cuales la cita está se desea realizar.
+			\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
+			\item Nombre del alumno quien solicitó la cita.
+			\item Descripción (motivo) por la cual el alumno solicita la cita.
+		\end{itemize}
 
 \subsubsection{Entradas}
-
-\begin{itemize}
-	\item Ninguna.
-\end{itemize}
+	\noindent
+	Ninguna.
 
 \subsubsection{Comandos}
-\begin{itemize}
-	\item \IUbutton{ Agendadas } Muestra la pantalla de citas agendadas.
-	\item \IUbutton{ Citas pasadas } Muestra la pantalla del historial de citas.
-	\item \UCicono{vdots} Muestra menú para cancelar o eliminar la cita.
-	\item \UCicono{arrowL} Regresa a la pantalla anterior.
-\end{itemize}
+	\begin{itemize}
+		\item \IUbutton{ AGENDADAS } Muestra la pantalla con las cita agendadas.
+		\item \IUbutton{ PASADAS } Muestra la pantalla con todas las citas pasadas ya atendidas.
+		\item \IUbutton{ CANCELADAS } Muestra la pantalla con las citas que el alumno o el profesor cancelaron antes de realizarse.
+		\item \UCicono{tache} Para cancelar una solicitud de cita.
+		\item \UCicono{paloma} Para aceptar una solicitud una cita agendada.
+		\item \UCicono{arrowL} Regresa a la pantalla anterior.
+	\end{itemize}
 
 \subsubsection{Mensajes}
-\begin{Citemize}
-	\item Ninguno.
-\end{Citemize}
-
+	\noindent
+	\MSGref{MSG3}{Elementos No Disponibles}
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

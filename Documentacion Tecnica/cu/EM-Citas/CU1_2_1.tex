@@ -1,0 +1,94 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Citas-CU1.2.1}{Aceptar cita por confirmar.}
+	{
+	\noindent
+	Este caso de uso permite al actor cancelar una cita que previamente se le solicitó y aceptó con uno de los alumnos de la ESCOM. Al cancelar una cita no se ve afectado el comportamiento de los perfiles del profesor o el alumno, conservando además el resto de citas agendadas para ambos roles, y permitiendo además solicitar y aceptar más citas entre ellos sin ningún problema en el futuro. Las citas canceladas no se verán más reflejadas para consulta en el apartado de ''AGENDADAS'' en la sección de citas, pasando al apartado de ''CANCELADAS'' dentro de la sección antes mencionada. 
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita cancelar una cita previamente agendada.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}.
+			\item \MSGref{MSG7}{Eliminar elemento}.
+			\item \MSGref{MSG19}{Cancelar cita agendada}.
+			\item \MSGref{MSG20}{Cita cancelada}.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Cita-CU1-1-E1} Cuando no es posible cancelar una cita agendad, pues falta menos de dos horas para que ésta comience, muestra el mensaje \MSGref{MSG19}{Cancelar cita agendada} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita cancelar una cita previamente agendada presionando sobre el icono \UCicono{tache} de alguna de las citas agendadas de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
+
+	% Paso 2.
+	\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento}, solicitando la confirmación para cancelar la cita agendada. 
+
+	% Paso 3. 
+	\UCpaso Presiona el botón \IUbutton{Aceptar} del mensaje anterior. \Trayref{A} 
+ 
+	% Paso 4. 
+	\UCpaso Obtiene la fecha y el tiempo actuales del servidor.
+
+	% Paso 5. 
+	\UCpaso Obtiene la fecha y el tiempo asignados para la cita agendada.
+
+	% Paso 6.
+	\UCpaso Obtiene el nombre del alumno con quien se realizaría la cita. \Trayref{B}
+
+	% Paso 7.
+	\UCpaso Valida que la cita pueda cancelarse, pues faltan más de dos horas para que ésta comience, según la regla de negocio \BRref{EM-RN-N012}{Tiempo máximo para cancelar cita}. [Error: \ref{EM-Cita-CU1-1-E1}.] \label{l_EM_Citas_CU1_1_validacion}
+
+	% Paso 8.
+	\UCpaso Asigna el estado de ''Cancelada'' a la cita seleccionada. 
+
+	% Paso 9. 
+	\UCpaso Persiste la información en sistema. 
+
+	% Paso 10. 
+	\UCpaso Envía una notificación al alumno / profesor con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG20}{Cita cancelada}.
+
+	% Paso 11.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación actualizada.
+	
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea cancelar la cita agendada.}
+
+	% A1. 
+	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG7}{Eliminar elemento}.
+
+	% A2.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} y \textbf{termina el caso de uso.}
+
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{B}{Cuando el actor quien cancela la cita es un alumno.}
+
+	% B1. 
+	\UCpaso Obtiene el nombre del profesor con quien se realizaría la cita
+
+	% B2.
+	\UCpaso Regresa al paso \ref{l_EM_Citas_CU1_1_validacion} de la trayectoria principal.
+
+\end{UCtrayectoriaA}
