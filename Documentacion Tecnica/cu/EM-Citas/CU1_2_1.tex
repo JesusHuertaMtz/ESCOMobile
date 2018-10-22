@@ -4,31 +4,31 @@
 \begin{UseCase}{EM-Citas-CU1.2.1}{Aceptar cita por confirmar.}
 	{
 	\noindent
-	Este caso de uso permite al actor cancelar una cita que previamente se le solicitó y aceptó con uno de los alumnos de la ESCOM. Al cancelar una cita no se ve afectado el comportamiento de los perfiles del profesor o el alumno, conservando además el resto de citas agendadas para ambos roles, y permitiendo además solicitar y aceptar más citas entre ellos sin ningún problema en el futuro. Las citas canceladas no se verán más reflejadas para consulta en el apartado de ''AGENDADAS'' en la sección de citas, pasando al apartado de ''CANCELADAS'' dentro de la sección antes mencionada. 
+	Este caso de uso permite al actor aceptar el llevar a cabo una cita que previamente se le solicitó por un alumno de la ESCOM, pues considera que es adecuado atender la inquietud que orilló al estudiante a solicitar la cita, además de contar, claramente, con el tiempo para hacerlo, pues no se encuentra ocupado con clases o citas programadas en el día y horario solicitados. Se debe mencionar que para aceptar una solicitud de cita, deben faltar a lo más 2 horas para que el tiempo elegido por el alumno para llevar a cabo la cita se cumpla, de ocurrir lo contrario, la acción se verá imposible de cumplir, permitiendo realizar nuevas solicitudes pero perdiendo la última, tomando el estado de ''cancelada''. Una vez aceptada una solicitud de cita, ésta será una cita ''agendada'' y se le notificará al alumno quien solicitó la cita acerca de la aceptación de la misma.
 	\newline
 	}
 	\UCitem{Versión}{0.1}
-	\UCitem{Actor}{Alumno, Profesor.}
-	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita cancelar una cita previamente agendada.}
+	\UCitem{Actor}{Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita aceptar una solicitud de cita previamente realizada.}
 	\UCitem{Entradas}{Ninguna.}
 	\UCitem{Origen}{No aplica.}
 	\UCitem{Salidas}{
 		\begin{itemize}
 			\item \MSGref{MSG1}{Operación Exitosa}.
-			\item \MSGref{MSG7}{Eliminar elemento}.
-			\item \MSGref{MSG19}{Cancelar cita agendada}.
-			\item \MSGref{MSG20}{Cita cancelada}.
+			\item \MSGref{MSG22}{Aceptar solicitud de cita}.
+			\item \MSGref{MSG23}{No se puede aceptar solicitud de cita}.
+			\item \MSGref{MSG24}{Solicitud de cita aceptada}.
 		\end{itemize}
 	}
 	\UCitem{Destino}{Pantalla.}
 	\UCitem{Precondiciones}{Ninguna.}
-	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Persiste la información en el sistema.}
 	\UCitem{Errores}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
-			\item \label{EM-Cita-CU1-1-E1} Cuando no es posible cancelar una cita agendad, pues falta menos de dos horas para que ésta comience, muestra el mensaje \MSGref{MSG19}{Cancelar cita agendada} y \textbf{termina el caso de uso.}
+			\item \label{EM-Cita-CU1-2-1-E1} Cuando no es posible aceptar una solicitud de cita, pues faltan menos de dos horas para que la hora y fecha propuestas para ésta se cumplan, muestra el mensaje \MSGref{MSG23}{No se puede aceptar solicitud de cita} y \textbf{termina el caso de uso.}
 		\end{enumerate}
 	}
-	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1}.}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1.2}.}
 	\UCitem{Observaciones}{}
 	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
 	\UCitem{Revisor}{Fernández Quiñones Isaac.}
@@ -38,10 +38,10 @@
 \begin{UCtrayectoria}{Principal}
 
 	% Paso 1.
-	\UCpaso [\UCactor] Solicita cancelar una cita previamente agendada presionando sobre el icono \UCicono{tache} de alguna de las citas agendadas de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
+	\UCpaso [\UCactor] Solicita aceptar una solicitud de cita previamente realizada presionando sobre el icono \UCicono{paloma} de alguna de las citas por confirmar de la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar}.
 
 	% Paso 2.
-	\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento}, solicitando la confirmación para cancelar la cita agendada. 
+	\UCpaso Muestra el mensaje \MSGref{MSG22}{Aceptar solicitud de cita}, solicitando la confirmación para aceptar la solicitud de cita. 
 
 	% Paso 3. 
 	\UCpaso Presiona el botón \IUbutton{Aceptar} del mensaje anterior. \Trayref{A} 
@@ -50,25 +50,25 @@
 	\UCpaso Obtiene la fecha y el tiempo actuales del servidor.
 
 	% Paso 5. 
-	\UCpaso Obtiene la fecha y el tiempo asignados para la cita agendada.
+	\UCpaso Obtiene la fecha y el tiempo propuestos para la realización de la cita en la solicitud.
 
 	% Paso 6.
-	\UCpaso Obtiene el nombre del alumno con quien se realizaría la cita. \Trayref{B}
+	\UCpaso Obtiene el nombre del alumno con quien se realizaría la cita. 
 
 	% Paso 7.
-	\UCpaso Valida que la cita pueda cancelarse, pues faltan más de dos horas para que ésta comience, según la regla de negocio \BRref{EM-RN-N012}{Tiempo máximo para cancelar cita}. [Error: \ref{EM-Cita-CU1-1-E1}.] \label{l_EM_Citas_CU1_1_validacion}
+	\UCpaso Valida que la solicitud de cita pueda ser aceptada, pues faltan más de dos horas para que la fecha y hora propuestas para ésta transcurran, según la regla de negocio \BRref{EM-RN-N013}{Tiempo máximo para aceptar cita}. [Error: \ref{EM-Cita-CU1-2-1-E1}.] 
 
 	% Paso 8.
-	\UCpaso Asigna el estado de ''Cancelada'' a la cita seleccionada. 
+	\UCpaso Asigna el estado de ''Agendada'' a la solicitud de cita seleccionada. 
 
 	% Paso 9. 
 	\UCpaso Persiste la información en sistema. 
 
 	% Paso 10. 
-	\UCpaso Envía una notificación al alumno / profesor con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG20}{Cita cancelada}.
+	\UCpaso Envía una notificación al alumno con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG24}{Solicitud de cita aceptada}.
 
 	% Paso 11.
-	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación actualizada.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación actualizada.
 	
 
 \end{UCtrayectoria}
@@ -76,19 +76,9 @@
 \begin{UCtrayectoriaA}{A}{Cuando el actor no desea cancelar la cita agendada.}
 
 	% A1. 
-	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG7}{Eliminar elemento}.
+	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG22}{Aceptar solicitud de cita}.
 
 	% A2.
-	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} y \textbf{termina el caso de uso.}
-
-\end{UCtrayectoriaA}
-
-\begin{UCtrayectoriaA}{B}{Cuando el actor quien cancela la cita es un alumno.}
-
-	% B1. 
-	\UCpaso Obtiene el nombre del profesor con quien se realizaría la cita
-
-	% B2.
-	\UCpaso Regresa al paso \ref{l_EM_Citas_CU1_1_validacion} de la trayectoria principal.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} y \textbf{termina el caso de uso.}
 
 \end{UCtrayectoriaA}

@@ -518,3 +518,27 @@
 		\end{itemize}
 
 \end{BussinesRule}
+
+
+
+% RNN13. *******************************************************
+\begin{BussinesRule}{EM-RN-N013}{Tiempo máximo para aceptar cita}
+	\BRitem[Descripción:] Para poder aceptar una solicitud de cita en necesario contar con un límite de tiempo para hacerlo, pues por respeto a los alumnos y a sus tiempos, se establece que una solicitud de cita se podrá aceptar máximo dos horas antes de que la hora y fecha propuestas para la realización de ésta transcurran, notificando al alumno acerca de la aceptación de la misma. Si el tiempo y fecha mencionados están a menos de dos horas de llegar, no puede ser aceptada la solicitud.
+	\BRitem[Tipo: ] Habilitadora.
+	\BRitem[Nivel: ] Estricta.
+	\BRitem[Sentenia: ] Sea A un alumno, P un profesor, SC una solicitud de cita previamente realizada por A con P y S el servidor de ESCOMobile, entonces:
+	\begin{center}
+		$\forall \: A \: \&\& P \in ESCOMobile \mid  S.fechaActaul \: <= \: SC.fechaAgendada \: \&\& \: S.tiempoActual \: - \: SC.tiempoAgendado \: >= \: 2 \: Horas \: \Rightarrow$ se puede aceptar la solicitud de cita.
+	\end{center}
+	\BRitem[Ejemplo positivo:] que cumple la regla.
+		\begin{itemize}
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: C_{1}.tiempoActual \: = \: 15:00:00, \: SC_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: SC_{1}.tiempoAgendado \: = \: 12:00:00$, se permite aceptar la solicitud de cita.
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: SC_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: SC_{1}.tiempoAgendado \: = \: 14:00:00$, no se permite aceptar la solicitud de cita.
+		\end{itemize}
+	\BRitem[Ejemplo negativo:] que no cumple la regla.
+		\begin{itemize}
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: SC_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: SC_{1}.tiempoAgendado \: = \: 12:00:00$, no se permite aceptar la solicitud de cita.
+			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: SC_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: SC_{1}.tiempoAgendado \: = \: 14:00:00$, se permite aceptar la solicitud de cita.
+		\end{itemize}
+
+\end{BussinesRule}

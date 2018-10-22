@@ -1,0 +1,67 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Citas-CU1.4}{Consultar citas Canceladas.}
+	{
+	\noindent
+	Este caso de uso permite al actor consultar de manera ordenada todas las citas en estado de ''cancelada'' que tiene asociadas a su cuenta, esto es, las citas o solicitudes de citas que no pudieron realizarse, pues fueron canceladas.
+	\newline
+	Para que una cita, o solicitud de cita, se considere ''cancelada'' es porque fue pedida por un alumno para llevarse a cabo en ciertas condiciones y rechazada (cancelada) por éste mismo o por el profesor a quien le fue requerida, ya que, consideraron no era necesaria para solventar la situación académica por la cual el alumno la había solicitado inicialmente, porque no se contó con tiempo necesario para realizarse, o bien, por razones personales del alumno o del profesor.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita vusalizar las citas que no pudieron realizarse y que tiene asociadas, por medio de la consulta de éstas.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		Se muestra la siguiente información acerca de las citas canceladas:
+		\begin{itemize}
+			\item Fecha y hora en las cuales la cita se llevaría a cabo.
+			\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
+			\item Nombre del alumno quien solicitó la cita.
+			\item Descripción (motivo) por la cual el alumno solicitó la cita.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Cita-CU1-4-E1} Cuando no hay citas canceladas disponibles para consulta, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita consultar sus citas canceladas presionando sobre el botón \IUbutton{ CANCELADAS } de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
+
+	% Paso 2. 
+	\UCpaso Valida que haya citas en estado ''cancelada'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-4-E1}.]
+
+	% Paso 3. 
+	\UCpaso Obtiene las siguiente información de las citas ''canceladas'' asociadas a la cuenta del actor: fecha y hora en las cuales la cita se llevaría a cabo, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicitó la cita.
+
+	% Paso 4.
+	\UCpaso Agrupa las citas obtenidas según la fecha programada para la cita.
+
+	% Paso 5.
+	\UCpaso Ordena las citas de cada grupo según la hora en la que se realizarían. 
+
+	% Paso 5.
+	\UCpaso Ordena los grupos de citas según la fecha en la que ocurrirían.
+
+	% Paso 6. 
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-4}{Consultar citas canceladas} con las citas ''canceladas'' agrupadas por fecha y hora en las que se realizarían. 
+
+	% Paso 7.
+	\UCpaso [\UCactor] Consulta sus citas canceladas. 
+
+\end{UCtrayectoria}

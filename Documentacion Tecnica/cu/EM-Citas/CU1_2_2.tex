@@ -1,0 +1,94 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Citas-CU1.2.2}{Cancelar cita por confirmar.}
+	{
+	\noindent
+	Este caso de uso permite al actor cancelar (rechazar) el llevar a cabo una cita que previamente se solicitó, pues considera que para atender la inquietud que orilló al estudiante a solicitar la cita no es razón suficiente para llevar a cabo una cita, o bien, no cuenta con el tiempo para hacerlo. Se debe mencionar que para cancelar una solicitud de cita, deben faltar a lo más 2 horas para que el tiempo elegido por el alumno para llevar a cabo la cita se cumpla, de ocurrir lo contrario, la acción se verá imposible de cumplir. Una vez cancelada una solicitud de cita, ésta será una cita ''cancelada'' y se le notificará al agente (quien no cancela la solicitud) acerca de la cancelación de la misma.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita cancelar una solicitud de cita previamente realizada.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}.
+			\item \MSGref{MSG19}{Cancelar cita}.
+			\item \MSGref{MSG20}{No se puede cancelar cita}.
+			\item \MSGref{MSG25}{Solicitud de cita cancelada}.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Persiste la información en el sistema.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Cita-CU1-2-2-E1} Cuando no es posible cancelar una solicitud de cita, pues faltan menos de dos horas para que la fecha y la hora propuestas para su realización transcurran, muestra el mensaje \MSGref{MSG20}{No se puede cancelar cita} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1.2}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita cancelar una solicitud de cita previamente realizada presionando sobre el icono \UCicono{tache} de alguna de las citas por confirmar de la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar}.
+
+	% Paso 2.
+	\UCpaso Muestra el mensaje \MSGref{MSG19}{Cancelar cita}, solicitando la confirmación para cancelar la solicitud de cita. 
+
+	% Paso 3. 
+	\UCpaso Presiona el botón \IUbutton{Aceptar} del mensaje anterior. \Trayref{A} 
+ 
+	% Paso 4. 
+	\UCpaso Obtiene la fecha y el tiempo actuales del servidor.
+
+	% Paso 5. 
+	\UCpaso Obtiene la fecha y el tiempo propuestos para la realización de la cita en la solicitud.
+
+	% Paso 6.
+	\UCpaso Obtiene el nombre del alumno con quien se realizaría la cita. 
+
+	% Paso 7.
+	\UCpaso Valida que la solicitud de cita pueda ser cancelada, pues faltan más de dos horas para que la fecha y hora propuestas para ésta transcurran, según la regla de negocio \BRref{EM-RN-N012}{Tiempo máximo para cancelar cita}. [Error: \ref{EM-Cita-CU1-2-2-E1}.] \label{l_EM_Citas_CU1_2_2_validacion}
+
+	% Paso 8.
+	\UCpaso Asigna el estado de ''Cancelada'' a la solicitud de cita seleccionada. 
+
+	% Paso 9. 
+	\UCpaso Persiste la información en sistema. 
+
+	% Paso 10. 
+	\UCpaso Envía una notificación al alumno con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG25}{Solicitud de cita cancelada}.
+
+	% Paso 11.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación actualizada.
+	
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea cancelar la cita agendada.}
+
+	% A1. 
+	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG19}{Cancelar cita}.
+
+	% A2.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} y \textbf{termina el caso de uso.}
+
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{B}{Cuando el actor quien cancela la cita es un alumno.}
+
+	% B1. 
+	\UCpaso Obtiene el nombre del profesor con quien se realizaría la cita
+
+	% B2.
+	\UCpaso Regresa al paso \ref{l_EM_Citas_CU1_2_2_validacion} de la trayectoria principal.
+
+\end{UCtrayectoriaA}

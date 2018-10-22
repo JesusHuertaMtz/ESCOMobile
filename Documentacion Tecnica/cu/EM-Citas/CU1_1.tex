@@ -15,17 +15,17 @@
 	\UCitem{Salidas}{
 		\begin{itemize}
 			\item \MSGref{MSG1}{Operación Exitosa}.
-			\item \MSGref{MSG7}{Eliminar elemento}.
-			\item \MSGref{MSG19}{Cancelar cita agendada}.
-			\item \MSGref{MSG20}{Cita cancelada}.
+			\item \MSGref{MSG19}{Cancelar cita}.
+			\item \MSGref{MSG20}{No se puede cancelar cita}.
+			\item \MSGref{MSG21}{Cita agendada cancelada}.
 		\end{itemize}
 	}
 	\UCitem{Destino}{Pantalla.}
 	\UCitem{Precondiciones}{Ninguna.}
-	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Persiste la información en el sistema.}
 	\UCitem{Errores}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
-			\item \label{EM-Cita-CU1-1-E1} Cuando no es posible cancelar una cita agendad, pues falta menos de dos horas para que ésta comience, muestra el mensaje \MSGref{MSG19}{Cancelar cita agendada} y \textbf{termina el caso de uso.}
+			\item \label{EM-Cita-CU1-1-E1} Cuando no es posible cancelar una cita agenda, pues faltan menos de dos horas para que ésta comience, muestra el mensaje \MSGref{MSG20}{No se puede cancelar cita} y \textbf{termina el caso de uso.}
 		\end{enumerate}
 	}
 	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1}.}
@@ -41,7 +41,7 @@
 	\UCpaso [\UCactor] Solicita cancelar una cita previamente agendada presionando sobre el icono \UCicono{tache} de alguna de las citas agendadas de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
 
 	% Paso 2.
-	\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento}, solicitando la confirmación para cancelar la cita agendada. 
+	\UCpaso Muestra el mensaje \MSGref{MSG19}{Cancelar cita}, solicitando la confirmación para cancelar la cita agendada. 
 
 	% Paso 3. 
 	\UCpaso Presiona el botón \IUbutton{Aceptar} del mensaje anterior. \Trayref{A} 
@@ -65,18 +65,17 @@
 	\UCpaso Persiste la información en sistema. 
 
 	% Paso 10. 
-	\UCpaso Envía una notificación al alumno / profesor con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG20}{Cita cancelada}.
+	\UCpaso Envía una notificación al alumno / profesor con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG21}{Cita agendada cancelada}.
 
 	% Paso 11.
 	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación actualizada.
 	
-
 \end{UCtrayectoria}
 
 \begin{UCtrayectoriaA}{A}{Cuando el actor no desea cancelar la cita agendada.}
 
 	% A1. 
-	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG7}{Eliminar elemento}.
+	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG19}{Cancelar cita}.
 
 	% A2.
 	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} y \textbf{termina el caso de uso.}

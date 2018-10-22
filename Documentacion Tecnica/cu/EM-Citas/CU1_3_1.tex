@@ -1,0 +1,67 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+%\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
+\begin{UseCase}{EM-Citas-CU1.3.1}{Eliminar citas Pasadas.}
+	{
+	\noindent
+	Este caso de uso permite al actor eliminar de su histórico una cita que previamente se realizó, es decir, una cita pasada, pues considera que no es útil ya continuar almacenando el registro de la misma. 
+	\newline
+	Es importante mencionar que, para que una cita se considere ''pasada'' es porque fue solicitada por un alumno para llevarse a cabo en ciertas condiciones y aceptada por el profesor a quien se solicitó la misma, además de haber transcurrido ya. De ser eliminada una de estas citas, su información se pierde y no se puede recuperar. Sin embargo, ésto solo se ve reflejado en la copia de la cita e información asociada que el actor elimina, conservando una copia más en el perfil del otro agente que participó en la cita.
+	\newline
+	}
+	\UCitem{Versión}{0.1}
+	\UCitem{Actor}{Alumno, Profesor.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita eliminar de su cuenta el registro de una cita pasada.}
+	\UCitem{Entradas}{Ninguna.}
+	\UCitem{Origen}{No aplica.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}.
+			\item \MSGref{MSG2}{Operación Fallida}.
+			\item \MSGref{MSG7}{Eliminar elemento}.
+		\end{itemize}
+	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{Persiste la información en el sistema.}
+	\UCitem{Errores}{
+		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+			\item \label{EM-Cita-CU1-3-1-E1} Cuando no es posible eliminar la oferta pasada, pues la operación falló, muestra el mensaje \MSGref{MSG2}{Operación Fallida} y \textbf{termina el caso de uso.}
+		\end{enumerate}
+	}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-Citas-CU1.3}.}
+	\UCitem{Observaciones}{}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
+\end{UseCase}
+
+\begin{UCtrayectoria}{Principal}
+
+	% Paso 1.
+	\UCpaso [\UCactor] Solicita eliminar del registro una cita pasada, presionando en el icono \UCicono{eliminar} de alguna de las citas de la pantalla \IUref{EM-Citas-UI1-3}{Consultar citas pasadas}.
+
+	% Paso 2.
+	\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento}, solicitando la confirmación para eliminar la cita pasada. 
+
+	% Paso 3. 
+	\UCpaso Presiona el botón \IUbutton{Aceptar} del mensaje anterior. \Trayref{A} 
+ 
+	% Paso 4. 
+	\UCpaso Elimina del registro del actor la copia de la cita seleccionada y su información asociada. 
+
+	% Paso 5.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-3}{Consultar citas pasadas} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación de las citas pasadas actualizada. [Error: \ref{EM-Cita-CU1-3-1-E1}.]
+	
+
+\end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor no desea eliminar la cita pasada.}
+
+	% A1. 
+	\UCpaso Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG7}{Eliminar elemento}.
+
+	% A2.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-3}{Consultar citas pasadas} y \textbf{termina el caso de uso.}
+
+\end{UCtrayectoriaA}

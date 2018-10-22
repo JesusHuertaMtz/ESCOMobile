@@ -194,21 +194,71 @@
 \end{mensaje}
 
 %===========================  MSG19 ==================================
-\begin{mensaje}{MSG19}{Cancelar cita agendada}{Error}
+\begin{mensaje}{MSG19}{Cancelar cita}{Confirmación}
 	\item[Canal:] Sistema.
-    \item[Propósito:] Informar al actor que la cita agendada seleccionada no se puede Cancelar, pues faltan menos de dos horas para que ésta comience. 
-    \item[Redacción:] No es posible cancelar la cita agendada, pues falta menos de dos hora para que ésta comience.
+    \item[Propósito:] Solicitar al actor una confirmación acerca de la cancelación de una cita previamente agendada.
+    \item[Redacción:] ¿Estás seguro de que deseas cancelar la cita?
     \item[Parámetros:] Ninguno.
-    \item[Ejemplo:] No es posible cancelar la cita agendada, pues falta menos de dos hora para que ésta comience.
+    \item[Ejemplo:] ¿Estás seguro de que deseas cancelar la cita?
 	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
 \end{mensaje}
 
 %===========================  MSG20 ==================================
-\begin{mensaje}{MSG20}{Cita cancelada}{Informativo}
+\begin{mensaje}{MSG20}{No se puede cancelar cita}{Error}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Informar al actor que la cita seleccionada no se puede Cancelar, pues faltan menos de dos horas para que ésta comience. 
+    \item[Redacción:] No es posible cancelar la cita, pues falta menos de dos horas para que ésta comience.
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] No es posible cancelar la cita, pues falta menos de dos horas para que ésta comience.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG21 ==================================
+\begin{mensaje}{MSG21}{Cita agendada cancelada}{Informativo}
 	\item[Canal:] Sistema.
     \item[Propósito:] Informar al alumno o profesor que una cita previamente agendada se canceló. 
     \item[Redacción:] Tu cita con $<ACTOR>$ del día $<DIA>$ a las $<HORA>$ hrs, ha sido cancelada. 
     \item[Parámetros:] ACTOR: Profesor o alumno con quien se llevaría a cabo la cita. DIA: Día acordado para realizar la cita. HORA: Hora establecida para la cita.
     \item[Ejemplo:] Tu cita con Hernández Contreras Euler del día 10 NOV 2018 a las 17:00:00 hrs, ha sido cancelada. 
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG22 ==================================
+\begin{mensaje}{MSG22}{Aceptar solicitud de cita}{Confirmación}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Solicitar al actor una confirmación acerca de la aceptación de una solicitud de cita previamente realizada.
+    \item[Redacción:] ¿Estás seguro de que deseas aceptar la solicitud de cita? 
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] ¿Estás seguro de que deseas aceptar esta solicitud solicitud de cita? 
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG23 ==================================
+\begin{mensaje}{MSG23}{No se puede aceptar solicitud de cita}{Informativo}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Informar al actor que la solicitud de cita seleccionada no se puede Aceptar, pues faltan menos de dos horas para que la hora y fecha propuestas para ésta transcurran.. 
+    \item[Redacción:] No es posible aceptar la solicitud de cita, pues faltan menos de dos horas para que la fecha y hora propuestas se cumplan.
+    \item[Parámetros:] Ninguno.
+    \item[Ejemplo:] No es posible aceptar la solicitud de cita, pues faltan menos de dos horas para que la fecha y hora propuestas se cumplan.
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG24 ==================================
+\begin{mensaje}{MSG24}{Solicitud de cita aceptada}{Informativo}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Informar al alumno o profesor que una solicitud de cita previamente realizada se aceptó. 
+    \item[Redacción:] Tu solicitud de cita con $<ACTOR>$ del día $<DIA>$ a las $<HORA>$ hrs, ha sido aceptada. 
+    \item[Parámetros:] ACTOR: Profesor o alumno con quien se llevaría a cabo la cita. DIA: Día acordado para realizar la cita. HORA: Hora establecida para la cita.
+    \item[Ejemplo:] Tu solicitud de cita con Hernández Contreras Euler del día 10 NOV 2018 a las 17:00:00 hrs, ha sido aceptada. 
+	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
+\end{mensaje}
+
+%===========================  MSG25 ==================================
+\begin{mensaje}{MSG25}{Solicitud de cita cancelada}{Informativo}
+	\item[Canal:] Sistema.
+    \item[Propósito:] Informar al alumno o profesor que una solicitud de cita previamente realizada se canceló. 
+    \item[Redacción:] Tu solicitud de cita con $<ACTOR>$ del día $<DIA>$ a las $<HORA>$ hrs, ha sido cancelada. 
+    \item[Parámetros:] ACTOR: Profesor o alumno con quien se llevaría a cabo la cita. DIA: Día acordado para realizar la cita. HORA: Hora establecida para la cita.
+    \item[Ejemplo:] Tu solicitud de cita con Hernández Contreras Euler del día 10 NOV 2018 a las 17:00:00 hrs, ha sido cancelada. 
 	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
 \end{mensaje}
