@@ -199,54 +199,55 @@
 
 \subsubsection{Objetivo}
 	\noindent
-	Mostrar los campos: Profesor a agendar, fecha, hora, tipo de cita y
-	motivo de la cita, para que el actor pueda generar una solicitud de cita con un profesor.
+	Permitir al actir solicitar agendar una nueva cita con un profesor de ESCOM, pues requiere del apoyo de éste para solventar alguna situación académica surgida durante el curso, como lo puede ser dudas de algún tema, asesorías extra clase, tutorías escolares, presentaciones de proyectos, revisiones de los mismos, entregas de TT, entre otros.
 
 \subsubsection{Diseño}
 	\noindent
-	Se mostrarán los campos: nombre del profesor, fecha, hora, tipo de cita, salón, agregar recordatorio y
-	motivo de la cita.
-	 Al presionar sobre la etiqueta de fecha de la cita se mostrará un pop up con un
-	calendario mostrando la fecha actual. Al presionar sobre la etiqueta de hora se mostrará un
-	pop up que indique la hora actual y pueda seleccionar una hora diferente.
-	Al presionar sobre la etiqueta tipo de cita se mostrará un pop up con una lista de opciones, de las
-	cuales solo podrá seleccionar una. Al presionar sobre la etiqueta Agregar notificación se mostrará
-	un pop up con opciones para programar el recordatorio.
+	La pantalla muestra un formulario con los campos necesarios para solicitar agendar una cita con algún profesor de ESCOM. En cada uno de los campos se despliega una opción para introducir adecuadamente la información. Los campos requeridos y la forma en introducir correctamente la información se muestra a continuación: 
+	\begin{itemize}
+		\item Campo ''Profesor a agendar'': Al seleccionar esta opción se redirige a una pantalla que contiene la lista de los profesores disponibles para agendar citas.
+		\item Campo ''Fecha de la cita'': Al presionar sobre éste, se muestra un calendario para seleccionar el día en que se desea realizar la cita.
+		\item Campo ''Hora de la cita'': Muestra un reloj en donde se puede elegir el horario preferido para la cita.	
+		\item Campo ''Tipo de cita'': Despliega una lista con las diferentes opciones disponibles (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro) para elegir solamente una. 
+		\item Campo ''Motivo de la cita'': Permite exponer los motivos y/o razones por las cuales se desea llevar a cabo la cita.
+	\end{itemize}
+	Se muestran además una leyenda con instrucciones rápidas para agendar la cita, así como los botones \IUbutton{Aceptar}, \UCicono{arrowL}, y el icono \UCicono{pregunta}.
 
+\pagebreak
 \IUfig[.5]{gui/Maquetas/Citas/EM_Citas_UI2_Agendar_una_Cita}{EM-Cita-UI2}{Agendar una cita}
 
 \subsubsection{Salidas}
-	\begin{itemize}
-		\item Caledario.
-		\item Reloj.
-		\item Pop up con opciones para agregar un recordatorio.
-		\item Pop up con las opciones para seleccionar el tipo de cita.
-		\item Pop up indicando que la operación se realizó con éxito.
-	\end{itemize}
+	\noindent
+	Ninguna.
 
 \subsubsection{Entradas}
-
-\begin{itemize}
-	
-	\item Fecha en la que se propone se lleve a cabo la reunión.
-	\item Propuesta de la hora de inicio de la cita.
-	\item Motivo por el cual se realiza la cita.
-\end{itemize}
+	Se requiere la siguiente información acerca de la cita a agendar:
+	\begin{itemize}
+		\item Nombre del profesor con el cual se desea realizar la cita (seleccionado de una lista).
+		\item Fecha y hora propuestas de realización.
+		\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
+		\item Descripción (motivo) por la cual el alumno solicita la cita.
+	\end{itemize}
 
 \subsubsection{Comandos}
-\begin{itemize}
-	\item \IUbutton{Profesor a agendar}:Muestra la pantalla Seleccionar Profesor para Cita.
-	\item \IUbutton{ \UCicono{reloj} Fecha de la cita }: Muestra el pop up para seleccionar la fecha.
-	\item \IUbutton{ \UCicono{reloj} Hora de la cita }: Muestra el pop up para seleccionar la hora de 
-	la cita.
-	\item \IUbutton{ \UCicono{trian_invert} Tipo de cita }: Muestra un listado de opciones.
-\end{itemize}
+	\begin{itemize}
+		\item Campo ''Profesor a agendar'': Al seleccionar esta opción se redirige a una pantalla que contiene la lista de los profesores disponibles para agendar citas.
+		\item Campo ''Fecha de la cita'': Al presionar sobre éste, se muestra un calendario para seleccionar el día en que se desea realizar la cita.
+		\item Campo ''Hora de la cita'': Muestra un reloj en donde se puede elegir el horario preferido para la cita.	
+		\item Campo ''Tipo de cita'': Despliega una lista con las diferentes opciones disponibles (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro) para elegir solamente una. 
+		\item Campo ''Motivo de la cita'': Permite exponer los motivos y/o razones por las cuales se desea llevar a cabo la cita.	
+		\item Botón \IUbutton{Aceptar}: Para solicitar agendar la cita.
+		\item Icono \UCicono{pregunta}: Para consultar un apartado de ayuda sobre cómo agendar una cita.
+		\item Botón \UCicono{arrowL}: Regresa a la pantalla anterior.
+	\end{itemize}
 
 \subsubsection{Mensajes}
-\begin{Citemize}
-	\item \MSGref{MSG1}{Operación Exitosa}
-	\item \MSGref{MSG12}{Traslape de hora de cita con hora de clase}
-\end{Citemize}
+	\begin{Citemize}
+		\item \MSGref{MSG1}{Operación Exitosa}.
+		\item \MSGref{MSG2}{Operación Fallida}.
+		\item \MSGref{MSG26}{Ayuda sobre agendar citas}.
+		\item \MSGref{MSG27}{Fecha u hora de cita no disponibles}.
+	\end{Citemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

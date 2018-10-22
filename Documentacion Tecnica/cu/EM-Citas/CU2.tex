@@ -3,24 +3,31 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 \begin{UseCase}{EM-Citas-CU2}{Agendar una cita}{
 	\noindent
-	Este caso de uso permite al actor aolicitar agendar una nueva cita con un profesor de ESCOM, pues requiere del apoyo de éste para solventar alguna situación académica surgida durante el curso, como lo puede ser dudas de algún tema, asesorías extra clase, tutorías escolares, presentaciones de proyectos, revisiones de los mismos, entregas de TT, entre otros.
+	Este caso de uso permite al actor solicitar agendar una nueva cita con un profesor de ESCOM, pues requiere del apoyo de éste para solventar alguna situación académica surgida durante el curso, como lo puede ser dudas de algún tema, asesorías extra clase, tutorías escolares, presentaciones de proyectos, revisiones de los mismos, entregas de TT, entre otros.
 	\newline
 	Para el registro de nuevas citas, además del profesor con quien se desea llevar a cabo y de expresar un propósito académico a atender, se deben especificar por el actor el día y la hora en las que él prefiere que se realice la cita, pues es toda esta información importante para que el profesor pueda determinar si la solicitud es aceptada o no.
 	\newline
-	Se debe mencionar que el actor puede solicitar agender más de una cita con los profesores de ESCOM (siempre y cuando éstos últimos se encuentres regitrados en el sistema), y que la desición que los académicos tomen sobre la solicitud no afecta en nada los perfiles de los involucrados, o bien, el hecho de poder solicitar nuevamente citas entre los mismos.
+	Se debe mencionar que el actor puede solicitar agender más de una cita con los profesores de ESCOM (siempre y cuando éstos últimos se encuentres regitrados en el sistema), y que la desición que los académicos tomen sobre la solicitud no afecta en nada los perfiles de los involucrados, o bien, el hecho de poder solicitar nuevamente citas entre los mismos. Finalmente, se tiene que decir que a la hora de solicitar la cita el profesor recibe una notificación informativa al respecto, puediendo consultar además la información propuesta para la cita desde su apartado de citas por confirmar, dicha información será consultada para determinar una desición. 
 	}
 	\UCitem{Versión}{0.1}
-	\UCitem{Actor}{Alumno, Profesor.}
-	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita estar al corrinte con las citas que tiene agendadas por medio de la consulta de éstas.}
-	\UCitem{Entradas}{Ninguna.}
-	\UCitem{Origen}{No aplica.}
-	\UCitem{Salidas}{
-		Se muestra la siguiente información acerca de las citas agendadas:
+	\UCitem{Actor}{Alumno.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita solicitar a un profesor que le brinde ayuda para solventar alguna situación académica, en un día y una hora específicos.}
+	\UCitem{Entradas}{
+		Se requiere la siguiente información acerca de la cita a agendar:
 		\begin{itemize}
-			\item Fecha y hora en las cuales la cita está programada.
+			\item Nombre del profesor con el cual se desea realizar la cita (seleccionado de una lista).
+			\item Fecha y hora propuestas de realización.
 			\item Tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro).
-			\item Nombre del alumno quien solicitó la cita.
 			\item Descripción (motivo) por la cual el alumno solicita la cita.
+		\end{itemize}
+	}
+	\UCitem{Origen}{Pantalla.}
+	\UCitem{Salidas}{
+		\begin{itemize}
+			\item \MSGref{MSG1}{Operación Exitosa}.
+			\item \MSGref{MSG2}{Operación Fallida}.
+			\item \MSGref{MSG26}{Ayuda sobre agendar citas}.
+			\item \MSGref{MSG27}{Fecha u hora de cita no disponibles}.
 		\end{itemize}
 	}
 	\UCitem{Destino}{Pantalla.}
@@ -28,7 +35,9 @@
 	\UCitem{Postcondiciones}{Ninguna.}
 	\UCitem{Errores}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
-			\item \label{EM-Cita-CU1-E1} Cuando no hay citas agendadas para consulta, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termina el caso de uso.}
+			\item \label{EM-Cita-CU2-E1} Cuando no se introdujeron todos los campos solicitados, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso  de la trayectoria principal.}
+
+			\item \label{EM-Cita-CU2-E2} Cuando la fecha o la hora seleccionadas no se encuentran disponibles para agendar una cita, pues se trata de un día festivo, fin de semana, alguna hora fuera de clase o una hora traslapada con el horario del profesor; muestra el mensaje \MSGref{MSG27}{Fecha u hora de cita no disponibles} y \textbf{continúa en el paso  de la trayectoria principal.}
 		\end{enumerate}
 	}
 	\UCitem{Tipo}{Caso de uso primario.}
@@ -41,7 +50,7 @@
 \begin{UCtrayectoria}{Principal}
 
 	% Paso 1.
-	\UCpaso [\UCactor] Solicita consultar sus citas agendadas seleccionando la opción ''Mis citas'' de la pantalla \IUref{EM-ESCOMobile-Hamburger}{} o bien, presionando el botón \IUbutton{Consultar citas} de las pantallas \IUref{EM-Alumno-UI1}{Consultar Perfil del Alumno} o \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}, según sea el caso.
+	\UCpaso [\UCactor] Solicita agendar una nueva cita presionando el botón \IUbutton{ + } de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
 
 	% Paso 2. 
 	\UCpaso Valida que haya citas en estado ''agendada'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-E1}.]
