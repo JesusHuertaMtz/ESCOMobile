@@ -7,7 +7,8 @@
 	\newline
 	Para el registro de nuevas citas, además del profesor con quien se desea llevar a cabo y de expresar un propósito académico a atender, se deben especificar por el actor el día y la hora en las que él prefiere que se realice la cita, pues es toda esta información importante para que el profesor pueda determinar si la solicitud es aceptada o no.
 	\newline
-	Se debe mencionar que el actor puede solicitar agender más de una cita con los profesores de ESCOM (siempre y cuando éstos últimos se encuentres regitrados en el sistema), y que la desición que los académicos tomen sobre la solicitud no afecta en nada los perfiles de los involucrados, o bien, el hecho de poder solicitar nuevamente citas entre los mismos. Finalmente, se tiene que decir que a la hora de solicitar la cita el profesor recibe una notificación informativa al respecto, puediendo consultar además la información propuesta para la cita desde su apartado de citas por confirmar, dicha información será consultada para determinar una desición. 
+	Se debe mencionar que el actor puede solicitar agender más de una cita con los profesores de ESCOM (siempre y cuando éstos últimos se encuentren regitrados en el sistema), y que la desición que los académicos tomen sobre la solicitud no afecta en nada los perfiles de los involucrados, o bien, el hecho de poder solicitar nuevamente citas entre los mismos. Finalmente, se tiene que decir que a la hora de solicitar la cita el profesor recibe una notificación informativa al respecto, puediendo consultar además la información propuesta para la cita desde su apartado de citas por confirmar, dicha información será consultada para determinar una desición. 
+	\newline
 	}
 	\UCitem{Versión}{0.1}
 	\UCitem{Actor}{Alumno.}
@@ -26,18 +27,29 @@
 		\begin{itemize}
 			\item \MSGref{MSG1}{Operación Exitosa}.
 			\item \MSGref{MSG2}{Operación Fallida}.
+			\item \MSGref{MSG5}{Falta dato obligatorio}.
 			\item \MSGref{MSG26}{Ayuda sobre agendar citas}.
 			\item \MSGref{MSG27}{Fecha u hora de cita no disponibles}.
+			\item \MSGref{MSG28}{Tamaño de mensaje superado}
 		\end{itemize}
 	}
 	\UCitem{Destino}{Pantalla.}
 	\UCitem{Precondiciones}{Ninguna.}
-	\UCitem{Postcondiciones}{Ninguna.}
+	\UCitem{Postcondiciones}{
+		\begin{itemize}
+			\item Persiste la información de la solicitud de cita en el sistema.
+			\item Notifica al profesor con quien se desea realizar la cita acerca de la misma.
+		\end{itemize}
+	}
 	\UCitem{Errores}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
-			\item \label{EM-Cita-CU2-E1} Cuando no se introdujeron todos los campos solicitados, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso  de la trayectoria principal.}
+			\item \label{EM-Cita-CU2-E1} Cuando no se introdujeron todos los campos solicitados, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{l_EM_Citas_CU2_formulario} de la trayectoria principal.}
 
-			\item \label{EM-Cita-CU2-E2} Cuando la fecha o la hora seleccionadas no se encuentran disponibles para agendar una cita, pues se trata de un día festivo, fin de semana, alguna hora fuera de clase o una hora traslapada con el horario del profesor; muestra el mensaje \MSGref{MSG27}{Fecha u hora de cita no disponibles} y \textbf{continúa en el paso  de la trayectoria principal.}
+			\item \label{EM-Cita-CU2-E2} Cuando la fecha o la hora seleccionadas no se encuentran disponibles para agendar una cita, pues se trata de un día festivo, fin de semana, alguna hora fuera de clase o una hora traslapada con el horario del profesor; muestra el mensaje \MSGref{MSG27}{Fecha u hora de cita no disponibles} y \textbf{continúa en el paso \ref{l_EM_Citas_CU2_formulario} de la trayectoria principal.}
+
+			\item \label{EM-Cita-CU2-E3} Cuando el tamaño del mensaje introducido en el campo de ''Motivo de la cita'' supera los 240 caracteres; muestra el mensaje \MSGref{MSG28}{Tamaño de mensaje superado} y \textbf{continúa en el paso \ref{l_EM_Citas_CU2_formulario} de la trayectoria principal.}
+
+			\item \label{EM-Cita-CU2-E4} Cuando la solicitud de cita no se pudo llevar a cabo, pues algo en el proceso falló; muestra el mensaje \MSGref{MSG2}{Operación Fallida} y \textbf{termina el caso de uso}.
 		\end{enumerate}
 	}
 	\UCitem{Tipo}{Caso de uso primario.}
@@ -50,27 +62,158 @@
 \begin{UCtrayectoria}{Principal}
 
 	% Paso 1.
-	\UCpaso [\UCactor] Solicita agendar una nueva cita presionando el botón \IUbutton{ + } de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}.
+	\UCpaso [\UCactor] Solicita agendar una nueva cita presionando el botón \IUbutton{ + } de la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas}. \Trayref{A}
 
 	% Paso 2. 
-	\UCpaso Valida que haya citas en estado ''agendada'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-E1}.]
+	\UCpaso Muestra la pantalla \IUref{EM-Cita-UI2}{Agendar una cita} con el formulario requerido para agendar una cita. \label{l_EM_Citas_CU2_formulario}
 
 	% Paso 3. 
-	\UCpaso Obtiene las siguiente información de las citas ''agendadas'' asociadas a la cuenta del actor cuyas fechas y horas aún no transcurren: fecha y hora en las cuales la cita está programada, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicita la cita.
+	\UCpaso [\UCactor] Presiona sobre la opción ''Profesor a agendar'' del formulario. \Trayref{B}
 
 	% Paso 4.
-	\UCpaso Agrupa las citas obtenidas según la fecha programada para la cita.
+	\UCpaso Ejecuta los pasos descritos en el caso de uso \UCref{EM-Citas-2.1}
 
 	% Paso 5.
-	\UCpaso Ordena las citas de cada grupo según la hora en la que se vayan a realizar. 
+	\UCpaso [\UCactor] Presiona sobre la opción ''Fecha de la cita'' del formulario. \label{l_EM_Citas_CU2_fecha} 
 
-	% Paso 5.
-	\UCpaso Ordena los grupos de citas según la fecha para la cual éstas están programadas.
-
-	% Paso 6. 
-	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con las citas agrupadas por fecha y hora de realizción. 
+	% Paso 6.
+	\UCpaso Despliega la ventana emergente ''Fecha de la cita'' sobre la pantalla, que contiene un calendario con los días de lunes a domingo organizados por semanas y éstas por meses. 
 
 	% Paso 7.
-	\UCpaso [\UCactor] Consulta sus citas agendadas. 
+	\UCpaso [\UCactor] Selecciona un mes y uno de los días disponibles mostrados en el calendario, ésta es la propuesta de fecha para realizar la cita.
+
+	% Paso 8.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar} de la ventana emergente ''Fecha de la cita''. \Trayref{C}
+
+	% Paso 9.
+	\UCpaso Muestra la pantalla \IUref{EM-Cita-UI2}{Agendar una cita} con el dato de fecha ya cargado.
+
+	% Paso 10. 
+	\UCpaso [\UCactor] Presiona sobre la opción ''Hora de la cita'' del formulario. \label{l_EM_Citas_CU2_hora}
+
+	% Paso 11.
+	\UCpaso Despliega sobre la pantalla la ventana emergente ''Hora de la cita'', que contiene disponibles para seleccionar las 24 horas del día y los minutos del 0 al 59 contenidos en las mismas.
+
+	% Paso 12.
+	\UCpaso [\UCactor] Selecciona una hora presionando sobre uno de los número (del 00 al 23) mostrados y un minuto (del 0 al 59) contenidos en la hora. Todo en conjunto forma la hora propuesta para la cita.
+
+	% Paso 13. 
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar} de la ventana emergente ''Hora de la cita''. \Trayref{D}
+
+	% Paso 14.
+	\UCpaso Muestra la pantalla \IUref{EM-Cita-UI2}{Agendar una cita} con el dato de hora ya cargado.
+
+	% Paso 15. 
+	\UCpaso [\UCactor] Presiona sobre la opción ''Tipo de cita'' del formulario. \label{l_EM_Citas_CU2_tipoCita} 
+
+	% Paso 16.
+	\UCpaso Despliega en pantalla la ventana emergente ''Tipo de cita'', que contiene diferentes opciones para seleccionar solo una, las opciones mostradas son: Asesoría, Revisión de TT, entrega de tarea, Entrega de proyecto, Revisión de protocolo, Presentar idea de TT, Otro.
+
+	% Paso 17. 
+	\UCpaso [\UCactor] Selecciona una de las opciones de ''tipo de cita'' disponibles, según sea su necesidad ante la cita.
+
+	% Paso 18.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar} de la ventana emergente ''Tipo de cita''. \Trayref{E}
+
+	% Paso 19. 
+	\UCpaso Muestra la pantalla \IUref{EM-Cita-UI2}{Agendar una cita} con el dato de tipo de cita ya cargado.
+
+	% Paso 20. 
+	\UCpaso [\UCactor] Presiona sobre la opción ''Motivo de la cita'' del formulario.
+
+	% Paso 21.
+	\UCpaso [\UCactor] Introduce un texto con el motivo por el cual solicita la cita.
+
+	% Paso 22. 
+	\UCpaso [\UCactor] Solicita agendar la cita presionando el botón \IUbutton{Aceptar} del formulario.
+
+	% Paso 23. 
+	\UCpaso Valida que se hayan introducido todos los campos del formulario. [Error: \ref{EM-Cita-CU2-E1}.]
+
+	% Paso 24. 
+	\UCpaso Valida que no se haya seleccionado como fecha un día sábado, domingo o día festivo oficial, según la regla de negocio \BRref{EM-RN-N014}{Fines de semana y días festivos en las citas}. [Error: \ref{EM-Cita-CU2-E2}.]
+
+	% Paso 25. 
+	\UCpaso Valida que la hora seleccionada sea una hora válida, según la regla de negocio \BRref{EM-RN-N015}{Horarios disponibles en las citas}. [Error: \ref{EM-Cita-CU2-E2}.]
+
+	% Paso 26. 
+	\UCpaso Valida que la hora propuesta para realizar la cita no se traslape con alguna hora en la cual el profesor tiene asignada una clase u otra cita. Según la regla de negocio \BRref{EM-RN-N009}{Horario traslapado en citas}. [Error: \ref{EM-Cita-CU2-E2}.]
+
+	% Paso 27. 
+	\UCpaso Valida que el texto introducido en el campo ''motivo de la cita'' tenga un tamaño menor o igual a 240 caracteres, según la regla de negocio \BRref{EM-RN-N016}{Tamaño máximo de motivo en cita}. [Error: \ref{EM-Cita-CU2-E3}.]
+
+	% Paso 28. 
+	\UCpaso Obtiene el nombre del profesor con quien se propone que se llevará a cabo la cita.
+
+	% Paso 29.
+	\UCpaso Persiste la información de la cita en el sistema y le asigna el estado ''por confirmar''.
+
+	% Paso 30. 
+	\UCpaso Envía una notificación sobre la solicitud de la cita y la información asociada a ésta al profesor a quien se le ha solicitado.
+
+	% Paso 31. 
+	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-Cita-UI2}{Agendar una cita}, confirmando que la cita se solicitó exitosamente. [Error: \ref{EM-Cita-CU2-E4}.]
 
 \end{UCtrayectoria}
+
+\begin{UCtrayectoriaA}{A}{Cuando el actor solicita agendar una cita desde el perfil de algún profesor.}
+
+	% A1. 
+	\UCpaso [\UCactor] Presiona sobre el botón ''Solicitar cita'' de alguno de los profesores registrados en el sistema, como se muestra en la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+
+	% A2.
+	\UCpaso Muestra la pantalla \IUref{EM-Cita-UI2}{Agendar una cita} con el formulario requerido para agendar una cita. Y el campo de ''profesor a agendar'' con el nombre del profesor con quien se solicitó agendar desde su perfil.
+
+	% A3.
+	\UCpaso Continúa en el paso \ref{l_EM_Citas_CU2_fecha} de la trayectoria principal.
+
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{B}{Cuando el actor desea conocer las instrucciones para registrar una cita correctamente.}
+
+	% B1. 
+	\UCpaso Presiona sobre el icono \UCicono{pregunta} de la pantalla \IUref{EM-Cita-UI2}{Agendar una cita}.
+
+	% B2.
+	\UCpaso Desliega en pantalla la ventana emergente ''Para agendar una cita...'', con el mensaje \MSGref{MSG26}{Ayuda sobre agendar citas} que contiene las instrucciones y requisitos necesarios para agendar una cita correctamente.
+
+	% B3.
+	\UCpaso [\UCactor] Consulta la información contenida en la ventana emergente ''Para agendar una cita...''.
+
+	% B4.
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar} de la ventana emergente.
+
+	% B5.
+	\UCpaso Regresa al paso \ref{l_EM_Citas_CU2_formulario} de la trayectoria principal. 
+
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{C}{Cuando desea cancelar el introducir una fecha para la cita al formulario.}
+
+	% C1. 
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} de la ventana emergente ''Fecha de la cita''.
+
+	% C2.
+	\UCpaso Regresa al paso \ref{l_EM_Citas_CU2_fecha} de la trayectoria principal.
+	
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{D}{Cuando desea cancelar el introducir una hora para la cita al formulario.}
+
+	% D1. 
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} de la ventana emergente ''Hora de la cita''. 
+
+	% D2.
+	\UCpaso Regresa al paso \ref{l_EM_Citas_CU2_hora} de la trayectoria principal.
+	
+\end{UCtrayectoriaA}
+
+\begin{UCtrayectoriaA}{E}{Cuando desea cancelar el introducir un tipo de cita en el formulario.}
+
+	% E1. 
+	\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} de la ventana emergente ''Tipo de cita''. 
+
+	% E2.
+	\UCpaso Regresa al paso \ref{l_EM_Citas_CU2_tipoCita} de la trayectoria principal.
+	
+\end{UCtrayectoriaA}

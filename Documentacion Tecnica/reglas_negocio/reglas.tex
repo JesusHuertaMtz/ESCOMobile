@@ -415,7 +415,7 @@
 \end{BussinesRule}
 
 % RNN9. *******************************************************
-\begin{BussinesRule}{EM-RN-N009}{Horario citas}
+\begin{BussinesRule}{EM-RN-N009}{Horario traslapado en citas}
 	\BRitem[Descripción:] Una cita agendada es el convenio por parte del alumno y un profesor para reunirse
 	en una fecha y hora determinados por ambos. Siendo el alumno el que proponga estos datos, tomando
 	en cuenta el horario del profesor. El profesor aceptará o rechazará dicha cita.
@@ -539,6 +539,79 @@
 		\begin{itemize}
 			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: SC_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: SC_{1}.tiempoAgendado \: = \: 12:00:00$, no se permite aceptar la solicitud de cita.
 			\item Sea $S_{1}.fechaActual \: = \: 10 \: SEP \: 2018, \: S_{1}.tiempoActual \: = \: 15:00:00, \: SC_{1}.fechaAgendada \: = \: 10 \: SEP \: 2018, \: SC_{1}.tiempoAgendado \: = \: 14:00:00$, se permite aceptar la solicitud de cita.
+		\end{itemize}
+
+\end{BussinesRule}
+
+% RNN14. *******************************************************
+\begin{BussinesRule}{EM-RN-N014}{Fines de semana y días festivos en las citas}
+	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario seleccionar el día en el cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite agendar citas en los siguientes días de la semana: lunes, martes, miércoles, jueves y viernes; dejando fuera del rango aceptado los fines de semana y los días entre semana que son oficalmente festivos. 
+	\BRitem[Tipo: ] Habilitadora.
+	\BRitem[Nivel: ] Estricta.
+	\BRitem[Sentenia: ] Sea A un alumno, SC una solicitud de cita que A desea realizar, F la fecha en que ésta se propone llevar a cabo y DiasF = \{ $dF_{1}, \: dF{2}, \: dF_{3}, \: ... \: , \: dF_{n}$ \} la lista de todos los días festivos oficiales, entonces:
+	\begin{center}
+		$\forall \: SC \in A \: \mid \: SC.F \: != \: "Sabado" \: and \: SC.F \: != \: "Domingo" \: and \: SC.F \: != \: dF_{1} \: and \: != \: dF_{2} \: and \: != \: dF_{3} \: and \: ... \: and \: != \: dF_{n} \: \Rightarrow$ el día seleccionado es aceptado.
+	\end{center}
+	\BRitem[Ejemplo positivo:] que cumple la regla.
+		Sean $A_{1}$ un alumno que desea agendar una cita, $SC_{1}$ la solicitud de cita realizada por $A_{1}$, $F_{1}$ el día a seleccionar para establecer la fecha de la cita y DiasF = \{01 NOV 18, 02, NOV 18, 19 NOV 18\}, el conjunto de días festivos oficiales, entonces:
+		\begin{itemize}
+			\item Se selecciona $F_{1}$ = 24 OCT 18, el día seleccionado es aceptado.
+			\item Se selecciona $F_{1}$ = 02 NOV 18, el día seleccionado no es aceptado.
+		\end{itemize}
+	\BRitem[Ejemplo negativo:] que no cumple la regla.
+		Sean $A_{2}$ un alumno que desea agendar una cita, $SC_{2}$ la solicitud de cita realizada por $A_{2}$, $F_{2}$ el día a seleccionar para establecer la fecha de la cita y DiasF = \{01 NOV 18, 02, NOV 18, 19 NOV 18\}, el conjunto de días festivos oficiales, entonces:
+		\begin{itemize}
+			\item Se selecciona $F_{2}$ = 24 OCT 18, el día seleccionado no es aceptado.
+			\item Se selecciona $F_{2}$ = 02 NOV 18, el día seleccionado es aceptado.
+		\end{itemize}
+
+\end{BussinesRule}
+
+
+% RNN15. *******************************************************
+\begin{BussinesRule}{EM-RN-N015}{Horarios disponibles en las citas}
+	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario seleccionar la hora en la cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite agendar citas dentro del rango de horario que va desde las 7:00 hrs y las 20:00 hrs del día.  
+	\BRitem[Tipo: ] Habilitadora.
+	\BRitem[Nivel: ] Estricta.
+	\BRitem[Sentenia: ] Sea A un alumno, SC una solicitud de cita que A desea realizar y H la hora en que ésta se propone llevar a cabo, entonces:
+	\begin{center}
+		$\forall \: SC \in A \: \mid \: SC.H \: >= \: 7:00 \: and \: SC.H \: <= \: 20:00 \: \Rightarrow$ la hora seleccionada es aceptada.
+	\end{center}
+	\BRitem[Ejemplo positivo:] que cumple la regla.
+		Sean $A_{1}$ un alumno que desea agendar una cita, $SC_{1}$ la solicitud de cita realizada por $A_{1}$, $H_{1}$ la hora a seleccionar para establecer la cita, entonces:
+		\begin{itemize}
+			\item Se selecciona $H_{1}$ = 9:30, la hora seleccionada es aceptada.
+			\item Se selecciona $H_{1}$ = 1:00, la hora seleccionada no es aceptada.
+		\end{itemize}
+	\BRitem[Ejemplo negativo:] que no cumple la regla.
+		Sean $A_{2}$ un alumno que desea agendar una cita, $SC_{2}$ la solicitud de cita realizada por $A_{2}$, $H_{2}$ la hora a seleccionar para establecer la cita, entonces:
+		\begin{itemize}
+			\item Se selecciona $H_{2}$ = 9:30, la hora seleccionada no es aceptada.
+			\item Se selecciona $H_{2}$ = 1:00, la hora seleccionada es aceptada.
+		\end{itemize}
+
+\end{BussinesRule}
+
+% RNN16. *******************************************************
+\begin{BussinesRule}{EM-RN-N016}{Tamaño máximo de motivo en cita}
+	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario introducir el motivo por el cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite introducir mensajes con un tamaño máximo de 240 caracteres, contanto entre éstos número, letras, caracteres especiales y espacios en blanco.  
+	\BRitem[Tipo: ] Habilitadora.
+	\BRitem[Nivel: ] Estricta.
+	\BRitem[Sentenia: ] Sea A un alumno, SC una solicitud de cita que A desea realizar y M el motivo que expone para llevar a cabo la cita, entonces:
+	\begin{center}
+		$\forall \: SC \in A \: \mid \: SC.M.tamano \: <= \: 240 \: \Rightarrow$ el texto con el motivo es aceptado.
+	\end{center}
+	\BRitem[Ejemplo positivo:] que cumple la regla.
+		Sean $A_{1}$ un alumno que desea agendar una cita, $SC_{1}$ la solicitud de cita realizada por $A_{1}$, $M_{1}$ el motivo que expone para llevar a cabo la cita, entonces:
+		\begin{itemize}
+			\item Se introduce $M_{1}$ con tamaño de 220 caracteres, el texto con el motivo es aceptado.
+			\item Se introduce $M_{1}$ con tamaño de 400 caracteres, el texto con el motivo no es aceptado.
+		\end{itemize}
+	\BRitem[Ejemplo negativo:] que no cumple la regla.
+		Sean $A_{2}$ un alumno que desea agendar una cita, $SC_{1}$ la solicitud de cita realizada por $A_{2}$, $M_{2}$ el motivo que expone para llevar a cabo la cita, entonces:
+		\begin{itemize}
+			\item Se introduce $M_{2}$ con tamaño de 220 caracteres, el texto con el motivo es no aceptado.
+			\item Se introduce $M_{2}$ con tamaño de 400 caracteres, el texto con el motivo es aceptado.
 		\end{itemize}
 
 \end{BussinesRule}
