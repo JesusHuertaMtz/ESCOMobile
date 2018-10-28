@@ -23,52 +23,6 @@
 
 \includepdf[pages=1]{portada/posible_portada}
 
-%Para cambiar entre portadas comentar la linea anterior y descomentar hasta \end{titlepage}
-%\begin{titlepage}
-%
-%\begin{table*}[htb]
-%	\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
-%		$ $ \newline%Para que la sigueinte columna empiece en la parte superior
-%		\includegraphics[width=0.2\textwidth]{images/ipn}\par\raggedright
-%		\hspace{0.5cm}\rule{0.5mm}{500pt}%
-%		\hspace{1cm}\rule{1mm}{500pt}%
-%		\hspace{1cm}\rule{0.5mm}{500pt}%
-%		&
-%	    \vspace{0pt}{\centering\scshape\fontsize{25}{27}\selectfont Instituto Politécnico Nacional\par}
-%	    \hspace{0.48cm}\rule{300pt}{1mm}
-%	    \vspace{3pt}
-%		\hspace{0.48cm}\rule{300pt}{0.5mm}%
-%	    \vspace{1cm}
-%		{\centering\scshape\fontsize{20}{22}\selectfont Escuela Superior de Cómputo\par}
-%		\vspace{1.5cm}
-%		{\centering\scshape\fontsize{18}{20}\selectfont ESCOMobile\par}
-%		\vspace{1.5cm}
-%		{\centering\scshape\fontsize{20}{22}\selectfont \textbf{REPORTE DE TRABAJO TERMINAL}\par}
-%		\vspace{1cm}
-%		{\centering\scshape\fontsize{16}{18}\selectfont COMO REQUISITO PARA OBTENER EL TÍTULO DE\par}
-%		\vspace{10pt}
-%		{\centering\scshape\fontsize{18}{20}\selectfont \textbf{Ingeniero en Sistemas Computacionales}\par}
-%		\vspace{20pt}
-%		{\centering\scshape\fontsize{14}{16}\selectfont PRESENTAN:\par}
-%		{\centering\scshape\fontsize{14}{16}\selectfont \textbf{Fernández Quiñones Isaac}\par}
-%		{\centering\scshape\fontsize{14}{16}\selectfont \textbf{Huerta Martínez Jesús Manuel}\par}
-%		{\centering\scshape\fontsize{14}{16}\selectfont \textbf{Pérez García José David}\par}
-%			
-%		\vspace{30pt}
-%		{\centering\scshape\fontsize{14}{16}\selectfont Directores:\par}
-%		{\centering\scshape\fontsize{14}{16}\selectfont \textbf{M en C. Vélez Ulises}\par}
-%		{\centering\scshape\fontsize{14}{16}\selectfont \textbf{M en C. Luna Benoso Benjamin}\par}
-%		\vfill
-%		%Bottom of the page
-%		\vspace{20pt}
-%		{\centering\scshape\fontsize{14}{16}\selectfont \today \par}\\
-%		%{\large \today\par}\\
-%	\end{tabular}
-%\end{table*}
-%
-%\end{titlepage}
-
-
 %\maketitle
 %\thispagestyle{empty}
 \frontmatter
@@ -201,6 +155,9 @@ Esta sección aborda el modelado de los casos de uso previamente descritos que c
 \cfinput{cu/EM-Citas/CU1_4_1}
 \cfinput{cu/EM-Citas/CU2}
 
+% Módulo de BolsaWeb.
+\cfinput{cu/EM-BolsaWeb/CU1}
+
 % Bolsa de trabajo Web. 
 %\cfinput{cu/EM-BolsaWeb/CU1}
 %\cfinput{cu/EM-BolsaWeb/CU1-1}
@@ -241,7 +198,7 @@ en el mismo orden del cual se descibieron los casos de uso.
 \cfinput{Pantallas/AlumnoProfesor/UI_AlumnoProfesor}
 \cfinput{Pantallas/Profesor/UI_Profesor}
 \cfinput{Pantallas/Citas/UI_Citas}
-%\cfinput{Pantallas/BolsaWeb/UI_WebBolsa}
+\cfinput{Pantallas/BolsaWeb/UI_WebBolsa}
 
 
 

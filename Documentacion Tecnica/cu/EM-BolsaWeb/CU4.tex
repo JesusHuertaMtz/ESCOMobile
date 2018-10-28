@@ -2,11 +2,13 @@
 %-------------------------------------- COMIENZA descripción del caso de uso.
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 \begin{UseCase}{EM-BolsaWeb-CU4}{Gestionar Empresas}{
-		Este caso de uso permite al actor gestionar las empresas de la bolsa de trabajo de ESCOMobile, dando un punto de acceso al registro, edición, consulta y eliminación de las empresas en el sistema, pues son las empresas quienes ofertarán trabajo a los alumnos de la ESCOM interesados en encontrar empleo.
+	\noindent
+	Este caso de uso permite al actor gestionar las empresas registradas en la bolsa de trabajo de ESCOMobile y la información que a éstas se asocia, dando además un punto de acceso al registro, edición, consulta y eliminación de las mismas. Pues son las empresas quienes ofertarán trabajo a los alumnos de la ESCOM interesados en encontrar empleo.
+	\newpage
 	}
 	\UCitem{Versión}{0.1}
-	\UCitem{Actor}{ Encargado de Bolsa de Trabajo.}
-	\UCitem{Propósito}{ Proporcionar al actor acceso al registro, edición, consulta y eliminación de empresas en el sistema.}
+	\UCitem{Actor}{Encargado de Bolsa de Trabajo.}
+	\UCitem{Propósito}{Proporcionar al actor acceso al registro, edición, consulta y eliminación de empresas en el sistema.}
 	\UCitem{Entradas}{
 		Ninguna.
 	}
@@ -39,7 +41,7 @@
 	\UCitem{Errores}{
 		Ninguno. 
 	}
-	\UCitem{Tipo}{ Primario}
+	\UCitem{Tipo}{Primario}
 	\UCitem{Observaciones}{ Es la primera propuesta de este caso de uso, se espera que se revise para implementar las correciones adecuadas.}
 	\UCitem{Autor}{ Huerta Matínez Jesús Manuel.}
 	\UCitem{Revisor}{}
@@ -47,6 +49,7 @@
 \end{UseCase}
 
 \begin{UCtrayectoria}{Principal}
+
 	%Paso 1.
 	\UCpaso [\UCactor] Solicita gestionar las empresas de ESCOMobile Bolsa dando clic en la opción ''Empresas'' de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
 
@@ -74,7 +77,7 @@
 \end{UCtrayectoria}
 
 %Trayectoria Alternativa A.
-\begin{UCtrayectoriaA}{A}{Cuando no hay empresas registradas.}
+\begin{UCtrayectoriaA}{A}{Cuando no hay empresas registradas en el sistema.}
 	%Paso A1.
 	\UCpaso Establece el número de empresas registradas igual a 0. 
 

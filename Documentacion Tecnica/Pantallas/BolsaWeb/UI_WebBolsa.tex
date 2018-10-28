@@ -8,85 +8,88 @@
 %%%%%%%%%%%%%% MODIFICAR UI DEL PROFESOR. ESTO SOLO ES LA PLANTILLA
 
 
-\subsection{EM-WebBolsa-UI Login  }
+\subsection{EM-WebBolsa-UI Login de ESCOMobile Bolsa.}
 
 \subsubsection{Objetivo}
 	\noindent
-	Proporcionar al actor acceso a la página web ESCOMobile, accediendo desde su cuenta de Facebook para realizar diferentes acciones dentro del sistema.
+	Proporcionar al actor acceso a la página web ESCOMobile, para realizar diferentes acciones dentro del sistema gracias a su cuenta de Facebook.
 
 \subsubsection{Diseño}
-		\noindent
-		La pantalla  muestra un mensaje de bienvenida y se le informa al actor que tiene que registrarse con su cuenta de Facebook.
-		Incluye el \IUbutton{inicia sesión con Facebook}
-	
-\IUfig[.5]{gui/Maquetas/BolsaWeb/BolsaWeb_Login.png}{EM-BolsaWeb-UI}{Login Bolsa Web}
+	\noindent
+	La pantalla muestra un mensaje de bienvenida al sistema, informando al actor que debe acceder al mismo por medio de su cuenta de Facebook a través del botón \IUbutton{inicia sesión con Facebook}.
+
+\pagebreak	
+\IUfig[.5]{gui/Maquetas/BolsaWeb/BolsaWeb_Login.png}{EM-BolsaWeb-Login}{ESCOMobile Bolsa.}
 
 \subsubsection{Salidas}
-\begin{itemize}
-			\item Inicio de sesión en facebook
-			\item Acceso a la página principal.
-			\end{itemize}
+	\noindent
+	Ninguna.
 
 \subsubsection{Entradas}
 	\noindent
-	Cuenta de Facebook.
+	Cuenta de Facebook (inicio de sesión a través de Facebook).
 
 \subsubsection{Comandos}
-\begin{itemize}
-		\item Botón \IUbutton{Inicia sesión con Facebook}: Para ingresar al sistema.
+	\begin{itemize}
+		\item Botón \IUbutton{Inicia sesión con Facebook}: Para ingresar al sistema con una cuenta de Facebook.
 	\end{itemize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
 \pagebreak
 
-\subsection{EM-WebBolsa-UI1 Gestionar Ofertas de Trabajo}
+\subsection{EM-BolsaWeb-UI1 Gestionar Ofertas de Trabajo.}
 
 \subsubsection{Objetivo}
 	\noindent
-	Proporcionar al actor acceso a diferentes acciones sobre las ofertas de Trabajo de la ESCOMobile Bolsa, como lo son, registro, edición, consulta, eliminación y publicación de ofertas de trabajo en el sistema. 
+	Proporcionar al actor acceso a la gestión y consulta de las ofertas de trabajo brindadas por las empresas registradas en la bolsa de trabajo de ESCOMobile, así como la información que a éstas se asocian para consulta a los alumnos de ESCOM e interesados en aplicar a alguno de los puestos que se ofertan. 
 
 \subsubsection{Diseño}
 	\noindent
-	La pantalla se muestra en diferentes secciones. En la parte izquierda las opciones para cambiar entre las gestiones de empresas y ofertas de trabajo, en la parte superior el logo de ''ESCOMobile bolsa'', finalmente en el cuerpo de la pantalla se muestran el número de ofertas publicadas, una gráfica con el número de ofertas publicadas de cada mes, un botón para añadir oferta y una tabla que contiene todas las ofertas sin publicar en el sistema, desplegando la siguiente información:
+	La pantalla muestra la información de las ofertas de trabajo organizada en diferentes secciones. En la primera sección, del lado izquierdo, se encuentra la opción para cambiar entre la gestión de empresas y la gestión de ofertas de trabajo, por medio de los botones \IUbutton{Ofertas laborales} y \IUbutton{Empresas}. La segunda sección, central superior, muestra el logo de ESCOMobile Bolsa,  la foto y nombre del actor propietario de la cuenta de Faecbook, el número de ofertas de trabajo publicadas en el sistema y una gráfica de con la información de las ofertas de trabajo registradas a lo largo del semestre escolar. Finalmente, la sección central (del cuerpo), muestran dos botones más que nos dan acceso a las ofertas publicadas y sin publicadas, así como el botón \IUbutton{Añadir oferta laboral} para agregar una nueva oferta y una tabla con la información de las empresas consultadas (según sea el caso). La información mostrada es:
 	\begin{itemize}
-         		\item Número de oferta de trabajo.
-				\item Nombre de la empresa.
-				\item Horario.
-				\item Vacante.
-				\item Sueldo.
-				\item Contacto.
-				\item Fecha Publicación.
-				\end{itemize}	
-	Mostrando además en la tabla diferentes acciones (editar y eliminar) para cada una de las ofertas registradas.
+		\item Número de oferta de trabajo.
+		\item Nombre de la empresa.
+		\item Horario.
+		\item Vacante.
+		\item Sueldo.
+		\item Contacto.
+		\item Fecha Publicación.
+	\end{itemize}	
+	Mostrando además, en la tabla, diferentes acciones (editar y eliminar) para cada una de las ofertas registradas.
 
-\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_IU1_Gestionar_Ofertas_de_Trabajo.png}{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}
+\pagebreak
+\IUfig[.8]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_IU1_Gestionar_Ofertas_de_Trabajo.png}{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}
 
 \subsubsection{Salidas}
 \begin{itemize}
-			\item Número de ofertas de trabajo publicadas.
-			\item Gráfica de línea mostrando el número de ofertas de los últimos 6 meses.
-			\item Tabla que muestra la siguiente información de las ofertas sin publicar
-				\begin{itemize}
-         		\item Número de oferta.
-				\item Nombre de la empresa.
-				\item Horario.
-				\item Vacante.
-				\item Sueldo.
-				\item Contacto.
-				\item Fecha Publicación.
-				\end{itemize}	
-			\end{itemize}
+	\item Número de ofertas de trabajo publicadas.
+	\item Gráfica de línea mostrando el número de ofertas de los últimos 6 meses.
+	\item Tabla que muestra la siguiente información de las ofertas de trabajo:
+	\begin{itemize}
+ 		\item Número de oferta.
+		\item Nombre de la empresa.
+		\item Horario.
+		\item Vacante.
+		\item Sueldo.
+		\item Contacto.
+		\item Fecha Publicación.
+	\end{itemize}	
+\end{itemize}
 
 \subsubsection{Entradas}
 	\noindent
 	Ninguna.
 
 \subsubsection{Comandos}
-\begin{itemize}
+	\begin{itemize}
+		\item Botón \IUbutton{Empresas}: Para gestionar las empresas registradas dentro del sistema.
+		\item Botón \IUbutton{Ofertas sin publicar}: Para consultar las ofertas de trabajo que no han sido publicadas.
+		\item Botón \IUbutton{Ofertas piblicadas}: Para consultar las ofertas de trabajo publicadas.
 		\item Botón \IUbutton{Añadir oferta}: Para registrar una nueva oferta de trabajo en el sistema.  
-		\item Ícono \UCicono{lapiz.png}: Para editar alguna de las empresas registradas.
-		\item Ícono \UCicono{eliminar.png}: Para eliminar alguna de las empresas registradas.
+		\item Icono \UCicono{lapiz.png}: Para editar alguna de las empresas registradas.
+		\item Icono \UCicono{eliminar.png}: Para eliminar alguna de las empresas registradas.
+		\item Botón \IUbutton{Publicar boletín}: Para publicar el boletín de las ofertas de trabajo en la cuenta de facebook asociada.
 	\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
