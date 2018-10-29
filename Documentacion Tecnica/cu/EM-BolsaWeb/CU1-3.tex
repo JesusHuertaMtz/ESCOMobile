@@ -1,142 +1,65 @@
-	% \IUref{IUAdmPS}{Administrar Planta de Selección}
-% \IUref{IUModPS}{Modificar Planta de Selección}
-% \IUref{IUEliPS}{Eliminar Planta de Selección}
-
-
-% Copie este bloque por cada caso de uso:
-%-------------------------------------- COMIENZA descripción del caso de uso.
-
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
-	\begin{UseCase}{CU1.3}{EM-WebBolsa-CU1.3-Consultar ofertas de trabajo }{
-		En este caso de uso el actor podrá visualizar las ofertas de trabajo registradas para los Alumnos de la ESCOM las cuales tendrán un tiempo de vigencia no maximo a 6 meses, estas mismas pueden tener dos estatus: publicadas o sin publicar. Así el actor tendrá un mejor control de las ofertas de trabajo que ha registrado y publicado.}
-		\UCitem{Versión}{0.3}
-		\UCitem{Actor}{Encargado de Bolsa de Trabajo}
-		\UCitem{Propósito}{Visualizar todas las ofertas de trabajo que se han publicado y las que no se han publicado.}
-
-		\UCitem{Entradas}{
-		       Ninguno.
+	\begin{UseCase}{EM-BolsaWeb-CU1.2}{Eliminar oferta de trabajo.}{
+		\noindent
+		Este caso de uso permite al actor eliminar una oferta de trabajo previamente registrada en el sistema, pues fue equivocadamente registrada o ya no se desea contar con la información de la misma. 
+		\newline
+		Es importante mencionar que solo se podrán eliminar aquellas ofertas que se encuentren en estado de ''Sin publicar'' pues una vez publicadas estarán disponibles para consulta desde la app ESCOMobile, imposibilitando así su eliminación. 
+		\newline
 		}
-
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Encargado dpto. de Extensión y servicios educativos de la ESCOM.}
+		\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita eliminar ofertas de trabajo previamente registradas en el sistema.}
+		\UCitem{Entradas}{Ninguno.}
 		\UCitem{Origen}{No aplica.}
 		\UCitem{Salidas}{
-		Ofertas Sin Publicar
-		\begin{itemize}
-         \item Número de oferta..
-		\item Nombre de la empresa.
-		\item Horario.
-		\item Vacante.
-		\item Sueldo.
-		\item Contacto.
-		\item Fecha Publicación.
-		\end{itemize}	
-		
-		Ofertas Publicadas	
-		\begin{itemize}
-		\item Número de oferta..
-		\item Nombre de la empresa.
-		\item Horario.
-		\item Vacante.
-		\item Sueldo.
-		\item Contacto.
-		\item Fecha Publicación.
-		\end{itemize}
+			\begin{itemize}
+				\item \MSGref{MSG1}{Operación Exitosa}.
+				\item \MSGref{MSG7}{Eliminar elemento}.
+			\end{itemize}
 		}
 		\UCitem{Destino}{Pantalla}
-		\UCitem{Precondiciones}{Ninguna. }
-		\UCitem{Postcondiciones}{
-		Ninguna
-		}
-		\UCitem{Errores}{
-		
-		}
-		\UCitem{Tipo}{Caso de uso primario}
-		\UCitem{Observaciones}{	
+		\UCitem{Precondiciones}{
 			\begin{itemize}
-				\item Identar código LATEX.
-				\item NO identar texto en los párrafos del documento.
-				\item Homologar nombre con el resto.  
-				\item Descripción completa:
-
-						1) Escribir un resumen más completo.
-
-						2) Faltas de ortografía en párrafo 1: podra => podrá, aun => aún.
-				\item Atributos importantes.
-
-						1) Escribir algo en los campos ''entradas'' y ''origen'' así sea las palabras ''ninguna'' o ''no aplica''.
-
-						2) ¿No hay salidas en una CONSULTA? Corregir este campo y su correspondiente ''destino''.
-				\item Trayectoria principal: Las trayectorias, principales y alternativas se escriben para que el programados sepa qué camino seguir exactamente para que el sistema funcione correctamente. Tu trayectoria no le dice nada al programador. 
-
-						1) En el paso 1: No puedes decir que ingresa al sistema, pues esta pntalla se obtiene después de eso. 
-
-						2) En el paso 3: Muestra la pantalla X con una tabla que contiene el atributo1, atributo2, atributo3, ... , 
-						atributoN de oferta de trabajo obtenidos en el paso de anterior, con las acciones disponibles. [Redactar bien]
-
-						3) Agregar un paso más: Consulta las ofertas de trabajo obtenidas. [Puedes agregar lo de las acciones como puntos de extensión]
-
-						4) En la trayectoria alternativa, regresaría al paso de ''Consulta las ofertas...'', o bien, hacer una nueva pantalla que muestre que no hay ofertas, linkear a esa y que termine el caso de uso.  
-
-				\item En la descripción de la pantalla WebBolsa-UI3 Vista:
-
-						1) Debes de poner nombre alucivo.
-
-						2) No es el único objetivo de la pantalla. 
-						
-						3) Ya entendí, NO COPIES Y PEGUES. Corrige la descripción de la pantalla.
+				\item Que exista al menos una empresa registrada en el sistema.
+				\item Que exista al menos una oferta de trabajo en estado de ''Sin publicar'' registrada en el sistema.
 			\end{itemize}
-		
-		
- 		}
-		\UCitem{Autores}{Pérez García José David.}
-		\UCitem{Reviso}{Huerta Martínez Jesús Manuel}
+		}
+		\UCitem{Postcondiciones}{Elimina del sistema la información de la oferta de trabajo seleccionada.}
+		\UCitem{Errores}{Ninguno.}
+		\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-BolsaWeb-CU1}.}
+		\UCitem{Observaciones}{}
+		\UCitem{Autores}{Huerta Martínez Jesús Manuel.}
+		\UCitem{Reviso}{Fernández Quiñones Isaac.}
 	\end{UseCase}
-	\newpage
 	
 	\begin{UCtrayectoria}{Principal}
-	\UCpaso[\UCactor] Solicita visualizar las ofertas de trabajo .
-	\UCpaso Verifica que existan ofertas de trabajo registradas.
-	\UCpaso Busca los nombres de las empresas. 
-	\UCpaso Obtiene la lista de ofertas de trabajo registradas.
-	\UCpaso Separa las ofertas de trabajo sin publicar.	\Trayref{A}
-	\UCpaso Genera una descripción textual del horario con base en la regla de negocio. \BRref{EM-RN-S008}.
-	\UCpaso Muestra la pantalla  \IUref {EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} con una tabla de Ofertas sin publicar la cual que tiene los siguiente atributos
-	\begin{itemize}
-	\item No.
-	\item Nombre de la empresa.
-	\item Horario.
-	\item Vacante.
-	\item Sueldo.
-	\item Contacto.
-	\end{itemize}
-	\UCpaso[\UCactor] Consulta las ofertas de trabajo obtenidas. \Trayref{B}
+
+		% Paso 1.
+		\UCpaso[\UCactor] Solicita eliminar una oferta de trabajo en estado ''Sin publicar'' dando clic en el icono \UCicono{eliminar} de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+
+		% Paso 2.
+		\UCpaso Muestra el mensaje \MSGref{MSG7}{Eliminar elemento}, solicitando la confirmación para eliminar la información de la oferta de trabajo.
+
+		% Paso 3. 
+		\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar} del mensaje previamente mostrado.
+
+		% Paso 4.
+		\UCpaso Elimina del sistema la información de la oferta de trabajo seleccionada, esto es: nombre de la Empresa asociada a la oferta, tipo Horario, horario, nombre del puesto, número de vacantes, requisitos, idiomas, perfil, sueldo, prestaciones.
+
+		% Paso 5. 
+		\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}, confirmando la correcta eliminación de la oferta de trabajo.
+
 	\end{UCtrayectoria}
 
-\begin{UCtrayectoriaA}{A}{No hay ofertas registradas.}
-	\UCpaso Muestra en la tabla MSG:Ningún dato disponible en esta tabla
-	\UCpaso Fin caso de uso.
-\end{UCtrayectoriaA}
+	\begin{UCtrayectoriaA}{A}{Cuando el actor no desea eliminar la información de la oferta de trabajo.}
 
-\begin{UCtrayectoriaB}{B}{Consultar ofertas Publicadas.}
-	\UCpaso[\UCactor] Presiona el \IUbutton{Ofertas publicadas}.
-	\UCpaso Verifica que existan ofertas  de trabajo registradas.
-	\UCpaso Busca los nombres de las empresas. 
-	\UCpaso Obtiene la lista de ofertas registradas.
-	\UCpaso Separa las ofertas  de trabajo publicadas.	
-	\UCpaso Muestra en la pantalla  \IUref {EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} una tabla de Ofertas publicadas la cual que tiene los siguiente atributos:
-	\begin{itemize}
-	\item No.
-	\item Nombre de la empresa.
-	\item Horario.
-	\item Vacante.
-	\item Sueldo.
-	\item Contacto.
-	\item Fecha Publicación.
-	\end{itemize}
-	\UCpaso[\UCactor] Consulta las ofertas de trabajo obtenidas.
-	\UCpaso Fin caso de uso.
-\end{UCtrayectoriaB}
+		%Paso A1.
+		\UCpaso [\UCactor] Presiona el botón \IUbutton{Cancelar} del mensaje \MSGref{MSG7}{Eliminar elemento}.
 
+		%Paso A2.
+		\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo} y las ofertas en ésta sin ningún cambio. 
 
+	\end{UCtrayectoriaA}
 	
 %-------------------------------------- TERMINA descripción del caso de uso.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

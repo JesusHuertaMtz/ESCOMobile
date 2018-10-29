@@ -1,84 +1,164 @@
-	% \IUref{IUAdmPS}{Administrar Planta de Selección}
-% \IUref{IUModPS}{Modificar Planta de Selección}
-% \IUref{IUEliPS}{Eliminar Planta de Selección}
-
-
-% Copie este bloque por cada caso de uso:
-%-------------------------------------- COMIENZA descripción del caso de uso.
-
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
-	\begin{UseCase}{CU1.1}{EM-WebBolsa-CU1.1-Añadir Oferta de Trabajo}{
-		En este caso de uso el actor añadirá una oferta de trabajo para los Alumnos de la ESCOM, se le solicitará llenar un formulario para completar el registro de la oferta. Al añadirla aparecerá en la tabla de ofertas sin publicar.}
+	\begin{UseCase}{EM-BolsaWeb-CU1.1}{Añadir Oferta de Trabajo.}{
+		\noindent
+		Este caso de uso permite al actor registrar la información de una nueva oferta de trabajo que una empresa previamente registrada en el sistema ofece para los alumnos de la ESCOM. Dichas ofertas, al ser registradas obtienen el estado de ''sin publicar'', pues aún no son publicadas y dadas a conocer a la comunidad de ESCOM, teniendo además el actor la posibilidad de eliminar o editarlas, en caso de que sean equivocadas o sea necesario realizar un cambio. Una vez publicadas, las ofertas de trabajo tendrán el estado de ''publicadas'', siendo ahora imposibles de eliminar o editar pero disponibles ya para consulta desde la app ESCOMobile. 
+		\newline
+		}
 		\UCitem{Versión}{0.1}
-		\UCitem{Actor}{Encargado de Bolsa de Trabajo}
-		\UCitem{Propósito}{Registrar ofertas de trabajo incluyendo el nombre de la empresa, tipo de horario, horario, vacante,requisitos,idioma, perfil y prestaciones de las oferta de trabajo, para posteriormente publicarla.}
+		\UCitem{Actor}{Encargado dpto. de Extensión y servicios educativos de la ESCOM.}
+		\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita agregar y controlar las ofertas de trabajo que las empresas registradas tienen para los alumnos e interesados de ESCOM.}
 		\UCitem{Entradas}{
-		\begin{itemize}
-		\item Nombre de la Empresa.
-		\item Tipo de Horario.
-		\item Horario.
-		\item Vacante.
-		\item Requisitos.
-		\item Idiomas.
-		\item Perfil.	
-		\item Sueldo.
-		\item Prestaciones.
-		\end{itemize}
+		Se requiere introducir la siguiente información de las ofertas de trabajo a registrar:
+			\begin{itemize}
+				\item Nombre de la Empresa.
+				\item Tipo de Horario.
+				\item Horario.
+				\item Vacante.
+				\item Requisitos.
+				\item Idiomas.
+				\item Perfil.	
+				\item Sueldo.
+				\item Prestaciones.
+			\end{itemize}
 		}
-
-		\UCitem{Origen}{Teclado y Ratón}
-		\UCitem{Salidas}{Ninguna}
-		\UCitem{Destino}{No aplica}
-		\UCitem{Precondiciones}{Existan empresas registradas}
-		\UCitem{Postcondiciones}{
-		Persiste la información de la empresa.
+		\UCitem{Origen}{Teclado y Ratón.}
+		\UCitem{Salidas}{
+			\begin{itemize}
+				\item Nombre de la empresa.
+				\item \MSGref{MSG1}{Operación Exitosa}.
+				\item \MSGref{MSG3}{Elementos No Disponibles}.
+				\item \MSGref{MSG5}{Falta dato obligatorio}.
+				\item \MSGref{MSG11}{Empresa no registrada}.
+				\item \MSGref{MSG30}{Horas equivocadas en una oferta}.
+				\item \MSGref{MSG31}{Sueldo de oferta fuera de rango}.
+			\end{itemize}
 		}
+		\UCitem{Destino}{Pantalla.}
+		\UCitem{Precondiciones}{Que exista al menos una empresa registrada en el sistema.}
+		\UCitem{Postcondiciones}{Persiste la información de la oferta de trabajo.}
 		\UCitem{Errores}{
-		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
-\item \label{EM-WebBolsa-CU1.1-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{termina el caso de uso}
-\item \label{EM-WebBolsa-CU1.1-E2} Cuando la empresa no esta registrada en el sistema. Muestra el mensaje \MSGref{MSG11}{Empresa no registrada} y \textbf{termina el caso de uso}
-			
-		\end{enumerate}	
+			\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+				\item \label{EM-BolsaWeb-CU1-1-E1} Cuando no hay empresas registradas en el sistema, muestra el mensaje \MSGref{MSG3}{Elementos No Disponibles} y \textbf{termino el caso de uso.}.
+
+				\item \label{EM-BolsaWeb-CU1-1-E2} Cuando no se introdujeron todos los campos marcados como obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{l_EM_BolsaWeb_CU1_1_InicioFormulario} de la trayectoria principal}.
+
+				\item \label{EM-BolsaWeb-CU1-1-E3} Cuando la empresa introducida no se encuentra registrada en el sistema, muestra el mensaje \MSGref{MSG11}{Empresa no registrada} y \textbf{continúa en el paso \ref{l_EM_BolsaWeb_CU1_1_InicioFormulario} de la trayectoria principal}.
+
+				\item \label{EM-BolsaWeb-CU1-1-E4} Cuando el horario de entrada en un trabajo es mayor al de salida en el mismo, muestra el mensaje \MSGref{MSG30}{Horas equivocadas en una oferta} y \textbf{continúa en el paso \ref{l_EM_BolsaWeb_CU1_1_InicioFormulario} de la trayectoria principal}.
+
+				\item \label{EM-BolsaWeb-CU1-1-E5} Cuando el sueldo introducido se encuentra fuera del rango aceptado, muestra el mensaje \MSGref{MSG31}{Sueldo de oferta fuera de rango} y \textbf{continúa en el paso \ref{l_EM_BolsaWeb_CU1_1_InicioFormulario} de la trayectoria principal}.
+			\end{enumerate}	
 		}
-		\UCitem{Tipo}{Caso de uso primario}
-		\UCitem{Observaciones}{	
-
-
- 		}
-		\UCitem{Autores}{Pérez García José David.}
-		\UCitem{Reviso}{Huerta Martínez Jesús Manuel}
+		\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-BolsaWeb-CU1}.}
+		\UCitem{Observaciones}{}
+		\UCitem{Autores}{Huerta Martínez Jesús Manuel.}
+		\UCitem{Reviso}{Fernández Quiñones Isaac.}
 	\end{UseCase}
-	\newpage
-	
+
 	\begin{UCtrayectoria}{Principal}
-	\UCpaso[\UCactor] Solicita registrar una nueva oferta de trabajo presionando en el botón \IUbutton{Añadir oferta } de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
-	\UCpaso Muestra la pantalla \IUref{EM-WebBolsa-UI1.1}{Registrar nueva oferta}
-	\UCpaso Obtiene las empresas registradas.
-	\UCpaso [\UCactor] Introduce el nombre de la empresa en el campo el cual utiliza un autocompletar con las empresas registradas.
-	\UCpaso [\UCactor] Selecciona el tipo de Horario: Definido, Medio Tiempo, Tiempo Completo, Sin Definir.
-	\UCpaso [\UCactor] Selecciona los días y/o ingresa el horario según la regla de negocio \BRref{EM-RN-N001}{Calificación Promedio de Profesor.} .
-	\UCpaso [\UCactor] Introduce el número de vacantes.
-	\UCpaso [\UCactor] Introduce los requisitos de la oferta de trabajo.
-	\UCpaso [\UCactor] Introduce  idiomas.
-	\UCpaso [\UCactor] Selecciona tipo de perfil entre Titulado,Pasante y Estudiante.
-	\UCpaso [\UCactor] Selecciona tipo de sueldo, Definido o sin definir.
-	\UCpaso [\UCactor] Selecciona el sueldo .
-	\UCpaso [\UCactor] Introduce las prestaciones.
-	\UCpaso [\UCactor] Solicita registrar una nueva oferta de trabajo presionando el botón \IUbutton{Registrar Oferta} de la pantalla \IUref{EM-WebBolsa-UI4}{Registrar nueva Empresa}. \Trayref{A} 
-	\UCpaso Verifica que los campos introducidos no estén vacios según la regla de negocio \BRref{EM-RN-S002}{campos obligatorios}. [Error \ref{EM-WebBolsa-CU1.1-E1}] 
-	\UCpaso Verifica el nombre de la empresa introducido segun la regla de negocio \BRref{EM-RN-S009}{Empresa Registrada.} . [Error \ref{EM-WebBolsa-CU1.1-E2}] 
-	\UCpaso Obtiene los datos de la oferta de trabajo introducidos en el formulario. 
-	\UCpaso Persiste la información en el sistema.
-	\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla ESCOMobile Bolsa.  
-	
-	
+
+		% Paso 1.
+		\UCpaso [\UCactor] Solicita registrar una nueva oferta de trabajo presionando en el botón \IUbutton{Añadir oferta} de la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
+
+		% Paso 2.
+		\UCpaso Obtiene el nombre de todas las empresas registradas en el sistema. [Error: \ref{EM-BolsaWeb-CU1-1-E1}.]
+
+		% Paso 3. 
+		\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-IU1.1}{Registrar nueva oferta} con el formulario requerido para realizar el registro de la oferta de trabajo.
+
+		% Paso 4. 
+		\UCpaso [\UCactor] Introduce el nombre de la empresa en el campo del mismo nombre, el cual utiliza autocompletado con los nombres de las empresas previamente obtenidos. \label{l_EM_BolsaWeb_CU1_1_InicioFormulario}
+
+		% Paso 5.
+		\UCpaso [\UCactor] Selecciona ''Tiempo completo'' o ''Medio tiempo'' como el tipo de Horario. \Trayref{A}  
+
+		% Paso 6.
+		\UCpaso [\UCactor] Selecciona la opción ''definido'' dentro de las opciones disponibles. \Trayref{B} 
+
+		% Paso 7.
+		\UCpaso [\UCactor] Selecciona los días de la semana en las que desea aaplicar el horario.
+
+		% Paso 8.
+		\UCpaso [\UCactor] Introduce la hora inicio y la hora de fin en los campos ''De'' y ''A'', respectivamente. 
+
+		% Paso 9. 
+		\UCpaso [\UCactor] Introduce el nombre del puesto en el campo del mismo nombre. \label{l_EM_BolsaWeb_CU1_1_NombrePuesto}
+
+		% Paso 10. 
+		\UCpaso [\UCactor] Introduce el número de vacantes disponibles por puesto.
+
+		% Paso 11. 
+		\UCpaso [\UCactor] Introduce los requisitos necesarios para aplicar al puesto.
+
+		% Paso 12. 
+		\UCpaso [\UCactor] Selecciona alguna de las opciones (inglés, indistinto, otro) en el campo de idiomas.
+
+		% Paso 13. 
+		\UCpaso [\UCactor] Selecciona alguna de las opciones (estudiante, becario, titulado, pasante) en el campo de perfil.
+
+		% Paso 14. 
+		\UCpaso [\UCactor] Selecciona ''Fijo'' como opción en el campo sueldo. \Trayref{C} \Trayref{D}
+ 
+		% Paso 15. 
+		\UCpaso [\UCactor] Introduce una cantidad entre \$1.00 y \$100000 en el campo sueldo.
+
+		% Paso 16. 
+		\UCpaso [\UCactor] Introduce las prestaciones ofrecidas en el puesto. \label{l_EM_bolsaWeb_CU1_1_Prestaciones}
+ 
+		% Paso 17. 
+		\UCpaso [\UCactor] Solicita registrar la oferta de trabajo presionando el botón \IUbutton{Registrar oferta}.
+
+		% Paso 18.
+		\UCpaso Valida que se hayan introducido todos los campos obligatorios, de acuerdo con la regla de negocio \BRref{EM-RN-S002}{Campos obligatorios}. [Error: \ref{EM-BolsaWeb-CU1-1-E2}.]
+
+		% Paso 19.
+		\UCpaso Valida que el nombre de la empresa introducido se encuentre registrado en el sistema. [Error: \ref{EM-BolsaWeb-CU1-1-E3}.]
+
+		% Paso 20. 
+		\UCpaso Valida que el horario introducido en el capo ''De'' sea menor al introducido en el campo ''A''. [Error: \ref{EM-BolsaWeb-CU1-1-E4}.]
+
+		% Paso 21.
+		\UCpaso Valida que el sueldo introducido sea mayor a o igual \$1 y menor o igual a \$100000, según la regla de negocio \BRref{EM-RN-N017}{Rango de sueldo permitido en una oferta}. [Error: \ref{EM-BolsaWeb-CU1-1-E5}.]
+
+		% Paso 22. 
+		\UCpaso Persiste la información de la oferta de trabajo en el sistema. 
+
+		% Paso 23. 
+		\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}, confirmando el correcto registro de la oferta de trabajo.
+		
 	\end{UCtrayectoria}
 
-\begin{UCtrayectoriaA}{A}{Cuando el actor no desea registrar una oferta.}
-	%Paso A1.
-	\UCpaso [\UCactor] Presiona el botón \IUbutton{cancelar} de la pantalla \IUref{EM-WebBolsa-UI1.1}{Registrar nueva oferta}
+	\begin{UCtrayectoriaA}{A}{Cuando el actor selecciona la opción ''Sin definir'' en el campo de horario.}
 
-	%Paso A2.
-	\UCpaso Muestra la pantalla ESCOMobile Bolsa.  
-\end{UCtrayectoriaA}
+		%Paso A1.
+		\UCpaso Continúa en el paso \ref{l_EM_BolsaWeb_CU1_1_NombrePuesto} de la trayectoria principal.
+
+	\end{UCtrayectoriaA}
+
+	\begin{UCtrayectoriaA}{B}{Cuando el actor selecciona la opción ''Sin definir'' de los radio button.}
+
+		%Paso B1.
+		\UCpaso Continúa en el paso \ref{l_EM_BolsaWeb_CU1_1_NombrePuesto} de la trayectoria principal.
+
+	\end{UCtrayectoriaA}
+
+	\begin{UCtrayectoriaA}{C}{Cuando el actor selecciona la opción ''Rango'' del combo box de sueldo.}
+
+		%Paso C1.
+		\UCpaso [\UCactor] Introduce los sueldos del rango ofrecido para la oferta de trabajo.
+
+		%Paso C2. 
+		\UCpaso Continúa en el paso \ref{l_EM_bolsaWeb_CU1_1_Prestaciones} de la trayectoria principal.
+
+	\end{UCtrayectoriaA}
+
+	\begin{UCtrayectoriaA}{D}{Cuando el actor selecciona algúna de las opciones ''Según aptitudes'', ''Competitivo'' o ''A tratar'' del combo box de sueldo.}
+
+		%Paso C1.
+		\UCpaso [\UCactor] Introduce el sueldo a ofrecer.
+
+		%Paso C2. 
+		\UCpaso Continúa en el paso \ref{l_EM_bolsaWeb_CU1_1_Prestaciones} de la trayectoria principal.
+
+	\end{UCtrayectoriaA}
 %-------------------------------------- TERMINA descripción del caso de uso.

@@ -1,12 +1,14 @@
 % Copie este bloque por cada caso de uso:
 %-------------------------------------- COMIENZA descripción del caso de uso.
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
-\begin{UseCase}{EM-BolsaWeb-CU4.3}{Editar información de la Empresa}{
-		Este caso de uso permite al actor editar la información de una empresa previamente registrada, manteniendo con ello un mayor control de las empresas y ofertas que éstas abren para los alumnos, además de brindar un servicio más seguro a quienes deseen aplicar para una o varias de las ofertas profestas.
+\begin{UseCase}{EM-BolsaWeb-CU4.3}{Editar información de la Empresa.}{
+	\noindent
+	Este caso de uso permite al actor editar la información de una empresa previamente registrada, manteniendo con ello un mayor control de las empresas y ofertas que éstas abren para los alumnos, además de brindar un servicio más seguro a quienes deseen aplicar para una o varias de las ofertas propuestas.
+	\newline
 	}
 	\UCitem{Versión}{0.1}
-	\UCitem{Actor}{ Encargado de Bolsa de Trabajo.}
-	\UCitem{Propósito}{ Proporcionar al actor un mecanismo que le permita tener siempre actualizada la información de las empresas registradas en el sistema.}
+	\UCitem{Actor}{Encargado dpto. de Extensión y servicios educativos de la ESCOM.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita tener siempre actualizada la información de las empresas registradas en el sistema.}
 	\UCitem{Entradas}{
 		Se requieren los siguientes datos para el registro de una empresa:
 		\begin{itemize}
@@ -25,60 +27,58 @@
 			\end{itemize}
 		\end{itemize}
 	}
-	\UCitem{Origen}{
-		Teclado, ratón.
-	}
+	\UCitem{Origen}{Teclado, ratón.}
 	\UCitem{Salidas}{
 		\begin{itemize}
 			\item \MSGref{MSG1}{Operación Exitosa}
 			\item \MSGref{MSG12}{Editar elemento}
 		\end{itemize}
 	}
-	\UCitem{Destino}{
-		Pantalla.
-	}
-	\UCitem{Precondiciones}{
-		Que haya al menos una empresa registrada.
-	}
-	\UCitem{Postcondiciones}{
-		Persiste la información de la empresa.
-	}
+	\UCitem{Destino}{Pantalla.}
+	\UCitem{Precondiciones}{Que haya al menos una empresa registrada en el sistema.}
+	\UCitem{Postcondiciones}{Persiste la información de la empresa.}
 	\UCitem{Errores}{
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]
+
 			%%  E1: Campos obligatorios. 
 			\item \label{EM-BolsaWeb-CU4-3-E1} Cuando no se introducen todos los campos obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{Continúa en el paso \ref{EM-BolsaWeb-CU4-1-DatosObligatorios} de la trayectoria principal}.
+
 			%%  E2: Formato incorrecto. 
 			\item \label{EM-BolsaWeb-CU4-3-E2} Cuando alguno de los campos (RFC, correo electrónico, teléfono) es introducido con un formato diferente al establecido, muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} \textbf{Continúa en el paso \ref{EM-BolsaWeb-CU4-1-DatosObligatorios} de la trayectoria principal}.
+
 			%%  E3: Duplicidad de información. 
 			\item \label{EM-BolsaWeb-CU4-3-E3} Cuando el nombre de la empresa ya se encuentra registrado en el sistema, muestra el mensaje \MSGref{MSG4}{Información duplicada} y \textbf{termina el caso de uso.}
+
 		\end{enumerate}	
 	}
-	\UCitem{Tipo}{Secundario}
-	\UCitem{Observaciones}{	
-	}
+	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-BolsaWeb-CU4}.}
+	\UCitem{Observaciones}{}
 	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
-	\UCitem{Revisor}{}
-	\UCitem{Estatus}{Sin revisión.}
+	\UCitem{Revisor}{Fernández Quiñones Isaac.}
+	\UCitem{Estatus}{Corregido.}
 \end{UseCase}
 
 \begin{UCtrayectoria}{Principal}
 
 	%Paso 1.
-	\UCpaso [\UCactor] Solicita editar la información de una empresa presionando el ícono \UCicono{lapiz.png} de la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}. 
+	\UCpaso [\UCactor] Solicita editar la información de una empresa presionando el ícono \UCicono{lapiz} de la pantalla \IUref{EM-BolsaWeb-UI4}{Gestionar Empresas}.
 
 	%Paso 2.
-	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI4.3}{Editar información de Empresa} con el formulario necesario para editar la información de una empresa. \label{EM-BolsaWeb-CU4-3-DatosObligatorios}
+	\UCpaso	Obtiene los datos de la empresa seleccionada y sus contactos asociados. 
 
 	%Paso 3.
-	\UCpaso [\UCactor] Introduce el nombre y giro de la empresa, opcionalmente introduce RFC e imagen de la empresa. 
+	\UCpaso Muestra la pantalla \IUref{EM-BolsaWeb-UI4.3}{Editar información de Empresa} con el formulario necesario para editar la información de una empresa y los datos obtendos ya cargados en éste. \label{EM-BolsaWeb-CU4-3-DatosObligatorios}
 
 	%Paso 4.
-	\UCpaso [\UCactor] Introduce el nombre del encargado de recursos humanos.
+	\UCpaso [\UCactor] Introduce el nombre y giro de la empresa, opcionalmente introduce RFC e imagen de la empresa. 
 
 	%Paso 5.
-	\UCpaso [\UCactor] Introduce el medio de contacto del encargado de recursos humanos, compuesto por tipo de medio de contacto y el medio propiamente dicho. \label{EM-BolsaWeb-CU4-3-AgregarContacto}
+	\UCpaso [\UCactor] Introduce el nombre del encargado de recursos humanos.
 
 	%Paso 6.
+	\UCpaso [\UCactor] Introduce el medio de contacto del encargado de recursos humanos, compuesto por tipo de medio de contacto y el medio propiamente dicho. \label{EM-BolsaWeb-CU4-3-AgregarContacto}
+
+	%Paso 7.
 	\UCpaso [\UCactor] Solicita editar la información de la empresa presionando el botón \IUbutton{Aceptar} de la pantalla \IUref{EM-BolsaWeb-UI4.3}{Editar información de Empresa}. \Trayref{A} \Trayref{B} 
 
 	%Paso 8.

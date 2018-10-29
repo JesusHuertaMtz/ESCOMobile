@@ -91,35 +91,48 @@
 		\item Icono \UCicono{eliminar.png}: Para eliminar alguna de las empresas registradas.
 		\item Botón \IUbutton{Publicar boletín}: Para publicar el boletín de las ofertas de trabajo en la cuenta de facebook asociada.
 	\end{itemize}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
 	
-\subsection{EM-WebBolsa-UI1.1 Registar nueva oferta}
+\subsection{EM-BolsaWeb-UI1.1 Registar nueva oferta.}
 
 \subsubsection{Objetivo}
 	\noindent
-	El actor podrá registrar una Oferta de trabajo llenando un formulario.
+	Permitir al actor registrar la información de una nueva oferta de trabajo que una empresa previamente registrada en el sistema ofece para los alumnos de la ESCOM. 
 
 \subsubsection{Diseño}
-	Mostrará un formulario el cual contiene los campos necesarios para registrar una nueva oferta de trabajo. 
-	Los campos requeridos sobre la oferta de trabajo son los siguientes: 
+	\noindent
+	La pantalla muestra el formulario con los datos requeridos para realizar el registro de una nueva oferta de trabajo en el sistema.
+	Los campos mostrados son los siguientes: 
 	\begin{itemize}
-		\item Nombre de la Empresa.
-		\item Tipo Horario.
-		\item Horario.
-		\item Nombre del Puesto.
-		\item Número de vacantes.
-		\item Requisitos.
-		\item Idiomas.
-		\item Perfil.
-		\item Sueldo.
-		\item Prestaciones. 
+		\item Caja de texto ''Nombre de la Empresa'': Para intoducir el nombre de la empresa registrada quien oferta el trabajo.
+		\item Compo box ''Tipo Horario'': Para seleccionar entre las diferentes posibilidades de horario (Tiempo completo, Medio tiempo, Sin definir) que las empresas ofrecen.
+		\item Horario: Para definir el horario para el puesto que se oferta.
+		\item Caja de texto ''Nombre del Puesto'': Para permitir establecer un nombre concreto al puesto a ofertar.
+		\item Caja de texto ''Número de vacantes'': Para brindar más información sobre el número de vacantes disponibles con las que se cuenta para el puesto.
+		\item Caja de texto ''Requisitos'': Para establecer los requisitos mínimos solicitados por la empresa para quienes aplican al puesto.
+		\item Combo box ''Idiomas'': Para dar a conocer si es necesario contar con el conocimiento de algún idioma.
+		\item Combo box ''Perfil'': Para especificar el tipo de personas requeridas para el puesto.
+		\item Caja de texto ''Sueldo'': Para dar a conocer el sueldo que se ofrece en el empleo.
+		\item Caja de texto ''Prestaciones'': Para hacer del conocimiento de los interesados las prestaciones con las que el empleo cuenta.
 	\end{itemize}
+	Además, se cuenta con los botones \IUbutton{Registrar oferta} y \IUbutton{\UCicono{tache}} para completar o cancelar el registro de la oferta de trabajo.
 
-\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI1_1_Registrar_Nueva_Oferta.png}{EM-WebBolsa-IU1.1}{Registrar nueva oferta}
+\pagebreak
+\IUfig[.8]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI1_1_Registrar_Nueva_Oferta.png}{EM-BolsaWeb-IU1.1}{Registrar nueva oferta}
 
 \subsubsection{Salidas}
-	Ninguna.
+	\begin{itemize}
+		\item Nombre de la empresa.
+		\item \MSGref{MSG1}{Operación Exitosa}.
+		\item \MSGref{MSG3}{Elementos No Disponibles}.
+		\item \MSGref{MSG5}{Falta dato obligatorio}.
+		\item \MSGref{MSG11}{Empresa no registrada}.
+		\item \MSGref{MSG30}{Horas equivocadas en una oferta}.
+		\item \MSGref{MSG31}{Sueldo de oferta fuera de rango}.
+	\end{itemize}
 
 \subsubsection{Entradas}
 	\begin{itemize}
@@ -136,43 +149,55 @@
 	\end{itemize}
 
 \subsubsection{Comandos}
-\begin{itemize}
-	\item \IUbutton{Registrar Oferta}: Completa el registro.  
-	\item \IUbutton{Cancelar}: Cancela el registro.  
-\end{itemize}
+	\begin{itemize}
+		\item Botón \IUbutton{Registrar Oferta}: para solicitar registrar la oferta de trabajo.  
+		\item Botón \IUbutton{\UCicono{tache}}: para cancelar el registro de la oferta de trabajo.  
+	\end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
-%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	%%%%%%%%%%%	
-\subsection{EM-WebBolsa-U11.2 Modificar oferta}
+
+\subsection{EM-BolsaWeb-UI1.2 Editar oferta de trabajo.}
 
 \subsubsection{Objetivo}
 	\noindent
-	El actor podrá modificar los datos introducidos en el formulario de Añadir oferta, solo se podrán modificar las ofertas aún no publicadas. 
+	Permitir al actor editar la información de una oferta de trabajo previamente registrada en estado de ''Sin publicar'', manteniendo con ello un mayor control de las ofertas que las empresas registradas en el sistema abren para los alumnos, además de brindar un servicio más seguro a quienes deseen aplicar para una o varias de las ofertas propuestas. 
 
 \subsubsection{Diseño}
 	\noindent
-	Mostrará un formulario el cual contiene los campos necesarios para modificar una oferta de trabajo. 
-	Los campos mostrados con los datos sobre la oferta de trabajo son los siguientes: 
+	La pantalla muestra el formulario con los datos requeridos para realizar la actualización de una oferta de trabajo en estado ''Sin publicar'' previamente registrada en el sistema.
+	Los campos mostrados son los siguientes: 
 	\begin{itemize}
-		\item Nombre de la Empresa.
-		\item Tipo Horario.
-		\item Horario.
-		\item Nombre del Puesto.
-		\item Número de vacantes.
-		\item Requisitos.
-		\item Idiomas.
-		\item Perfil.
-		\item Sueldo.
-		\item Prestaciones. 
+		\item Caja de texto ''Nombre de la Empresa'': Para introducir el nombre de la empresa registrada quien oferta el trabajo.
+		\item Compo box ''Tipo Horario'': Para seleccionar entre las diferentes posibilidades de horario (Tiempo completo, Medio tiempo, Sin definir) que las empresas ofrecen.
+		\item Horario: Para definir el horario para el puesto que se oferta.
+		\item Caja de texto ''Nombre del Puesto'': Para permitir establecer un nombre concreto al puesto a ofertar.
+		\item Caja de texto ''Número de vacantes'': Para brindar más información sobre el número de vacantes disponibles con las que se cuenta para el puesto.
+		\item Caja de texto ''Requisitos'': Para establecer los requisitos mínimos solicitados por la empresa para quienes aplican al puesto.
+		\item Combo box ''Idiomas'': Para dar a conocer si es necesario contar con el conocimiento de algún idioma.
+		\item Combo box ''Perfil'': Para especificar el tipo de personas requeridas para el puesto.
+		\item Caja de texto ''Sueldo'': Para dar a conocer el sueldo que se ofrece en el empleo.
+		\item Caja de texto ''Prestaciones'': Para hacer del conocimiento de los interesados las prestaciones con las que el empleo cuenta.
 	\end{itemize}
+	Además, se cuenta con los botones \IUbutton{Editar oferta} y \IUbutton{\UCicono{tache}} para completar o cancelar la actualización de la oferta de trabajo.
 
-\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI1_2_Editar_Oferta_de_Trabajo.png}{EM-WebBolsa-UI1.2}{Modificar oferta}
+\pagebreak
+\IUfig[.8]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI1_2_Editar_Oferta_de_Trabajo.png}{EM-BolsaWeb-UI1.2}{Editar oferta de trabajo}
 
 \subsubsection{Salidas}
-	\noindent
-	Ninguna.
-	
+	\begin{itemize}
+		\item Nombre de la empresa.
+		\item \MSGref{MSG1}{Operación Exitosa}.
+		\item \MSGref{MSG3}{Elementos No Disponibles}.
+		\item \MSGref{MSG5}{Falta dato obligatorio}.
+		\item \MSGref{MSG11}{Empresa no registrada}.
+		\item \MSGref{MSG14}{Editar elemento}.
+		\item \MSGref{MSG30}{Horas equivocadas en una oferta}.
+		\item \MSGref{MSG31}{Sueldo de oferta fuera de rango}.
+	\end{itemize}
+
 \subsubsection{Entradas}
 	\begin{itemize}
 		\item Nombre de la Empresa.
@@ -188,41 +213,43 @@
 	\end{itemize}
 
 \subsubsection{Comandos}
-\begin{itemize}
-	\item \IUbutton{Editar Oferta}: Se modifica la oferta de trabajo.  
-	\item \IUbutton{Cancelar}: Cancelar.  
-\end{itemize}
+	\begin{itemize}
+		\item Botón \IUbutton{Editar Oferta}: para solicitar actualizar la oferta de trabajo.  
+		\item Botón \IUbutton{\UCicono{tache}}: para cancelar la actualización de la oferta de trabajo.  
+	\end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
-\subsection{EM-BolsaWeb-UI3 Publicación de Boletín de Ofertas de Trabajo}
+\subsection{EM-BolsaWeb-UI3 Publicar Boletín de Ofertas de Trabajo.}
 
 \subsubsection{Objetivo}
 	\noindent
-	Proporcionar al actor una imagen con las ofertas de trabajo que desea publicar.
+	Permitir al actor hacer públicas las ofertas de trabajo en estado ''Sin publicar'' que se han registrado previamente en el sistema. 
+
 \subsubsection{Diseño}
 	\noindent
 	La pantalla muestra una vista previa de la imagen de las ofertas de trabajo que serán publicadas en la página de Facebook.
+	Mostrando además los botones \IUbutton{Aceptar} y \IUbutton{\UCicono{tache}}.
 
-	Mostrando además los botones \IUbutton{Aceptar} y \IUbutton{Cancelar}.
-
-\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI3_Publicar_Boletin_Ofertas_de_Trabajo.png}{EM-BolsaWeb-UI3}{Publicar Boletín}
-
+\pagebreak
+\IUfig[.8]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI3_Publicar_Boletin_Ofertas_de_Trabajo.png}{EM-BolsaWeb-UI3}{Publicar Boletín de ofertas de trabajo}
 
 \subsubsection{Salidas}
 	\begin{itemize}
-	\item Publicación de imagen de ofertas de trabajo.
-	\item Actualización de tablas ofertas sin publicar y ofertas publicadas.
+		\item \MSGref{MSG1}{Operación Exitosa}.
+		\item \MSGref{MSG32}{Publicación de boletín Bolsa de Trabajo}
 	\end{itemize}
+
 \subsubsection{Entradas}
 	\begin{itemize}
-	\item Ofertas de trabajo.
+		\item Ofertas de trabajo que se desean publicar en el boletín.
 	\end{itemize}
+
 \subsubsection{Comandos}
  	\begin{itemize}
-		\item Botón \IUbutton{Aceptar}: Para subir la imagen con las ofertas de trabajo.  
-		\item Botón \IUbutton{Cancelar}: Para cancelar publicación de Ofertas.
-
+		\item Botón \IUbutton{Aceptar}: Para publicar el boletín con las ofertas de trabajo seleccionadas.
+		\item Botón \IUbutton{\UCicono{tache}}: Para cancelar publicación del boletín con las ofertas de trabajo seleccionadas.
 	\end{itemize}
 
 
@@ -241,7 +268,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-\subsection{EM-BolsaWeb-UI4 Gestionar Empresas}
+\subsection{EM-BolsaWeb-UI4 Gestionar Empresas.}
 
 \subsubsection{Objetivo}
 	\noindent
@@ -260,7 +287,8 @@
 	\end{itemize}
 	Mostrando además en la tabla diferentes acciones (editar y eliminar) para cada una de las empresas registradas.
 
-\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_IU4_Gestionar_Empresas.png}{EM-BolsaWeb-UI4}{Gestionar Empresas}
+\pagebreak
+\IUfig[.8]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_IU4_Gestionar_Empresas.png}{EM-BolsaWeb-UI4}{Gestionar Empresas}
 
 \subsubsection{Salidas}
 	\begin{itemize}
@@ -291,11 +319,12 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-\subsection{EM-BolsaWeb-UI4.1 Añadir nueva Empresa}
+\subsection{EM-BolsaWeb-UI4.1 Añadir nueva Empresa.}
 
 \subsubsection{Objetivo}
 	\noindent
 	Proporcionar al actor un mecanismo para registrar una nueva empresa que proponga ofertas de trabajo.
+
 \subsubsection{Diseño}
 	\noindent
 	La pantalla muestra un formulario para registrar una nueva empresa en el sistema ESCOMobile Bolsa, dicho formulario contiene los diferentes campos requeridos para realizar el registro de la empresa, estando organizado en dos grandes secciones, la primera para introducir los datos de la empresa propiamente dicha y la segunda para el contacto a quien los interesados podrán dirigirse una vez registrada la empresa y publicadas las ofertas de trabajo, mostrando además en las últimas, los campos que son obligatorios para completar el regitro. Así, se tienen los siguientes campos para el registro de la empresa:
@@ -316,8 +345,8 @@
 	\end{itemize}
 	Mostrando además los botones \IUbutton{Agregar logo}, \IUbutton{+}, \IUbutton{Registrar Empresa} y \IUbutton{Cancelar}.
 
-\IUfig[.5]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI4_1_Anadir_nueva_Empresa.png}{EM-BolsaWeb-UI4.1}{Anadir nueva Empresa}
-
+\pagebreak
+\IUfig[.8]{gui/Maquetas/BolsaWeb/EM_BolsaWeb_UI4_1_Anadir_nueva_Empresa.png}{EM-BolsaWeb-UI4.1}{Anadir nueva Empresa}
 
 \subsubsection{Salidas}
 	\noindent

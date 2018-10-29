@@ -615,3 +615,28 @@
 		\end{itemize}
 
 \end{BussinesRule}
+
+% RNN17. *******************************************************
+\begin{BussinesRule}{EM-RN-N017}{Rango de sueldo permitido en una oferta}
+	\BRitem[Descripción:] Para poder registrar una nueva oferta de trabajo en el sistema, es necesario introducir cierta información para la misma, incluído el sueldo a ofrecer. Dicho dato es obligatorio y su valor debe de estar entre \$1 y \$100000 para ser aceptado.
+	\BRitem[Tipo: ] Habilitadora.
+	\BRitem[Nivel: ] Estricta.
+	\BRitem[Sentenia: ] Sea OF una oferta de trabajo a registrar y S el sueldo a introducir en la misma, entonces:
+	\begin{center}
+		$\forall \: S \in OF \: \mid \: OF.S \: >= \: 1 \: \&\& \: OF.S \: <= \: 100000 \: \Rightarrow$ el sueldo introducido es aceptado.
+	\end{center}
+	\BRitem[Ejemplo positivo:] que cumple la regla.
+		Sean $OF_{1}$ una oferta de trabajo por registrar y $S_{1}$ el sueldo ofrecido dentro de la misma, entonces:
+		\begin{itemize}
+			\item Se introduce $S_{1}$ con valor de 10000, el sueldo introducido es aceptado.
+			\item Se introduce $S_{1}$ con tamaño de 400000, el sueldo introducido no es aceptado.
+		\end{itemize}
+	\BRitem[Ejemplo negativo:] que no cumple la regla.
+		Sean $OF_{2}$ una oferta de trabajo por registrar y $S_{2}$ el sueldo ofrecido dentro de la misma, entonces:
+		\begin{itemize}
+			\item Se introduce $S_{2}$ con valor de 10000, el sueldo introducido no es aceptado.
+			\item Se introduce $S_{2}$ con tamaño de 400000, el sueldo introducido es aceptado.
+		\end{itemize}
+\end{BussinesRule}
+
+
