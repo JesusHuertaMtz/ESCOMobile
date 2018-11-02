@@ -1,0 +1,71 @@
+\section{Trabajo realizado a lo largo de Trabajo Terminal II}
+
+\noindent
+Una vez terminada la presentación de trabajo terminal I, y con las observaciones realizadas por directores y sinodales, se comenzó la planeación de ideas y organización de trabajo para continuar con el proyecto de ESCOMobile a lo largo del entonces comenzado Trabajo Terminal II, pues, aunque no estuviera oficialmente inscrito (sino hasta un par de meses después) el trabajo y el compromiso para con el sistema seguía en pie, y la necesidad de trabajo por el mismo igual.  
+\newline
+Primeramente nos detuvimos a contemplar el resultado de TT1 y ligarlo con las observaciones realizadas durante la presentación del mismo, con ello, hicimos una revisión del protocolo, volvimos a analizar los objetivos, producto a entregar y cronogramas, nos dimos cuenta de que, en efecto, había aspectos importantes que no estaban contemplados o bien no se realizaron adecuadamente. Una vez hecho el análisis realizado decidimos continuar con el trabajo por Sprints, esta vez para TT2, mismos que se detallan a continuación. 
+\newline
+\newline
+\textbf{Primera iteración}: En esta primera iteración se revisa la modularización del sistema, ya que, a petición del uno de lo sinodales, se debía de reconsiderar la forma en que se estaba manejando el módulo de web bolsa. Por lo que se decide revisar de nuevo la planeación, el anális y diseño de lo trabajado en TTI, de donde se realizan unos primeros cambios al módulo de web bolsa. Sin embargo, las consideraciones que se tenían para el antes mencionado eran bastantes, por lo que se rediseña por completo el módulo, dando paso a la eliminación de éste y a la creación de dos nuevos módulos referentes a la bolsa de trabajo: Bolsa web y Alumno bolsa. 
+\newline
+\newline
+Para ello, se realizan investigaciones sobre la bolsa de trabajo y la forma en que las empresas logran ofertar empleos a través de esta última. Se obtiene información de SIBOLTRA, de su estructura, y de la forma que trata a las ofertas laborales. Con la información recabada, nos percatamos que no es el enfoque que la aplicación o la comunidad ESCOM requería, pues, a pesar de ser el origen de ello, no era necesario trabajar desde ese punto de vista, sino obtener la información directamente de la propia ESCOM por medio del departamento de extensión y apoyos educativos, debido a que es el propio encargado del mencionado quien se encarga de realizar el proceso de registro de empresas para ofertar empleos, de recibir las propuestas, de llevar el control de las mismas, de generar boletines con la información obtenida y de publicar el mismo por medio de sus redes sociales (asociadas al departamento). Así bien, se decide acudir con el encargado del departamento antes mencionado, presentarle el proyecto, comentarle de la idea postulada para los módulos de bolsaWeb y alumnoBolsa e invitarle a colaborar en el desarrollo de éstos, teniendo una respuesta entusiasta y positiva al respecto. 
+\newline
+\newline
+Fue así, que comenzamos a tener juntas con José Francisco Serrano García (actual encargado del departamento de extensión y apoyos educativos), con el fin de obtener información detallada acerca de los procesos que éste realiza para hacer llegar la información de las ofertas de trabajo de la bolsa de trabajo a los alumnos y comunidad en general de la ESCOM. Una vez obtenida dicha información, proseguimos con el análisis y el diseño (en maquetado) del módulo de Bolsa web, mismo que se pensó para uso de Francisco, en sustitución de todos los procesos que él realiza para compartir la información de la bolsa de trabajo en ESCOM. Los casos de uso obtenidos para este módulo son 10 y giran en torno al registro, edición, eliminación y consulta de las empresas y ofertas de trabajo en el sistema web que se diseña para cubrir este aspecto. 
+\newline
+Concretamente, para esta iteración, el trabajo realizado fue: 
+\begin{itemize}
+	\item Replanteamiento de la modularización del sistema, obteniendo dos primeros y nuevos módulos centrados en la bolsa de trabajo en ESCOM: bolsaWeb y alumnoBolsa.
+	\item Investigación sobre SIBOLTRA y la bolsa de trabajo en el IPN.
+	\item Investigación sobre procesos realizados en el departamento de extensión y apoyos educativos para los procesos en torno a la bolsa de trabajo.
+	\item Toma de requisitos con encargado del departamento para generar propuestas.
+	\item Identificación de casos de uso para el módulo bolsaWeb.
+	\item Diseño de maquetas sobre el módulo mencionado.
+\end{itemize}
+
+% *************** S E G U N D A   I T E R A C I Ó N. *************** %
+\noindent
+\newline
+\textbf{Segunda iteración}: Para la segunda iteración se presenta la propuesta de pantallas al licenciado Francisco, se obtiene retroalimentación del mismo y se corrigen o añaden a las pantallas los puntos importantes tomados de las observaciones mencionadas. Con ello, se comienza la redacción de los nuevos casos de uso para el módulo de bolsaWeb, con sus respectivas reglas de negocio y mensajes.
+\newline
+\newline
+Por otro lado, de manera casi paralela, se empieza el desarrollo del módulo como página web, para el cual se requirieron tecnologías y herramientas tales como HTML5, CSS, php, MySQL, Java Script, JQuery, JSON, entre otros. Teniendo así la creación del servidor de la app. Es importante mencionar que para el desarrollo del servidor, del cliente (vistas del sistema para Francisco) y demás aspectos relevantes como la base de datos, se debieron conocer la forma en que los servidores de ESCOM podrían alojar a la aplicación, pues, gracias a pláticas con nuestros directores y el director de la ESCOM, licenciado Andrés Ortigoza, se determinó que la app podría ser huésped en la propia ESCOM y sus servidores, así bien, una vez conocida la información de los servidores, la base de datos, entre otros, de la superior de cómputo y cómo es que éstos trabajan, se procede a reestructurar la base de datos de ESCOMobile, adaptándola al nuevo negocio de la bolsa de trabajo, además de hacer pruebas con JSON para el envío de información en el sistema.
+\newline
+Es entonces que se presenta un primer prototipo del sistema web al licenciado Serrano y se recibe, de nueva cuenta, retroalimentación sobre el sistema, la información manejada y la forma en que es compartida. 
+\newline
+El avance concreto obtenido en esta iteración fue: 
+\begin{itemize}
+	\item Realización de correcciones y agregados en el modelado de maquetas para bolsaWeb.
+	\item Investigación sobre posibles formas de realizar y alojar el servidor de ESCOMobile.
+	\item Investigación acerca de los servidores de ESCOM y cómo trabajan.
+	\item Adaptación de la base de datos a los nuevos requerimientos.
+	\item Pruebas con JSON para el envío de información.
+	\item Redacción de reglas de negocio y mensajes para módulo bolsaWeb.
+	\item Redacción de casos de uso del módulo mencionado.
+	\item Desarrollo de servidor de ESCOMobile.
+	\item Realización de página web dedicada a la bolsa de trabajo en ESCOM.
+\end{itemize}
+
+% *************** S E G U N D A   I T E R A C I Ó N. *************** %
+\noindent
+\newline
+\textbf{Tercera iteración}: En este periodo de tiempo se continuó trabajando sobre el sistema web referente al módulo bolsaWeb de ESCOMobile, corrigiendo, primeramente, las observaciones realizadas en las juntas con el encargado del departamento de extensión y apoyos educativos, agregando además detalles sobre el registro de ofertas y empresas, que permiten facilitar el trabajo del encargado del departamento. 
+\newline
+Es aquí cuando se agregan al sistema web nuevos e interesantes aspectos, como el inicio de sesión en el sistema por medio de Facebook, la generación automática de boletines de ofertas de trabajo y la publicación también automática de éstos en Facebook gracias al previo inicio de sesión y su conexión con ESCOMobile.
+\newline
+\newline
+Además, es aquí cuando se comienza con el análisis y diseño del segundo módulo la bolsa de trabajo: alumnoBolsa. Un módulo dedicado a la aplicación móvil, con el cual alumnos y profesores de la ESCOM que utilicen la app, podrán consultar las ofertas de trabajo registradas y publicadas, directamente desde la app en un smartphone. Se realizan pantallas del módulo y se comienza con la redacción de reglas de negocio, mensajes y casos de uso para el mismos.
+\newline
+Con lo anterior, se tenía casi cubierto el aspecto de bolsa de trabajo, solicitado por el profesor Asunción, dando pie al desarrollo de la app ESCOMobile tal cual se tenía planeado. 
+\newline
+Para esta iteración el avance que se obtuvo fue el siguiente:
+\begin{itemize}
+	\item Realización de correcciones y agregados en el modelado de maquetas para bolsaWeb.
+	\item Investigación e implementación sobre inicio de sesión al sistema por medio de Facebook.
+	\item Generación automática de boletines como añadido al sistema. 
+	\item Publicación automática de boletines en Facebook, como segundo añadido.
+	\item Identificación de casos de uso para módulo alumnoBolsa.
+	\item Análisis, diseño y construcción de maquetas para el referido.
+	\item Redacción de reglas de negocio, mensajes y casos de uso para alumnoBolsa.
+\end{itemize}
