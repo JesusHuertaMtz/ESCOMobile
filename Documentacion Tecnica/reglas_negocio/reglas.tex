@@ -3,10 +3,10 @@
 \subsection{Reglas de Negocio del Sistema}
 
 % RNS1. *******************************************************
-\begin{BussinesRule}{EM-RN-S001}{Formato de correo electronico}
-	\BRitem[Descripción:] Para ser almacenado y usuado de manera correcta, el usuario debe de introducir un correo electrónico válido, con un formato definido, dicho formato se explica a continuación. El correo electrónico debe ser una cadena de caracteres con la siguiente estructura ordenada:
+\begin{BussinesRule}{EM-RN-S001}{Formato de correo electrónico}
+	\BRitem[Descripción:] Para ser almacenado y usado de manera correcta, el usuario debe de introducir un correo electrónico válido, con un formato definido, dicho formato se explica a continuación. El correo electrónico debe ser una cadena de caracteres con la siguiente estructura ordenada:
 	1. 1 a 30 caracteres.
-	2. Caracter @
+	2. Carácter @
 	3. Dominio: 'hotmail.com', 'gmail.com', 'outlook.com', 'yahoo.com', 'ipn.mx', 'hotmail.com.mx', 'gmail.com.mx', 'outlook.com.mx', 'yahoo.com.mx'
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
@@ -31,7 +31,7 @@
 % RNS2. *******************************************************
 \begin{BussinesRule}{EM-RN-S002}{Campos obligatorios}
 	\BRitem[Descripción:]Todos los datos pedidos al usuario en el sistema
-	que estén marcado con el símbolo * deben ser obligatoriamente intruducidos en el mismo.
+	que estén marcado con el símbolo * deben ser obligatoriamente introducidos en el mismo.
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
 	\BRitem[Sentencia:] Sea C un campo requerido obligatoriamente en el sistema y V el valor del campo en el sistema, entonces: 
@@ -53,8 +53,8 @@
 % RNS3. *******************************************************
 \begin{BussinesRule}{EM-RN-S003}{Caracteres aceptados por el sistema.} 
 	\BRitem[Descripción:] Los caracteres que se podrán ingresar por medio del teclado están comprendidos en 
-	el rango de dígitos del 0 al 9, letras del alfabeto de $a$ a la $z$ tanto mínusculas como mayúsculas. 
-	También se podrán ingresar vocales, tanto mínusculas y mayúsculas, acentuadas.
+	el rango de dígitos del 0 al 9, letras del alfabeto de $a$ a la $z$ tanto minúsculas como mayúsculas. 
+	También se podrán ingresar vocales, tanto minúsculas y mayúsculas, acentuadas.
 	Además, se aceptarán los siguientes caracteres especiales:
 	!, ", \#, \$, \%, \&, ', (, ), *, +, -, ., /, :, ;, <, =, >, ¿, ¡, ?, @, [, \textbackslash,
 	], \^, \_, \{, \}, |, \~.
@@ -62,11 +62,11 @@
 	\BRitem[Nivel:] Controla.
 	\BRitem[Calse:] Integridad.
 	\BRitem[Sentencia:] 
-	Sea $N$ los dígitos del 0 al 9, $min$ la letras del alfabeto de $a$ a la $z$, $may$ las letras del
-	alfabeto de $A$ a la $Z$ y sea $C$ el conjunto de caracteres especiales , sea 
-	$CA$ = \{$ N, \:min, \:may, \:C $\} y sea $c$ un caracter introducido por medio del teclado, entonces:
+	Sea $N$ los dígitos del 0 al 9, $min$ las letras de $a$ a la $z$, $may$ las letras del
+	alfabeto de $A$ a la $Z$ y sea $C$ el conjunto de caracteres especiales, sea 
+	$CA$ = \{$ N, \:min, \:may, \:C $\} y sea $c$ un carácter introducido por medio del teclado, entonces:
 	\newline
-	$\forall$ $c$  $\in$ $CA$ $\Rightarrow$ $c$ es un caracter aceptado por el sistema.
+	$\forall$ $c$  $\in$ $CA$ $\Rightarrow$ $c$ es un carácter aceptado por el sistema.
 	\BRitem[Ejemplo positivo:] que cumple la regla.
 		\begin{itemize}
 			\item Sea $c_{1}$ w cumple con la regla.
@@ -88,14 +88,14 @@
 \begin{BussinesRule}{EM-RN-S004}{Formato de Contraseña.} 
 	\BRitem[Descripción:] La longitud de la contraseña elegida  por el usuario para ingresar al sistema 
 	debe tener un mínimo de 8 y un máximo de 30 caracteres. 
-	La contraseña debe tener un dígito, una mayúscula, una mínuscula y un caracter especial en su
+	La contraseña debe tener un dígito, una mayúscula, una minúscula y un carácter especial en su
 	formación.
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla.
 	\BRitem[Clase:] Integridad.
-	\BRitem[Sentenia: ] Sea $a$ un entero, sea $b$ una letra mayúscula, sea $c$ una letra mínuscula,
-	sea $d$ un caracter especial, sea $C$ el conjunto de todos los caracteres aceptados 
-	por el sistema, sea $P$ una subconjunto de caracteres introducidos por el usuario y sea 
+	\BRitem[Sentencia : ] Sea $a$ un entero, sea $b$ una letra mayúscula, sea $c$ una letra minúscula,
+	sea $d$ un carácter especial, sea $C$ el conjunto de todos los caracteres aceptados 
+	por el sistema, sea $P$ un subconjunto de caracteres introducidos por el usuario y sea 
 	$N$ la suma de  caracteres que contiene $P$, entonces: \newline
 	Si para toda $P$ que sea $\subseteq$ $C$ y de longitud $8 < N < 30$ existe en $P$ al menos un $a$, $b$, 
 	$c$ y $d$ entonces $P$ es una contraseña aceptada.
@@ -107,7 +107,7 @@
 		\begin{itemize}
 			\item Sea $P_{1}$ == qwerty1Q! es una contraseña aceptada. 
 			\item Sea $P_{2}$ == ALV!9000stemenXD es una contraseña aceptada.
-			\item Sea $P_{3}$ == 4b(d3fgH es una contraseña acpetada.
+			\item Sea $P_{3}$ == 4b(d3fgH es una contraseña aceptada.
 		\end{itemize}
 	\BRitem[Ejemplo negativo:] que no cumple la regla.
 		\begin{itemize}
@@ -127,7 +127,7 @@
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla.
 	\BRitem[Clase:] Integridad.
-	\BRitem[Sentenia: ] Sea $a$ un caracter, sea $W$ una palabra y sea $C$ el conjunto de caracteres
+	\BRitem[Sentencia : ] Sea $a$ un caracter, sea $W$ una palabra y sea $C$ el conjunto de caracteres
 	aceptados por el sistema, entonces:
 	\begin{center}
 		$\forall$ $a$ $\in$ $W$, $W$ $\subseteq$ $C$ $\Rightarrow$ $W$ es una palabra.
@@ -157,7 +157,7 @@
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla.
 	\BRitem[Clase:] Integridad.
-	\BRitem[Sentenia:] Sea $a$ un caracter, sea $W$ una palabra y sea $C$ el conjunto de caracteres
+	\BRitem[Sentencia :] Sea $a$ un caracter, sea $W$ una palabra y sea $C$ el conjunto de caracteres
 	aceptados por el sistema sin incluir dígitos y caracteres especiales, entonces:
 	\begin{center}
 		$\forall$ $a$ $\in$ $W$, $W$ $\subseteq$ $C$ $\Rightarrow$ $W$ es un nombre aceptado para el 
@@ -165,17 +165,17 @@
 	\end{center}
 	\BRitem[Ejemplo positivo:] que cumple la regla.
 		\begin{itemize}
-			\item Sea $W_{1}$ == Pancho cumple la regla
-			\item Sea $W_{2}$ == López cumple la regla
-			\item Sea $W_{3}$ == Bruce Wayne cumple la regla
-			\item Sea $W_{4}$ == Hola Jaime Pérez Pérez cumple la regla
-			\item Sea $W_{5}$ == osms qwerty sdnklsaadsno cumple la regla
+			\item Sea $W_{1}$ == Pancho, cumple la regla
+			\item Sea $W_{2}$ == López, cumple la regla
+			\item Sea $W_{3}$ == Bruce Wayne, cumple la regla
+			\item Sea $W_{4}$ == Hola Jaime Pérez Pérez, cumple la regla
+			\item Sea $W_{5}$ == osms qwerty, cumple la regla
 		\end{itemize}
 	\BRitem[Ejemplo negativo:] que no cumple la regla.
 		\begin{itemize}
-			\item Sea $W_{1}$ == Panch1to no cumple la regla.
-			\item Sea $W_{2}$ == Jaime@gmail.com no cumple la regla.
-			\item Sea $W_{3}$ == 1234 qwerty no cumple la regla.
+			\item Sea $W_{1}$ == Panch1to, no cumple la regla.
+			\item Sea $W_{2}$ == Jaime@gmail.com, no cumple la regla.
+			\item Sea $W_{3}$ == 1234 qwerty, no cumple la regla.
 		\end{itemize}
 \end{BussinesRule}
 
@@ -185,17 +185,17 @@
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla.
 	\BRitem[Clase:] Integridad.
-	\BRitem[Sentenia:] Sea $tabla$ una tabla de la base de datos, $campo$ un atributo de la tabla y $valor$ el valor introducido asociado al campo, entonces:
+	\BRitem[Sentencia:] Sea $tabla$ una tabla de la base de datos, $campo$ un atributo de la tabla y $valor$ el valor introducido asociado al campo, entonces:
 	\begin{center}
 		select count(*) from tabla where campo like valor >= 1, no se permite el registro, pues el valor introducido ya se encuentra registrado.
 	\end{center}
 	\BRitem[Ejemplo positivo:] que cumple la regla.
 		Sean $tabla_{1}$ = Empresa, $campo_{1}$ = nombre y $valor_{1}$ = MCCollect, datos a registrar de una empresa
-		Y se tiene que select count(*) from Empresa where nombre like "MCCollect" = 1, no permite el regitro. 
+		Y se tiene que select count(*) from Empresa where nombre like "MCCollect" = 1, no permite el registro. 
 
 	\BRitem[Ejemplo negativo:] que no cumple la regla.
 		Sean $tabla_{2}$ = Empresa, $campo_{2}$ = nombre y $valor_{2}$ = MCCollect, datos a registrar de una empresa
-		Y se tiene que select count(*) from Empresa where nombre like "MCCollect" = 1, permite el regitro. 
+		Y se tiene que select count(*) from Empresa where nombre like "MCCollect" = 1, permite el registro. 
 \end{BussinesRule}
 
 
@@ -222,7 +222,7 @@
 
 \end{BussinesRule}	
 
-\subsection{Reglas de Negocio del Sistema}
+\subsection{Reglas de Negocio del Negocio}
 
 % RNN1. *******************************************************
 \begin{BussinesRule}{EM-RN-N001}{Empresa Registrada.} 
@@ -230,19 +230,19 @@
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla.
 	\BRitem[Clase:] Integridad.
-	\BRitem[Sentenia: ] Sea E una empresa , entonces:
+	\BRitem[Sentencia: ] Sea E una empresa , entonces:
 	\begin{center}
-		$\forall \: E  \mid E.registrada == true \Rightarrow empresa esta registrada.$
+		$\forall \: E  \mid E.registrada == true \Rightarrow$ empresa está registrada.
 	\end{center}
 	\BRitem[Ejemplo positivo:] que cumple la regla.
 		\begin{itemize}
-			\item Sea $E_{1}$.registrada == true esta registrada.
-			\item Sea $E_{2}$.registrada == true esta registrada
+			\item Sea $E_{1}$.registrada == true está registrada.
+			\item Sea $E_{2}$.registrada == true está registrada
 		\end{itemize}
 	\BRitem[Ejemplo negativo:] que no cumple la regla.
 		\begin{itemize}
-			\item Sea $E_{1}$.registrada == false false no esta registrada. 
-			\item Sea $E_{2}$.registrada == true false no esta registrada.
+			\item Sea $E_{1}$.registrada == false, no está registrada. 
+			\item Sea $E_{2}$.registrada == true, no está registrada.
 		\end{itemize}
 \end{BussinesRule}
 
@@ -252,16 +252,16 @@
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla.
 	\BRitem[Clase:] Integridad.
-	\BRitem[Sentenia: ] Sea $O$ = {$o_{1}$, $o_{2}$, $o_{3}$, ... , $o_{n}$} el conjunto de ofertas de trabajo publicadas en el sistema por un administrador cada una con un identificador único $idOferta_{n}$.
+	\BRitem[Sentencia: ] Sea $O$ = {$o_{1}$, $o_{2}$, $o_{3}$, ... , $o_{n}$} el conjunto de ofertas de trabajo publicadas en el sistema por un administrador cada una con un identificador único $idOferta_{n}$.
 	\begin{center}
 		$\forall O \in O$, $O=$ ($ \sum_{i=O_1} $) .
 	\end{center}
 \end{BussinesRule}
 	
 % RNN3. *******************************************************
-\begin{BussinesRule}{EM-RN-S011}{Horario de una ofreta de trabajo}
+\begin{BussinesRule}{EM-RN-N003}{Horario de una oferta de trabajo}
 	\BRitem[Descripción:] 
-	Una oferta de trabajo puede o no tener un horario definido. En el caso de no ser definido se cuenta con las opciones de Medio Tiempo, Tiempo Completo o Rango. Para los casos, se mostrará la selección de dias y podra introducir el horario de cada dia, los días que no se seleccionen no se tomarán en cuenta y se asignará null. En caso de seleccionar Sin definir no se mostrará ningun submenú.
+	Una oferta de trabajo puede o no tener un horario definido. En el caso de no ser definido se cuenta con las opciones de Medio Tiempo, Tiempo Completo o Rango. Para los casos, se mostrará la selección de días y podrá introducir el horario de cada día, los días que no se seleccionen no se tomarán en cuenta y se asignará null. En caso de seleccionar Sin definir no se mostrará ningún submenú.
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
 	\BRitem[Sentencia: ] Sea $T$  el tipo de horario con un identificador único $TipoHorario$.
@@ -276,7 +276,7 @@
 	\BRitem[Tipo:Habilitadora.] 
 	\BRitem[Nivel: Controla la operación] 
 	\BRitem[Clase:Integridad.] 
-	\BRitem[Sentenia: ] Sea $P$ un profesor, $p$ el promedio del mismo y $C =$ \{ $c_{1},c_{2},c_{3},...,c_{n}$  \} el conjunto de calificaciones registradas por los alumnos, entonces:
+	\BRitem[Sentencia : ] Sea $P$ un profesor, $p$ el promedio del mismo y $C =$ \{ $c_{1},c_{2},c_{3},...,c_{n}$  \} el conjunto de calificaciones registradas por los alumnos, entonces:
 	\begin{center}
 		$\forall p \in P$, $P=$ ($ \sum_{i=c_1}^{n}c_{i} $) / n.
 	\end{center}
@@ -287,7 +287,7 @@
 			\item ($ \sum_{i=c_1}^{n}c_{i} $) / n = 0, no se calculó correctamente el promedio.
 		\end{itemize}
 	\BRitem[Ejemplo negativo:] que no cumple la regla.
-		Sea $P_{2}$ un profesor de la ESCOM y $C_{2} =$ \{ $c_{21},c_{22},c_{23},...,c_{2n}$ el conjunto de calificaciones otorgadas por los alumnos al profesor, que además son iguales a de 0 o el conjuto es inexistente, entonces:
+		Sea $P_{2}$ un profesor de la ESCOM y $C_{2} =$ \{ $c_{21},c_{22},c_{23},...,c_{2n}$ el conjunto de calificaciones otorgadas por los alumnos al profesor, que además son iguales a de 0 o el conjunto es inexistente, entonces:
 		\begin{itemize}
 			\item ($ \sum_{i=c_1}^{n}c_{i} $) / n != 0, no se calculó correctamente el promedio.
 			\item ($ \sum_{i=c_1}^{n}c_{i} $) / n = 0, se calculó correctamente el promedio.
@@ -296,10 +296,10 @@
 
 % RNN5. *******************************************************
 \begin{BussinesRule}{EM-RN-N005}{Boleta o número de empleado}
-	\BRitem[Descripción:]Todas los números de boleta o número de empleado tienen que ser aprobadas con el sistema de información de la escuela, así, se sabría si el número de boleta / número de empleados introducidos pertenecen realmente a algun miembro activo de la comunidad de ESCOM, de donde, se permite o no el acceso al sistema.
+	\BRitem[Descripción:]Todas los números de boleta o número de empleado tienen que ser aprobadas con el sistema de información de la escuela, así, se sabría si el número de boleta / número de empleados introducidos pertenecen realmente a algún miembro activo de la comunidad de ESCOM, de donde, se permite o no el acceso al sistema.
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
-	\BRitem[Sentenia: ] Sea N una boleta o un número de empleado perteneciente a un alumno A o un profesor P que desee registrarse, entonces:
+	\BRitem[Sentencia : ] Sea N una boleta o un número de empleado perteneciente a un alumno A o un profesor P que desee registrarse, entonces:
 	\begin{center}
 		$\forall \: A|P \in  ESCOM \mid A.verificar(N) == true | P.verificar(N) == True \Rightarrow usuario pertenece a ESCOM.$
 	\end{center}
@@ -320,7 +320,7 @@
 
 % RNN6. *******************************************************
 \begin{BussinesRule}{EM-RN-N006}{Eventos Registrados}
-	\BRitem[Descripción:]Un evento de en el sistema permite a los alumnos e invitados consultar las diferentes actividades que se realizarán en la ESCOM, se mostrará un icono y el nombre del evento a realizarse, y el podrá consultar mas información del evento que desee. 
+	\BRitem[Descripción:]Un evento de en el sistema permite a los alumnos e invitados consultar las diferentes actividades que se realizarán en la ESCOM, se mostrará un icono y el nombre del evento a realizarse, y el podrá consultar más información del evento que desee. 
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
 	\BRitem[Sentencia: ] Sea $E$ = {$e_{1}$, $e_{2}$, $e_{3}$, ... , $e_{n}$} el conjunto de eventos registrados en el sistema, cada uno con un identificador $idEvento_{n}$  
@@ -344,7 +344,7 @@
 
 % RNN7. *******************************************************
 \begin{BussinesRule}{EM-RN-N007}{Propuestas de trabajo registradas}
-	\BRitem[Descripción:] Una propuesta de trabajo en el sistema permite a los alumnos consultar diversas oportunidades a las que pueden aplicar laboralmente, por medio de éstas, las empresas ofertan diferentes oportunidades de empleo para informar más fácilmente el perfil de personal y requerimientos que necesitan, así como lo que ofrecen, como sueldo, horas de trabajo, etc. Las información es registrada vía web en el sistema por alguien designado para la tarea específicamente. 
+	\BRitem[Descripción:] Una propuesta de trabajo en el sistema permite a los alumnos consultar diversas oportunidades a las que pueden aplicar laboralmente, por medio de éstas, las empresas ofertan diferentes oportunidades de empleo para informar más fácilmente el perfil de personal y requerimientos que necesitan, así como lo que ofrecen, como sueldo, horas de trabajo, etc. La información es registrada vía web en el sistema por alguien designado para la tarea específicamente. 
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
 	\BRitem[Sentencia: ] Sea $P$ = {$p_{1}$, $p_{2}$, $p_{3}$, ... , $p_{n}$} el conjunto de propuestas registradas en el sistema, cada una con un identificador $idPropuesta_{n}$  
@@ -400,38 +400,23 @@
 \end{BussinesRule}
 
 % RNN9. *******************************************************
-\begin{BussinesRule}{EM-RN-N009}{Gráfica de lineas}
-	\BRitem[Descripción:] 
-	Una oferta de trabajo para los alumnos de ESCOM, tiene cierto período de vigencia, para el administrador es importante obtener datos sobre estas ofertas.
-	Se mostrará una gráfica de lineas con los datos de ofertas de trabajo por meses, se realizará una suma para saber cuantas ofertas por mes se han publicado.
-	
-	\BRitem[Tipo:] Habilitadora.
-	\BRitem[Nivel:] Controla la operación.
-	\BRitem[Sentencia: ] Sea $O$ = {$o_{1}$, $o_{2}$, $o_{3}$, ... , $o_{n}$} el conjunto de ofertas de trabajo por un mes registradas en el sistema por un administrador cada una con un 
-	identificador único $idOferta_{n}$.
-	\begin{center}
-		$\forall O \in O$, $O=$ {($ \sum_{i=O_1} $)} .
-	\end{center}
-\end{BussinesRule}
-
-% RNN9. *******************************************************
 \begin{BussinesRule}{EM-RN-N009}{Horario traslapado en citas}
 	\BRitem[Descripción:] Una cita agendada es el convenio por parte del alumno y un profesor para reunirse
 	en una fecha y hora determinados por ambos. Siendo el alumno el que proponga estos datos, tomando
 	en cuenta el horario del profesor. El profesor aceptará o rechazará dicha cita.
-	El lugar en donde se realizará la cita es en uno de los salones o cubćiculo del profesor de la ESCOM.
+	El lugar en donde se realizará la cita es en uno de los salones o cubículo del profesor de la ESCOM.
 	Una cita permite el encuentro de alumnos con profesores, fuera del salón de clase, para tratar temas
 	académicos relacionados, o no, con lo visto en clase.
 	\BRitem[Tipo:] Habilitadora.
 	\BRitem[Nivel:] Controla la operación.
-	\BRitem[Sentencia: ] Sea $F$ la fecha de la cita , $H$ el horario de la cita propuesta por un alumno , $HO$ el horario del profesor, $HC$ horas de clase del profesor , $C$ = {$c1_{1}$, $c1_{2}$, $c1_{3}$, ... , $c1_{n}$} el conjunto de citas agendadas y $DIH$ los dias inhabiles.
+	\BRitem[Sentencia: ] Sea $F$ la fecha de la cita , $H$ el horario de la cita propuesta por un alumno , $HO$ el horario del profesor, $HC$ horas de clase del profesor , $C$ = {$c1_{1}$, $c1_{2}$, $c1_{3}$, ... , $c1_{n}$} el conjunto de citas agendadas y $DIH$ los días inhabiles.
 	\begin{center}
 		$\forall \: C \mid F \&\& H =! F \&\& H. in C (N) == true \&\& (F|H \in HO \&\& H=! HC \&\& F =! DIH ) fecha y hora validos.$
 
 	\end{center}
 	\BRitem[Ejemplo positivo:] que cumple la regla.
 		Sea $C1$ = {$c1_{1}$, $c1_{2}$, $c1_{3}$, ... , $c1_{n}$} las citas agendadas por un alumno y
-		aceptadas por un profesor y con identificador único $idCita1_{n}$ y  entonces $F$ la fecha de la cita y $H$ el horario de la cita propuesta por un alumno , $HO$ el horario del profesor, $HC$ horas de clase del profesor y $DIH$ los dias inhabiles. :
+		aceptadas por un profesor y con identificador único $idCita1_{n}$ y  entonces $F$ la fecha de la cita y $H$ el horario de la cita propuesta por un alumno , $HO$ el horario del profesor, $HC$ horas de clase del profesor y $DIH$ los días inhábiles. :
 		\begin{itemize}
 			\item  F \&\& H =! F \&\& H. in C (N) == true \&\& (
 		F|H pertenece HO \&\& H=! HC \&\& F =! DIH ) fecha y hora validos
@@ -443,7 +428,7 @@
 	\BRitem[Descripción:] Para poder iniciar sesión el usuario deberá estar registrado en el sistema.
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea U un usuario que desee iniciar sesión, entonces:
+	\BRitem[Sentencia : ] Sea U un usuario que desee iniciar sesión, entonces:
 	\begin{center}
 		$\forall \: U \in  ESCOM \mid U.estadoInscripcion == true \Rightarrow usuario esta inscrito.$
 	\end{center}
@@ -462,14 +447,14 @@
 % RNN11. *******************************************************
 \begin{BussinesRule}{EM-RN-N011}{Formato de fotografía}
 	\BRitem[Descripción:] Para poder subir alguna fotografía en el sistema, ésta debe
-	cumplir con las siguientes caracteristicas: 
+	cumplir con las siguientes características: 
 		\begin{itemize}
 			\item Tener un formato JPG. 
 			\item Tener un tamaño menos o igual a 5Mb.
 		\end{itemize}
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea U un usuario y F una 
+	\BRitem[Sentencia : ] Sea U un usuario y F una 
 	fotografía que desea subir al sistema, entonces:
 	\begin{center}
 		$\forall \: U \in ESCOM \mid F.tamano == 5Mb \&\& (F.formato == PNG || F.formato == png) \Rightarrow$ la fotografía cumple el formato.
@@ -495,10 +480,10 @@
 
 % RNN12. *******************************************************
 \begin{BussinesRule}{EM-RN-N012}{Tiempo máximo para cancelar cita}
-	\BRitem[Descripción:] Para poder cancelar una cita agendada en necesario contar con un límite de tiempo para hacerlo, pues por respeto a los alumnos y profeores y a sus tiempos, se establece que una cita se podrá cancelar máximo dos horas antes de que ésta comience, notificando al otro agente acerca de la cancelación de la misma. Si la cita está a menos de dos hora de realizarce, no puede ser cancelada.
+	\BRitem[Descripción:] Para poder cancelar una cita agendada en necesario contar con un límite de tiempo para hacerlo, pues por respeto a los alumnos y profesores y a sus tiempos, se establece que una cita se podrá cancelar máximo dos horas antes de que ésta comience, notificando al otro agente acerca de la cancelación de la misma. Si la cita está a menos de dos horas de realizarse, no puede ser cancelada.
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea A un alumno, P un profesor, C una cita previamente agendada por A con P y S el servidor de ESCOMobile, entonces:
+	\BRitem[Sentencia : ] Sea A un alumno, P un profesor, C una cita previamente agendada por A con P y S el servidor de ESCOMobile, entonces:
 	\begin{center}
 		$\forall \: A \: \&\& P \in ESCOMobile \mid  S.fechaActaul \: <= \: C.fechaAgendada \: \&\& \: S.tiempoActual \: - \: C.tiempoAgendado \: >= \: 2 \: Horas \: \Rightarrow$ se puede cancelar la cita.
 	\end{center}
@@ -526,7 +511,7 @@
 	\BRitem[Descripción:] Para poder aceptar una solicitud de cita en necesario contar con un límite de tiempo para hacerlo, pues por respeto a los alumnos y a sus tiempos, se establece que una solicitud de cita se podrá aceptar máximo dos horas antes de que la hora y fecha propuestas para la realización de ésta transcurran, notificando al alumno acerca de la aceptación de la misma. Si el tiempo y fecha mencionados están a menos de dos horas de llegar, no puede ser aceptada la solicitud.
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea A un alumno, P un profesor, SC una solicitud de cita previamente realizada por A con P y S el servidor de ESCOMobile, entonces:
+	\BRitem[Sentencia : ] Sea A un alumno, P un profesor, SC una solicitud de cita previamente realizada por A con P y S el servidor de ESCOMobile, entonces:
 	\begin{center}
 		$\forall \: A \: \&\& P \in ESCOMobile \mid  S.fechaActaul \: <= \: SC.fechaAgendada \: \&\& \: S.tiempoActual \: - \: SC.tiempoAgendado \: >= \: 2 \: Horas \: \Rightarrow$ se puede aceptar la solicitud de cita.
 	\end{center}
@@ -545,10 +530,10 @@
 
 % RNN14. *******************************************************
 \begin{BussinesRule}{EM-RN-N014}{Fines de semana y días festivos en las citas}
-	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario seleccionar el día en el cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite agendar citas en los siguientes días de la semana: lunes, martes, miércoles, jueves y viernes; dejando fuera del rango aceptado los fines de semana y los días entre semana que son oficalmente festivos. 
+	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario seleccionar el día en el cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite agendar citas en los siguientes días de la semana: lunes, martes, miércoles, jueves y viernes; dejando fuera del rango aceptado los fines de semana y los días entre semana que son oficialmente festivos. 
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea A un alumno, SC una solicitud de cita que A desea realizar, F la fecha en que ésta se propone llevar a cabo y DiasF = \{ $dF_{1}, \: dF{2}, \: dF_{3}, \: ... \: , \: dF_{n}$ \} la lista de todos los días festivos oficiales, entonces:
+	\BRitem[Sentencia : ] Sea A un alumno, SC una solicitud de cita que A desea realizar, F la fecha en que ésta se propone llevar a cabo y DiasF = \{ $dF_{1}, \: dF{2}, \: dF_{3}, \: ... \: , \: dF_{n}$ \} la lista de todos los días festivos oficiales, entonces:
 	\begin{center}
 		$\forall \: SC \in A \: \mid \: SC.F \: != \: "Sabado" \: and \: SC.F \: != \: "Domingo" \: and \: SC.F \: != \: dF_{1} \: and \: != \: dF_{2} \: and \: != \: dF_{3} \: and \: ... \: and \: != \: dF_{n} \: \Rightarrow$ el día seleccionado es aceptado.
 	\end{center}
@@ -573,7 +558,7 @@
 	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario seleccionar la hora en la cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite agendar citas dentro del rango de horario que va desde las 7:00 hrs y las 20:00 hrs del día.  
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea A un alumno, SC una solicitud de cita que A desea realizar y H la hora en que ésta se propone llevar a cabo, entonces:
+	\BRitem[Sentencia : ] Sea A un alumno, SC una solicitud de cita que A desea realizar y H la hora en que ésta se propone llevar a cabo, entonces:
 	\begin{center}
 		$\forall \: SC \in A \: \mid \: SC.H \: >= \: 7:00 \: and \: SC.H \: <= \: 20:00 \: \Rightarrow$ la hora seleccionada es aceptada.
 	\end{center}
@@ -594,10 +579,10 @@
 
 % RNN16. *******************************************************
 \begin{BussinesRule}{EM-RN-N016}{Tamaño máximo de motivo en cita}
-	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario introducir el motivo por el cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite introducir mensajes con un tamaño máximo de 240 caracteres, contanto entre éstos número, letras, caracteres especiales y espacios en blanco.  
+	\BRitem[Descripción:] Para poder solicitar una cita con un profesor, es necesario introducir el motivo por el cual se desea llevar a cabo la misma. Para ello, es importante saber que solo se permite introducir mensajes con un tamaño máximo de 240 caracteres, contando entre éstos número, letras, caracteres especiales y espacios en blanco.  
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea A un alumno, SC una solicitud de cita que A desea realizar y M el motivo que expone para llevar a cabo la cita, entonces:
+	\BRitem[Sentencia : ] Sea A un alumno, SC una solicitud de cita que A desea realizar y M el motivo que expone para llevar a cabo la cita, entonces:
 	\begin{center}
 		$\forall \: SC \in A \: \mid \: SC.M.tamano \: <= \: 240 \: \Rightarrow$ el texto con el motivo es aceptado.
 	\end{center}
@@ -618,10 +603,10 @@
 
 % RNN17. *******************************************************
 \begin{BussinesRule}{EM-RN-N017}{Rango de sueldo permitido en una oferta}
-	\BRitem[Descripción:] Para poder registrar una nueva oferta de trabajo en el sistema, es necesario introducir cierta información para la misma, incluído el sueldo a ofrecer. Dicho dato es obligatorio y su valor debe de estar entre \$1 y \$100000 para ser aceptado.
+	\BRitem[Descripción:] Para poder registrar una nueva oferta de trabajo en el sistema, es necesario introducir cierta información para la misma, incluido el sueldo a ofrecer. Dicho dato es obligatorio y su valor debe de estar entre \$1 y \$100000 para ser aceptado.
 	\BRitem[Tipo: ] Habilitadora.
 	\BRitem[Nivel: ] Estricta.
-	\BRitem[Sentenia: ] Sea OF una oferta de trabajo a registrar y S el sueldo a introducir en la misma, entonces:
+	\BRitem[Sentencia : ] Sea OF una oferta de trabajo a registrar y S el sueldo a introducir en la misma, entonces:
 	\begin{center}
 		$\forall \: S \in OF \: \mid \: OF.S \: >= \: 1 \: \&\& \: OF.S \: <= \: 100000 \: \Rightarrow$ el sueldo introducido es aceptado.
 	\end{center}
@@ -640,3 +625,17 @@
 \end{BussinesRule}
 
 
+% RNN18. *******************************************************
+\begin{BussinesRule}{EM-RN-N018}{Gráfica de líneas}
+	\BRitem[Descripción:] 
+	Una oferta de trabajo para los alumnos de ESCOM, tiene cierto período de vigencia, para el administrador es importante obtener datos sobre estas ofertas.
+	Se mostrará una gráfica de líneas con los datos de ofertas de trabajo por meses, se realizará una suma para saber cuántas ofertas por mes se han publicado.
+	
+	\BRitem[Tipo:] Habilitadora.
+	\BRitem[Nivel:] Controla la operación.
+	\BRitem[Sentencia: ] Sea $O$ = {$o_{1}$, $o_{2}$, $o_{3}$, ... , $o_{n}$} el conjunto de ofertas de trabajo por un mes registradas en el sistema por un administrador cada una con un 
+	identificador único $idOferta_{n}$.
+	\begin{center}
+		$\forall O \in O$, $O=$ {($ \sum_{i=O_1} $)} .
+	\end{center}
+\end{BussinesRule}
