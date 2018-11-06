@@ -5,13 +5,13 @@
 	\noindent
 	Este caso de uso permite al actor consultar la información de algún
 	profesor de su interés por medio de su perfil, esta información es su
-	nombre, fotografía, académia, así, también sirve de acceso para consultar
+	nombre, fotografía, academia, así, también sirve de acceso para consultar
 	su horario y estadísticas de desempeño docente, calificarlo, ubicarlo en
 	el mapa de ESCOM o solicitarle una cita. Es importante decir que las citas
 	solo se podrán solicitar y llevar a cabo en el caso en el que el profesor
-	consultado esté regitrado en el sistema, pues aunque se cuenta de igual
+	consultado esté registrado en el sistema, pues, aunque se cuenta de igual
 	forma con su información básica, es necesario el registro de éste para
-	lograr la interración con los alumnos por medio de las citas. En el caso
+	lograr la interacción con los alumnos por medio de las citas. En el caso
 	en el cual el profesor no se encuentra registrado, se podrá consultar aún
 	su información antes mencionada (exceptuando las citas y estadísticas). 
 	\newline
@@ -27,7 +27,7 @@
 		\begin{itemize}
 			\item Nombre.
 			\item Academia a la que pertenece
-			\item Cúbiculo.
+			\item Cubículo.
 			\item Calificación promedio.
 			\item Fotografía. 
 		\end{itemize}
@@ -38,7 +38,7 @@
 	\UCitem{Errores}{Ninguno.}
 	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-AlumnoProfesor-CU1}.}
 	\UCitem{Observaciones}{}
-	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
 	\UCitem{Revisor}{Fernández Quiñones Isaac.}
 	\UCitem{Estatus}{Corregido.}
 \end{UseCase}
@@ -55,7 +55,7 @@
 	\UCpaso Obtiene el cubículo del profesor. \Trayref{A}
 
 	% Paso 4.
-	\UCpaso Obtiene nombre, fotografía (en caso de tener), académia y calificación promedio del profesor seleccionado. \label{l_EM_AlumnoProfesor_CU1_1_informacion}
+	\UCpaso Obtiene nombre, fotografía (en caso de tener), academia y calificación promedio del profesor seleccionado. \label{l_EM_AlumnoProfesor_CU1_1_informacion}
 
 	% Paso 5.
 	\UCpaso Muestra la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor} con la información obtenida.
@@ -79,9 +79,9 @@
 \begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asignado.}
 
 	% A1.
-	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuículo en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
+	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cubículo en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
 	% A2.
-	\UCpaso Continua en el paso \ref{l_EM_AlumnoProfesor_CU1_1_informacion} de la trayectoria proncipal.
+	\UCpaso Continua en el paso \ref{l_EM_AlumnoProfesor_CU1_1_informacion} de la trayectoria principal.
 
 \end{UCtrayectoriaA}
 

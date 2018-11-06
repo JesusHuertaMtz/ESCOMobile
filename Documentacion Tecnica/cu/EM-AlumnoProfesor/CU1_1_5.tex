@@ -4,7 +4,7 @@
 \begin{UseCase}{EM-alumnoProfesor-CU1.1.5}{Solicitar Cita con un profesor.}{
 	\noindent
 	Este caso de uso permite al actor solicitar a algún profesor de la ESCOM el agendar una cita con él, pues requiere apoyo para la resolución de algún asunto académico, por ejemplo, dudas de algún tema de clase, asesorías de una materia en particular, revisiones de TT, entrega de proyectos, entre otros.
-	Para solocitar agendar una cita se debe seleccionar al profesor con el cual se desea realizar la cita para, posteriormente ser redireccionado a otra pantalla para establecer los puntos de la misma.
+	Para solicitar agendar una cita se debe seleccionar al profesor con el cual se desea realizar la cita para, posteriormente ser redireccionado a otra pantalla para establecer los puntos de la misma.
 	\newline
 	}
 	\UCitem{Versión}{0.1}
@@ -33,7 +33,7 @@
 		\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]	
 \item \label{EM-alumnoProfesor-CU1-1-5-E1} Cuando no se introducen todos los campos obligatorios, muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{Continúa en el paso \ref{error} de la trayectoria 
 principal}.
-\item \label{EM-alumnoProfesor-CU1-1-5-E2} Cuando la fecha o hora se translapa con cita ya agendada, o con hora de clase del profesor o es dia inhabil, muestra el mensaje \MSGref{MSG12}{Translape o fecha y hora no valida} y \textbf{Continúa en el paso \ref{error} de la trayectoria 
+\item \label{EM-alumnoProfesor-CU1-1-5-E2} Cuando la fecha o hora se traslapa con cita ya agendada, o con hora de clase del profesor o es dáa inhábil, muestra el mensaje \MSGref{MSG12}{Traslape o fecha y hora no valida} y \textbf{Continúa en el paso \ref{error} de la trayectoria 
 principal}.
 
 		\end{enumerate}

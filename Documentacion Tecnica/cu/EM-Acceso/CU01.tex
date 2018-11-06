@@ -9,9 +9,9 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 	\begin{UseCase}{EM-Acceso-CU1}{Registrar nuevo usuario}{
 			\noindent
-			Este caso de uso permite a alumnos y profesores de la ESCOM registrarse en el sistema, para ello importante contar con un número de boleta o número de empleado, respectvamente, pues son éstos los identificadores proporcionados por el propio Instituto Politécnico Nacional que reconocen de manera oficial como alumno o profesor a quienes este rol desempeñan dentro del instituto y sus diferentes escuelas. 
+			Este caso de uso permite a alumnos y profesores de la ESCOM registrarse en el sistema, para ello importante contar con un número de boleta o número de empleado, respectivamente, pues son éstos los identificadores proporcionados por el propio Instituto Politécnico Nacional que reconocen de manera oficial como alumno o profesor a quienes estos roles desempeñan dentro del instituto y sus diferentes escuelas. 
 			\noindent
-			Para lograr el registro es necesario además, elegir una contraseña de acceso, así como seleccionar el tipo de usuario dentro del sistema y aceptar los términos y condiciones dados por el equipo detrás de ESCOMobile, dándonse así un acuerdo con la app y sus políticas.
+			Para lograr el registro es necesario, además, elegir una contraseña de acceso, así como seleccionar el tipo de usuario dentro del sistema y aceptar los términos y condiciones dados por el equipo detrás de ESCOMobile, dándose así un acuerdo con la app y sus políticas.
 			\newline 
 		}
 
@@ -25,7 +25,7 @@
 		        \item Nombre. 	
 		        \item Apellido Paterno.
 		        \item Apellido Materno.
-				\item Correo electronico.
+				\item Correo electrónico.
 				\item Contraseña.
 				\item Repetir Contraseña.
 				\item Tipo de usuario.
@@ -52,7 +52,7 @@
 				
 				\item \label{EM-Acceso-CU01-E2} Cuando el número boleta / número de empleado introducido no se encuentran registrados en el sistema del IPN. Muestra el mensaje \MSGref{MSG9}{Número de Boleta/Número de empleado no válido} y \textbf{continúa en el paso \ref{l_Acceso_CU1_E1} de la trayectoria Principal.}	
 
-				\item \label{EM-Acceso-CU01-E3} Cuando algún campo no comple con el formato valido definido. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{l_Acceso_CU1_E1} de la trayectoria Principal.}
+				\item \label{EM-Acceso-CU01-E3} Cuando algún campo no cumple con el formato valido definido. Muestra el mensaje \MSGref{MSG6}{Formato de campo Incorrecto} y \textbf{continúa en el paso \ref{l_Acceso_CU1_E1} de la trayectoria Principal.}
 
 				\item \label{EM-Acceso-CU01-E4} Cuando las contraseñas introducidas no coinciden. Muestra el mensaje \MSGref{MSG16}{Contraseñas no coinciden} y \textbf{continúa en el paso \ref{l_Acceso_CU1_E1} de la trayectoria Principal.}.
 			\end{enumerate}
@@ -74,13 +74,13 @@
 		\UCpaso Muestra la pantalla \IUref{EM-Acceso-UI1}{Registrar Nuevo Usuario}.
 
 		% Paso 3. 
-		\UCpaso[\UCactor] Ingresa su número de boleta o número de empleado, nombre, apellido paterno, apellido materno y correo electronico con los que desea registrarse. \label{l_Acceso_CU1_E1}
+		\UCpaso[\UCactor] Ingresa su número de boleta o número de empleado, nombre, apellido paterno, apellido materno y correo electrónico con los que desea registrarse. \label{l_Acceso_CU1_E1}
 
 		% Paso 4. 
 	    \UCpaso[\UCactor] Introduce contraseña  en el campo de 'Contraseña' y escribe una vez más la misma en el campo 'Repite tu contraseña'.
 
 	    % Paso 5.
-	    \UCpaso[\UCactor] Selecciona la casilla 'He leido y acepto términos'.
+	    \UCpaso[\UCactor] Selecciona la casilla 'He leído y acepto términos'.
 
 	    % Paso 6.
 	    \UCpaso[\UCactor] Selecciona la casilla 'Iniciar sesión como profesor'. \Trayref{A} 
@@ -89,10 +89,10 @@
 		\UCpaso [\UCactor] Solicita registrarse oprimiendo el botón \IUbutton{Registrarse}.
 
 		% Paso 8.
-		\UCpaso Valida que los campos solicitados no estén vacios. [Error \ref{EM-Acceso-CU01-E1}] \label{Almacenainfo}
+		\UCpaso Valida que los campos solicitados no estén vacíos. [Error \ref{EM-Acceso-CU01-E1}] \label{Almacenainfo}
 
 		% Paso 9.
-		\UCpaso Obtiene el número de boleta / número de empleado, nombre, apellido paterno, apellido materno, correo electronico y contraseña ingresados previamente.
+		\UCpaso Obtiene el número de boleta / número de empleado, nombre, apellido paterno, apellido materno, correo electrónico y contraseña ingresados previamente.
 
 		% Paso 10.
 		\UCpaso Valida que el alumno / profesor se encuentren dados de alta en el sistema del IPN por medio de su número de boleta / número de empleado, de acuerdo a la regla de negocio \BRref{EM-RN-N002}{Boleta o número de empleado}. [Error \ref{EM-Acceso-CU01-E2}]
@@ -101,22 +101,22 @@
 		\UCpaso Valida que el nombre y los apellidos introducidos cumplan el formato correcto, según la regla de negocio \BRref {EM-RN-S006}{Nombre}. [Error \ref{EM-Acceso-CU01-E3}]
 
 		% Paso 12.
-	    \UCpaso Valida que el correo electrónico proporcionado cumpla con el formato correcto, según la regla \BRref {EM-RN-S001}{Formato de correo electronico}. [Error  \ref{EM-Acceso-CU01-E3}]
+	    \UCpaso Valida que el correo electrónico proporcionado cumpla con el formato correcto, según la regla \BRref {EM-RN-S001}{Formato de correo electrónico}. [Error  \ref{EM-Acceso-CU01-E3}]
 
 	    % Paso 13.
-	    \UCpaso Valida la contraseña ingresada cumpla con el formato de contraseña defido, según la regla de nogocio \BRref{EM-RN-S004}{Formato de Contraseña}. [Error  \ref{EM-Acceso-CU01-E3}]
+	    \UCpaso Valida la contraseña ingresada cumpla con el formato de contraseña definido, según la regla de negocio \BRref{EM-RN-S004}{Formato de Contraseña}. [Error  \ref{EM-Acceso-CU01-E3}]
 
 	    % Paso 14.
 	    \UCpaso Valida que las contraseñas obtenidas de los campos ''Contraseña'' y ''Repite tu contraseña'' coincidan una con la otra. [Error  \ref{EM-Acceso-CU01-E4}]
 
 	    % Paso 15.
-	    \UCpaso Verifica que la casilla he leido y acepto términos esté seleccionada. [Error \ref{EM-Acceso-CU01-E1}]
+	    \UCpaso Verifica que la casilla he leído y acepto términos esté seleccionada. [Error \ref{EM-Acceso-CU01-E1}]
 
 	    % Paso 16.
 	    \UCpaso [\UCactor] Solicita registrarse oprimiendo el botón \IUbutton{Registrarse}.
 
 	    % Paso 17.
-	    \UCpaso Persiste la informacion en el sistema.
+	    \UCpaso Persiste la información en el sistema.
 
 	    % Paso 18.
 		\UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{Pantalla Inicio}.

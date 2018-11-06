@@ -1,9 +1,9 @@
 % Copie este bloque por cada caso de uso:
 %-------------------------------------- COMIENZA descripción del caso de uso.
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
-\begin{UseCase}{EM-AlumnoProfesor-CU1.1.3}{Consultar estadisticas del profesor.}{
+\begin{UseCase}{EM-AlumnoProfesor-CU1.1.3}{Consultar estadísticas del profesor.}{
 	\noindent
-	Este caso de uso permite al actor ver las estadísticas de algún profesor en específico, las estadísticas que se muestran son: el promedio de la calificación del profesor, así como una gráfica que detalla el comportamiento del profesor con respecto a sus citas, es decir, del total de citas registradas para el profesor, cuántas de ellas han sido aceptadas, cuántas canceladas y cuántas se encuentran pendientes de ser aceptadas o rechazadas. De esta forma se puede conocer el compromiso que los profesores tienen para con sus citas, mismas a las que los alumnos asisten con el objetivo de solventar algún punto específico de sus clases. Se debe mencionar que la gráfica con la infomación de la citas solo está disponible para consulta con los profesores que están registrados en ESCOMobile, de lo contrario ésta se omite mostrando solamente la puntución promedio otorgada por los alumnos. Con esto se pretende mejorar el nivel y dedicación de los profesores para los alumnos y de los alumnos a los profesores, siempre con respeto y honestidad.
+	Este caso de uso permite al actor ver las estadísticas de algún profesor en específico, las estadísticas que se muestran son: el promedio de la calificación del profesor, así como una gráfica que detalla el comportamiento del profesor con respecto a sus citas, es decir, del total de citas registradas para el profesor, cuántas de ellas han sido aceptadas, cuántas canceladas y cuántas se encuentran pendientes de ser aceptadas o rechazadas. De esta forma se puede conocer el compromiso que los profesores tienen para con sus citas, mismas a las que los alumnos asisten con el objetivo de solventar algún punto específico de sus clases. Se debe mencionar que la gráfica con la información de las citas solo está disponible para consulta con los profesores que están registrados en ESCOMobile, de lo contrario ésta se omite mostrando solamente la puntuación promedio otorgada por los alumnos. Con esto se pretende mejorar el nivel y dedicación de los profesores para los alumnos y de los alumnos a los profesores, siempre con respeto y honestidad.
 	\newline
 	}
 	\UCitem{Versión}{0.1}
@@ -34,7 +34,7 @@
 
 \begin{UCtrayectoria}{Principal}
 	%Paso 1.
-	\UCpaso [\UCactor] Solicita consultar las estadisticas del profesor presionando el botón \IUbutton{Estadisticas} de la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
+	\UCpaso [\UCactor] Solicita consultar las estadísticas del profesor presionando el botón \IUbutton{Estadísticas} de la pantalla \IUref{EM-AlumnoProfesor-UI1-1}{Consultar Perfil del Profesor}.
 
 	% Paso 2.
 	\UCpaso Obtiene el nombre del profesor consultado. 
@@ -65,7 +65,7 @@
 
 \end{UCtrayectoria}
 
-\begin{UCtrayectoriaA}{A}{Cuando el profesor no se encuentra registrado en el sitema.}
+\begin{UCtrayectoriaA}{A}{Cuando el profesor no se encuentra registrado en el sistema.}
 	\UCpaso	Continúa en el paso \ref{l_EM_AlumnoProfesoR_CU1_1_3_profNoRegistrado}.
 \end{UCtrayectoriaA}
 

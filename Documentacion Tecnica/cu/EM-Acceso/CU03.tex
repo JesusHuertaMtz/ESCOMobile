@@ -12,7 +12,7 @@
 		haber olvidado la primera.}
 		\UCitem{Entradas}{
 			\begin{itemize}
-				\item Correo electronico.
+				\item Correo electrónico.
 			\end{itemize}
 		}
 		\UCitem{Origen}{Teclado.}
@@ -27,7 +27,7 @@
 		\UCitem{Errores}{
 			\begin{enumerate}[\hspace*{0.5cm} \bfseries{E}1:]	
 				\item \label{EM-Acceso-CU03-E1} Cuando no se introdujeron todos los campos marcados como obligatorios. Muestra el mensaje \MSGref{MSG5}{Falta dato obligatorio} y \textbf{continúa en el paso \ref{l_Acceso_CU3_E1} de la trayectoria Principal.}
-				\item \label{EM-Acceso-CU03-E2} Cuando no se introduce un correo electronico existente. Muestra el mensaje \MSGref{MSG10}{Correo Electronico inexistente} y \textbf{termina el caso de uso.}
+				\item \label{EM-Acceso-CU03-E2} Cuando no se introduce un correo electrónico existente. Muestra el mensaje \MSGref{MSG10}{Correo electrónico inexistente} y \textbf{termina el caso de uso.}
 			\end{enumerate}	
 		}
 		\UCitem{Tipo}{Caso de uso primario}
@@ -53,7 +53,7 @@
 		\UCpaso[\UCactor] Presiona botón \IUbutton{Enviar}.
 
 		% Paso 5.
-		\UCpaso Valida que los campos introducidos no estén vacios. [Error \ref{EM-Acceso-CU03-E1}]
+		\UCpaso Valida que los campos introducidos no estén vacíos. [Error \ref{EM-Acceso-CU03-E1}]
 
 		% Paso 6.
 		\UCpaso	 Válida que el correo se encuentre dado de alta en el sistema. [Error \ref{EM-Acceso-CU03-E2}] 
@@ -62,7 +62,7 @@
 		\UCpaso Genera una contraseña aleatoria de acuerdo a la regla de negocio \BRref{EM-RN-S004}{Formato de Contraseña}.
 
 		% Paso 8.
-		\UCpaso Envía la contraseña generada al correo electronico introducido.
+		\UCpaso Envía la contraseña generada al correo electrónico introducido.
 
 		% Paso 9.
 	    \UCpaso Muestra el mensaje \MSGref{MSG1}{Operación Exitosa} en la pantalla \IUref{EM-Acceso-UI3}{Recuperar Contraseña}.
