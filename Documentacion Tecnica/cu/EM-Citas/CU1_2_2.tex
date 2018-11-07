@@ -4,7 +4,7 @@
 \begin{UseCase}{EM-Citas-CU1.2.2}{Cancelar cita por confirmar.}
 	{
 	\noindent
-	Este caso de uso permite al actor cancelar (rechazar) el llevar a cabo una cita que previamente se solicitó, pues considera que para atender la inquietud que orilló al estudiante a solicitar la cita no es razón suficiente para llevar a cabo una cita, o bien, no cuenta con el tiempo para hacerlo. Se debe mencionar que para cancelar una solicitud de cita, deben faltar a lo más 2 horas para que el tiempo elegido por el alumno para llevar a cabo la cita se cumpla, de ocurrir lo contrario, la acción se verá imposible de cumplir. Una vez cancelada una solicitud de cita, ésta será una cita ''cancelada'' y se le notificará al agente (quien no cancela la solicitud) acerca de la cancelación de la misma.
+	Este caso de uso permite al actor cancelar (rechazar) el llevar a cabo una cita que previamente se solicitó, pues considera que para atender la inquietud que orilló al estudiante a solicitar la cita no es razón suficiente para llevar a cabo una cita, o bien, no cuenta con el tiempo para hacerlo. Se debe mencionar que, para cancelar una solicitud de cita, deben faltar a lo más 2 horas para que el tiempo elegido por el alumno para llevar a cabo la cita se cumpla, de ocurrir lo contrario, la acción se verá imposible de cumplir. Una vez cancelada una solicitud de cita, ésta será una cita ''cancelada'' y se le notificará al agente (quien no cancela la solicitud) acerca de la cancelación de la misma.
 	\newline
 	}
 	\UCitem{Versión}{0.1}
@@ -68,7 +68,7 @@
 	\UCpaso Envía una notificación al alumno con quien se llevaría a cabo la cita con el mensaje \MSGref{MSG25}{Solicitud de cita cancelada}.
 
 	% Paso 11.
-	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la infomación actualizada.
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1-2}{Consultar citas por Confirmar} con el mensaje \MSGref{MSG1}{Operación Exitosa} y la información actualizada.
 	
 
 \end{UCtrayectoria}

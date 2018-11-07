@@ -3,7 +3,7 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 \begin{UseCase}{EM-Profesor-CU1}{Consultar Perfil Propio.}{
 	\noindent
-	Este caso de uso permite al actor consultar su información registrada en el sistema, esta información es su nombre, fotografía, académia, cubículo y cita más próxima a realizarse. También sirve de acceso para consultar su horario y estadísticas de desempeño docente, o bien para consultar todas sus citas o editar su perfil.  
+	Este caso de uso permite al actor consultar su información registrada en el sistema, esta información es su nombre, fotografía, academia, cubículo y cita más próxima a realizarse. También sirve de acceso para consultar su horario y estadísticas de desempeño docente, o bien para consultar todas sus citas o editar su perfil.  
 	\newline
 	}
 	\UCitem{Versión}{0.1}
@@ -16,9 +16,9 @@
 	Muestra la pantalla con la siguiente información del profesor: 
 		\begin{itemize}
 			\item Nombre.
-			\item Fotogrfía.
+			\item Fotografía.
 			\item Academia a la que pertenece,
-			\item Cúbiculo.
+			\item Cubículo.
 			\item Próxima cita.
 		\end{itemize}
 	}
@@ -28,7 +28,7 @@
 	\UCitem{Errores}{Ninguno.}
 	\UCitem{Tipo}{Caso de primario.}
 	\UCitem{Observaciones}{}
-	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
 	\UCitem{Revisor}{Fernández Quiñones Isaac.}
 	\UCitem{Estatus}{Corregido.}
 \end{UseCase}
@@ -56,7 +56,7 @@
 	% Paso 7.
 	\UCpaso [\UCactor] Presiona uno de los siguientes botones, según sea la acción que desee realizar: 
 	\begin{itemize}
-		\item \IUbutton{Estadísticas y comentario}: Para cosultar sus estadísticas.
+		\item \IUbutton{Estadísticas y comentario}: Para consultar sus estadísticas.
 		\item \IUbutton{Comentarios}: Para consultar los comentarios que le han asignado.
 		\item \IUbutton{Editar perfil}: Para editar perfil.  
 	\end{itemize}
@@ -66,7 +66,7 @@
 \begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asignado.}
 
 	% A1.
-	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuículo en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
+	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuíbculo en la pantalla \IUref{EM-Profesor-UI1}{Consultar Perfil Propio}.
 	% A2.
 	\UCpaso Continua en el paso \ref{l_EM_Profesor_CU1_informacion} de la trayectoria proncipal.
 

@@ -4,14 +4,14 @@
 \begin{UseCase}{EM-Citas-CU1.3}{Consultar citas Pasadas.}
 	{
 	\noindent
-	Este caso de uso permite al actor consultar de manera ordenada todas las citas en estado de ''pasada'' que tiene asociadas a su cuenta, esto es, las citas aceptadas que ya se realizaron, pues fue gracias a esas citas de que los profesores puedieron brindar su apoyo los estudiantes de ESCOM para mejorar su aprendizaje.
+	Este caso de uso permite al actor consultar de manera ordenada todas las citas en estado de ''pasada'' que tiene asociadas a su cuenta, esto es, las citas aceptadas que ya se realizaron, pues fue gracias a esas citas de que los profesores pudieron brindar su apoyo los estudiantes de ESCOM para mejorar su aprendizaje.
 	\newline
 	Para que una cita se considere ''pasada'' es porque fue solicitada por un alumno para llevarse a cabo en ciertas condiciones y aceptada por el profesor a quien se solicitó la misma, además de haber transcurrido ya. Estas citas no pueden ser canceladas, debido a que ya sucedieron, estando ahora en un registro para consulta de las mismas, teniendo entonces la posibilidad de eliminar una o más citas ''pasadas'' de la consulta. De ser eliminada una de estas citas, su información se pierde y no se puede recuperar.
 	\newline
 	}
 	\UCitem{Versión}{0.1}
 	\UCitem{Actor}{Alumno, Profesor.}
-	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita vusalizar las citas que ya transcurrieron y que tiene asociadas, por medio de la consulta de éstas.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita visualizar las citas que ya transcurrieron y que tiene asociadas, por medio de la consulta de éstas.}
 	\UCitem{Entradas}{Ninguna.}
 	\UCitem{Origen}{No aplica.}
 	\UCitem{Salidas}{
@@ -47,7 +47,7 @@
 	\UCpaso Valida que haya citas en estado ''pasada'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-3-E1}.]
 
 	% Paso 3. 
-	\UCpaso Obtiene las siguiente información de las citas ''pasadas'' asociadas a la cuenta del actor: fecha y hora en las cuales la cita se llevó a cabo, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicitó la cita.
+	\UCpaso Obtiene la siguiente información de las citas ''pasadas'' asociadas a la cuenta del actor: fecha y hora en las cuales la cita se llevó a cabo, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicitó la cita.
 
 	% Paso 4.
 	\UCpaso Agrupa las citas obtenidas según la fecha programada para la cita.

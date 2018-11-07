@@ -6,12 +6,12 @@
 	\noindent
 	Este caso de uso permite al actor consultar de manera ordenada todas las citas en estado de ''agendadas'' que tiene asociadas a su cuenta, esto es, las próximas citas ya aceptadas para realizarse, pues es de esta manera que los profesores pueden brindar su apoyo los estudiantes de ESCOM para mejorar su aprendizaje, ya que se pueden presentar dudas o inquietudes con las clases impartidas en los salones de la institución, o bien, se puede requerir asistencia académica de los profesores para los alumnos en diversos temas, como lo son proyectos, asesorías, trabajos terminales, etc. 
 	\newline
-	Para que una cita se considere ''agendada'' debe ser solicitada por un alumno para llevarse a cabo en ciertas condiciones y aceptada por el profesor a quien se solicitó la misma. Estas citas pueden ser canceladas (si una situación dada así lo amerita). De ser cancelada una cita, ésta deja de ser una cita ''agendada'' y pasa a ser una cita ''cancelada'', enviando una notificación al alumno o el profesor (según sea el caso) al respecto. Asimismo, se notifica al profesor en caso de que un alumno le solicite una cita y se lo nitifica a éste último si su petición es aceptada o rechazada. 
+	Para que una cita se considere ''agendada'' debe ser solicitada por un alumno para llevarse a cabo en ciertas condiciones y aceptada por el profesor a quien se solicitó la misma. Estas citas pueden ser canceladas (si una situación dada así lo amerita). De ser cancelada una cita, ésta deja de ser una cita ''agendada'' y pasa a ser una cita ''cancelada'', enviando una notificación al alumno o el profesor (según sea el caso) al respecto. Asimismo, se notifica al profesor en caso de que un alumno le solicite una cita y se lo notifica a este último si su petición es aceptada o rechazada. 
 	\newline
 	}
 	\UCitem{Versión}{0.1}
 	\UCitem{Actor}{Alumno, Profesor.}
-	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita estar al corrinte con las citas que tiene agendadas por medio de la consulta de éstas.}
+	\UCitem{Propósito}{Proporcionar al actor un mecanismo que le permita estar al corriente con las citas que tiene agendadas por medio de la consulta de éstas.}
 	\UCitem{Entradas}{Ninguna.}
 	\UCitem{Origen}{No aplica.}
 	\UCitem{Salidas}{
@@ -47,7 +47,7 @@
 	\UCpaso Valida que haya citas en estado ''agendada'' asociadas a la cuenta del actor. [Error: \ref{EM-Cita-CU1-E1}.]
 
 	% Paso 3. 
-	\UCpaso Obtiene las siguiente información de las citas ''agendadas'' asociadas a la cuenta del actor cuyas fechas y horas aún no transcurren: fecha y hora en las cuales la cita está programada, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicita la cita.
+	\UCpaso Obtiene la siguiente información de las citas ''agendadas'' asociadas a la cuenta del actor cuyas fechas y horas aún no transcurren: fecha y hora en las cuales la cita está programada, tipo de cita (Asesoría, revisión de proyecto, revisión de TT, entrega de tarea, entrega de proyecto, revisión de protocolo, otro), nombre del alumno quien solicitó la cita y descripción (motivo) por la cual el alumno solicita la cita.
 
 	% Paso 4.
 	\UCpaso Agrupa las citas obtenidas según la fecha programada para la cita.
@@ -59,7 +59,7 @@
 	\UCpaso Ordena los grupos de citas según la fecha para la cual éstas están programadas.
 
 	% Paso 6. 
-	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con las citas agrupadas por fecha y hora de realizción. 
+	\UCpaso Muestra la pantalla \IUref{EM-Citas-UI1}{Consultar citas agendadas} con las citas agrupadas por fecha y hora de realización. 
 
 	% Paso 7.
 	\UCpaso [\UCactor] Consulta sus citas agendadas. 

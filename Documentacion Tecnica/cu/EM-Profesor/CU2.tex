@@ -5,7 +5,7 @@
 	\noindent
 	Este caso de uso permite al actor consultar la información de algún
 	profesor de su interés por medio de su perfil, esta información es su
-	nombre, fotografía, académia, cubículo y calificación promedio. Además, sirve de acceso para consultar su horario y estadísticas de desempeño docente, calificarlo, o bien, ubicarlo en
+	nombre, fotografía, academia, cubículo y calificación promedio. Además, sirve de acceso para consultar su horario y estadísticas de desempeño docente, calificarlo, o bien, ubicarlo en
 	el mapa de ESCOM. 
 	\newline
 	}
@@ -19,7 +19,7 @@
 	Muestra la pantalla con la siguiente información del profesor consultado: 
 		\begin{itemize}
 			\item Nombre.
-			\item Fotogrfía.
+			\item Fotografía.
 			\item Academia a la que pertenece,
 			\item Cubículo.
 			\item Calificación promedio.
@@ -31,7 +31,7 @@
 	\UCitem{Errores}{Ninguno.}
 	\UCitem{Tipo}{Caso de uso secundario, viene de \UCref{EM-AlumnoProfesor-CU1}.}
 	\UCitem{Observaciones}{}
-	\UCitem{Autor}{Huerta Matínez Jesús Manuel.}
+	\UCitem{Autor}{Huerta Martínez Jesús Manuel.}
 	\UCitem{Revisor}{Fernández Quiñones Isaac.}
 	\UCitem{Estatus}{Corregido.}
 \end{UseCase}
@@ -48,7 +48,7 @@
 	\UCpaso Obtiene el cubículo del profesor.
 
 	% Paso 4.
-	\UCpaso Obtiene nombre, fotografía (en caso de tener), académia y calificación promedio del profesor seleccionado. \label{l_EM_Profesor_CU2_informacion}
+	\UCpaso Obtiene nombre, fotografía (en caso de tener), academia y calificación promedio del profesor seleccionado. \label{l_EM_Profesor_CU2_informacion}
 
 	% Paso 5.
 	\UCpaso Muestra la pantalla \IUref{EM-Profesor-UI2}{Consultar Perfil de otro Profesor} con la información obtenida.
@@ -70,8 +70,8 @@
 \begin{UCtrayectoriaA}{A}{Cuando el profesor no tiene un cubículo asignado.}
 
 	% A1.
-	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cuículo en la pantalla \IUref{EM-Profesor-UI2}{Consultar Perfil de otro Profesor}.
+	\UCpaso	Asigna la leyenda ''sin cubículo asignado'' al espacio dedicado al cubículo en la pantalla \IUref{EM-Profesor-UI2}{Consultar Perfil de otro Profesor}.
 	% A2.
-	\UCpaso Continua en el paso \ref{l_EM_Profesor_CU2_informacion} de la trayectoria proncipal.
+	\UCpaso Continua en el paso \ref{l_EM_Profesor_CU2_informacion} de la trayectoria principal.
 
 \end{UCtrayectoriaA}

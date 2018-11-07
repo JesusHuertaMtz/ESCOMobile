@@ -3,11 +3,11 @@
 %\begin{UseCase}[archivo de imágen]{UCX}{Nombre del Caso de uso}{
 \begin{UseCase}{EM-Citas-CU2}{Agendar una cita}{
 	\noindent
-	Este caso de uso permite al actor solicitar agendar una nueva cita con un profesor de ESCOM, pues requiere del apoyo de éste para solventar alguna situación académica surgida durante el curso, como lo puede ser dudas de algún tema, asesorías extra clase, tutorías escolares, presentaciones de proyectos, revisiones de los mismos, entregas de TT, entre otros.
+	Este caso de uso permite al actor solicitar agendar una nueva cita con un profesor de ESCOM, pues requiere del apoyo de éste para solventar alguna situación académica surgida durante el curso, como lo puede ser dudas de algún tema, asesorías extraclase, tutorías escolares, presentaciones de proyectos, revisiones de los mismos, entregas de TT, entre otros.
 	\newline
 	Para el registro de nuevas citas, además del profesor con quien se desea llevar a cabo y de expresar un propósito académico a atender, se deben especificar por el actor el día y la hora en las que él prefiere que se realice la cita, pues es toda esta información importante para que el profesor pueda determinar si la solicitud es aceptada o no.
 	\newline
-	Se debe mencionar que el actor puede solicitar agendar más de una cita con los profesores de ESCOM (siempre y cuando éstos últimos se encuentren regitrados en el sistema), y que la desición que los académicos tomen sobre la solicitud no afecta en nada los perfiles de los involucrados, o bien, el hecho de poder solicitar nuevamente citas entre los mismos. Finalmente, se tiene que decir que a la hora de solicitar la cita el profesor recibe una notificación informativa al respecto, puediendo consultar además la información propuesta para la cita desde su apartado de citas por confirmar, dicha información será consultada para determinar una desición. 
+	Se debe mencionar que el actor puede solicitar agendar más de una cita con los profesores de ESCOM (siempre y cuando éstos últimos se encuentren registrados en el sistema), y que la decisión que los académicos tomen sobre la solicitud no afecta en nada los perfiles de los involucrados, o bien, el hecho de poder solicitar nuevamente citas entre los mismos. Finalmente, se tiene que decir que a la hora de solicitar la cita el profesor recibe una notificación informativa al respecto, pudiendo consultar además la información propuesta para la cita desde su apartado de citas por confirmar, dicha información será consultada para determinar una decisión. 
 	\newline
 	}
 	\UCitem{Versión}{0.1}
@@ -113,7 +113,7 @@
 	\UCpaso Despliega sobre la pantalla la ventana emergente ''Hora de la cita'', que contiene disponibles para seleccionar las 24 horas del día y los minutos del 0 al 59 contenidos en las mismas.
 
 	% Paso 17.
-	\UCpaso [\UCactor] Selecciona una hora presionando sobre uno de los número (del 00 al 23) mostrados y un minuto (del 0 al 59) contenidos en la hora. Todo en conjunto forma la hora propuesta para la cita.
+	\UCpaso [\UCactor] Selecciona una hora presionando sobre uno de los números (del 00 al 23) mostrados y un minuto (del 0 al 59) contenidos en la hora. Todo en conjunto forma la hora propuesta para la cita.
 
 	% Paso 18. 
 	\UCpaso [\UCactor] Presiona el botón \IUbutton{Aceptar} de la ventana emergente ''Hora de la cita''. \Trayref{D}
@@ -199,7 +199,7 @@
 	\UCpaso Presiona sobre el icono \UCicono{pregunta} de la pantalla \IUref{EM-Cita-UI2}{Agendar una cita}.
 
 	% B2.
-	\UCpaso Desliega en pantalla la ventana emergente ''Para agendar una cita...'', con el mensaje \MSGref{MSG26}{Ayuda sobre agendar citas} que contiene las instrucciones y requisitos necesarios para agendar una cita correctamente.
+	\UCpaso Despliega en pantalla la ventana emergente ''Para agendar una cita...'', con el mensaje \MSGref{MSG26}{Ayuda sobre agendar citas} que contiene las instrucciones y requisitos necesarios para agendar una cita correctamente.
 
 	% B3.
 	\UCpaso [\UCactor] Consulta la información contenida en la ventana emergente ''Para agendar una cita...''.
