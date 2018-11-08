@@ -13,7 +13,7 @@
 \usepackage[usenames,dvipsnames]{color}          % Para usar y definir colores.
 \usepackage{wallpaper}                           % Colocar imágenes en el fondo del documento.
 \usepackage{fancyhdr}                            % Manejo de encabezados.
-\usepackage[hmargin=3.5cm,vmargin=3.5cm]{geometry} % Manejo de márgenes del documento.
+\usepackage[vmargin=3.5cm]{geometry} % Manejo de márgenes del documento.
 \usepackage[Sonny]{fncychap}                     % Manejo de capítulos: Sonny, Lenny, Glenn, Conny, Rejne and Bjarne.
 \usepackage{marvosym}                            % Algunos símbolos.
 %\usepackage{minitoc}
@@ -35,11 +35,16 @@
 %\fancyhead[RE]{} 
 %\fancyhead[LO]{} 
 
+\fancyhf{}
+\rhead{\includegraphics[height=35pt]{images/headerESCOM}} 
+\lhead{\leftmark}
+
+\rfoot{Página: \thepage}
+\lfoot{TT 2017B-031: ESCOMobile}
+
 \addtolength{\headheight}{2\baselineskip} 
 %\fancyfoot[CO,CE]{{\tiny\color{subTitleColor}\em RGBA group {\color{sectionColor}\Telefon} 666-6666 Ext. 666 {\color{sectionColor}\Letter} rgba@group.com.mx}}
-\fancyfoot[CO,C]{{\tiny\color{subTitleColor}\em ESCOMobile 
-	{\color{sectionColor}\Letter} escomobile@outlook.com }
-}
+
 %\fancyfoot[RO,LE]{\footnotesize\thepage}
 
 
