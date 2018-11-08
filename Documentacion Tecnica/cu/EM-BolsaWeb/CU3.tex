@@ -4,7 +4,7 @@
 		\noindent
 		Este caso de uso permite al actor hacer públicas las ofertas de trabajo en estado ''Sin publicar'' que se han registrado previamente en el sistema. Una vez publicadas, las ofertas seleccionadas se encontrarán disponibles para consulta por medio de la app móvil ESCOMobile, además de la página de facebook asociada a la bolsa de trabajo de la ESCOM, pues se generan una imagen y un PDF que contienen las ofertas seleccionadas, dichos archivos son compartidos automáticamente en el facebook referido. 
 		\newline
-		Es importante decir que una vez publicada el boletín, y las ofertas ''Sin publicar'' sean ofertas ''publicadas'', éstas no se podrán modificar ni eliminar.
+		Es importante decir que, una vez publicada el boletín, y las ofertas ''Sin publicar'' sean ofertas ''publicadas'', éstas no se podrán modificar ni eliminar.
 		\newline
 		}
 		\UCitem{Versión}{0.1}
@@ -22,7 +22,7 @@
 		\UCitem{Precondiciones}{Que haya al menos una oferta de trabajo en estado ''Sin publicar'' registrada en el sistema.}
 		\UCitem{Postcondiciones}{
 			\begin{itemize}
-				\item Publica en una pagina de Facebook la imagen de la oferta de trabajo.
+				\item Publica en una página de Facebook la imagen de la oferta de trabajo.
 				\item Actualiza la tabla que muestra las ofertas de trabajo sin publicar.
 			\end{itemize}
 		}
@@ -39,13 +39,13 @@
 		\UCpaso [\UCactor] Selecciona las ofertas de trabajo en estado ''Sin publicar'' que desee publicar en el boletín, de la lista disponible en la pantalla \IUref{EM-BolsaWeb-UI1}{Gestionar Ofertas de Trabajo}.
 
 		% Paso 2.
-		\UCpaso[\UCactor] Solicita publicar un boletín con las ofertas de trabajo seleccionadas presionando el boton \IUbutton{Publicar Boletín}.
+		\UCpaso[\UCactor] Solicita publicar un boletín con las ofertas de trabajo seleccionadas presionando el botón \IUbutton{Publicar Boletín}.
 
 		% Paso 3.
 		\UCpaso Obtiene la siguiente información de cada una de las ofertas seleccionadas: número de oferta de trabajo, nombre de empresa, horario, vacante, sueldo, contacto.
 		
 		% Paso 4.
-		\UCpaso Crea una imagen y un archivo PDF con la información obtenida de las ofertas de trabajo seleccionadas (en forma de tabla), mismos que incluyen los escudos y los nombres de la ESCOM y el IPN, además de información extra acerca de la institución como lo son las leyendas ''subdirección de servicios educativos e integracón social'' y ''departamento de extensión y apoyos educativos''. 
+		\UCpaso Crea una imagen y un archivo PDF con la información obtenida de las ofertas de trabajo seleccionadas (en forma de tabla), mismos que incluyen los escudos y los nombres de la ESCOM y el IPN, además de información extra acerca de la institución como lo son las leyendas ''subdirección de servicios educativos e integración social'' y ''departamento de extensión y apoyos educativos''. 
 
 		% Paso 5.
 		\UCpaso Muestra en la pantalla \IUref{EM-BolsaWeb-UI3}{Publicar Boletín} con la vista previa de la imagen para confirmar la publicación de la oferta de trabajo y el mensaje \MSGref{MSG32}{Publicación de boletín Bolsa de Trabajo} solicitando la confirmación del boletín en las redes sociales asociadas a la bolsa de trabajo ESCOM así como en la app móvil ESCOMobile.
@@ -60,7 +60,7 @@
 		\UCpaso Obtiene las credenciales de la cuenta de facebook asociada a la bolsa de trabajo.
 
 		% Paso 9.
-		\UCpaso Publica la imagen de las ofertas de trabajo en la pagina de facebook asociada, gracias a las credenciales obtenidas.
+		\UCpaso Publica la imagen de las ofertas de trabajo en la página de facebook asociada, gracias a las credenciales obtenidas.
 
 		% Paso 10.
 		\UCpaso Actualiza la información de las tablas con ofertas de trabajo ''Sin publicar'' y ''publicadas''.
