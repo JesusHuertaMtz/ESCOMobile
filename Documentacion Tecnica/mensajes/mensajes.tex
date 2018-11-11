@@ -3,7 +3,7 @@
 %===========================  MSG1 ==================================
 \begin{mensaje}{MSG1}{Operación Exitosa}{Informativo}
 	\item[Canal:] Sistema.
-	\item[Propósito:] Notificar al actor que la operación que se solicitó al sistema se se realizó de
+	\item[Propósito:] Notificar al actor que la operación que se solicitó al sistema se realizó de
 	manera correcta y exitosa. 
 	\item[Redacción:] La $<OPERACION>$ se llevó a cabo correctamente.
 	\item[Parámetros:] OPERACION: Actividad que el actor debe realizar.
@@ -14,7 +14,7 @@
 %============================== MSG2 =================================
 \begin{mensaje}{MSG2}{Operación Fallida}{Error}
 	\item[Canal:] Sistema.
-	\item[Propósito:] Notificar al actor que la operación que se solicitó al sistema no se se pudo 
+	\item[Propósito:] Notificar al actor que la operación que se solicitó al sistema no se pudo 
 	realizar correctamente.
 	\item[Redacción:] Error, $<ERROR_ENCONTRADO>$.
 	\item[Parámetros:] ERROR\_ENCONTRADO: Error que el sistema identificó al intentar realizar 
@@ -68,9 +68,9 @@
 \begin{mensaje}{MSG7}{Eliminar elemento}{Confirmación}
 	\item[Canal:] Sistema.
     \item[Propósito:] Solicitar la confirmación del actor para eliminar un elemento.
-    \item[Redacción:] ¿Está seguro que quieres elimimar: $<ELEMENTO>$?
+    \item[Redacción:] ¿Está seguro que quieres eliminar: $<ELEMENTO>$?
     \item[Parámetros:] \item ELEMENTO: Es el elemento que se requiere eliminar.
-    \item[Ejemplo:] ¿Está seguro que quieres elimimar: Evento?
+    \item[Ejemplo:] ¿Está seguro que quieres eliminar: Evento?
 	\item[Referenciado por: ] 
 \end{mensaje}
 
@@ -98,7 +98,7 @@
 %=========================MSG10=======================================
 \begin{mensaje}{MSG10}{Correo Electrónico inexistente}{Error}
 \item[Canal:] Sistema.
-	\item[Propósito:] Notificar al actor que el correo electŕonico proporcionado no existe en el sistema.
+	\item[Propósito:] Notificar al actor que el correo electrónico proporcionado no existe en el sistema.
 	\item[Redacción:] ¡Error! El correo $<CORREO\_ELECTRONICO>$ es incorrecto o inexistente.
 	\item[Parámetros:] CORREO\_ELECTRONICO: correo electrónico proporcionado por el usuario.
 	\item[Ejemplo:] ¡Error! El correo mane.13@hotmail.com es incorrecto o inexistente.
@@ -117,25 +117,25 @@
 \end{mensaje}
 
 %===========================  MSG12 ==================================
-\begin{mensaje}{MSG12}{Translape o fecha y hora no valida}{Advertencia}
+\begin{mensaje}{MSG12}{Traslape o fecha y hora no valida}{Advertencia}
 	\item[Canal:] Sistema.
 	\item[Propósito:] Notificar al actor que la fecha y hora que solicitó para agendar una cita tiene
-	una alta probabilidad de ser rechadaza por el profesor debido a que se traslapa con el horario de
-	clases de este último ,ya existe una cita ese dia y horario o es dia inhabil.
-	\item[Redacción:] La cita en el horario de $<HORA>$ y fecha de $<FECHA>$, se traslapa o es un dia inhabil.
+	una alta probabilidad de ser rechazada por el profesor debido a que se traslapa con el horario de
+	clases de este último, ya existe una cita ese día y en ese horario o bien, se trata de un día inhábil.
+	\item[Redacción:] La cita en el horario de $<HORA>$ y fecha de $<FECHA>$, se traslapa o es un día inhábil.
 	\item[Parámetros:] 
 		\begin{itemize}
 			\item HORA: Hora en la que el actor desea agendar la cita.
 			\item FECHA: Fecha en la que el actor desea agendar la cita.
 		\end{itemize}
-	\item[Ejemplo:] La cita en la fecha 22/03/2018 y el horario de 12:30:00, no se puede agendar por translape o dia inhabil.
+	\item[Ejemplo:] La cita en la fecha 22/03/2018 y el horario de 12:30:00, no se puede agendar por traslape o día inhábil.
 	\item[Referenciado por:] %\refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-A-CU3.3}, \refIdElem{DIC-CGC-COSIE-CU1.1},  refIdElem{DIC-CGC-COSIE-CU1.2.1},  \refIdElem{DIC-CGC-DTE-CU1.1}
 \end{mensaje}
 
 %=========================MSG13=======================================
 \begin{mensaje}{MSG13}{Empresa no registrada}{Error}
 \item[Canal:] Sistema.
-	\item[Propósito:] Notificar al actor que la empresa introducida no esta registrada en el sistema.
+	\item[Propósito:] Notificar al actor que la empresa introducida no está registrada en el sistema.
 	\item[Redacción:] ¡Error! Empresa sin registrar o inexistente.
 	\item[Parámetros:] Ninguno.
 	\item[Ejemplo:] ¡Error! Empresa sin registrar o inexistente.
@@ -167,9 +167,9 @@
 \begin{mensaje}{MSG16}{Contraseñas no coinciden}{Error}
 	\item[Canal:] Sistema.
     \item[Propósito:] Notificar al actor que las dos contraseñas introducidas no coinciden una con la otra.
-    \item[Redacción:] Las constraseñas introducidas no coinciden.
+    \item[Redacción:] Las contraseñas introducidas no coinciden.
     \item[Parámetros:] Ninguno.
-    \item[Ejemplo:] Las constraseñas introducidas no coinciden.
+    \item[Ejemplo:] Las contraseñas introducidas no coinciden.
 	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
 \end{mensaje}
 
@@ -229,7 +229,7 @@
     \item[Propósito:] Solicitar al actor una confirmación acerca de la aceptación de una solicitud de cita previamente realizada.
     \item[Redacción:] ¿Estás seguro de que deseas aceptar la solicitud de cita? 
     \item[Parámetros:] Ninguno.
-    \item[Ejemplo:] ¿Estás seguro de que deseas aceptar esta solicitud solicitud de cita? 
+    \item[Ejemplo:] ¿Estás seguro de que deseas aceptar esta solicitud de cita? 
 	%\item[Referenciado por: ] \refIdElem{DIC-UA-COSIE-CU1.3}, \refIdElem{DIC-UA-COSIE-CU1.3.1},  \refIdElem{DIC-UA-COSIE-CU1.3.2}%\refIdElem{DIC-A-CU1}, \refIdElem{DIC-A-CU2}, \refIdElem{DIC-A-CU3}  \refIdElem{DIC-CGC-DPF-CU1.3}
 \end{mensaje}
 
@@ -282,13 +282,13 @@
 		\newline
 		5) Tu nombre puede ser consultado por tu profesor cuando solicitas agendar una cita.
 		\newline
-		6) La desición de tu profesor sobre la cita es única y personal, puede depender, entre otras cosas, de asuntos personales o de tiempo.
+		6) La decisión de tu profesor sobre la cita es única y personal, puede depender, entre otras cosas, de asuntos personales o de tiempo.
 		\newline
 		7) El lugar en el que se desempeña la cita es por defecto el cubículo del profesor.
 		\newline
 		8) Una vez solicitada la cita, no podrás modificar la información introducida.
 		\newline
-		9) La puede ser cancelada (por ti o el profesor) antes de que ésta sea aprobada o rechazada, incluso una ves aprobada podrá se podrá cancelar, siempre y cuando falten más de dos hora para que llegue el tiempo propuesto.
+		9) La puede ser cancelada (por ti o el profesor) antes de que ésta sea aprobada o rechazada, incluso una vez aprobada podrá se podrá cancelar, siempre y cuando falten más de dos horas para que llegue el tiempo propuesto.
 		\newline
 		10) El cualquiera de los casos, a la hora de solicitar agendar una cita, cuando ésta es aceptada, rechazada o cancelada se te notificará al respecto, o bien al profesor en caso de ser tú quien cancela.
 		\newline
@@ -313,7 +313,7 @@
 %===========================  MSG28 ==================================
 \begin{mensaje}{MSG28}{Tamaño de mensaje superado}{Error}
 	\item[Canal:] Sistema.
-    \item[Propósito:] Informar al actor que el tamaño máxico en un campo de texto a introducir se superó. 
+    \item[Propósito:] Informar al actor que el tamaño máximo en un campo de texto a introducir se superó. 
     \item[Redacción:] Tamaño de mensaje demasiado grande, el máximo es de 240 caracteres.
     \item[Parámetros:] Ninguno.
     \item[Ejemplo:] Tamaño de mensaje demasiado grande, el máximo es de 240 caracteres.
