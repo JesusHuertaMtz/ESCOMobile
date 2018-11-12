@@ -33,12 +33,12 @@ class ProfesorFragment : BaseFragment() {
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
 		setHasOptionsMenu( true )
 	}
 	
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-	    CustomProgressBar.show( inflater.context )
 	    profesorBinding = DataBindingUtil.inflate( inflater, R.layout.fragment_profesor, container, false )
 	    profesorViewModel = ViewModelProviders.of( this as Fragment ).get( ProfesorViewModel::class.java )
 	    profesorViewModel.init( inflater.context )
@@ -48,7 +48,6 @@ class ProfesorFragment : BaseFragment() {
 	    profesorViewModel.getProfesores()
 	    profesorViewModel.setupRecyclerViewFastScroller( profesorBinding )
 	    showMenu()
-	    CustomProgressBar.getDialog()?.dismiss()
 	    
         return profesorBinding.root
     }
@@ -58,25 +57,27 @@ class ProfesorFragment : BaseFragment() {
 		val searchItem = menu?.findItem( R.id.action_search_profesor )
 		val searchManager = activity?.getSystemService( Context.SEARCH_SERVICE ) as? SearchManager
 		searchView = searchItem?.actionView as SearchView
-		
+
+		searchView.setIconifiedByDefault( false )
 		searchView.setSearchableInfo( searchManager?.getSearchableInfo( activity?.componentName ) )
 		searchView.setOnQueryTextListener( object: SearchView.OnQueryTextListener {
 			override fun onQueryTextChange(newText: String?): Boolean {
-				print("TEXT_CHANGE ${ newText }")
+				profesorViewModel.filterProfesor( newText ?: "" )
 				
 				return true
 			}
 			
 			override fun onQueryTextSubmit(query: String?): Boolean {
-				print("TEXT_QUERY ${ query }")
+				println("TEXT_QUERY ${ query }")
+				profesorViewModel.filterProfesor( query ?: "" )
 				
 				return true
 			}
 		})
-		
+		println("MEMU SET!!!!!!!!")
 		super.onCreateOptionsMenu( menu, inflater )
 	}
-	
+
 	override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 		when( item?.itemId ) {
 			R.id.action_search_profesor -> return false

@@ -5,7 +5,7 @@ import java.io.*
 
 class CacheManager {
     companion object {
-        val CACHE_EMPRESA = "empresas"
+        val CACHE_EMPRESA : String = "empresas"
     }
 
     fun writeObjectInCacheDir( context: Context, myObject: Any, cacheName : String ) {

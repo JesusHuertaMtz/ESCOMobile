@@ -5,9 +5,42 @@ class FormValidator {
         const val FORMATO_INCORRECTO = "<>"
         val CAMPO_VACIO : String? = null
         const val CONTRASENIA_NO_COINCIDE = "<pass>"
+        const val SIN_RESULTADO_BUSQUEDA = "No hay resultado de búsqueda"
     }
-    val domains = listOf( "hotmail.com", "gmail.com", "ipn.mx", "outlook.com", "yahoo.com" )
+    val domains = listOf( "hotmail.com", "gmail.com", "ipn.mx", "outlook.com", "yahoo.com", "live.com", "live.com.mx" )
     val SPECIAL_CHARACTER = "|!\"#$\\%&/()=?¡¿_:;,.-[]{}+*-<>"
+
+    /**
+     * Válida la boleta o número de empleado del profesor. No implementado debido a que
+     * no sabemos el formato del número de empleado del profesor.
+     * */
+    fun validateBoleta( boleta: String?, esProfesor: Boolean ): String? {
+        //Busca algún caracter que no sea un dígito
+        val regex = Regex("[^0-9]")
+
+        if( boleta.equals( "" ) ) {
+            return CAMPO_VACIO
+
+        } else if( boleta?.length ?: 0 < 10 ) {
+            return FORMATO_INCORRECTO
+
+        } else if( esProfesor ) {
+            //Se está registrando como profesor
+            if( regex.matches( boleta ?: "" ) ) {
+                //No es un número de empleado válido ya que encontró un caracter que no es un dígito
+                return FORMATO_INCORRECTO
+            }
+
+        } else {
+            val esBoletaValida = boleta?.substring( 0, 2 )?.equals("20") ?: false
+
+            if( !esBoletaValida ) {
+                return FORMATO_INCORRECTO
+            }
+        }
+
+        return boleta
+    }
 
     /**
      * Válida los campos del registro siguiendo las reglas de negocio del sistema.

@@ -13,6 +13,7 @@ import com.example.master.escomobile_alpha.R
 import com.example.master.escomobile_alpha.controlador.mapa.MapsController
 import com.example.master.escomobile_alpha.controlador.mapa.MapsEvent
 import com.example.master.escomobile_alpha.controlador.mapa.MapsSetting
+import com.example.master.escomobile_alpha.modelo.entidad.Profesor
 import com.example.master.escomobile_alpha.util.Edificio
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
@@ -28,6 +29,8 @@ import com.google.android.gms.maps.model.MarkerOptions
  */
 class MapFragment : BaseFragment() {
 	private lateinit var mapController : MapsController
+    private val ARG_PARAM1 = "PROF"
+    private var profesor: Profesor? = null
 
     companion object {
         /**
@@ -38,6 +41,19 @@ class MapFragment : BaseFragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() = MapFragment()
+        @JvmStatic
+        fun newInstance( profesor: Profesor ) = MapFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable( ARG_PARAM1, profesor )
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let { bundle ->
+            profesor = bundle.getParcelable( ARG_PARAM1 )
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +69,22 @@ class MapFragment : BaseFragment() {
             map = map as SupportMapFragment
             mapController = MapsController( activity!! )
 	        map.getMapAsync( mapController )
+            map.getMapAsync {
+                if( profesor != null ) {
+                    val cubiculo = profesor?.cubiculo?.coordenadas
+
+                    if( cubiculo != null && cubiculo.size > 1 ) {
+                        val lat = cubiculo.get(0)
+                        val lng = cubiculo.get(1)
+                        val latLng = LatLng( lat, lng )
+                        addMarker( latLng, profesor?.nombre ?: "Error")
+                        changeFloor( profesor?.cubiculo?.piso ?: 0 )
+
+                    } else {
+                        Toast.makeText( inflater.context, "El profesor no tiene asignado un cubículo", Toast.LENGTH_SHORT ).show()
+                    }
+                }
+            }
         }
 
         showMenuFloating()
@@ -112,6 +144,5 @@ class MapFragment : BaseFragment() {
             1 -> mapController.changeFloor( Edificio.PRIMER_P )
             2 -> mapController.changeFloor( Edificio.SEGUNDO_P )
         }
-
     }
 }

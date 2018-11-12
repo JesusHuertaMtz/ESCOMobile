@@ -6,6 +6,7 @@ import android.os.Environment
 import android.widget.Button
 import com.example.master.escomobile_alpha.R
 import com.example.master.escomobile_alpha.util.Edificio
+import com.example.master.escomobile_alpha.vista.ManagerActivity
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.*
@@ -22,7 +23,9 @@ import java.util.*
 /**
  * Clase para manejar los eventos del mapa.
  * */
-class MapsController( val activity: Activity ) : OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnPolygonClickListener {
+class MapsController( val activity: Activity ) : OnMapReadyCallback,
+                                                GoogleMap.OnMarkerClickListener,
+                                                GoogleMap.OnPolygonClickListener {
     lateinit var map : GoogleMap private set
     private var mapSettings : MapsSetting
     private lateinit var mapGroundOverlay: MapsGroundOverlay
@@ -129,7 +132,7 @@ class MapsController( val activity: Activity ) : OnMapReadyCallback, GoogleMap.O
         btnP1 = activity.findViewById( R.id.btnP1 )
         btnP2 = activity.findViewById( R.id.btnP2 )
 
-        mapGroundOverlay.initializeLayer( this )
+        //mapGroundOverlay.initializeLayer( this )
         btnPB.setBackgroundResource( R.color.colorPrimaryLight )
 
         btnPB.setOnClickListener {
@@ -139,6 +142,7 @@ class MapsController( val activity: Activity ) : OnMapReadyCallback, GoogleMap.O
 
             println("PLANTA BAJA")
             mapGroundOverlay.showPlanta( Edificio.P_BAJA, R.raw.mapa_pb_escom, this )
+            if( floorSelected != Edificio.P_BAJA ) removeMarker()
         }
 
         btnP1.setOnClickListener {
@@ -147,7 +151,7 @@ class MapsController( val activity: Activity ) : OnMapReadyCallback, GoogleMap.O
             btnP2.setBackgroundResource( R.color.white_transparent )
 
             mapGroundOverlay.showPlanta( Edificio.PRIMER_P, R.raw.mapa_p1_escom, this )
-
+            if( floorSelected != Edificio.PRIMER_P ) removeMarker()
             /*mutablePolygon.fillColor = Color.GREEN
 
             mapEvents.clearMarkers()
@@ -170,7 +174,7 @@ class MapsController( val activity: Activity ) : OnMapReadyCallback, GoogleMap.O
             btnP2.setBackgroundResource( R.color.colorPrimaryLight )
 
             mapGroundOverlay.showPlanta( Edificio.SEGUNDO_P, R.raw.mapa_p2_escom, this )
-
+            if( floorSelected != Edificio.SEGUNDO_P ) removeMarker()
             /*mutablePolygon.fillColor = Color.WHITE
             var coordenadas = ""
 
@@ -229,9 +233,16 @@ class MapsController( val activity: Activity ) : OnMapReadyCallback, GoogleMap.O
         println("COORDENADAS ALMACENADAS!")
     }
 
+    private fun removeMarker() {
+        val ma = activity as? ManagerActivity
+        ma?.onRemoveMarkerListener()
+    }
 
     //TODO: PROVISIONAL
+    var floorSelected :Edificio = Edificio.P_BAJA
     fun changeFloor( floor: Edificio ) {
+        floorSelected = floor
+
         when( floor ) {
             Edificio.P_BAJA -> {
                 btnPB.callOnClick()

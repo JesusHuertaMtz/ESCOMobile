@@ -139,7 +139,7 @@ class MapsSetting private constructor() {
                 lastLocation = location
                 val currentLatLng = LatLng( location.latitude, location.longitude )
 
-                placeMarkerOnMap( map, currentLatLng )
+                //placeMarkerOnMap( map, currentLatLng )
                 //map.animateCamera( CameraUpdateFactory.newLatLngZoom( currentLatLng, Constant.MAP_ZOOM ) )
             }
         }

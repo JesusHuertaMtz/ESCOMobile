@@ -41,11 +41,11 @@
 			android:id="@+id/txtNombre"
 			android:layout_width="0dp"
 			android:layout_height="0dp"
-			android:layout_marginBottom="8dp"
 			android:layout_marginEnd="8dp"
+			android:layout_marginBottom="8dp"
 			android:padding="5dp"
 			android:text="@{profesor.nombre}"
-			android:textSize="17sp"
+			android:textSize="18sp"
 			app:layout_constraintBottom_toTopOf="@+id/txtPerfil"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -95,7 +95,7 @@
 			android:layout_marginEnd="8dp"
 			android:layout_marginStart="24dp"
 			android:layout_marginTop="8dp"
-			android:text="Calificación: 4.5 / 5"
+			android:text="@{profesor.calificacion}"
 			android:textSize="18sp"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
@@ -121,10 +121,10 @@
 				android:layout_height="54dp"
 				android:layout_margin="10dp"
 				android:layout_weight="1"
-				android:background="@drawable/border_button"
+				android:background="@drawable/border_green"
 				android:contentDescription="@string/btn_desc_horario_profesor"
 				android:elevation="4dp"
-				app:srcCompat="@drawable/ic_menu_event" />
+				app:srcCompat="@drawable/ic_profesor_horario" />
 			
 			<ImageButton
 				android:id="@+id/btnEstadisticas"
@@ -132,10 +132,10 @@
 				android:layout_height="54dp"
 				android:layout_margin="10dp"
 				android:layout_weight="1"
-				android:background="@drawable/border_button"
-				android:elevation="4dp"
+				android:background="@drawable/border_blue"
 				android:contentDescription="@string/btn_desc_estadisticas"
-				app:srcCompat="@drawable/ic_menu_map" />
+				android:elevation="4dp"
+				app:srcCompat="@drawable/ic_profesor_estadisticas" />
 			
 			<ImageButton
 				android:id="@+id/btnMapa"
@@ -144,23 +144,58 @@
 				android:layout_margin="10dp"
 				android:layout_weight="1"
 				android:background="@drawable/border_button"
-				android:elevation="4dp"
 				android:contentDescription="@string/btn_desc_ubicar_mapa"
-				app:srcCompat="@drawable/ic_menu_editar_perfil" />
+				android:elevation="4dp"
+				app:srcCompat="@drawable/ic_profesor_mapa" />
 		</LinearLayout>
 		
 		<Button
 			android:id="@+id/btnCalificar"
 			android:layout_width="0dp"
 			android:layout_height="50dp"
-			android:layout_marginEnd="8dp"
 			android:layout_marginStart="8dp"
-			android:layout_marginTop="32dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="8dp"
 			android:background="@drawable/button_main_custom"
 			android:text="@string/txt_hint_calificar"
 			app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
 			app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-			app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+			app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+		
+		<LinearLayout
+			android:id="@+id/linearLayout4"
+			android:layout_width="0dp"
+			android:layout_height="20dp"
+			android:orientation="horizontal"
+			android:weightSum="3"
+			app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+			app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+			app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+			
+			<TextView
+				android:id="@+id/textView9"
+				android:layout_width="32dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/txt_hint_horario2"
+				android:textAlignment="center" />
+			
+			<TextView
+				android:id="@+id/textView10"
+				android:layout_width="25dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="@string/txt_hint_estadisticas"
+				android:textAlignment="center" />
+			
+			<TextView
+				android:id="@+id/textView8"
+				android:layout_width="35dp"
+				android:layout_height="35dp"
+				android:layout_weight="1"
+				android:text="@string/txt_hint_ubicar_mapa"
+				android:textAlignment="center" />
+		</LinearLayout>
 		
 		<Button
 			android:id="@+id/btnCita"

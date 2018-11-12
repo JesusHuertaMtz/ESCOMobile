@@ -5,17 +5,19 @@ import android.os.Parcelable
 import org.json.JSONObject
 
 class Salon(): Parcelable {
-    var id = ""
-    var piso = 0
+    var id :String = ""
+    var piso :Int = 0
     var coordenadas = mutableListOf<Double>()
-	var academia = ""
+	var academia : String = ""
 
     constructor( jsonObject: JSONObject ): this() {
         this.id = jsonObject.optString("id" )
         this.piso = jsonObject.optInt("piso" )
 	    this.academia = jsonObject.optString("academia" )
         val jsonCooredanas = jsonObject.optJSONObject("coordenadas" )
-        this.coordenadas = mutableListOf( jsonCooredanas.optDouble("lat"), jsonCooredanas.optDouble("lng") )
+	    if( jsonCooredanas != null ) {
+		    this.coordenadas = mutableListOf( jsonCooredanas.optDouble("lat"), jsonCooredanas.optDouble("lng") )
+	    }
     }
 
     constructor(parcel: Parcel) : this() {

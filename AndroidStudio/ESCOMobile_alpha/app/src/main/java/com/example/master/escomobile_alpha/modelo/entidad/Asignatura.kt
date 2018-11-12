@@ -5,11 +5,11 @@ import android.os.Parcelable
 import org.json.JSONObject
 
 class Asignatura(): Parcelable {
-    var nombre = ""
+    var nombre : String = ""
     var salon : Salon? = null
-    var grupo = ""
-	var academia = ""
-	var laboratorio = ""
+    var grupo: String = ""
+	var academia : String = ""
+	var laboratorio : String = ""
 	var horario = mutableMapOf( "Lunes" to "", "Martes" to "", "Miércoles" to "", "Jueves" to "", "Viernes" to "" )
 
 	constructor(parcel: Parcel) : this() {

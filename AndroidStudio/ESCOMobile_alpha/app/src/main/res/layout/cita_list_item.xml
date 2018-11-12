@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	
+	<TextView
+		android:id="@+id/txt_tipo_cita"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:text="TextView"
+		android:textColor="@color/colorPrimaryDark"
+		android:textSize="18sp"
+		app:layout_constraintEnd_toStartOf="@+id/txt_hora"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+	
+	<TextView
+		android:id="@+id/txt_hora"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:text="TextView"
+		android:textColor="@color/black"
+		android:textSize="14sp"
+		app:layout_constraintBottom_toBottomOf="@+id/txt_tipo_cita"
+		app:layout_constraintEnd_toStartOf="@+id/btn_check"
+		app:layout_constraintTop_toTopOf="parent" />
+	
+	<TextView
+		android:id="@+id/txt_nombre"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:text="TextView"
+		android:textColor="@color/black"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/txt_tipo_cita" />
+	
+	<TextView
+		android:id="@+id/txt_motivo"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:text="TextView"
+		android:textColor="@color/black"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/txt_nombre" />
+	
+	<ImageButton
+		android:id="@+id/btn_check"
+		android:layout_width="25dp"
+		android:layout_height="25dp"
+		android:layout_marginEnd="4dp"
+		android:layout_marginBottom="8dp"
+		android:adjustViewBounds="true"
+		android:background="@drawable/border_green"
+		android:elevation="4dp"
+		android:scaleType="fitCenter"
+		android:src="@drawable/ic_cita_check"
+		app:layout_constraintBottom_toTopOf="@+id/txt_nombre"
+		app:layout_constraintEnd_toStartOf="@+id/btn_uncheck"
+		app:layout_constraintTop_toTopOf="parent"
+		app:srcCompat="@drawable/ic_cita_check" />
+	
+	<ImageButton
+		android:id="@+id/btn_uncheck"
+		android:layout_width="25dp"
+		android:layout_height="25dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginBottom="8dp"
+		android:adjustViewBounds="true"
+		android:background="@drawable/border_button"
+		android:elevation="4dp"
+		android:scaleType="centerInside"
+		android:src="@drawable/ic_cita_uncheck"
+		app:layout_constraintBottom_toTopOf="@+id/txt_nombre"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:srcCompat="@drawable/ic_cita_uncheck" />
+
+</android.support.constraint.ConstraintLayout>

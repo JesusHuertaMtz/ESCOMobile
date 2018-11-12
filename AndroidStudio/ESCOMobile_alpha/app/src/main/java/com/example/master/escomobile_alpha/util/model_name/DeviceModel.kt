@@ -5,6 +5,10 @@ import android.os.Build
 class DeviceModel {
 
     companion object {
+        fun getModel(): String {
+            return "${Build.MANUFACTURER} ${Build.MODEL}"
+        }
+
         fun getDeviceModelName() : String {
             var model = ""
 

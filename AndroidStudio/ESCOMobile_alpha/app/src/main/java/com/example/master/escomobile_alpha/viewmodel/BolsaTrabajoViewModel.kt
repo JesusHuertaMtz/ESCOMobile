@@ -2,11 +2,13 @@ package com.example.master.escomobile_alpha.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.content.Context
+import android.widget.Toast
 import com.example.master.escomobile_alpha.modelo.entidad.Empresa
 import com.example.master.escomobile_alpha.modelo.logica_negocio.BSBolsaTrabajo
 import com.example.master.escomobile_alpha.util.CacheManager
+import com.example.master.escomobile_alpha.util.CustomProgressBar
 import com.example.master.escomobile_alpha.util.request.RequestManager
-import com.example.master.escomobile_alpha.viewholder.BolsaTrabajoAdapter
+import com.example.master.escomobile_alpha.viewholder.adapter.BolsaTrabajoAdapter
 
 class BolsaTrabajoViewModel: ViewModel() {
     lateinit var bolsaTrabajoAdapter : BolsaTrabajoAdapter
@@ -25,20 +27,26 @@ class BolsaTrabajoViewModel: ViewModel() {
             val url = RequestManager.URL_OFERTAS_VIGENTES
             val params = hashMapOf<String, Any>( "request" to "getOfertasVigentes" )
 
+            CustomProgressBar.show( bolsaTrabajoAdapter.context )
             RequestManager().postRequest( url, params ) { jsonResponse ->
                 if( jsonResponse.optInt("code") == 200 ) {
                     val empresasConOfertasVigentes = jsonResponse.optJSONObject("data" ).optJSONArray("ofertas_vigentes" )
-                    val empresas = BSBolsaTrabajo().parserJSONOfertasVigentes( empresasConOfertasVigentes )
+                    if( empresasConOfertasVigentes != null ) {
+                        val empresas = BSBolsaTrabajo().parserJSONOfertasVigentes( empresasConOfertasVigentes )
 
-                    writeEmpresasInCache( bolsaTrabajoAdapter.context, empresas )
+                        writeEmpresasInCache( bolsaTrabajoAdapter.context, empresas )
 
-                    bolsaTrabajoAdapter.updateEmpresas( empresas )
-                    bolsaTrabajoAdapter.notifyDataSetChanged()
+                        bolsaTrabajoAdapter.updateEmpresas( empresas )
+                        bolsaTrabajoAdapter.notifyDataSetChanged()
+                    } else {
+                        Toast.makeText( bolsaTrabajoAdapter.context, "No hay ofertas laborales vigentes", Toast.LENGTH_SHORT ).show()
+                    }
 
                 } else {
                     //Hubo error
                     println("ERROR ${ jsonResponse.opt("description") }")
                 }
+                CustomProgressBar.getDialog()?.dismiss()
             }
         } else {
             //TODO
@@ -90,8 +98,4 @@ class BolsaTrabajoViewModel: ViewModel() {
         }
     }
 }
-
-
-
-
 

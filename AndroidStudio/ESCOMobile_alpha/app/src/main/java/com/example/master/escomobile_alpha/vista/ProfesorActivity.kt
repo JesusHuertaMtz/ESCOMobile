@@ -3,14 +3,13 @@ package com.example.master.escomobile_alpha.vista
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.master.escomobile_alpha.R
+import com.example.master.escomobile_alpha.modelo.entidad.Cita
 import com.example.master.escomobile_alpha.modelo.entidad.Profesor
-import com.example.master.escomobile_alpha.vista.fragment.EstadisticasProfesorFragment
-import com.example.master.escomobile_alpha.vista.fragment.HorarioProfesorFragment
-import com.example.master.escomobile_alpha.vista.fragment.OpinionFragment
+import com.example.master.escomobile_alpha.vista.fragment.*
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_profesor.*
 
-class ProfesorActivity : AppCompatActivity() {
-
+class ProfesorActivity : AppCompatActivity(), TabCitaACP.OnCitaChangeState {
 	companion object {
 		val HORARIO = "com.example.master.escomobile_alpha.HORARIO"
 		val ESTADISTCAS = "com.example.master.escomobile_alpha.ESTADISTICAS"
@@ -44,17 +43,36 @@ class ProfesorActivity : AppCompatActivity() {
 			}
 
 			UBICAR_MAPA -> {
-
+				val mapFragment = MapFragment.newInstance()
+				//val latLng = LatLng( profesor.cubiculo?.coordenadas?.get(0) ?: 0.0, profesor.cubiculo?.coordenadas?.get(1) ?: 0.0 )
+				//mapFragment.addMarker( latLng, profesor.nombre )
+				//mapFragment.changeFloor( profesor.cubiculo?.piso ?: 0 )
+				transaction.replace( content_fragment.id, mapFragment ).commit()
 			}
 
 			CITA -> {
-
+				val agendarCitaFragment = AgendarCitaFragment.newInstance( profesor.nombre )
+				transaction.replace( content_fragment.id, agendarCitaFragment ).commit()
 			}
 
 			CALIFICAR -> {
 				val opinionFragment = OpinionFragment.newInstance( profesor.nombre )
 				transaction.replace( content_fragment.id, opinionFragment ).commit()
 			}
+		}
+	}
+
+	override fun onCitaAgendadaOCancelada( fecha: String, cita: Cita, esAgendada: Boolean ) {
+		val citaFragment = supportFragmentManager.findFragmentById( R.id.content_fragment ) as? CitaFragment
+		println("FURULO -->> ${ citaFragment == null } -- $fecha")
+
+		if( citaFragment == null ) {
+			val fragment = CitaFragment.newInstance()
+			val transaction = supportFragmentManager.beginTransaction()
+			transaction.replace( R.id.content_fragment, fragment ).commit()
+
+		} else {
+			citaFragment.setCita( fecha, cita, esAgendada )
 		}
 	}
 }

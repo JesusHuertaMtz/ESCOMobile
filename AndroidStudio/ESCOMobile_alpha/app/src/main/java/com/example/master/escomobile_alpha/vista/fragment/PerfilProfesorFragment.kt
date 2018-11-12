@@ -7,10 +7,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Toast
 import com.example.master.escomobile_alpha.R
 import com.example.master.escomobile_alpha.databinding.FragmentPerfilProfesorBinding
 import com.example.master.escomobile_alpha.modelo.entidad.Profesor
+import com.example.master.escomobile_alpha.util.SPLogin
 import com.example.master.escomobile_alpha.vista.ManagerActivity
 import com.example.master.escomobile_alpha.vista.ProfesorActivity
 
@@ -54,6 +55,9 @@ class PerfilProfesorFragment : Fragment() {
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		//Obtener los datos del profesor
 		val perfilProfesorBinding = FragmentPerfilProfesorBinding.inflate( inflater, container, false )
+		profesor?.cubiculo?.academia = "Academia ${profesor?.cubiculo?.academia ?: "-"}"
+		profesor?.cubiculo?.id = "Cubículo: ${profesor?.cubiculo?.id ?: "-"}"
+		profesor?.calificacion = if( profesor?.calificacion == "0" ) "Calificación: -" else "Calificación ${profesor?.calificacion ?: "-"}"
 		perfilProfesorBinding.profesor = profesor
 
 		setBackArrowInToolbar( perfilProfesorBinding )
@@ -72,15 +76,25 @@ class PerfilProfesorFragment : Fragment() {
 		}
 
 		perfilProfesorBinding.btnMapa.setOnClickListener {
-			showActivityProfesor( ProfesorActivity.UBICAR_MAPA )
+			//showActivityProfesor( ProfesorActivity.UBICAR_MAPA )
+			val ma = activity as? ManagerActivity
+			ma?.setFragmentMap( profesor!! )
 		}
 
-		perfilProfesorBinding.btnCalificar.setOnClickListener {
-			showActivityProfesor( ProfesorActivity.CALIFICAR )
-		}
+		val esProfesor = SPLogin.loadUserFromSharedPreferences( activity!! ).esProfesor ?: false
+		if( esProfesor ) {
+			perfilProfesorBinding.btnCalificar.visibility = View.GONE
+			perfilProfesorBinding.btnCita.visibility = View.GONE
+			//Toast.makeText( layoutInflater.context, "Agendar cita y calificar", Toast.LENGTH_SHORT ).show()
 
-		perfilProfesorBinding.btnCita.setOnClickListener {
-			showActivityProfesor( ProfesorActivity.CITA )
+		} else {
+			perfilProfesorBinding.btnCalificar.setOnClickListener {
+				showActivityProfesor( ProfesorActivity.CALIFICAR )
+			}
+
+			perfilProfesorBinding.btnCita.setOnClickListener {
+				showActivityProfesor( ProfesorActivity.CITA )
+			}
 		}
 	}
 

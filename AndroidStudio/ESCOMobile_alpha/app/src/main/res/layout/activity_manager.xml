@@ -22,22 +22,27 @@
         app:floatingSearch_leftActionMode="showHamburger"
         app:floatingSearch_searchHint="Buscar profesores"
         app:floatingSearch_suggestionsListAnimDuration="250"
-        app:floatingSearch_dismissOnOutsideTouch="true"
-
-        app:floatingSearch_dividerColor="@color/dark_gray"
-        app:floatingSearch_viewSearchInputTextColor="@color/colorPrimaryDark"
-        app:floatingSearch_viewSuggestionItemTextColor="@color/colorPrimaryDark"
-        app:floatingSearch_clearBtnColor="@color/colorPrimaryDark"
-        app:floatingSearch_leftActionColor="@color/colorPrimaryDark"
-        app:floatingSearch_dimBackground="@color/colorPrimaryDark"
-        app:floatingSearch_viewTextColor="@color/colorPrimaryDark"
-        app:floatingSearch_hintTextColor="@color/colorPrimaryDark"
-        app:floatingSearch_menuItemIconColor="@color/colorPrimaryDark">
-
-        <FrameLayout
-            android:id="@+id/fragment_search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        app:floatingSearch_dismissOnOutsideTouch="false"
+		app:floatingSearch_dismissFocusOnItemSelection="true"
+		app:floatingSearch_showSearchKey="false"
+	
+		app:floatingSearch_dividerColor="@color/dark_gray"
+		app:floatingSearch_viewSearchInputTextColor="@color/colorPrimaryDark"
+		app:floatingSearch_viewSuggestionItemTextColor="@color/colorPrimaryDark"
+		app:floatingSearch_clearBtnColor="@color/colorPrimaryDark"
+		app:floatingSearch_leftActionColor="@color/colorPrimaryDark"
+		app:floatingSearch_dimBackground="@color/colorPrimaryDark"
+		app:floatingSearch_viewTextColor="@color/colorPrimaryDark"
+		app:floatingSearch_hintTextColor="@color/colorPrimaryDark"
+		app:floatingSearch_menuItemIconColor="@color/colorPrimaryDark"
+		app:floatingSearch_actionMenuOverflowColor="@color/colorPrimary"
+		app:floatingSearch_backgroundColor="@color/colorAccent"
+		app:floatingSearch_suggestionRightIconColor="@color/colorPrimary">
+	
+		<FrameLayout
+			android:id="@+id/fragment_search"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
     </com.arlib.floatingsearchview.FloatingSearchView>
 
     <android.support.design.widget.NavigationView
@@ -49,3 +54,9 @@
         app:headerLayout="@layout/nav_header_menu_controller"
         app:menu="@menu/activity_manager_drawer" />
 </android.support.v4.widget.DrawerLayout>
+
+<!--
+
+
+
+-->

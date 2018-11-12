@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.master.escomobile_alpha.R
 import com.example.master.escomobile_alpha.modelo.entidad.Evento
-import com.example.master.escomobile_alpha.viewholder.EventoAdapter
+import com.example.master.escomobile_alpha.viewholder.adapter.EventoAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,17 +44,7 @@ class EventoFragment : Fragment(), EventoAdapter.OnEventoSelected {
         val reclycerView = view.findViewById<RecyclerView>( R.id.recycler_view )
         reclycerView.layoutManager = GridLayoutManager( context, 2 )
         //GET EVENTOS
-        eventoAdapter = EventoAdapter( activity?.applicationContext!! )
-        val evento = Evento()
-        evento.descripcion = "Prueba mortal XD XD"
-        evento.nombre = "Evento 1"
-        evento.ponente = "Prueba mortal XD XD"
-        evento.imagen = R.drawable.google
-        val evento2 = Evento()
-        evento2.descripcion = "Prueba mortal XD XD"
-        evento2.nombre = "Evento 2"
-        evento2.ponente = "Prueba mortal XD XD"
-        evento2.imagen = R.drawable.oracle
+        eventoAdapter = EventoAdapter(activity?.applicationContext!!)
         val evento3 = Evento()
         evento3.descripcion = "Prueba mortal XD XD"
         evento3.nombre = "Evento 3"
@@ -62,8 +52,6 @@ class EventoFragment : Fragment(), EventoAdapter.OnEventoSelected {
         evento3.imagen = R.drawable.escom_front
 
         val evs = mutableListOf<Evento>()
-        evs.add( evento )
-        evs.add( evento2 )
         evs.add( evento3 )
 
         eventoAdapter.updateEventos( evs )

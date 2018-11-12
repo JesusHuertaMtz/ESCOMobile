@@ -58,7 +58,9 @@ class IniciarSesionFragment : BaseFragment() {
                 imm.hideSoftInputFromWindow( viewFocus.getWindowToken(), 0 )
             }
 
-            activity!!.onBackPressed()
+	        val trans = activity?.supportFragmentManager?.beginTransaction()
+	        trans?.remove( this )?.commit()
+	        activity?.supportFragmentManager?.popBackStack()
         }
 
         //Añade el evento al botón iniciar sesión
@@ -94,8 +96,9 @@ class IniciarSesionFragment : BaseFragment() {
                         hideProgressBar()
                     }
                 }
+            } else {
+                hideProgressBar()
             }
-            //showErrorMessageIfNeeded( user?.pass, getString( R.string.txt_hint_pass ) )
         })
     }
 
@@ -114,7 +117,7 @@ class IniciarSesionFragment : BaseFragment() {
             val fragmentRegistro = RegistroFragment.newInstance()
 
             val transaction = activity!!.supportFragmentManager.beginTransaction()
-            transaction.replace( activity!!.findViewById<FrameLayout>( R.id.fragment_container ).id, fragmentRegistro ).addToBackStack(null).commit()
+            transaction.replace( R.id.fragment_container, fragmentRegistro ).commit()
         }
     }
 }

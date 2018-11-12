@@ -19,7 +19,7 @@ class BSRegistro() {
     * TODO: REALIZA LA IMPLEMENTACION DE LAS VALIDACIONES
     * */
     fun isAValidUserInfo(): Boolean {
-        //usuario?.boleta     =
+        usuario?.boleta     = validator.validateBoleta( usuario?.boleta, usuario?.esProfesor ?: false )
         usuario?.nombre     = validator.validateName( usuario?.nombre )
         usuario?.primerAp   = validator.validateName( usuario?.primerAp )
         usuario?.segundoAp  = validator.validateName( usuario?.segundoAp )
@@ -37,6 +37,7 @@ class BSRegistro() {
         registroSuccess = registroSuccess && isValidField( usuario?.segundoAp ) && isValidField( usuario?.correo )
         registroSuccess = registroSuccess && isValidField( usuario?.pass )
         registroSuccess = registroSuccess && usuario?.pass_confirm != FormValidator.CONTRASENIA_NO_COINCIDE
+        registroSuccess = registroSuccess && isValidField( usuario?.boleta )
 
         return registroSuccess
     }

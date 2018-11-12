@@ -33,4 +33,8 @@ class Usuario(): Serializable {
         this.pass = json.optString("contrasenia")
         this.esProfesor = json.optBoolean("esProfesor")
     }
+
+    override fun toString(): String {
+        return "$primerAp $segundoAp $nombre"
+    }
 }

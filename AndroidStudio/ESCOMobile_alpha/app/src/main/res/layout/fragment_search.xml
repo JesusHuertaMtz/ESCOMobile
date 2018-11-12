@@ -8,78 +8,88 @@
             name="search"
             type="com.example.master.escomobile_alpha.viewmodel.SearchViewModel"/>
     </data>
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!-- TODO: Update blank fragment layout -->
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rcSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:background="@drawable/bottom_corner_radius"
-            android:elevation="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="50dp"
-            android:background="@android:color/white"
-            android:elevation="4dp"
-            android:gravity="center_vertical|center_horizontal|fill_horizontal"
-            android:orientation="horizontal"
-            android:weightSum="4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageButton
-                android:id="@+id/btn_profesores"
-                style="@android:style/Widget.DeviceDefault.ImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/white_transparent"
-                android:contentDescription="@string/hint_profesores"
-                android:src="@drawable/ic_activo_profesores" />
-
-            <ImageButton
-                android:id="@+id/btn_grupos"
-                style="@android:style/Widget.Material.ImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/white_transparent"
-                android:contentDescription="@string/hint_grupos"
-                android:src="@drawable/ic_inactivo_grupos" />
-
-            <ImageButton
-                android:id="@+id/btn_salones"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/white_transparent"
-                android:contentDescription="@string/hint_salones"
-                android:src="@drawable/ic_inactivo_classroo" />
-
-            <ImageButton
-                android:id="@+id/btn_academias"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/white_transparent"
-                android:contentDescription="@string/hint_academias"
-                android:src="@drawable/ic_inactivo_academias" />
-        </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+	
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		
+		<!-- TODO: Update blank fragment layout -->
+		
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/rcSearch"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="3dp"
+			android:layout_marginStart="3dp"
+			android:background="@drawable/bottom_corner_radius"
+			android:elevation="4dp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/divider6" />
+		
+		<LinearLayout
+			android:id="@+id/linearLayout"
+			android:layout_width="0dp"
+			android:layout_height="50dp"
+			android:layout_marginEnd="3dp"
+			android:layout_marginStart="3dp"
+			android:layout_marginTop="50dp"
+			android:background="@android:color/white"
+			android:elevation="5dp"
+			android:gravity="center_vertical|center_horizontal|fill_horizontal"
+			android:orientation="horizontal"
+			android:weightSum="4"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+			
+			<ImageButton
+				android:id="@+id/btn_profesores"
+				style="@android:style/Widget.DeviceDefault.ImageButton"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:background="@color/white_transparent"
+				android:contentDescription="@string/hint_profesores"
+				android:src="@drawable/ic_activo_profesores" />
+			
+			<ImageButton
+				android:id="@+id/btn_grupos"
+				style="@android:style/Widget.Material.ImageButton"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:background="@color/white_transparent"
+				android:contentDescription="@string/hint_grupos"
+				android:src="@drawable/ic_inactivo_grupos" />
+			
+			<ImageButton
+				android:id="@+id/btn_salones"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:background="@color/white_transparent"
+				android:contentDescription="@string/hint_salones"
+				android:src="@drawable/ic_inactivo_classroom" />
+			
+			<ImageButton
+				android:id="@+id/btn_academias"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:background="@color/white_transparent"
+				android:contentDescription="@string/hint_academias"
+				android:src="@drawable/ic_inactivo_academias" />
+		</LinearLayout>
+		
+		<View
+			android:id="@+id/divider6"
+			android:layout_width="0dp"
+			android:layout_height="2dp"
+			android:background="@color/colorSecundaryLight"
+			app:layout_constraintBottom_toTopOf="@+id/rcSearch"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+	</android.support.constraint.ConstraintLayout>
 </layout>

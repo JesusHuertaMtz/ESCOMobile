@@ -7,10 +7,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import com.example.master.escomobile_alpha.R
+import com.example.master.escomobile_alpha.firebase.MyFirebaseMessagingService
 import com.example.master.escomobile_alpha.util.SPLogin
 import com.example.master.escomobile_alpha.vista.fragment.IniciarSesionFragment
 import com.example.master.escomobile_alpha.vista.fragment.RegistroFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import android.view.ViewGroup
+import com.crashlytics.android.Crashlytics
+import com.example.master.escomobile_alpha.util.CustomProgressBar
+import com.example.master.escomobile_alpha.util.versio_app.ValidateVersionApp
+import io.fabric.sdk.android.Fabric
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +36,25 @@ class MainActivity : AppCompatActivity() {
             findViewById<Button>( R.id.btn_iniciar_sesion ).visibility = View.VISIBLE
             findViewById<Button>( R.id.btn_coninuar_sin_registro ).visibility = View.VISIBLE
         }
+
+        MyFirebaseMessagingService.getTokenfirebase{} //Almacenar o actualizar en la BD
+        MyFirebaseMessagingService.subscribeToTopic()
+        MyFirebaseMessagingService.createNotificationChannel( this )
+
+        //Prueba de crashlytics
+        /*val fabric = Fabric.Builder(this)
+                .kits(Crashlytics())
+                .debuggable(true)           // Enables Crashlytics debugger
+                .build()
+        Fabric.with(fabric)
+        val crashButton = Button(this)
+        crashButton.text = "Crash!"
+        crashButton.setOnClickListener {
+            Crashlytics.getInstance().crash()
+        }
+        addContentView(crashButton,
+                ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT))*/
     }
 
     override fun onResume() {
@@ -35,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
 	    val user = SPLogin.loadUserFromSharedPreferences( this )
 	    println("USER ${ user.boleta } PASS ${ user.pass }")
+        ValidateVersionApp.getVersion( this )
 	    if( user.boleta != null && user.pass != null ) {
 		    //Usuario loggeado ir a pantalla de inicio
 		    val intent = Intent( this, ManagerActivity::class.java )
@@ -67,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         btnIniciarSesion.setOnClickListener {
             println("GO TO LOGIN")
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace( R.id.fragment_container, fragmenIniciarSesion ).addToBackStack(null ) .commit()
+            transaction.replace( R.id.fragment_container, fragmenIniciarSesion ).addToBackStack(null) .commit()
             hideElements()
         }
     }

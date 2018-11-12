@@ -6,16 +6,18 @@ import android.os.Parcelable
 import org.json.JSONObject
 
 class Profesor() : Parcelable {
-    var nombre = ""
+    var nombre : String = ""
     var asignaturas = mutableListOf<Asignatura>()
     var cubiculo : Salon? = null
     var foto : Bitmap? = null
+	var calificacion : String = ""
 
 	constructor( jsonObject: JSONObject ): this() {
 		this.nombre = jsonObject.optString("nombre_prof")
 		getAsignaturas( jsonObject )
 		this.cubiculo = getCubiculoId( jsonObject )
 		//this.foto = jsonObject.opt("foto")
+		this.calificacion = jsonObject.optString("calificacion" )
 	}
 
 	private fun getAsignaturas( jsonObject: JSONObject ) {
@@ -47,6 +49,7 @@ class Profesor() : Parcelable {
 			parcel.readList( this, Asignatura::class.java.classLoader )
 		}
 		foto = parcel.readParcelable(Bitmap::class.java.classLoader)
+		calificacion = parcel.readString()
 	}
 	
 
@@ -55,6 +58,7 @@ class Profesor() : Parcelable {
 		parcel.writeParcelable(cubiculo, flags)
 		parcel.writeList( asignaturas )
 		parcel.writeParcelable( foto, flags )
+		parcel.writeString( calificacion )
 	}
 
 	override fun describeContents(): Int {

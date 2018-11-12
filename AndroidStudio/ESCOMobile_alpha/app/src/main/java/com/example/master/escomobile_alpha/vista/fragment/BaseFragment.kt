@@ -59,6 +59,13 @@ open class BaseFragment : Fragment(), ErrorMessage {
     fun showMenuFloating() {
         val managerActivity = activity as? ManagerActivity
         managerActivity?.showMenuFloating()
-        managerActivity
+    }
+
+    /**
+     * Pone el título del toolbar. NO FURULA!!
+     * */
+    fun setTitle( title : String ) {
+        val managerActivity = activity as? ManagerActivity
+        managerActivity?.supportActionBar?.title = title
     }
 }

@@ -42,13 +42,13 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+    
         <ImageView
             android:id="@+id/img"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/img_main_logo_desc"
             android:scaleType="centerCrop"
@@ -57,7 +57,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_main_name_app"
-            app:srcCompat="@drawable/escom_logo_white" />
+            app:srcCompat="@drawable/logo_w" />
 
         <EditText
             android:id="@+id/txt_boleta"

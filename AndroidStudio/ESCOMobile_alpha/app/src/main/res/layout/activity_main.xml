@@ -22,14 +22,14 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    
     <ImageView
         android:id="@+id/img_escom"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/img_main_logo_desc"
         android:scaleType="centerInside"
@@ -38,7 +38,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_main_name_app"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_w" />
 
     <Button
         android:id="@+id/btn_registarse"
@@ -101,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 

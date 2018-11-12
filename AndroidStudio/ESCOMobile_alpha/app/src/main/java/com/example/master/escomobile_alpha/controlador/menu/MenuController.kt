@@ -15,6 +15,7 @@ import com.example.master.escomobile_alpha.R
 import com.example.master.escomobile_alpha.util.SPLogin
 import com.example.master.escomobile_alpha.vista.MainActivity
 import com.example.master.escomobile_alpha.vista.fragment.BolsaTrabajoFragment
+import com.example.master.escomobile_alpha.vista.fragment.CitaFragment
 import com.example.master.escomobile_alpha.vista.fragment.MapFragment
 import com.example.master.escomobile_alpha.vista.fragment.ProfesorFragment
 import kotlinx.android.synthetic.main.activity_manager.*
@@ -27,7 +28,7 @@ open class MenuController : AppCompatActivity(), NavigationView.OnNavigationItem
     //Se actualiza cada vez que se selecciona un elemento.
     var itemID = 0
     var fragmentMap : Fragment? = null
-    var fragment: Fragment? = null
+    lateinit var fragment: Fragment
 
     enum class MenuOptions {
         NONE, ALL, FAB, OPTIONS
@@ -43,8 +44,8 @@ open class MenuController : AppCompatActivity(), NavigationView.OnNavigationItem
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.manager, menu)
-        this.menu = menu
+        //menuInflater.inflate(R.menu.manager, menu)
+        //this.menu = menu
 
         return true
     }
@@ -75,7 +76,7 @@ open class MenuController : AppCompatActivity(), NavigationView.OnNavigationItem
                 fragment = ProfesorFragment.newInstance()
             }
             R.id.nav_citas -> {
-
+                fragment = CitaFragment.newInstance()
             }
             R.id.nav_bolsa -> {
                 fragment = BolsaTrabajoFragment.newInstance()
@@ -102,9 +103,6 @@ open class MenuController : AppCompatActivity(), NavigationView.OnNavigationItem
      * @param flag Opción del enum MenuOptions.
      * */
     fun setMenu( flag: MenuOptions ) {
-        addDrawerMenu()
-        //android:background="?attr/colorPrimary"
-
         when( flag ) {
             MenuOptions.NONE -> {
                 //No añade nada. Solo el menu drawer.
@@ -123,6 +121,8 @@ open class MenuController : AppCompatActivity(), NavigationView.OnNavigationItem
                 enabledMenuOptions()
             }
         }
+
+        addDrawerMenu()
     }
 
     /**
@@ -156,6 +156,7 @@ open class MenuController : AppCompatActivity(), NavigationView.OnNavigationItem
      * */
     private fun enabledMenuOptions() {
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled( false )
     }
 
     /**

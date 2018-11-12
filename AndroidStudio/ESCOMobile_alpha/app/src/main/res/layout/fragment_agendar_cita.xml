@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+	
+	<data>
+		<variable
+			name="cita"
+			type="com.example.master.escomobile_alpha.modelo.entidad.Cita"/>
+	</data>
+	
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/background"
+		tools:context=".vista.fragment.AgendarCitaFragment">
+		
+		<android.support.constraint.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/background"
+			tools:context=".vista.fragment.AgendarCitaFragment">
+			
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				android:background="@color/colorPrimary"
+				android:elevation="5dp"
+				android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+				app:title="Agendar cita"
+				app:titleTextColor="@android:color/white" />
+			
+			<TextView
+				android:id="@+id/textView"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="8dp"
+				android:layout_marginTop="8dp"
+				android:layout_marginEnd="8dp"
+				android:text="@string/txt_hint__solicitar_cita"
+				android:textAlignment="center"
+				android:textColor="@android:color/black"
+				android:textSize="18sp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+			
+			<LinearLayout
+				android:id="@+id/linearLayout3"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="8dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="8dp"
+				android:layout_marginBottom="16dp"
+				android:orientation="vertical"
+				app:layout_constraintBottom_toTopOf="@+id/btn_agendar"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/textView">
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_weight="10"
+					android:gravity="fill_vertical|fill_horizontal"
+					android:orientation="horizontal">
+					
+					<ImageView
+						android:id="@+id/imageView"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="16dp"
+						android:contentDescription="@string/txt_hint_cita"
+						android:src="@drawable/ic_cita_profesor"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toBottomOf="@+id/textView" />
+					
+					<Spinner
+						android:id="@+id/spinner"
+						android:layout_width="match_parent"
+						android:layout_height="56dp"
+						android:layout_marginStart="8dp"
+						android:layout_marginEnd="16dp"
+						app:layout_constraintBottom_toBottomOf="@+id/imageView"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/imageView"
+						app:layout_constraintTop_toTopOf="@+id/imageView" />
+				
+				</LinearLayout>
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_weight="10"
+					android:gravity="fill_vertical|fill_horizontal|fill"
+					android:orientation="horizontal">
+					
+					<ImageView
+						android:id="@+id/img_fecha"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="8dp"
+						android:contentDescription="@string/txt_hint_cita"
+						android:src="@drawable/ic_cita_fecha"
+						app:layout_constraintStart_toStartOf="@+id/imageView"
+						app:layout_constraintTop_toBottomOf="@+id/imageView" />
+					
+					<Button
+						android:id="@+id/btn_fecha"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="8dp"
+						android:layout_marginEnd="16dp"
+						android:background="@color/background"
+						android:hint="@string/txt_fecha_cita"
+						android:text="@{cita.fecha}"
+						android:textAlignment="viewStart"
+						android:textAllCaps="false"
+						android:textSize="18sp"
+						app:layout_constraintBottom_toBottomOf="@+id/img_fecha"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/img_fecha"
+						app:layout_constraintTop_toTopOf="@+id/img_fecha" />
+				</LinearLayout>
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_weight="10"
+					android:orientation="horizontal">
+					
+					<ImageView
+						android:id="@+id/imageView6"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="8dp"
+						android:contentDescription="@string/img_description"
+						android:src="@drawable/ic_cita_horario"
+						app:layout_constraintStart_toStartOf="@+id/img_fecha"
+						app:layout_constraintTop_toBottomOf="@+id/img_fecha" />
+					
+					<Button
+						android:id="@+id/btn_hora"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="8dp"
+						android:layout_marginEnd="16dp"
+						android:background="@color/background"
+						android:hint="@string/txt_hora_cita"
+						android:text="@{cita.hora}"
+						android:textAlignment="viewStart"
+						android:textAllCaps="false"
+						android:textSize="18sp"
+						app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/imageView6"
+						app:layout_constraintTop_toTopOf="@+id/imageView6" />
+				
+				</LinearLayout>
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_weight="10"
+					android:orientation="horizontal">
+					
+					<ImageView
+						android:id="@+id/imageView7"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="8dp"
+						android:contentDescription="@string/img_description"
+						android:src="@drawable/ic_cita_tipo"
+						app:layout_constraintStart_toStartOf="@+id/imageView6"
+						app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+					
+					<Button
+						android:id="@+id/btn_tipo"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="8dp"
+						android:layout_marginEnd="16dp"
+						android:background="@color/background"
+						android:hint="@string/txt_tipo_cita"
+						android:text="@{cita.tipo}"
+						android:textAlignment="viewStart"
+						android:textAllCaps="false"
+						android:textSize="18sp"
+						app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/imageView7"
+						app:layout_constraintTop_toTopOf="@+id/imageView7" />
+				</LinearLayout>
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_weight="10"
+					android:orientation="horizontal">
+					
+					<ImageView
+						android:id="@+id/imageView8"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="8dp"
+						android:contentDescription="@string/img_description"
+						android:src="@drawable/ic_cita_motivo"
+						app:layout_constraintStart_toStartOf="@+id/imageView7"
+						app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+					
+					<EditText
+						android:id="@+id/txt_motivo"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="8dp"
+						android:layout_marginEnd="16dp"
+						android:maxLength="240"
+						android:ems="10"
+						android:hint="@string/txt_hint_motivo_cota"
+						android:inputType="textMultiLine"
+						app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/imageView8"
+						app:layout_constraintTop_toTopOf="@+id/imageView8" />
+				
+				</LinearLayout>
+			</LinearLayout>
+			
+			<Button
+				android:id="@+id/btn_agendar"
+				android:layout_width="0dp"
+				android:layout_height="50dp"
+				android:layout_marginStart="32dp"
+				android:layout_marginEnd="32dp"
+				android:layout_marginBottom="24dp"
+				android:background="@drawable/button_main_custom"
+				android:text="@string/btn_hint_acpetar"
+				android:textSize="18sp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent" />
+			
+			<ImageButton
+				android:id="@+id/btn_help"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_marginTop="8dp"
+				android:layout_marginEnd="8dp"
+				android:background="@color/colorPrimary"
+				android:elevation="5dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:srcCompat="@drawable/ic_help_agendar_cita" />
+		
+		</android.support.constraint.ConstraintLayout>
+	</ScrollView>
+</layout>

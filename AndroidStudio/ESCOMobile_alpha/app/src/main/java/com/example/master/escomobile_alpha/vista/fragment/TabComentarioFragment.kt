@@ -24,7 +24,7 @@ class TabComentarioFragment : Fragment() {
 	private lateinit var tabComentarioBinding: FragmentTabComentarioBinding
 	private lateinit var estadisticasProfesorViewModel: EstadisticasProfesorViewModel
 	private var nombreProfesor: String? = null
-	private val NOMBRE = "nombre_profesor"
+	private val NOMBRE : String = "nombre_profesor"
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -34,8 +34,7 @@ class TabComentarioFragment : Fragment() {
 		}
 	}
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-	                          savedInstanceState: Bundle?): View? {
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		// Inflate the layout for this fragment
 		CustomProgressBar.show( inflater.context )
 		tabComentarioBinding = DataBindingUtil.inflate( inflater, R.layout.fragment_tab_comentario, container, false )
@@ -45,6 +44,7 @@ class TabComentarioFragment : Fragment() {
 		}
 		tabComentarioBinding.txtNombreProfesor.text = nombreProfesor
 		estadisticasProfesorViewModel.init( inflater.context )
+		estadisticasProfesorViewModel.getComentariosBy( nombreProfesor!! )
 		//estadisticasProfesorViewModel.getComentariosBy( nombreProfesor )
 		tabComentarioBinding.recyclerView.adapter = estadisticasProfesorViewModel.estadisticasProfesorAdapter
 

@@ -1,6 +1,5 @@
 package com.example.master.escomobile_alpha.vista.fragment
 
-
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -10,12 +9,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
 import com.example.master.escomobile_alpha.R
 import com.example.master.escomobile_alpha.controlador.busqueda.SearchController
 import com.example.master.escomobile_alpha.databinding.FragmentSearchBinding
 import com.example.master.escomobile_alpha.viewmodel.SearchViewModel
 import com.example.master.escomobile_alpha.vista.ManagerActivity
+import android.view.WindowManager
 
 /**
  * A simple [Fragment] subclass.
@@ -24,11 +25,19 @@ import com.example.master.escomobile_alpha.vista.ManagerActivity
 class SearchFragment : Fragment(), SearchController.OnQueryChangeListener {
     private lateinit var searchViewModel: SearchViewModel
     private lateinit var searchRVB: FragmentSearchBinding
+	private val searchHints = hashMapOf( "NombreProf" to "Buscar profesor", "Grupo" to "Buscar grupo", "Salon" to "Buscar salón", "NombAcademia" to "Buscar academia" )
+	private val searchIconId = hashMapOf( "NombreProf" to R.drawable.ic_activo_profesores, "Grupo" to R.drawable.ic_activo_grupos, "Salon" to R.drawable.ic_activo_classroom, "NombAcademia" to R.drawable.ic_activo_academias )
 
     companion object {
         @JvmStatic
         fun newInstance() = SearchFragment()
+        private var itemSelected = ""
     }
+
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		activity!!.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+	}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         searchRVB = DataBindingUtil.inflate( inflater, R.layout.fragment_search, container, false )
@@ -38,53 +47,56 @@ class SearchFragment : Fragment(), SearchController.OnQueryChangeListener {
         setOnButtonFilterClickListener()
 
         searchRVB.rcSearch.layoutManager = LinearLayoutManager( inflater.context )
+
         searchViewModel.init( inflater.context )
         //searchViewModel //Llamar a un metodo como bolsaTrabajoViewModel.getEmpresasConOfertasVigentes()
         searchRVB.rcSearch.adapter = searchViewModel.searchAdapter
+	    if( !itemSelected.isEmpty() ) {
+		    changeSearchType( itemSelected )
+	    }
 
         return view
     }
 
     private fun setOnButtonFilterClickListener() {
-        val managerActivity = activity as? ManagerActivity
-
         searchRVB.btnProfesores.setOnClickListener {
-            searchViewModel.searchType = "NombreProf"
-
-            clearButton()
-            val icon_profesor = ResourcesCompat.getDrawable( resources, R.drawable.ic_activo_profesores, null )
-            searchRVB.btnProfesores.setImageDrawable( icon_profesor )
-            managerActivity?.setSearchHint( "Buscar profesor" )
-            Toast.makeText( activity, "Buscar profesores", Toast.LENGTH_SHORT ).show()
+            changeSearchType( "NombreProf" )
+	        itemSelected = "NombreProf"
         }
         searchRVB.btnGrupos.setOnClickListener {
-            searchViewModel.searchType = "Grupo"
-
-            clearButton()
-            val icon_grupo = ResourcesCompat.getDrawable( resources, R.drawable.ic_activo_grupos, null )
-            searchRVB.btnGrupos.setImageDrawable( icon_grupo )
-            managerActivity?.setSearchHint( "Buscar grupo" )
-            Toast.makeText( activity, "Buscar grupos", Toast.LENGTH_SHORT ).show()
+            changeSearchType( "Grupo" )
+	        itemSelected = "Grupo"
         }
         searchRVB.btnSalones.setOnClickListener {
-            searchViewModel.searchType = "Salon"
-
-            clearButton()
-            val icon_salon = ResourcesCompat.getDrawable( resources, R.drawable.ic_activo_classroom, null )
-            searchRVB.btnSalones.setImageDrawable( icon_salon )
-            managerActivity?.setSearchHint( "Buscar salón" )
-            Toast.makeText( activity, "Buscar salones", Toast.LENGTH_SHORT ).show()
+            changeSearchType( "Salon" )
+	        itemSelected = "Salon"
         }
         searchRVB.btnAcademias.setOnClickListener {
-            searchViewModel.searchType = "NombAcademia"
-
-            clearButton()
-            val icon_academia = ResourcesCompat.getDrawable( resources, R.drawable.ic_activo_academias, null )
-            searchRVB.btnAcademias.setImageDrawable( icon_academia )
-            managerActivity?.setSearchHint( "Buscar academia" )
-            Toast.makeText( activity, "Buscar academias", Toast.LENGTH_SHORT ).show()
+	        changeSearchType( "NombAcademia" )
+	        itemSelected = "NombAcademia"
         }
     }
+
+	private fun changeSearchType( searchType: String ) {
+		val managerActivity = activity as? ManagerActivity
+		searchViewModel.searchType = searchType
+
+		clearButton()
+		val icon = ResourcesCompat.getDrawable( resources, searchIconId[searchType] ?: 0, null )
+		getImageButton( searchType )?.setImageDrawable( icon )
+		managerActivity?.setSearchHint( searchHints[searchType] ?: "" )
+		Toast.makeText( activity, searchHints[searchType] ?: "", Toast.LENGTH_SHORT ).show()
+	}
+
+	private fun getImageButton( searchType: String ): ImageButton? {
+		when( searchType ) {
+			"NombreProf" -> return searchRVB.btnProfesores
+			"Grupo" -> return searchRVB.btnGrupos
+			"Salon" -> return searchRVB.btnSalones
+			"NombAcademia" -> return searchRVB.btnAcademias
+			else -> return null
+		}
+	}
 
     private fun clearButton() {
         val icon_academia_inactivo = ResourcesCompat.getDrawable( resources, R.drawable.ic_inactivo_academias, null )
@@ -99,8 +111,8 @@ class SearchFragment : Fragment(), SearchController.OnQueryChangeListener {
     }
 
     override fun onQueryChangeListener( query: String ) {
-        searchViewModel.realizarBusqueda( query ) { response ->
-            println("SEARCH ${ response }")
-        }
+	    searchViewModel.realizarBusqueda( query ) { response ->
+		    println("SEARCH ${ response }")
+	    }
     }
 }

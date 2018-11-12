@@ -3,6 +3,7 @@ package com.example.master.escomobile_alpha.viewmodel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 import android.os.Build
+import com.example.master.escomobile_alpha.firebase.MyFirebaseMessagingService
 import com.example.master.escomobile_alpha.modelo.entidad.Usuario
 import com.example.master.escomobile_alpha.modelo.logica_negocio.BSRegistro
 import com.example.master.escomobile_alpha.util.model_name.DeviceModel
@@ -25,24 +26,37 @@ class RegistroViewModel : ViewModel() {
         return bsRegistro.isAValidUserInfo()
     }
 
-    fun registrarUsuario( completionHandler: (response: JSONObject?) -> Unit ) {
+    fun registrarUsuario( completionHandler: (response: JSONObject?, user: Usuario?) -> Unit ) {
         val url = RequestManager.URL_REGISTRAR_USUARIO
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault() )
         val date = dateFormat.format( Calendar.getInstance().time )
         val data = hashMapOf( "dispositivo" to "${Build.MANUFACTURER} ${Build.MODEL}",
                 "SO" to DeviceModel.getDeviceModelName() )
+        var token = ""
+        MyFirebaseMessagingService.getTokenfirebase { tokenFCM ->
+            token = tokenFCM
+        }
         val params = hashMapOf( "id" to (bsRegistro.usuario?.boleta ?: ""),
                 "nombre" to (bsRegistro.usuario?.nombre ?: "" ),
-                "primerAp" to(bsRegistro.usuario?.primerAp ?: ""),
-                "segundoAp" to(bsRegistro.usuario?.segundoAp ?: ""),
+                "primerAp" to (bsRegistro.usuario?.primerAp ?: ""),
+                "segundoAp" to (bsRegistro.usuario?.segundoAp ?: ""),
                 "correo" to (bsRegistro.usuario?.correo ?: ""),
                 "contrasenia" to (bsRegistro.usuario?.pass ?:""),
                 "esProfesor" to (bsRegistro.usuario?.esProfesor ?: false),
                 "fecha" to date,
+                "token" to token,
                 "data" to data as Any )
 
         RequestManager().postRequest( url, params ) { json ->
-            completionHandler( json )
+            if( json.optInt("code") == 200 ) {
+                val usuario = Usuario( json.getJSONObject("data") )
+                println("USER ${usuario.nombre} ${usuario.boleta}")
+
+                completionHandler( json, usuario )
+            } else {
+                println("ERROR ${ json.opt("description") }")
+                completionHandler( json, null )
+            }
         }
 
     }

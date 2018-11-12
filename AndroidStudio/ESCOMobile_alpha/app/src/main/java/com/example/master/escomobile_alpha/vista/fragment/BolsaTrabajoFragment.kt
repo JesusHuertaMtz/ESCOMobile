@@ -38,7 +38,6 @@ class BolsaTrabajoFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        CustomProgressBar.show( inflater.context )
         bolsaTrabajoRVB = DataBindingUtil.inflate( inflater, R.layout.fragment_bolsa_trabajo, container, false )
         bolsaTrabajoViewModel = ViewModelProviders.of( this as Fragment ).get( BolsaTrabajoViewModel::class.java )
         //bolsaTrabajoViewMode.init() //Si se requiere añadir algo al cerear la instancia escribir este metodo
@@ -50,7 +49,7 @@ class BolsaTrabajoFragment : BaseFragment() {
         bolsaTrabajoRVB.bolsaRecyclerView.adapter = bolsaTrabajoViewModel.bolsaTrabajoAdapter
 
         showMenu()
-        CustomProgressBar.getDialog()?.dismiss()
+        setTitle("Bolsa de trabajo")
         //AHORA SOLO SE CONSULTAN LAS OFERTA LABORALES
 
         return view

@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_horario_profesor.view.*
  * create an instance of this fragment.
  *
  */
-class HorarioProfesorFragment : Fragment() {
+class HorarioProfesorFragment : BaseProfesorFragment() {
 	private val ARG_PARAM1 = "profesor"
 	private var profesor: Profesor? = null
 	private var listener: OnFragmentInteractionListener? = null
@@ -77,27 +76,6 @@ class HorarioProfesorFragment : Fragment() {
 	override fun onDetach() {
 		super.onDetach()
 		listener = null
-	}
-
-	override fun onResume() {
-		super.onResume()
-
-		val appActivity = activity as AppCompatActivity
-		appActivity.supportActionBar?.hide()
-	}
-
-	override fun onStop() {
-		super.onStop()
-
-		val appActivity = activity as AppCompatActivity
-		appActivity.supportActionBar?.show()
-	}
-
-	private fun setBackArrowInToolbar( view: View? ) {
-		view?.toolbar?.setNavigationIcon( R.drawable.ic_arrow_back_white )
-		view?.toolbar?.setNavigationOnClickListener {
-			activity!!.onBackPressed()
-		}
 	}
 
 	interface OnFragmentInteractionListener {

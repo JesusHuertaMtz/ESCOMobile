@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "929665498671",
+    "firebase_url": "https://escomobile-d61ca.firebaseio.com",
+    "project_id": "escomobile-d61ca",
+    "storage_bucket": "escomobile-d61ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929665498671:android:7bb605667472f18e",
+        "android_client_info": {
+          "package_name": "com.example.master.escomobile_alpha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929665498671-qp9vto1sro1fbfj6tdmk8j1f0j40co58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvdfpTCMnNqjJth5ZtRdtPYPUlZu2EK1g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

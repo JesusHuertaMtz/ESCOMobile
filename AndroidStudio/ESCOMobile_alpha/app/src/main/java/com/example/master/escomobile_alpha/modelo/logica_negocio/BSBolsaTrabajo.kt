@@ -1,6 +1,6 @@
 package com.example.master.escomobile_alpha.modelo.logica_negocio
 
-import com.example.master.escomobile_alpha.modelo.entidad.Contacto
+import com.example.master.escomobile_alpha.modelo.entidad.ContactoEmpresa
 import com.example.master.escomobile_alpha.modelo.entidad.Empresa
 import com.example.master.escomobile_alpha.modelo.entidad.OfertaLaboral
 import org.json.JSONArray
@@ -29,11 +29,11 @@ class BSBolsaTrabajo {
         return empresas
     }
 
-    private fun parserContactos( json: JSONArray ): MutableList<Contacto> {
-        val contactos = arrayListOf<Contacto>()
+    private fun parserContactos( json: JSONArray ): MutableList<ContactoEmpresa> {
+        val contactos = arrayListOf<ContactoEmpresa>()
 
         for( i in 0..json.length() - 1 ) {
-            val contacto = Contacto( json.getJSONObject( i ) )
+            val contacto = ContactoEmpresa( json.getJSONObject( i ) )
             contactos.add( contacto )
         }
 

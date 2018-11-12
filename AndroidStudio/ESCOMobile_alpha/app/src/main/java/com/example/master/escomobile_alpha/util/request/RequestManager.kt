@@ -1,14 +1,8 @@
 package com.example.master.escomobile_alpha.util.request
 
-import android.content.Context
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.example.master.escomobile_alpha.util.JSONParser
-import com.example.master.maps.modelo.pojo.Escuela
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.loopj.android.http.MySSLSocketFactory
 import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
@@ -19,17 +13,21 @@ import org.json.JSONObject
 class RequestManager /*: AsyncTask<String, String, String>()*/ {
     private val CONTENT_TYPE_APP_JSON = "application/json"
     companion object {
-        var BASE_URL = "http://192.168.100.31/ESCOMobileServer/webServices"
+        //var BASE_URL = "https://192.168.100.31/ESCOMobileServer/webServices"
+        var BASE_URL = "https://www.comunidad.escom.ipn.mx/benjaminlb/webServices"
         val URL_INICIAR_SESION = "${BASE_URL}/IniciarSesion.php"
         val URL_REGISTRAR_USUARIO = "${BASE_URL}/RegistrarNuevoUsuario.php"
         val URL_OFERTAS_VIGENTES = "${BASE_URL}/ConsultarBolsaTrabajo.php"
         val URL_SQL_SERVER = "${BASE_URL}/ConsultarEscom.php"
+        val URL_COMENTARIOS = "${BASE_URL}/ConsultarProfesor.php"
+        val URL_CITA = "${BASE_URL}/ServiceCita.php"
+        val URL_VERSION_APP = "${BASE_URL}/VersionApp.php"
     }
     /**
      * Usa la API Volley
      * */
-    fun sendSimpleRequest( context: Context, url: String, completionHandler: (response: Escuela?) -> Unit ) {
-        // Instantiate the RequestQueue.
+    /*fun sendSimpleRequest( context: Context, url: String, completionHandler: (response: Escuela?) -> Unit ) {
+         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue( context )
         var latlngsEscuela : Escuela? = null
 
@@ -72,17 +70,20 @@ class RequestManager /*: AsyncTask<String, String, String>()*/ {
         )
         // Add the request to the RequestQueue.
         queue.add( stringRequest )
-    }
+    } */
 
     /*================================= APIs AsyncHttp =================================*/
     fun postRequest( url: String, params: HashMap<String, Any>, completionHandler: ( response: JSONObject ) -> Unit ) {
-        val clientRequest = AsyncHttpClient()
+        //val clientRequest = AsyncHttpClient() //PARA HTTP
+        val clientRequest = AsyncHttpClient( true, 80, 443 ) //PARA HTTPS
+        clientRequest.setSSLSocketFactory( MySSLSocketFactory.getFixedSocketFactory() );
         val jsonParams = makeRequestParametersFrom( params )
         println("JSON ${jsonParams}")
 
         clientRequest.post( url, jsonParams, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?) {
                 val response = responseBody?.toString(Charsets.UTF_8)
+	            println("RESPONSE STRING $response")
                 val json = JSONObject( response )
 
                 println("RESPONSE ${json.opt("code")} ${json.getJSONObject("data")} ${json.opt("description")}")

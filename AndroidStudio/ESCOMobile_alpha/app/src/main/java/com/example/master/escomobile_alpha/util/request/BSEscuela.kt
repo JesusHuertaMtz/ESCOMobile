@@ -24,7 +24,7 @@ class BSEscuela {
      *  - PolygonOptions con las coordenadas de la escuela.
      * */
      //fun getCoordenadaEscuela() : PolygonOptions? {
-     fun getCoordenadaEscuela( context: Context ) : PolygonOptions? {
+     /*fun getCoordenadaEscuela( context: Context ) : PolygonOptions? {
         //val response = RequestManager().execute( URL ).get()
         val escuela : Escuela?
         var coordenadas : PolygonOptions? = null
@@ -40,7 +40,7 @@ class BSEscuela {
                 }
             }
         }
-        /*var coordenadas : PolygonOptions? = null
+        var coordenadas : PolygonOptions? = null
 
         //escuela = JSONParser().parseJSON( response )
 
@@ -52,10 +52,10 @@ class BSEscuela {
 
                 println("COORDENADAS: ${ coordenadas }")
             }
-        }*/
+        } //Comentar
 
         return coordenadas
-    }
+    }*/
 
     private fun drawAreaGeografica( latlngs: ArrayList<LatLng> ) : PolygonOptions {
         val polygonOption = PolygonOptions()

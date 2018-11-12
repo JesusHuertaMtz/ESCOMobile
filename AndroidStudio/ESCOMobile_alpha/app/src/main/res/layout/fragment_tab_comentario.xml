@@ -4,11 +4,12 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:background="@android:color/white">
 		
 		<android.support.constraint.ConstraintLayout
 			android:layout_width="match_parent"
-			android:layout_height="match_parent">
+			android:layout_height="wrap_content">
 			
 			<ImageView
 				android:id="@+id/foto_profesor"
@@ -16,10 +17,10 @@
 				android:layout_height="80dp"
 				android:layout_marginStart="24dp"
 				android:layout_marginTop="24dp"
+				android:contentDescription="@string/img_desc_foto_profesor"
 				android:src="@mipmap/ic_launcher_round"
 				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent"
-				android:contentDescription="@string/img_desc_foto_profesor" />
+				app:layout_constraintTop_toTopOf="parent" />
 			
 			<TextView
 				android:id="@+id/txt_nombre_profesor"
@@ -69,7 +70,8 @@
 			<android.support.v7.widget.RecyclerView
 				android:id="@+id/recyclerView"
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="16dp"
 				android:layout_marginEnd="16dp"
 				android:layout_marginStart="16dp"
 				app:layout_constraintBottom_toBottomOf="parent"
